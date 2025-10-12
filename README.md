@@ -193,7 +193,7 @@
 
 感谢如下小伙伴的参与和贡献：
 
-howe、Miles、麦芒、HAO
+howe、Miles、麦芒、HAO、[zhangningboo](https://github.com/zhangningboo)
 
 感谢如下小伙伴参与的翻译贡献：
 
