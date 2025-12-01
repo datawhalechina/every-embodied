@@ -5,7 +5,7 @@
   - [6.1.2 手眼标定的数学模型](#612-手眼标定的数学模型)
     - [6.1.2.1 Eye In Hand](#6121-eye-in-hand)
     - [6.1.2.2 Eye To Hand](#6122-eye-to-hand)
-  - [6.1.3 求解$AH = HB$](#613-求解ah--hb)
+  - [6.1.3 求解 `AH = HB`](#613-求解-ah--hb)
     - [6.1.3.1 Park方法求解旋转](#6131-park方法求解旋转)
     - [6.1.3.2 Park方法求解平移](#6132-park方法求解平移)
   - [6.1.4 OpenCV中的手眼标定方法及标定注意事项](#614-opencv中的手眼标定方法及标定注意事项)
@@ -28,7 +28,7 @@
 
 根据摄像头安装方式的不同，手眼标定分为两种形式：1.摄像头安装在机械手末端，称之为眼在手上（Eye in hand） 2.摄像头安装在机械臂外的机器人底座上，则称之为眼在手外（Eye to hand）
 
-![alt text](Figure\6_image_0.png)
+![alt text](./Figure/6_image_0.png)
 
 ## 6.1.2 手眼标定的数学模型
 
@@ -44,12 +44,11 @@ $F_t$: **标定目标坐标系**（Calibration Target Frame）：固定在标定
 
 坐标系之间的关系通常用齐次变换矩阵（刚体变换）T表示：
 
-$T^i_j=\left[\begin{array}{cc}
-R^i_j & t^i_j \\
-0 & 1
-\end{array}\right]$
+```math
+T^i_j = \begin{bmatrix} R^i_j & t^i_j \\ 0 & 1 \end{bmatrix}
+```
 
-其中$R ∈ SO(3)$,$t ∈ \R^{3}$,分别对应旋转变换与平移变换。T的上下标表示变换是对于哪两个坐标系，例如:
+其中`R ∈ SO(3)`（旋转矩阵，特殊正交群）, `t ∈ R³`（三维平移向量）,分别对应旋转变换与平移变换。T的上下标表示变换是对于哪两个坐标系，例如:
 
 $T^e_c$:将相机坐标系转换到末端执行器坐标系的变换，也表示相机在末端执行器坐标系下的位姿，在眼在手上这种情形下，就是我们要求的目标矩阵。
 
@@ -57,41 +56,71 @@ $T^e_c$:将相机坐标系转换到末端执行器坐标系的变换，也表示
 
 当相机固定在机械臂末端时，相机与末端执行器之间的变换是固定的，此时称为眼在手上，进行该类手眼标定时，会将标定板固定在一处，然后控制机械臂移动到不同位置，使用机械臂上固定的相机，在不同位置对标定板拍照，拍摄多组不同位置下标定板的照片。
 
-![alt text](Figure\6_image_1.png)
+![alt text](./Figure/6_image_1.png)
 
 由于标定板与机器人底座是固定的，二者之间相对位姿关系不变，则有：
-
-$T^b_t = T^b_{e1}T^{e1}_{c1}T^{c1}_{t} = T^b_{e2}T^{e2}_{c2}T^{c2}_{t}$
-
+```math
+T^b_t = T^b_{e1}\ T^{e1}_{c1}\ T^{c1}_{t} = T^b_{e2}\ T^{e2}_{c2}\ T^{c2}_{t}
+```
 对上述等式进行变换
 
-$(T^b_{e2})^{-1}T^b_{e1}T^{e1}_{c1}T^{c1}_{t} =T^{e2}_{c2}T^{c2}_{t} \\
-(T^b_{e2})^{-1}T^b_{e1}T^{e1}_{c1} =T^{e2}_{c2}T^{c2}_{t}(T^{c1}_{t})^{-1} \\
-T^{e2}_{e1}T^{e1}_{c1} =T^{e2}_{c2}T^{c2}_{c1} \\
-T^{e2}_{e1}T^{e}_{c} =T^{e}_{c}T^{c2}_{c1} \\
-AH = HB$
+```math
+(T^b_{e2})^{-1}T^b_{e1}T^{e1}_{c1}T^{c1}_{t} = T^{e2}_{c2}T^{c2}_{t}
+```
 
-其中$T^e_c$就是最终需要求解的$H$。
+```math
+(T^b_{e2})^{-1}T^b_{e1}T^{e1}_{c1} = T^{e2}_{c2}T^{c2}_{t}(T^{c1}_{t})^{-1}
+```
+
+```math
+T^{e2}_{e1}T^{e1}_{c1} = T^{e2}_{c2}T^{c2}_{c1}
+```
+
+```math
+T^{e2}_{e1}T^{e}_{c} = T^{e}_{c}T^{c2}_{c1}
+```
+
+```math
+AH = HB
+```
+
+其中`T^e_c`就是最终需要求解的`H`。
 
 ### 6.1.2.2 Eye To Hand
 
 当相机固定在机械臂以外时，相机与末端执行器的相对位置会随着机械臂的运动而改变，此时称为眼在手外。进行该类手眼标定时，会将标定板固定在机械臂末端，然后控制机械臂拿着标定板，围绕着固定的相机拍照。为了求解的准确性，一般需要拍摄多于10组的照片。
 
-![alt text](Figure\6_image_2.png)
+![alt text](./Figure/6_image_2.png)
 
 由于此时标定板是固定在机械臂末端的，二者相对位置在拍摄不同照片时值不变，所以有：
 
-$T^e_t = T^{e1}_bT^{b}_{c}T^{c}_{t1} = T^{e2}_bT^{b}_{c}T^{c}_{t2}$
+```math
+T^e_t = T^{e1}_bT^{b}_{c}T^{c}_{t1} = T^{e2}_bT^{b}_{c}T^{c}_{t2}
+```
+对上述等式进行变换：
+```math
+T^{e1}_bT^{b}_{c}T^{c}_{t1} = T^{e2}_bT^{b}_{c}T^{c}_{t2} 
+```
 
-$T^{e1}_bT^{b}_{c}T^{c}_{t1} = T^{e2}_bT^{b}_{c}T^{c}_{t2} \\
-(T^{e2}_b)^{-1}T^{e1}_bT^{b}_{c}T^{c}_{t1} = T^{b}_{c}T^{c}_{t2} \\
-(T^{e2}_b)^{-1}T^{e1}_bT^{b}_{c} = T^{b}_{c}T^{c}_{t2}(T^{c}_{t1})^{-1} \\
-(T^b_{e2}T^{e1}_b)T^{b}_{c} = T^{b}_{c}(T^{c}_{t2}T^{t1}_c) \\
-AH = HB$
+```math
+(T^{e2}_b)^{-1}T^{e1}_bT^{b}_{c}T^{c}_{t1} = T^{b}_{c}T^{c}_{t2} 
+```
 
-## 6.1.3 求解$AH = HB$
+```math
+(T^{e2}_b)^{-1}T^{e1}_bT^{b}_{c} = T^{b}_{c}T^{c}_{t2}(T^{c}_{t1})^{-1} 
+```
 
-作为机器人学的重要内容，从上世纪80年代起学术界就对手眼标定进行了大量研究，产生了许多$AH = HB$求解方法，目前比较常用的是分步解法，即将方程组进行分解，然后利用旋转矩阵的性质，先求解出旋转，然后将旋转的解代入平移求解中，再求出平移部分。
+```math
+(T^b_{e2}T^{e1}_b)T^{b}_{c} = T^{b}_{c}(T^{c}_{t2}T^{t1}_c) 
+```
+
+```math
+AH = HB
+```
+
+## 6.1.3 求解 `AH = HB`
+
+作为机器人学的重要内容，从上世纪80年代起学术界就对手眼标定进行了大量研究，产生了许多`AH = HB`求解方法，目前比较常用的是分步解法，即将方程组进行分解，然后利用旋转矩阵的性质，先求解出旋转，然后将旋转的解代入平移求解中，再求出平移部分。
 
 常见的两步经典算法有将旋转矩阵转为旋转向量求解的Tsai-Lenz方法，基于旋转矩阵李群性质（李群的伴随性质）进行求解的Park方法等，接下来介绍Park方法。
 
@@ -99,109 +128,124 @@ AH = HB$
 
 原方程三个变量均为齐次变换矩阵（homogeneous transformation：将旋转和平移变换写在一个4x4的矩阵中），表示两个坐标系之间的变换，其基本结构为：
 
-$H=\left[\begin{array}{cc}
-R & t \\
-0 & 1
-\end{array}\right]$
+```math
+H = \left[\begin{array}{cc} R & t \\ 0 & 1 \end{array}\right]
+```
 
-其中$R ∈ SO(3)$,$t ∈ \R^{3}$,分别对应旋转变换与平移变换。
+其中`R ∈ SO(3)`（旋转矩阵，特殊正交群）, `t ∈ R³`（三维平移向量）,分别对应旋转变换与平移变换。
 
 原方程进行变换：
 
-$AH  = HB \\
+$$
 \begin{array}{l}
+AH = HB \\
 \left[\begin{array}{cc}
 \theta_{A} & b_{A} \\
 0 & 1
 \end{array}\right]\left[\begin{array}{cc}
 \theta_{X} & b_{X} \\
 0 & 1
-\end{array}\right]  =\left[\begin{array}{cc}
+\end{array}\right] = \left[\begin{array}{cc}
 \theta_{X} & b_{X} \\
 0 & 1
 \end{array}\right]\left[\begin{array}{cc}
 \theta_{B} & b_{B} \\
 0 & 1
-\end{array}\right]\\
-\end{array}$
+\end{array}\right]
+\end{array}
+$$
 
 所以有（乘积结果旋转与平移部分对应位置相等）：
 
-$\begin{aligned}
+$$
+\begin{aligned}
 \theta_{A} \theta_{X} & =\theta_{X} \theta_{B} \\
 \theta_{A} b_{X}+b_{A} & =\theta_{X} b_{B}+b_{X}
-\end{aligned}$
+\end{aligned}
+$$
 
 首先求解第一个只包含旋转矩阵的方程。
 
-$\begin{aligned}
-\theta_{A} \theta_{X}  =\theta_{X} \theta_{B} \\
-\theta_{A}  =\theta_{X} \theta_{B} \theta_{X}^T 
-\end{aligned}$
+$$
+\begin{aligned}
+\theta_{A} \theta_{X} &=\theta_{X} \theta_{B} \\
+\theta_{A} &=\theta_{X} \theta_{B} \theta_{X}^T 
+\end{aligned}
+$$
 
 旋转矩阵为SO3群，SO3群为李群，每一个李群都有对应的李代数，其李代数处于低维的欧式空间（线性空间），是李群局部开域的切空间表示，李群与李代数可以通过指数映射与对数映射相互转换：
 
-![alt text](Figure\6_image_3.png) 
-对于旋转矩阵R，与对应的李代数**Φ **变换关系可以如下表示：
+![alt text](./Figure/6_image_3.png) 
+对于旋转矩阵R，与对应的李代数`Φ`变换关系可以如下表示：
 
-$R = \exp(Φ^{\wedge}) = \exp [Φ]$
+$$
+R = \exp(\Phi^{\wedge}) = \exp [\Phi]
+$$
 
-其中[]符号表示^操作，及转为反对称矩阵，或者说叉积。
+其中[ ]符号表示^操作，及转为反对称矩阵，或者说叉积。
 
 对于SO(3)，其伴随性质为：
 
-![alt text](Figure\6_image_3_1.png)
+![alt text](./Figure/6_image_3_1.png)
 
-$\begin{aligned}
-\theta_{A}  & =\theta_{X} \theta_{B} \theta_{X}^T \\
-\exp [\alpha] & = \theta_{X}\exp [\beta]\theta_{X}^T  \\
-\exp [\alpha] & = \exp [\theta_{X}\beta]  \\
+$$
+\begin{aligned}
+\theta_{A} & =\theta_{X} \theta_{B} \theta_{X}^T \\
+\exp [\alpha] & = \theta_{X}\exp [\beta]\theta_{X}^T \\
+\exp [\alpha] & = \exp [\theta_{X}\beta] \\
 \alpha &= \theta_{X}\beta
-\end{aligned}$
+\end{aligned}
+$$
 
 当存在多组观测时，上述问题可以转化为如下最小二乘问题：
 
-![alt text](Figure\6_image_3_2.png) 
+![alt text](./Figure/6_image_3_2.png) 
 
 α与β为对应旋转的李代数，它们都是三维向量，可以看作一个三维点，那么上述问题等同于一个点云配准问题：  
-![alt text](Figure\6_image_3_4_1.png) 
+![alt text](./Figure/6_image_3_4_1.png) 
 
 该问题有最小二乘解为：  
-![alt text](Figure\6_image_3_3.png) 
+![alt text](./Figure/6_image_3_3.png) 
 
 其中：  
-![alt text](Figure\6_image_3_4.png) 
+![alt text](./Figure/6_image_3_4.png) 
 
 ### 6.1.3.2 Park方法求解平移
 
     在求解得到旋转矩阵后，将旋转矩阵值代入第二个方程：
 
-$\begin{aligned}
+$$
+\begin{aligned}
 \theta_{A} b_{X}+b_{A} & =\theta_{X} b_{B}+b_{X} \\
 \theta_{A} b_{X} - b_{X} & =\theta_{X} b_{B}- b_{A} \\
-(\theta_{A} - I)b_{X}  & =\theta_{X} b_{B}- b_{A} \\
+(\theta_{A} - I)b_{X} & =\theta_{X} b_{B}- b_{A} \\
 Cb_{X} &= D
-\end{aligned}$
+\end{aligned}
+$$
 
-其中C与D均为已知值，由于C不一定可逆，原方程做如下变换：  
-$\begin{aligned}
+其中`C`与`D`均为已知值，由于`C`不一定可逆，原方程做如下变换：  
+```math
+\begin{aligned}
 Cb_{X} &= D \\
 C^TCb_{X} &= C^TD \\
-b_{X} &= (C^TCX)^{-1}C^TD
-\end{aligned}$
+b_{X} &= (C^TC)^{-1}C^TD
+\end{aligned}
+```
 
 即可求得平移部分。
 
 当有多组观测值时  
-![alt text](Figure\6_image_3_5.png) 
+![alt text](./Figure/6_image_3_5.png) 
 
 最终的解为：  
-$\begin{aligned}
+```math
+\begin{aligned}
 H = \left[\begin{array}{cc}
 \theta_{X} & b_{X} \\
 0 & 1
 \end{array}\right]
-\end{aligned}$
+\end{aligned}
+```
 
 ## 6.1.4 OpenCV中的手眼标定方法及标定注意事项
 
@@ -221,7 +265,7 @@ H = \left[\begin{array}{cc}
 
 ### 6.1.4.1 OpenCV中的手眼标定接口</h3>
 
-![alt text](Figure\6_image_4.png) 
+![alt text](./Figure/6_image_4.png) 
 
 OpenCV主要实现了前两类方法，其中默认方法为TSAI。PARK，HORAUD也是独立解方法。ANDREFF，DANIILIDIS是同时闭式解，（从同一组数据实验中得到结论，认为独立解中TSAI方法求得解的误差较大）。
 
@@ -245,7 +289,7 @@ OpenCV主要实现了前两类方法，其中默认方法为TSAI。PARK，HORAUD
 
 ## 6.1.5 评价手眼标定效果
 
-![alt text](Figure\6_image_6.png) 
+![alt text](./Figure/6_image_6.png) 
 
 ## 参考
 
