@@ -1,0 +1,6 @@
+# @package _global_
+
+defaults:
+  - /habitat: habitat_config_base
+  - /habitat/task: pointnav
+  - /habitat/simulator/agents@habitat.simulator.agents.main_agent: rgbd_agent
