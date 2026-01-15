@@ -9,6 +9,9 @@
     <strong>一站式学习具身智能的开源教程库</strong>
   </p>
 
+Related Open-source Projects｜相关开源项目
+
+具身智能技术指南：[Embodied-AI-Guide](https://github.com/TianxingChen/Embodied-AI-Guide)
 
 </div>
 
