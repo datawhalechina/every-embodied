@@ -55,15 +55,17 @@
   cd every-embodied
   
   # 2. 创建并激活 Conda 环境
-  conda create -n embodied python=3.8
+  conda create -n embodied python=3.10
   conda activate embodied
   
   # 3. 安装依赖并运行基础机械臂抓取 Demo
   pip install mujoco
-  # 可选：更平滑的 jerk 限制轨迹规划
+  # 可选：更平滑的 jerk 限制轨迹规划（ruckig 需要 Python 3.9+）
   pip install ruckig
   python examples/01_hello_every_embodied_mujoco.py
   ```
+  > 兼容性说明：未指定版本的 `pip install mujoco` 会安装当前最新版，现行版本要求 Python 3.10+。如必须使用 Python 3.8，请固定安装 `mujoco==3.1.6`；可选依赖 `ruckig` 当前要求 Python 3.9+。
+
   详细说明请见：`examples/README.md`
 
 
@@ -307,7 +309,7 @@
 
   在开始之前，请确保你的开发环境满足以下基础要求（不同子项目复现可能略有不同，请参考各自项目的readme，我们会通过conda或mamba环境实现）：
 
-  - **Python**: 3.8+
+  - **Python**: 3.10+（Quick Start 推荐；历史复现如固定 `mujoco==3.1.6` 可使用 Python 3.8，不同专题请按子目录 README 创建独立环境）
   - **GPU**: 推荐 NVIDIA RTX 3060+ (用于 Isaac Sim 渲染与 RL 训练)
   - **OS**: Ubuntu 20.04 / 22.04 (推荐)
   - **Core Libs**:
