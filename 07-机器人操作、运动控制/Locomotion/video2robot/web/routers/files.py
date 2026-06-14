@@ -9,18 +9,29 @@ from fastapi.responses import FileResponse
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from video2robot.config import DATA_DIR
+from video2robot.utils import resolve_project_dir, resolve_project_file
 
 router = APIRouter()
+
+
+def _project_dir_or_400(project_name: str, *, create: bool = False) -> Path:
+    try:
+        return resolve_project_dir(project_name, create=create)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
+def _project_file_or_400(project_name: str, filename: str) -> Path:
+    try:
+        return resolve_project_file(project_name, filename)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 
 @router.post("/upload/{project_name}")
 async def upload_video(project_name: str, file: UploadFile = File(...)):
     """Upload a video file to a project."""
-    project_dir = DATA_DIR / project_name
-    
-    if not project_dir.exists():
-        project_dir.mkdir(parents=True, exist_ok=True)
+    project_dir = _project_dir_or_400(project_name, create=True)
     
     # Validate file type
     if not file.filename.lower().endswith((".mp4", ".mov", ".avi", ".webm")):
@@ -36,7 +47,7 @@ async def upload_video(project_name: str, file: UploadFile = File(...)):
     
     return {
         "status": "uploaded",
-        "project": project_name,
+        "project": project_dir.name,
         "filename": "original.mp4",
         "size_mb": round(size_mb, 2),
     }
@@ -45,7 +56,8 @@ async def upload_video(project_name: str, file: UploadFile = File(...)):
 @router.get("/video/{project_name}")
 async def get_video(project_name: str):
     """Get the video file for a project."""
-    video_path = DATA_DIR / project_name / "original.mp4"
+    project_dir = _project_dir_or_400(project_name)
+    video_path = project_dir / "original.mp4"
     
     if not video_path.exists():
         raise HTTPException(status_code=404, detail="Video not found")
@@ -53,14 +65,14 @@ async def get_video(project_name: str):
     return FileResponse(
         video_path,
         media_type="video/mp4",
-        filename=f"{project_name}.mp4",
+        filename=f"{project_dir.name}.mp4",
     )
 
 
 @router.get("/robot-motion/{project_name}")
 async def get_robot_motion(project_name: str, track: int = 1, twist: bool = False):
     """Get robot motion data as JSON."""
-    project_dir = DATA_DIR / project_name
+    project_dir = _project_dir_or_400(project_name)
     
     if not project_dir.exists():
         raise HTTPException(status_code=404, detail="Project not found")
@@ -100,13 +112,9 @@ async def get_robot_motion(project_name: str, track: int = 1, twist: bool = Fals
 @router.get("/download/{project_name}/{filename}")
 async def download_file(project_name: str, filename: str):
     """Download any file from a project."""
-    file_path = DATA_DIR / project_name / filename
-    
+    file_path = _project_file_or_400(project_name, filename)
+
     if not file_path.exists():
         raise HTTPException(status_code=404, detail="File not found")
-    
-    # Security: prevent path traversal
-    if ".." in filename or filename.startswith("/"):
-        raise HTTPException(status_code=400, detail="Invalid filename")
     
     return FileResponse(file_path, filename=filename)

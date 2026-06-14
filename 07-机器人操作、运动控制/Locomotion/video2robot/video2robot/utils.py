@@ -11,6 +11,62 @@ from typing import Optional
 from video2robot.config import DATA_DIR
 
 
+def resolve_project_dir(name: str, *, create: bool = False) -> Path:
+    """Resolve a project name to a direct child of DATA_DIR.
+
+    Web requests should pass project names, not arbitrary filesystem paths.
+    Keeping this validation in one place prevents path traversal in upload,
+    download, delete, and background-task entry points.
+    """
+    if not isinstance(name, str):
+        raise ValueError("Project name must be a string.")
+
+    name = name.strip()
+    if not name:
+        raise ValueError("Project name cannot be empty.")
+    if name in {".", ".."}:
+        raise ValueError("Project name cannot be '.' or '..'.")
+    if "\x00" in name:
+        raise ValueError("Project name cannot contain NUL bytes.")
+    if "/" in name or "\\" in name:
+        raise ValueError("Project name cannot contain path separators.")
+    if len(name) > 128:
+        raise ValueError("Project name is too long.")
+
+    data_root = DATA_DIR.resolve()
+    project_dir = (data_root / name).resolve()
+    if project_dir.parent != data_root:
+        raise ValueError("Project name must resolve inside the data directory.")
+
+    if create:
+        project_dir.mkdir(parents=True, exist_ok=True)
+
+    return project_dir
+
+
+def resolve_project_file(project_name: str, filename: str) -> Path:
+    """Resolve a single downloadable file inside a validated project."""
+    if not isinstance(filename, str):
+        raise ValueError("Filename must be a string.")
+
+    filename = filename.strip()
+    if not filename:
+        raise ValueError("Filename cannot be empty.")
+    if filename in {".", ".."}:
+        raise ValueError("Filename cannot be '.' or '..'.")
+    if "\x00" in filename:
+        raise ValueError("Filename cannot contain NUL bytes.")
+    if "/" in filename or "\\" in filename:
+        raise ValueError("Filename cannot contain path separators.")
+
+    project_dir = resolve_project_dir(project_name)
+    file_path = (project_dir / filename).resolve()
+    if file_path.parent != project_dir:
+        raise ValueError("Filename must resolve inside the project directory.")
+
+    return file_path
+
+
 def emit_progress(stage: str, value: float, message: str, **kwargs):
     """Emit a standardized progress marker for TaskManager parsing.
 
@@ -69,7 +125,7 @@ def ensure_project_dir(
     if project_path:
         path = Path(project_path)
     elif name:
-        path = DATA_DIR / name
+        path = resolve_project_dir(name)
     else:
         path = get_next_project_dir()
 
