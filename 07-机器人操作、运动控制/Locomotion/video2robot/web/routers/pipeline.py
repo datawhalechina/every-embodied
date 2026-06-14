@@ -10,7 +10,7 @@ from pydantic import BaseModel
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from video2robot.config import DATA_DIR
+from video2robot.utils import resolve_project_dir
 from ..tasks import task_manager, TaskType
 
 router = APIRouter()
@@ -50,6 +50,13 @@ class RunPipelineRequest(BaseModel):
     static_camera: bool = False
 
 
+def _project_dir_or_400(name: str, *, create: bool = False) -> Path:
+    try:
+        return resolve_project_dir(name, create=create)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
 @router.post("/generate-video")
 async def generate_video(request: GenerateVideoRequest, background_tasks: BackgroundTasks):
     """Start video generation task."""
@@ -57,11 +64,10 @@ async def generate_video(request: GenerateVideoRequest, background_tasks: Backgr
         raise HTTPException(status_code=400, detail="Either action or raw_prompt is required")
     
     # Create project dir if needed
-    project_dir = DATA_DIR / request.project
-    project_dir.mkdir(parents=True, exist_ok=True)
+    project_dir = _project_dir_or_400(request.project, create=True)
     
     # Create and start task
-    task = task_manager.create_task(TaskType.GENERATE_VIDEO, request.project)
+    task = task_manager.create_task(TaskType.GENERATE_VIDEO, project_dir.name)
     
     background_tasks.add_task(
         task_manager.run_generate_video,
@@ -78,7 +84,7 @@ async def generate_video(request: GenerateVideoRequest, background_tasks: Backgr
 @router.post("/extract-pose")
 async def extract_pose(request: ExtractPoseRequest, background_tasks: BackgroundTasks):
     """Start pose extraction task."""
-    project_dir = DATA_DIR / request.project
+    project_dir = _project_dir_or_400(request.project)
     
     if not project_dir.exists():
         raise HTTPException(status_code=404, detail="Project not found")
@@ -86,7 +92,7 @@ async def extract_pose(request: ExtractPoseRequest, background_tasks: Background
     if not (project_dir / "original.mp4").exists():
         raise HTTPException(status_code=400, detail="Video not found. Upload or generate video first.")
     
-    task = task_manager.create_task(TaskType.EXTRACT_POSE, request.project)
+    task = task_manager.create_task(TaskType.EXTRACT_POSE, project_dir.name)
     
     background_tasks.add_task(
         task_manager.run_extract_pose,
@@ -100,7 +106,7 @@ async def extract_pose(request: ExtractPoseRequest, background_tasks: Background
 @router.post("/retarget")
 async def retarget(request: RetargetRequest, background_tasks: BackgroundTasks):
     """Start robot retargeting task."""
-    project_dir = DATA_DIR / request.project
+    project_dir = _project_dir_or_400(request.project)
     
     if not project_dir.exists():
         raise HTTPException(status_code=404, detail="Project not found")
@@ -110,7 +116,7 @@ async def retarget(request: RetargetRequest, background_tasks: BackgroundTasks):
     if not has_pose:
         raise HTTPException(status_code=400, detail="Pose data not found. Extract pose first.")
     
-    task = task_manager.create_task(TaskType.RETARGET, request.project)
+    task = task_manager.create_task(TaskType.RETARGET, project_dir.name)
     
     background_tasks.add_task(
         task_manager.run_retarget,

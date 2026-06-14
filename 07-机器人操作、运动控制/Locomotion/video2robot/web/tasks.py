@@ -16,6 +16,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from video2robot.config import PROJECT_ROOT
+from video2robot.utils import resolve_project_dir
 
 
 class TaskStatus(str, Enum):
@@ -90,7 +91,7 @@ class TaskManager:
     def create_task(self, task_type: TaskType, project: str) -> Task:
         """Create a new task."""
         task_id = str(uuid.uuid4())[:8]
-        task = Task(id=task_id, type=task_type, project=project)
+        task = Task(id=task_id, type=task_type, project=resolve_project_dir(project).name)
         self.tasks[task_id] = task
         return task
     
@@ -450,8 +451,7 @@ class TaskManager:
 
         try:
             conda_exe = self._resolve_conda_executable()
-            from video2robot.config import DATA_DIR
-            project_dir = DATA_DIR / task.project
+            project_dir = resolve_project_dir(task.project)
 
             script = PROJECT_ROOT / "scripts" / "extract_pose.py"
             cmd = [
@@ -554,8 +554,7 @@ class TaskManager:
 
         try:
             conda_exe = self._resolve_conda_executable()
-            from video2robot.config import DATA_DIR
-            project_dir = DATA_DIR / task.project
+            project_dir = resolve_project_dir(task.project)
 
             script = PROJECT_ROOT / "scripts" / "convert_to_robot.py"
             cmd = [

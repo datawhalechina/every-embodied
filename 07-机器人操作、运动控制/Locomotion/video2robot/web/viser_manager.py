@@ -15,7 +15,8 @@ from typing import Optional
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from video2robot.config import PROJECT_ROOT, DATA_DIR
+from video2robot.config import PROJECT_ROOT
+from video2robot.utils import resolve_project_dir
 
 
 @dataclass
@@ -168,7 +169,7 @@ class ViserManager:
         if waiting_for:
             await self._wait_for_projects(waiting_for)
 
-        project_dir = DATA_DIR / project
+        project_dir = resolve_project_dir(project)
         if not project_dir.exists():
             raise FileNotFoundError(f"Project not found: {project}")
 

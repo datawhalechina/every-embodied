@@ -11,6 +11,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from video2robot.config import DATA_DIR
+from video2robot.utils import resolve_project_dir
 
 router = APIRouter()
 
@@ -36,6 +37,13 @@ class ProjectDetail(ProjectInfo):
 class CreateProjectRequest(BaseModel):
     """Request to create a new project."""
     name: Optional[str] = None
+
+
+def _project_dir_or_400(name: str, *, create: bool = False) -> Path:
+    try:
+        return resolve_project_dir(name, create=create)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 
 def _get_project_info(project_dir: Path) -> ProjectInfo:
@@ -135,7 +143,7 @@ async def list_projects() -> list[ProjectInfo]:
 @router.get("/{name}")
 async def get_project(name: str) -> ProjectDetail:
     """Get project details."""
-    project_dir = DATA_DIR / name
+    project_dir = _project_dir_or_400(name)
     
     if not project_dir.exists():
         raise HTTPException(status_code=404, detail=f"Project not found: {name}")
@@ -149,7 +157,7 @@ async def create_project(request: CreateProjectRequest) -> ProjectInfo:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     
     if request.name:
-        project_dir = DATA_DIR / request.name
+        project_dir = _project_dir_or_400(request.name)
         if project_dir.exists():
             raise HTTPException(status_code=400, detail=f"Project already exists: {request.name}")
     else:
@@ -176,7 +184,7 @@ async def create_project(request: CreateProjectRequest) -> ProjectInfo:
 @router.delete("/{name}")
 async def delete_project(name: str):
     """Delete a project."""
-    project_dir = DATA_DIR / name
+    project_dir = _project_dir_or_400(name)
     
     if not project_dir.exists():
         raise HTTPException(status_code=404, detail=f"Project not found: {name}")
