@@ -4,6 +4,7 @@
 
 ## 当前项目
 
+- [RDK Challenge 参赛分享：TuntunClaw 家庭物资助手](./RDK-Challenge/README.md)
 - [LeHome 挑战赛镜像、训练与评测教程](./LeHome/README.md)
 - [ATEC2026 线上赛复现与冲榜教程](./ATEC2026/README.md)
 - [TRONCamp Mani / RoboTwin ACT 赛后复盘](./TRONCamp-Mani/README.md)
