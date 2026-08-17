@@ -1,0 +1,23 @@
+{
+  "dataset_repo_id": "datawhale_eai_pnp_language",
+  "fps": 20,
+  "total_episodes": 20,
+  "total_frames": 2621,
+  "state_shape": [6],
+  "action_shape": [7],
+  "stored_cameras": [
+    "observation.image",
+    "observation.wrist_image"
+  ],
+  "recorder_views": [
+    "Agent",
+    "Egocentric",
+    "Top",
+    "Side"
+  ],
+  "tasks": [
+    "Place the red mug on the plate.",
+    "Place the blue mug on the plate."
+  ],
+  "source": "AMD 设备上 demo_data_language/meta/info.json 的实测摘要"
+}

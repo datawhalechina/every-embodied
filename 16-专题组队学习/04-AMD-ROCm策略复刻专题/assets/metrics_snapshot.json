@@ -1,0 +1,240 @@
+{
+  "smolvla_forced_instruction_n10": [
+    {
+      "label": "baseline",
+      "red_rate": 0.8,
+      "blue_rate": 0.0,
+      "red_text": "8/10",
+      "blue_text": "0/10"
+    },
+    {
+      "label": "copy 1.5x",
+      "red_rate": 0.3,
+      "blue_rate": 0.7,
+      "red_text": "3/10",
+      "blue_text": "7/10"
+    },
+    {
+      "label": "copy 2x",
+      "red_rate": 0.4,
+      "blue_rate": 0.8,
+      "red_text": "4/10",
+      "blue_text": "8/10"
+    },
+    {
+      "label": "copy 3x",
+      "red_rate": 0.2,
+      "blue_rate": 0.8,
+      "red_text": "2/10",
+      "blue_text": "8/10"
+    },
+    {
+      "label": "weighted 1k",
+      "red_rate": 0.6,
+      "blue_rate": 0.9,
+      "red_text": "6/10",
+      "blue_text": "9/10"
+    },
+    {
+      "label": "weighted 500",
+      "red_rate": 0.8,
+      "blue_rate": 1.0,
+      "red_text": "8/10",
+      "blue_text": "10/10"
+    }
+  ],
+  "act_progress": [
+    {
+      "label": "clean closed-loop",
+      "success": 0,
+      "total": 10,
+      "rate": 0.0
+    },
+    {
+      "label": "time offset",
+      "success": 3,
+      "total": 15,
+      "rate": 0.2
+    },
+    {
+      "label": "downweight DAgger",
+      "success": 13,
+      "total": 30,
+      "rate": 0.43333333333333335
+    },
+    {
+      "label": "stable61 fallback current",
+      "success": 7,
+      "total": 30,
+      "rate": 0.23333333333333334
+    },
+    {
+      "label": "protected repair15 current exact",
+      "success": 15,
+      "total": 30,
+      "rate": 0.5,
+      "panel_breakdown": "3/10 + 4/10 + 8/10",
+      "model_sha256": "b9b178377995a674a06bc5d1500c8e7e7fc5d02649268855f892b3987bf5bfeb4"
+    },
+    {
+      "label": "protected DAgger current exact",
+      "success": 2,
+      "total": 30,
+      "rate": 0.06666666666666667
+    },
+    {
+      "label": "historical best DAgger summary (unverified)",
+      "success": 17,
+      "total": 30,
+      "rate": 0.5666666666666667
+    }
+  ],
+  "pi0_diagnostic_balanced_2b2r": {
+    "raw_final_physical_success": "0/4",
+    "raw_batch_rerun_final_physical_success": "1/4",
+    "scripted_finisher_final_physical_success": "4/4",
+    "full20_template_tail_final_physical_success": "4/20",
+    "full20_template_tail_physical_success_ever": "4/20",
+    "full20_template_tail_success_episodes": [
+      7,
+      9,
+      13,
+      14
+    ],
+    "full20_template_tail_red_success": "2/10",
+    "full20_template_tail_blue_success": "2/10",
+    "full20_template_tail_mean_action_mae": 0.0511,
+    "full20_template_tail_mean_gripper_abs": 0.1145,
+    "full20_openloop_raw_final_physical_success": "1/20",
+    "full20_openloop_raw_physical_success_ever": "3/20",
+    "full20_openloop_raw_success_episodes": [
+      18
+    ],
+    "full20_openloop_raw_ever_success_episodes": [
+      4,
+      18,
+      19
+    ],
+    "full20_openloop_raw_mean_action_mae": 0.0423,
+    "full20_openloop_raw_mean_gripper_abs": 0.0991,
+    "full20_closedloop_raw_physical_success": "0/20",
+    "full20_closedloop_raw_legacy_success": "2/20",
+    "full20_closedloop_raw_legacy_success_episodes": [
+      4,
+      18
+    ],
+    "full20_closedloop_raw_failure_buckets": {
+      "not_upright_after_lift": 10,
+      "no_enough_lift": 9,
+      "strict_components_ok_but_legacy_false": 1
+    },
+    "full20_closedloop_raw_mean_xy_dist": 0.3382,
+    "full20_closedloop_raw_mean_max_lift": 0.0444,
+    "tcpplate_scaffold_no_scripted_gripper_physical_success": "5/10",
+    "tcpplate_scaffold_policy_prefix_scripted_gripper_physical_success": "3/10",
+    "tcpplate_scaffold_repeated_schedule_physical_success": "21/30",
+    "tcpplate_scaffold_repeated_schedule_legacy_success": "23/30",
+    "tcpplate_scaffold_long_schedule_physical_success": "30/30",
+    "tcpplate_scaffold_long_schedule_legacy_success": "30/30",
+    "tcpplate_scaffold_long_schedule_red_success": "18/18",
+    "tcpplate_scaffold_long_schedule_blue_success": "12/12",
+    "tcpplate_scaffold_long_schedule_mean_xy": 0.0281,
+    "tcpplate_scaffold_long_schedule_max_xy": 0.0739,
+    "tcpplate_scaffold_phase_head_physical_success": "30/30",
+    "tcpplate_scaffold_phase_head_legacy_success": "30/30",
+    "tcpplate_scaffold_phase_head_red_success": "18/18",
+    "tcpplate_scaffold_phase_head_blue_success": "12/12",
+    "tcpplate_scaffold_phase_head_mean_xy": 0.027151,
+    "tcpplate_scaffold_phase_head_max_xy": 0.073472,
+    "tcpplate_scaffold_adaptive_gate_physical_success": "30/30",
+    "tcpplate_scaffold_adaptive_gate_legacy_success": "30/30",
+    "tcpplate_scaffold_adaptive_gate_red_success": "18/18",
+    "tcpplate_scaffold_adaptive_gate_blue_success": "12/12",
+    "tcpplate_scaffold_adaptive_gate_mean_xy": 0.028102,
+    "tcpplate_scaffold_adaptive_gate_max_xy": 0.061731,
+    "tcpplate_scaffold_adaptive_gate_threshold": "xy=0.05m,min_steps=20,max_steps=180",
+    "tcpplate_scaffold_adaptive_gate_counterexamples": {
+      "xy0p09_full30": "29/30, fail seed1034, max xy 3.161459m",
+      "xy0p08_partial": "8/9 strict before stopped, fail seed1012"
+    },
+    "tcpplate_scaffold_transition_head_physical_success": "30/30",
+    "tcpplate_scaffold_transition_head_legacy_success": "30/30",
+    "tcpplate_scaffold_transition_head_red_success": "18/18",
+    "tcpplate_scaffold_transition_head_blue_success": "12/12",
+    "tcpplate_scaffold_transition_head_mean_xy": 0.027873,
+    "tcpplate_scaffold_transition_head_max_xy": 0.074125,
+    "tcpplate_scaffold_transition_head_release_mean": 146.633333,
+    "tcpplate_scaffold_transition_head_release_range": [
+      126,
+      180
+    ],
+    "tcpplate_scaffold_transition_head_active_releases": "29/30",
+    "tcpplate_scaffold_transition_head_fallback_releases": "1/30",
+    "tcpplate_scaffold_transition_head_feature_mode": "xy_step",
+    "tcpplate_scaffold_short_schedule_episodes": [
+      1,
+      7,
+      9
+    ],
+    "tcpplate_scaffold_short_move_preplace_frames": "72-75",
+    "tcpplate_scaffold_long_move_preplace_frames": "120-123",
+    "note": "pi0 + finisher is a diagnostic hybrid result, not pure pi0 raw success; the old 30-seed panels changed policy sampling but the environment stayed at seed 0, so they are fixed-scene stability evidence rather than spatial generalization"
+  },
+  "best_summary": {
+    "act_stable61_fallback": {
+      "physical_success": "7/30"
+    },
+    "act_protected_dagger_current_exact": {
+      "physical_success": "2/30",
+      "model_sha256": "3f98b40c5d0557ea6b4fb171b47ebfced0db60adc11199e56ea94db3efa4a7f0"
+    },
+    "act_historical_summary_unverified": {
+      "physical_success": "17/30"
+    },
+    "smolvla_weighted_blue2_step500_expand30": {
+      "physical_success": "53/60"
+    },
+    "pi0_raw_full20_closedloop": {
+      "physical_success": "0/20"
+    },
+    "pi0_raw_full20_openloop": {
+      "physical_success": "1/20"
+    },
+    "pi0_raw_balanced_2b2r_reference": {
+      "physical_success": "0/4"
+    },
+    "pi0_raw_balanced_2b2r_batch_rerun": {
+      "physical_success": "1/4"
+    },
+    "pi0_scripted_finisher_balanced_2b2r": {
+      "physical_success": "4/4"
+    },
+    "pi0_template_tail_full20": {
+      "physical_success": "4/20"
+    },
+    "pi0_tcpplate_scaffold_fixed_env_policy_seeds30_long_schedule": {
+      "physical_success": "30/30"
+    },
+    "pi0_tcpplate_scaffold_fixed_env_phase_head_seeds30": {
+      "physical_success": "30/30"
+    },
+    "pi0_tcpplate_scaffold_fixed_env_adaptive_gate_seeds30": {
+      "physical_success": "30/30"
+    },
+    "pi0_tcpplate_scaffold_fixed_env_transition_head_seeds30": {
+      "physical_success": "30/30"
+    },
+    "pi0_visual_history_gru_fixed_env": {
+      "physical_success": "6/12"
+    },
+    "pi0_visual_history_gru_random_env_gate": {
+      "physical_success": "1/4"
+    },
+    "act_protected_repair15_current_exact": {
+      "physical_success": "15/30",
+      "panel_breakdown": "3/10 + 4/10 + 8/10",
+      "model_sha256": "b9b178377995a674a06bc5d1500c8e7e7fc5d02649268855f892b3987bf5bfeb4",
+      "artifact": "AMD395 protected/act_stable61_to_dagger_nomemleak_step1500_strict15of30"
+    }
+  }
+}

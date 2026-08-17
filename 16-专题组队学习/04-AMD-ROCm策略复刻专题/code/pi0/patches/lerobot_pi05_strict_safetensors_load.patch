@@ -1,0 +1,71 @@
+diff --git a/src/lerobot/policies/pi05/modeling_pi05.py b/src/lerobot/policies/pi05/modeling_pi05.py
+index 2cd14204..fe6c90b3 100644
+--- a/src/lerobot/policies/pi05/modeling_pi05.py
++++ b/src/lerobot/policies/pi05/modeling_pi05.py
+@@ -949,6 +949,7 @@ class PI05Policy(PreTrainedPolicy):
+         try:
+             # Try to load the pytorch_model.bin or model.safetensors file
+             print(f"Loading model from: {pretrained_name_or_path}")
++            tied_weight_aliases = {}
+             try:
+                 from transformers.utils import cached_file
+
+@@ -964,13 +965,18 @@ class PI05Policy(PreTrainedPolicy):
+                     revision=kwargs.get("revision"),
+                     local_files_only=kwargs.get("local_files_only", False),
+                 )
++                from safetensors import safe_open
+                 from safetensors.torch import load_file
+
+                 original_state_dict = load_file(resolved_file)
++                with safe_open(resolved_file, framework="pt", device="cpu") as f:
++                    tied_weight_aliases = f.metadata() or {}
+                 print("✓ Loaded state dict from model.safetensors")
+             except Exception as e:
+                 print(f"Could not load state dict from remote files: {e}")
+-                print("Returning model without loading pretrained weights")
++                if strict:
++                    raise RuntimeError("Could not load PI05 pretrained weights in strict mode") from e
++                print("Returning model without loading pretrained weights because strict=False")
+                 return model
+
+             # First, fix any key differences # see openpi `model.py, _fix_pytorch_state_dict_keys`
+@@ -993,6 +999,29 @@ class PI05Policy(PreTrainedPolicy):
+             if remap_count > 0:
+                 print(f"Remapped {remap_count} state dict keys")
+
++            # `safetensors.torch.save_model` stores tied-weight aliases in file metadata
++            # and writes only one copy. Restore those aliases only when the instantiated
++            # model confirms that both parameter names share the same storage.
++            model_state_dict = model.state_dict()
++            resolved_aliases = []
++            for omitted_key, stored_key in tied_weight_aliases.items():
++                omitted_key = (
++                    omitted_key if omitted_key.startswith("model.") else f"model.{omitted_key}"
++                )
++                stored_key = stored_key if stored_key.startswith("model.") else f"model.{stored_key}"
++                if (
++                    omitted_key not in remapped_state_dict
++                    and stored_key in remapped_state_dict
++                    and omitted_key in model_state_dict
++                    and stored_key in model_state_dict
++                    and model_state_dict[omitted_key].data_ptr() == model_state_dict[stored_key].data_ptr()
++                ):
++                    remapped_state_dict[omitted_key] = remapped_state_dict[stored_key]
++                    resolved_aliases.append((omitted_key, stored_key))
++
++            for omitted_key, stored_key in resolved_aliases:
++                print(f"Resolved tied weight alias: {omitted_key} -> {stored_key}")
++
+             # Load the remapped state dict into the model
+             missing_keys, unexpected_keys = model.load_state_dict(remapped_state_dict, strict=strict)
+
+@@ -1020,6 +1049,8 @@ class PI05Policy(PreTrainedPolicy):
+                 print("All keys loaded successfully!")
+
+         except Exception as e:
++            if strict:
++                raise RuntimeError("Could not load PI05 pretrained weights in strict mode") from e
+             print(f"Warning: Could not remap state dict keys: {e}")
+
+         return model

@@ -1,0 +1,28 @@
+{
+  "organization": "Datawhale",
+  "repositories": {
+    "smolvla": {
+      "repo_id": "Datawhale/every-embodied-smolvla-mujoco-pnp",
+      "url": "https://huggingface.co/Datawhale/every-embodied-smolvla-mujoco-pnp",
+      "source_label": "SmolVLA weighted500 protected checkpoint",
+      "model_sha256": "9e372a2babf79ec9530ecf75719cb62f02974485278751333867cedb5aa744fa",
+      "evaluation": "57/60 physical_success; red 27/30; blue 30/30"
+    },
+    "pi0": {
+      "repo_id": "Datawhale/every-embodied-pi0-mujoco-pnp",
+      "url": "https://huggingface.co/Datawhale/every-embodied-pi0-mujoco-pnp",
+      "source_label": "Pi0 clean40 success-only protected checkpoint",
+      "model_sha256": "44aa854a5f084d39ba375d1ffe951ca0c8b6d147bacdb1a9e637ed1725514eeb",
+      "evaluation": "12/14 physical_success; unseen 9/10; hard 6/8"
+    },
+    "act": {
+      "repo_id": "Datawhale/every-embodied-act-mujoco-pnp",
+      "url": "https://huggingface.co/Datawhale/every-embodied-act-mujoco-pnp",
+      "source_label": "ACT repair15 protected diagnostic candidate",
+      "model_sha256": "b9b178377995a674a06bc5d1500c8e7e7fc5d02649268855f892b3987bf5bfeb4",
+      "evaluation": "15/30 physical_success; three fixed groups 3/10 + 4/10 + 8/10"
+    }
+  },
+  "status": "uploaded to Datawhale organization",
+  "uploaded_at": "2026-07-21T06:59:24+08:00"
+}

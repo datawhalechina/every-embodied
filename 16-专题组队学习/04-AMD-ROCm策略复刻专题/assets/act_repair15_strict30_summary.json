@@ -1,0 +1,35 @@
+{
+  "model": "ACT",
+  "recipe": "stable61_to_dagger_low_lr",
+  "device": "AMD Ryzen AI MAX+ 395",
+  "data_root": "$ACT_REPAIR_TRAIN_DATA_ROOT",
+  "protected_artifact": "$ACT_REPAIR_NATIVE_OUTPUT",
+  "strict_summary": "$ACT_REPAIR_NATIVE_OUTPUT/strict_summary_30.json",
+  "physical_success": "15/30",
+  "legacy_success": "19/30",
+  "panel_breakdown": {
+    "seen": "3/10",
+    "mixed": "4/10",
+    "heldout": "8/10"
+  },
+  "model_sha256": "b9b178377995a674a06bc5d1500c8e7e7fc5d02649268855f892b3987bf5bfeb4",
+  "successful_seeds": [
+    1000,
+    1002,
+    1004,
+    1032,
+    1033,
+    1036,
+    1037,
+    1080,
+    1082,
+    1083,
+    1085,
+    1086,
+    1087,
+    1088,
+    1089
+  ],
+  "protocol": "official stack_bowls_two_clean; 16-D ACT; strict physical success; n_action_steps=10; timestamp offset 49-80:2.0",
+  "status": "current protected candidate; historical 17/30 is not fully restored"
+}

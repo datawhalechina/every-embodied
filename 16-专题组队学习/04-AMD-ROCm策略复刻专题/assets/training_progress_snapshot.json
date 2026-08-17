@@ -1,0 +1,45 @@
+{
+  "records": [
+    {
+      "model": "ACT",
+      "stage": "protected repair15 continuation",
+      "current_step": 2500,
+      "total_steps": 2500,
+      "progress": "2500/2500 continuation steps; selected eval checkpoint step1500",
+      "loss": 0.040088,
+      "physical_success": "15/30",
+      "note": "从 stable61 step2500 保护权重低学习率续训；chunk20/n10；按闭环选择 step1500；三面板 3/10 + 4/10 + 8/10；模型 SHA b9b178377995a674a06bc5d1500c8e7e7fc5d02649268855f892b3987bf5bfeb4。"
+    },
+    {
+      "model": "SmolVLA",
+      "stage": "weighted blue2 step500",
+      "current_step": 500,
+      "total_steps": 1000,
+      "progress": "selected step 500/1000",
+      "loss": null,
+      "physical_success": "53/60",
+      "note": "step500 的红蓝杯平衡优于 step1000，因此保留中间 checkpoint"
+    },
+    {
+      "model": "pi0",
+      "stage": "public raw baseline",
+      "current_step": 1500,
+      "total_steps": 1500,
+      "progress": "1500/1500 steps",
+      "loss": 0.046,
+      "physical_success": "0/20",
+      "note": "loss 从 step500 约 0.179 降到 step1500 约 0.046，但 raw closed-loop 没有成功"
+    },
+    {
+      "model": "pi0 learned head",
+      "stage": "visual/history GRU",
+      "current_step": 20,
+      "total_steps": 20,
+      "progress": "best epoch 20",
+      "loss": null,
+      "physical_success": "fixed 6/12; random 1/4",
+      "note": "只使用图像、语言、proprio 和历史执行动作；不是 raw pi0 主模型"
+    }
+  ],
+  "source": "AMD ROCm 实验日志与严格闭环评估摘要；ACT repair15 结果已由 AMD395 实测并保护。"
+}

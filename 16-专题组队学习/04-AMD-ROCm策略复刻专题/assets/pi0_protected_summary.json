@@ -1,0 +1,16 @@
+{
+  "model": "Pi0",
+  "checkpoint_label": "clean40_successonly_blue2x_s8500_selected",
+  "task": "MuJoCo mug-to-plate pick and place",
+  "episodes": 14,
+  "physical_success_count": 12,
+  "physical_success_rate": 0.8571428571428571,
+  "subsets": {
+    "unseen_position": "9/10",
+    "hard": "6/8"
+  },
+  "protocol": "strict physical success; eef_abs; 8-D state; chunk execution; fixed normalization",
+  "source_notebook": "notebooks/15_pi0_end_to_end.ipynb",
+  "status": "protected tutorial release candidate",
+  "note": "fine-tuned Pi0, not raw zero-shot success"
+}

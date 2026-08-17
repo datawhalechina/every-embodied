@@ -1,0 +1,15 @@
+{
+  "model": "SmolVLA",
+  "checkpoint_label": "weighted500",
+  "task": "MuJoCo mug-to-plate pick and place",
+  "episodes": 60,
+  "physical_success_count": 57,
+  "physical_success_rate": 0.95,
+  "by_instruction": {
+    "red": "27/30",
+    "blue": "30/30"
+  },
+  "protocol": "strict physical success; fixed red and blue instructions; 30 seeds per instruction",
+  "source_notebook": "notebooks/14_smolvla_end_to_end.ipynb",
+  "status": "protected tutorial release candidate"
+}
