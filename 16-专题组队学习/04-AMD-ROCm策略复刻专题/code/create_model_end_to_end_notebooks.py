@@ -38,7 +38,7 @@ import subprocess
 import sys
 
 try:
-    from IPython.display import HTML, Markdown, display
+    from IPython.display import HTML, Image, Markdown, Video, display
 except Exception:
     class Markdown(str):
         pass
@@ -46,23 +46,56 @@ except Exception:
     class HTML(str):
         pass
 
+    def Image(filename=None, width=None, **kwargs):
+        return f"[image] {filename}"
+
+    def Video(filename=None, embed=False, width=None, **kwargs):
+        return f"[video] {filename}"
+
     def display(obj):
         print(obj)
 
 
 def find_topic_root():
+    override = (
+        os.environ.get("AMD_TOPIC_ROOT")
+        or os.environ.get("NOTEBOOK_TOPIC_ROOT")
+        or os.environ.get("TOPIC_ROOT")
+    )
+    roots = [Path(override).expanduser()] if override else []
     cwd = Path.cwd().resolve()
-    for candidate in [cwd, *cwd.parents]:
+    roots.extend([cwd, *cwd.parents])
+
+    candidates = []
+    for root in roots:
+        candidates.extend(
+            [
+                root,
+                root / "16-专题组队学习" / "04-AMD-ROCm策略复刻专题",
+                root / "04-AMD-ROCm策略复刻专题",
+            ]
+        )
+    seen = set()
+    for candidate in candidates:
+        candidate = candidate.resolve()
+        if candidate in seen:
+            continue
+        seen.add(candidate)
         if (candidate / "assets" / "metrics_snapshot.json").exists():
             return candidate
-    raise RuntimeError("请从 AMD ROCm 专题目录或 notebooks 子目录启动 Jupyter。")
+    raise RuntimeError(
+        "找不到 AMD ROCm 专题目录。请从仓库根目录、专题目录启动 Jupyter，"
+        "或设置 AMD_TOPIC_ROOT。"
+    )
 
 
 TOPIC_ROOT = find_topic_root()
 ASSET_DIR = TOPIC_ROOT / "assets"
-PROJECT_ROOT = Path(os.environ.get("PROJECT_ROOT", "/path/to/04mujoco复现ACT、Pi0、SmolVLA"))
-DATA_ROOT = Path(os.environ.get("DATA_ROOT", "/path/to/datasets/every_embodied"))
-MODEL_ROOT = Path(os.environ.get("MODEL_ROOT", "/path/to/model/checkpoints"))
+PROJECT_ROOT = Path(
+    os.environ.get("PROJECT_ROOT", TOPIC_ROOT / "external" / "04mujoco复现ACT、Pi0、SmolVLA")
+).expanduser()
+DATA_ROOT = Path(os.environ.get("DATA_ROOT", TOPIC_ROOT / "data")).expanduser()
+MODEL_ROOT = Path(os.environ.get("MODEL_ROOT", TOPIC_ROOT / "checkpoints")).expanduser()
 OUTPUT_ROOT = Path(os.environ.get("OUTPUT_ROOT", TOPIC_ROOT / "outputs"))
 
 # The AMD teaching workflow should be runnable from local datasets/checkpoints.
@@ -91,7 +124,7 @@ def public_path(path):
     return value
 
 
-print("TOPIC_ROOT = $TOPIC_ROOT")
+print("TOPIC_ROOT =", public_path(TOPIC_ROOT))
 print("PROJECT_ROOT =", public_path(PROJECT_ROOT))
 print("DATA_ROOT =", public_path(DATA_ROOT))
 print("MODEL_ROOT =", public_path(MODEL_ROOT))
@@ -122,8 +155,10 @@ def show_video(filename, title):
     path = ASSET_DIR / filename
     display(Markdown(f"**{title}**"))
     if path.exists():
-        rel = f"../assets/{filename}"
-        display(HTML(f"<video controls muted preload='metadata' width='960'><source src='{rel}' type='video/mp4'></video>"))
+        try:
+            display(Video(filename=str(path), embed=True, width=960, html_attributes="controls muted"))
+        except TypeError:
+            display(Video(filename=str(path), embed=True, width=960))
     else:
         print("缺少视频素材：", public_path(path))
 
@@ -132,8 +167,10 @@ def show_image(filename, title, width=960):
     path = ASSET_DIR / filename
     display(Markdown(f"**{title}**"))
     if path.exists():
-        rel = f"../assets/{filename}"
-        display(HTML(f"<img src='{rel}' width='{width}'>"))
+        try:
+            display(Image(filename=str(path), width=width))
+        except TypeError:
+            display(Image(filename=str(path)))
     else:
         print("缺少图片素材：", public_path(path))
 
@@ -1192,8 +1229,8 @@ rows = [
     ("继续方向", "更高质量 success-only / recovery 数据", "不建议盲目扩大模型参数"),
 ]
 md_table(["观察", "现象", "处理方式"], rows)
-show_image("act_success_sequence.jpg", "ACT 成功关键帧")
-show_image("act_failure_sequence.jpg", "ACT 失败关键帧")
+show_image("act_dagger_progress_curve.png", "ACT DAgger 进展曲线")
+display(Markdown("本轻量分支没有提交原始 ACT rollout 视频；请使用自己的 OUTPUT_ROOT 重新生成视频后再做逐帧复核。"))
 ''',
         ),
         md("## Checkpoint 7：写入教程时的结论"),

@@ -147,13 +147,9 @@ ACT 训练通常显存占用不算高，但仍然要记录：
 | repair15 protected candidate | 15/30 | 当前最佳；三组固定种子各 10 条，分组结果为 `3/10 + 4/10 + 8/10` |
 | 旧教程 best DAgger 摘要 | 17/30（待复核） | 当前原始逐 seed 文件未恢复，不能作为现行分数 |
 
-![ACT DAgger 成功关键帧](./assets/act_success_sequence.jpg)
+![ACT DAgger 进展曲线](./assets/act_dagger_progress_curve.png)
 
-图 2：ACT 历史 DAgger 记录中的物理成功 rollout。它用于讲解抓取、搬运和释放阶段；当前最佳 repair15 保护候选的可审计结果是 `15/30`，旧 protected artifact 仍是 `2/30`。
-
-![ACT DAgger 失败关键帧](./assets/act_failure_sequence.jpg)
-
-图 3：ACT best DAgger 的典型失败 rollout。即使环境几何条件偶尔接近成功，也要继续检查抬升高度和终态姿态。
+图 2：ACT 从基线到 DAgger 纠偏的物理成功率变化。当前轻量分支保留曲线和指标快照，但没有把原始 ACT rollout 视频复制进来，也不使用无法播放的占位关键帧。拿到完整实验输出后，可用 `python code/generate_tutorial_assets.py --source-root "$OUTPUT_ROOT"` 生成成功/失败关键帧。
 
 ## Checkpoint
 

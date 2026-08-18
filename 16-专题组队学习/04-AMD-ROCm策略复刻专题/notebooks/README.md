@@ -4,21 +4,26 @@
 
 07–16 已逐格执行并保存输出。07–12 使用 AMD 教学环境，13 使用同一批 AMD 实验摘要在隔离 Jupyter 环境中复算表格和图像，14–16 使用已经完成的模型重建证据生成端到端学习入口。交互式键盘采集、正式长训练和批量 closed-loop 仍由 `RUN_*` 开关控制，仓库里展示的是路径审计、真实数据摘要、已完成训练进度、严格成功率、关键帧和四视角视频，不会在读者打开 Notebook 时自动启动数小时任务。
 
-建议从专题根目录启动 Jupyter：
+建议从仓库根目录启动 Jupyter。这样 Notebook 的路径发现不会依赖当前文件浏览器所在目录：
 
 ```bash
-cd /path/to/04-AMD-ROCm策略复刻专题
-jupyter lab
+cd /path/to/every-embodied
+jupyter lab --notebook-dir .
 ```
+
+启动后从文件浏览器进入 `16-专题组队学习/04-AMD-ROCm策略复刻专题/notebooks/`，不要把服务器根目录设成专题的上一级临时目录。
 
 如果在自己的 AMD 设备或远端服务器上运行，请先按实际情况设置：
 
 ```bash
-export PROJECT_ROOT=/path/to/every-embodied/mujoco_pnp
+export AMD_TOPIC_ROOT=/path/to/every-embodied/16-专题组队学习/04-AMD-ROCm策略复刻专题
+export PROJECT_ROOT=/path/to/04mujoco复现ACT、Pi0、SmolVLA
 export DATA_ROOT=/path/to/datasets/every_embodied
 export OUTPUT_ROOT=/path/to/outputs
 export MODEL_ROOT="$PROJECT_ROOT/ckpt"
 ```
+
+只有在训练、闭环评估或采集单元中才需要 `PROJECT_ROOT`、`DATA_ROOT` 和模型目录；01–06 的路径审计、指标读取和分支内视频预览可以直接运行。分支中没有复制完整 MuJoCo 工程，未设置 `PROJECT_ROOT` 时训练单元会明确提示缺失，而不会访问 `/path/to/...` 这种模板目录。
 
 | Notebook | 对应章节 | 主要用途 |
 | --- | --- | --- |

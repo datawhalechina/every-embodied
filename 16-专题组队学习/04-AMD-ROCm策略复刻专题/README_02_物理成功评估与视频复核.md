@@ -66,8 +66,10 @@ python tools/audit_language_policy_physical.py \
 
 ```html
 <video controls muted preload="metadata" width="100%">
-  <source src="assets/videos/seed0_blue_success.mp4" type="video/mp4">
+  <source src="assets/smolvla_weighted500_blue_success_seed0.mp4" type="video/mp4">
 </video>
+
+[直接打开或下载蓝杯成功视频](./assets/smolvla_weighted500_blue_success_seed0.mp4)
 ```
 
 图注示例：
@@ -76,25 +78,51 @@ python tools/audit_language_policy_physical.py \
 
 不要只放成功视频。失败视频更适合教学，因为它能解释为什么需要更严格的评估口径。
 
-## 示例关键帧序列
+## 分支内可直接查看的真实视频
 
-下面的关键帧来自同一套物理成功判定流程。复核视频时，不要只看最后一帧的杯子位置，而要沿着时间轴观察是否出现了稳定夹取、抬升、搬运和释放。
+下面的媒体文件已经随轻量分支提交，不依赖 `/path/to/outputs` 或 Notebook 当前工作目录。复核时不要只看最后一帧，而要沿着时间轴观察是否出现了稳定夹取、抬升、搬运和释放。
 
-![SmolVLA baseline 蓝杯失败关键帧](./assets/smolvla_blue_failure_sequence.jpg)
+### SmolVLA：真实失败参考
 
-图 1：SmolVLA baseline 在蓝杯指令下的典型失败。策略反复接近盘子或红杯附近，目标蓝杯没有被稳定夹起，因此不能算作物理成功。
+<video controls muted preload="metadata" width="100%">
+  <source src="assets/smolvla_weighted500_red_failure_seed8.mp4" type="video/mp4">
+</video>
 
-![SmolVLA 加权采样后蓝杯成功关键帧](./assets/smolvla_blue_success_sequence.jpg)
+[直接打开或下载 SmolVLA 红杯失败视频](./assets/smolvla_weighted500_red_failure_seed8.mp4)
 
-图 2：SmolVLA 使用 blue frame 加权采样后的蓝杯成功案例。蓝杯先被夹起，再被移动到盘子上，终态也满足严格物理口径。
+这里使用的是分支中实际提交的红杯失败 rollout，作为失败阶段的可播放参考；它不是缺失的蓝杯 baseline 原始视频。原始蓝杯 baseline 和 ACT rollout 视频依赖完整实验输出，没有被放进轻量分支。
 
-![ACT DAgger 失败关键帧](./assets/act_failure_sequence.jpg)
+### SmolVLA：蓝杯成功
 
-图 3：ACT DAgger 后仍可能出现的典型失败。虽然接触到了杯子，但杯子姿态很快失稳，最终没有满足直立放置的物理成功条件。
+<video controls muted preload="metadata" width="100%">
+  <source src="assets/smolvla_weighted500_blue_success_seed0.mp4" type="video/mp4">
+</video>
 
-![ACT DAgger 成功关键帧](./assets/act_success_sequence.jpg)
+[直接打开或下载 SmolVLA 蓝杯成功视频](./assets/smolvla_weighted500_blue_success_seed0.mp4)
 
-图 4：ACT DAgger 的物理成功案例。这个序列展示了从接近、夹取、搬运到盘上释放的完整过程，可作为 rollout 复核参考。
+这条视频可用于检查蓝杯指令下的接触、夹取、搬运和释放是否完整。`smolvla_blue_success_sequence.jpg` 由这条已经提交的 MP4 生成，不再使用不可用视频占位图。
+
+### 四视角严格成功回放
+
+<video controls muted preload="metadata" width="100%">
+  <source src="assets/pnp_four_view_strict_success.mp4" type="video/mp4">
+</video>
+
+[直接打开或下载四视角严格成功视频](./assets/pnp_four_view_strict_success.mp4)
+
+四视角回放同时显示 Agent、Egocentric、Top、Side 画面，适合检查单一相机视角中容易漏掉的接触、抬升和终态姿态证据。
+
+### ACT：当前分支提供曲线，不伪造 rollout
+
+![ACT DAgger 进展曲线](./assets/act_dagger_progress_curve.png)
+
+ACT 的原始失败/成功 rollout 视频没有随本轻量分支提交，因此不再放置“Source video is unavailable”关键帧占位图。拿到自己的 `OUTPUT_ROOT` 后，按下面命令从真实 MP4 重新生成关键帧：
+
+```bash
+python code/generate_tutorial_assets.py --source-root "$OUTPUT_ROOT"
+```
+
+只有当 `OUTPUT_ROOT` 中包含 `act_reset_oracle_v1/dagger_best025_representative_videos/seed1088.mp4` 和 `seed1089.mp4` 等原始文件时，脚本才会生成对应 ACT 预览。
 
 ## Checkpoint
 

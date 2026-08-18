@@ -21,6 +21,8 @@
 
 Task 11 已内置一条约 2 MB 的严格成功回放，不需要模型权重，也不会消耗训练额度。可下载 checkpoint、适用任务、评测协议和发布状态统一记录在 [预训练权重与零训练体验](./README_08_预训练权重与零训练体验.md)。
 
+本轻量分支中的教学视频都使用已提交的真实 MP4，并由 Notebook 通过绝对路径嵌入播放；原始蓝杯 baseline 失败视频和 ACT rollout 原文件未随分支分发，因此不会再生成“Source video is unavailable”占位图。拿到完整 `OUTPUT_ROOT` 后，可按 Task 02 的命令重新生成对应关键帧。
+
 > `5000 steps` 只是一种短训基线，不是通用收敛保证。训练是否够用必须由 held-out closed-loop 成功率和视频判断，不能只看步数或 loss。
 
 完成本专题后，可以做到：

@@ -176,8 +176,8 @@ run_eval_policy_in_notebook(
 )
 rows = summarize_jsonl(result_path)
 display(Markdown("**视频复核入口**：ACT 这条线重点看失败阶段，不只看 loss。"))
-show_image("act_success_sequence.jpg", "ACT 成功关键帧")
-show_image("act_failure_sequence.jpg", "ACT 失败关键帧")
+show_image("act_dagger_progress_curve.png", "ACT DAgger 进展曲线")
+display(Markdown("本轻量分支没有提交原始 ACT rollout 视频；请使用自己的 OUTPUT_ROOT 重新生成视频后再做逐帧复核。"))
 ''',
         ),
     ]

@@ -25,13 +25,13 @@
 
 ## 执行建议
 
-1. 先执行 `code/rocm/activate_lerobot_rocm.sh`，再运行 `code/rocm/verify_lerobot_rocm_env.py`；只有输出 `ENVIRONMENT_OK` 才继续。
+1. 在完整仓库中先执行 `code/rocm/activate_lerobot_rocm.sh`，再运行 `code/rocm/verify_lerobot_rocm_env.py`；本 AMD 轻量分支不复制这组环境脚本。
 2. 首次学习先运行普通 Notebook 的环境检查和 smoke 单元格。
 3. 确认数据、模型和设备正常后，再执行长训单元格。
 4. 训练完成后运行 Notebook 后面的 Full 14 评估单元格，查看本次训练的成功率、阶段统计、视频和 action trace。
 5. 想复现保护结果时，单独打开 protected Notebook；不要在普通 Notebook 中修改路径来代替保护配方。
 
-两台 AMD 设备应统一使用同一套 Python 3.10、ROCm 7.13、PyTorch 2.11 和 legacy LeRobot commit。395 工作站已经通过校验；W7900 云端恢复 SSH 后必须先运行同一校验脚本。详细版本锁定见 [`code/rocm/ROCM_LEROBOT_ENV.md`](../../code/rocm/ROCM_LEROBOT_ENV.md)，依赖清单见 [`requirements-rocm713.txt`](../../code/rocm/requirements-rocm713.txt)。
+两台 AMD 设备应统一使用同一套 Python 3.10、ROCm 7.13、PyTorch 2.11 和 legacy LeRobot commit。完整仓库中的 ROCm 环境锁定文件不随本轻量分支复制；请回到主分支查看 `code/rocm/ROCM_LEROBOT_ENV.md` 和 `code/rocm/requirements-rocm713.txt`。
 
 每个 Notebook 的结果都保存在专题目录下对应的 `outputs/ordinary/<model>` 或 `outputs/protected/<model>` 中。评估单元格只接受当前 Notebook 训练后生成的 `TRAINED_POLICY_PATH`，没有 checkpoint 会直接报错，不会回退到历史或预训练权重。长训耗时取决于模型、步数和 GPU；进度条只做阶段性刷新，详细指标以 JSONL 和 `training_run_summary.json` 为准。
 

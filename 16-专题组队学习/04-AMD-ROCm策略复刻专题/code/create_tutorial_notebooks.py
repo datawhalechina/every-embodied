@@ -38,18 +38,45 @@ import sys
 
 
 def find_topic_root():
+    override = (
+        os.environ.get("AMD_TOPIC_ROOT")
+        or os.environ.get("NOTEBOOK_TOPIC_ROOT")
+        or os.environ.get("TOPIC_ROOT")
+    )
+    roots = [Path(override).expanduser()] if override else []
     cwd = Path.cwd().resolve()
-    for candidate in [cwd, *cwd.parents]:
+    roots.extend([cwd, *cwd.parents])
+
+    candidates = []
+    for root in roots:
+        candidates.extend(
+            [
+                root,
+                root / "16-专题组队学习" / "04-AMD-ROCm策略复刻专题",
+                root / "04-AMD-ROCm策略复刻专题",
+            ]
+        )
+    seen = set()
+    for candidate in candidates:
+        candidate = candidate.resolve()
+        if candidate in seen:
+            continue
+        seen.add(candidate)
         if (candidate / "assets" / "metrics_snapshot.json").exists():
             return candidate
-    raise RuntimeError("请从 AMD ROCm 专题目录或 notebooks 子目录启动 Jupyter。")
+    raise RuntimeError(
+        "找不到 AMD ROCm 专题目录。请从仓库根目录、专题目录启动 Jupyter，"
+        "或设置 AMD_TOPIC_ROOT。"
+    )
 
 
 TOPIC_ROOT = find_topic_root()
 ASSET_DIR = TOPIC_ROOT / "assets"
 NOTEBOOK_DIR = TOPIC_ROOT / "notebooks"
-PROJECT_ROOT = Path(os.environ.get("PROJECT_ROOT", "/path/to/every-embodied/mujoco_pnp"))
-DATA_ROOT = Path(os.environ.get("DATA_ROOT", "/path/to/datasets/every_embodied"))
+PROJECT_ROOT = Path(
+    os.environ.get("PROJECT_ROOT", TOPIC_ROOT / "external" / "mujoco_pnp")
+).expanduser()
+DATA_ROOT = Path(os.environ.get("DATA_ROOT", TOPIC_ROOT / "data")).expanduser()
 OUTPUT_ROOT = Path(os.environ.get("OUTPUT_ROOT", TOPIC_ROOT / "outputs"))
 MODEL_ROOT = Path(os.environ.get("MODEL_ROOT", PROJECT_ROOT / "ckpt"))
 
@@ -63,7 +90,7 @@ print("MODEL_ROOT =", MODEL_ROOT)
 
 DISPLAY_HELPERS = r'''
 try:
-    from IPython.display import Image, Markdown, display
+    from IPython.display import Image, Markdown, Video, display
 except Exception:
     class Markdown(str):
         pass
@@ -74,10 +101,29 @@ except Exception:
     def Image(filename=None, width=None):
         return f"[image] {filename}"
 
+    def Video(filename=None, embed=False, width=None, **kwargs):
+        return f"[video] {filename}"
+
+
+def show_video(filename, title=None, width=960):
+    path = ASSET_DIR / filename
+    if title:
+        display(Markdown(f"**{title}**"))
+    if not path.exists():
+        print(f"缺少视频素材：{path}")
+        return
+    try:
+        display(Video(filename=str(path), embed=True, width=width, html_attributes="controls muted"))
+    except TypeError:
+        display(Video(filename=str(path), embed=True, width=width))
+
 
 def show_asset(filename, width=960):
     path = ASSET_DIR / filename
     if path.exists():
+        if path.suffix.lower() in {".mp4", ".webm", ".mov", ".m4v"}:
+            show_video(filename, width=width)
+            return
         display(Image(filename=str(path), width=width))
     else:
         print(f"缺少素材：{path}")
@@ -675,7 +721,7 @@ paths = [
     ("数据目录", DATA_ROOT),
     ("模型与 checkpoint", MODEL_ROOT),
     ("Notebook 输出", OUTPUT_ROOT),
-    ("Hugging Face cache", Path(os.environ.get("HF_HOME", "/path/to/cache/huggingface"))),
+    ("Hugging Face cache", Path(os.environ.get("HF_HOME", TOPIC_ROOT / "cache" / "huggingface"))),
 ]
 md_table(["项目", "建议路径", "是否存在"], [(name, f"`{path}`", path.exists()) for name, path in paths])
 '''
@@ -744,10 +790,22 @@ md_table(["样例", "physical_success"], [(e["name"], physical_success(e)) for e
     md("## Checkpoint 3：复核成功与失败关键帧"),
     code(
         r'''
-show_asset("smolvla_blue_failure_sequence.jpg", width=1100)
-show_asset("smolvla_blue_success_sequence.jpg", width=1100)
-show_asset("act_failure_sequence.jpg", width=1100)
-show_asset("act_success_sequence.jpg", width=1100)
+show_video(
+    "smolvla_weighted500_red_failure_seed8.mp4",
+    "SmolVLA 真实失败回放：红杯 seed8",
+    width=1100,
+)
+show_video(
+    "smolvla_weighted500_blue_success_seed0.mp4",
+    "SmolVLA 真实成功回放：蓝杯 seed0",
+    width=1100,
+)
+show_video(
+    "pnp_four_view_strict_success.mp4",
+    "四视角严格成功回放：用于检查接触、抬升、搬运和释放",
+    width=1100,
+)
+show_asset("act_dagger_progress_curve.png", width=1100)
 '''
     ),
     md("看视频时，沿时间轴观察四件事：是否接触目标杯、是否稳定夹起、是否搬运到盘子上、终态是否直立。"),
@@ -819,8 +877,8 @@ print(cmd)
     md("## Checkpoint 3：成功与失败视频对照"),
     code(
         r'''
-show_asset("act_success_sequence.jpg", width=1100)
-show_asset("act_failure_sequence.jpg", width=1100)
+show_asset("act_dagger_progress_curve.png", width=1100)
+display(Markdown("本轻量分支没有提交原始 ACT rollout 视频，因此这里不使用占位关键帧。拿到自己的 OUTPUT_ROOT 后，可按 README 说明重新生成并复核 ACT 视频。"))
 '''
     ),
     md("ACT 的失败常常不是完全不动，而是接近、夹取、搬运或释放中的某一段出问题。复核视频时要写出失败发生在哪个阶段。"),
@@ -888,12 +946,20 @@ print(" ".join(cmd))
 # subprocess.run(cmd, check=True)
 '''
     ),
-    md("上面的单元默认不直接执行，避免输出目录还没准备好时生成占位图。确认 `$OUTPUT_ROOT` 正确后，取消最后一行注释即可。"),
+    md("上面的单元默认不直接执行，避免输出目录还没准备好时覆盖教学素材。确认 `$OUTPUT_ROOT` 正确后，取消最后一行注释即可；缺失源视频会被跳过，不会生成不可播放的占位图。"),
     md("## Checkpoint 4：蓝杯失败和修复后成功对照"),
     code(
         r'''
-show_asset("smolvla_blue_failure_sequence.jpg", width=1100)
-show_asset("smolvla_blue_success_sequence.jpg", width=1100)
+show_video(
+    "smolvla_weighted500_red_failure_seed8.mp4",
+    "已提交的 SmolVLA 失败参考视频：红杯 seed8",
+    width=1100,
+)
+show_video(
+    "smolvla_weighted500_blue_success_seed0.mp4",
+    "已提交的 SmolVLA 成功参考视频：蓝杯 seed0",
+    width=1100,
+)
 '''
     ),
 ]
