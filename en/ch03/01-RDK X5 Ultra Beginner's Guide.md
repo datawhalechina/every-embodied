@@ -135,30 +135,30 @@ The process of making an SD boot card is as follows:
 1. Open the [balenaEtcher](https://etcher.balena.io/) tool, click the `从文件烧录（Flash from File)` , and select the unzipped `rdk-x5-ubuntu22-preinstalled-desktop-3.1.0-arm64.img` file as the flashing image
 
 <p align="center">
-  <img alt="image-flash-1" src="https://github.com/user-attachments/assets/d2fcc11d-fcb4-4118-a37b-c40433112d10" width="50%"/>
+  <img alt="image-flash-1" src="../../assets/rdk_x5/image-flash-1.png" width="50%"/>
 </p>
 
 2. Click the `Select target` button to select the corresponding Micro SD memory card as the target storage device
 
 <p align="center">
-  <img alt="image-flash-2" src="https://github.com/user-attachments/assets/214bd531-01e5-49c8-9774-3b40b17d52c4" width="50%"/>
+  <img alt="image-flash-2" src="../../assets/rdk_x5/image-flash-2.png" width="50%"/>
 </p>
 
 3. Click the `现在烧录（Flash Now)` to start flashing
 
 <p align="center">
-  <img alt="image-flash-3" src="https://github.com/user-attachments/assets/0ade8e1f-2d49-4fbf-92a0-bd7bcf92543d" width="50%"/>
+  <img alt="image-flash-3" src="../../assets/rdk_x5/image-flash-3.png" width="50%"/>
 </p>
 
 4. Wait for the flashing & verification to finish
 <p align="center">
-  <img alt="image-flash-4" src="https://github.com/user-attachments/assets/ec6c66c1-7254-472c-9682-54ccb747800f" width="45%"/>
-  <img alt="image-flash-5" src="https://github.com/user-attachments/assets/b7daeaf2-adaa-4378-81f0-b545cf6cc667" width="45%" />
+  <img alt="image-flash-4" src="../../assets/rdk_x5/image-flash-4.png" width="45%"/>
+  <img alt="image-flash-5" src="../../assets/rdk_x5/image-flash-5.png" width="45%" />
 </p>
 
 5. When a prompt pops up with `烧录成功（Flash Success`, it means the image flashing is finished. You can close `balenaEtcher` and take out the memory card
 <p align="center">
-  <img alt="image-flash-6" src="https://github.com/user-attachments/assets/68273093-07ea-4d2f-81a4-64099656d00f" width="50%"/>
+  <img alt="image-flash-6" src="../../assets/rdk_x5/image-flash-6.png" width="50%"/>
 </p>
 
 ### Start the System
