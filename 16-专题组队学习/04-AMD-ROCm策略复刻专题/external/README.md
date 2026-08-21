@@ -26,6 +26,17 @@ code/run_closed_loop.py
 
 `amd-rocm` 是轻量教学分支，目前不直接复制完整上游目录。完整目录除了运行源码，还包含示例数据、评测视频、媒体文件和大量网格/纹理资产，原始 Git 跟踪内容约 194 MiB，工作目录还可能包含 checkpoint、缓存和实验输出。把整个工作目录压缩后提交到普通 Git，会重新引入大仓库 clone 和二进制版本管理问题。
 
+这里需要区分两个数字：本机当前工作目录约 3.69 GiB，但这不是 GitHub 上游代码仓库的体积。当前工作区的实测构成为：
+
+| 目录 | 约占空间 | 是否应随课程源码发布 | 内容 |
+| --- | ---: | --- | --- |
+| `third_party/` | 2.79 GiB | 否 | `mujoco_menagerie`、`teleop_xr`、`xarm_ros` 三个本地嵌套依赖仓库，且被 `.gitignore` 忽略 |
+| `demo_data*` | 0.62 GiB | 否 | 本地采集的示教数据和实验数据集 |
+| `ckpt/` | 0.19 GiB | 否 | 本地模型 checkpoint，通常来自训练或模型下载 |
+| `asset/`、`mujoco_env/`、脚本 | 约 0.07 GiB | 视任务筛选 | MuJoCo 场景、机器人/物体网格、环境代码和运行脚本 |
+
+主仓库 `main` 中实际跟踪的上游快照是 263 个文件、约 194 MiB，主要由场景资产、网格/纹理、少量示例数据/视频、Notebook 和 Python 代码组成。也就是说，它不是“3.6GB 的代码”，但也不只是几 MB 的纯代码。
+
 本地已有主仓库时，可以直接把 `PROJECT_ROOT` 指向上游目录：
 
 ```bash
@@ -33,5 +44,7 @@ export PROJECT_ROOT=/path/to/every-embodied/06-策略抓取或抓取VLA/大模�
 ```
 
 如果要发布“克隆后即可运行”的 AMD 课程包，建议只整理运行时源码、当前场景所需资产和最小配置到 `external/mujoco_pnp`；数据集、checkpoint、缓存、日志和生成视频放到外部磁盘。超过 GitHub 普通文件/仓库体量边界的完整包，应使用 Git LFS 或 GitHub Release 资产，并在这里记录固定版本和校验值。
+
+`mujoco_pnp` 本身来自本仓库的上游课程目录，不是 Hugging Face 上的独立代码仓库。Hugging Face 只可能涉及另外下载的模型权重或数据集，例如 SmolVLA、pi_0 的 gated 权重；这些不应和 `mujoco_pnp` 源码混在一起。
 
 上游课程入口：[LeRobot MuJoCo 训练 ACT、SmolVLA、pi_0](https://github.com/datawhalechina/every-embodied/tree/main/06-策略抓取或抓取VLA/大模型控制、VLA、VLM/04mujoco复现ACT、Pi0、SmolVLA)。
