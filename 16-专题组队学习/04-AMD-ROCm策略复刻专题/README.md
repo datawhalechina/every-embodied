@@ -6,6 +6,21 @@
 
 如果要把本专题组织成 Datawhale 组队学习活动，可以先参考：[00_组队学习招募参考稿.md](./00_组队学习招募参考稿.md)。其中的开营时间、领学员、报名入口和二维码需要在正式发布前替换。
 
+## 六章课程笔记入口
+
+助教整理的[飞书课程笔记](https://my.feishu.cn/wiki/KJ0dwEuI7isfyak5NDncY7rfnHb)提供了一条更适合首次学习的线性路线；本目录中的 Markdown 章节和 Notebook 则负责实验命令、路径审计、严格成功判定和失败复盘。两者是互补关系，不需要把飞书页面的内容覆盖到现有 Task 文档上。
+
+| 飞书章节 | 主题 | 本目录的可执行入口 |
+| --- | --- | --- |
+| CH1 | VLA 全景与 AMD 环境搭建 | `README_00`、`README_01`、Notebook 01 |
+| CH2 | MuJoCo 仿真与数据集构建 | `README_07`、Notebook 07、上游 `mujoco_pnp` |
+| CH3 | SmolVLA 推理 | `README_04`、Notebook 04、Notebook 09/14 |
+| CH4 | ACT 训练与推理 | `README_03`、Notebook 03、Notebook 08/16 |
+| CH5 | pi_0 训练与推理 | `README_05`、Notebook 05、Notebook 10/15 |
+| CH6 | 自定义任务全流程 | `README_07`、Notebook 07/11，以及 `external/README.md` |
+
+如果后续将飞书页面导出为 Markdown，建议放在本专题的 `course-notes/` 子目录，并把图片下载到该目录的 `assets/`；现有 Notebook、实验结果和 `PROJECT_ROOT` 约定保持不变。这样读者可以先按六章笔记建立整体认识，再进入对应 Task 做可复现实验。
+
 ## 先看到成功，再开始训练
 
 第一次接触具身策略时，不建议从 loss 曲线或失败诊断开始。先运行一条已经通过严格物理判定的回放，确认任务正确完成时应该出现哪些动作阶段，再采集和训练自己的策略。这样可以把“环境没装好”“模型没训够”和“成功判定写错了”三类问题分开。
