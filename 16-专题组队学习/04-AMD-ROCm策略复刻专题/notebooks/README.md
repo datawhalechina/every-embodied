@@ -23,7 +23,11 @@ export OUTPUT_ROOT=/path/to/outputs
 export MODEL_ROOT="$PROJECT_ROOT/ckpt"
 ```
 
-只有在训练、闭环评估或采集单元中才需要 `PROJECT_ROOT`、`DATA_ROOT` 和模型目录；01–06 的路径审计、指标读取和分支内视频预览可以直接运行。分支中没有复制完整 MuJoCo 工程，未设置 `PROJECT_ROOT` 时训练单元会明确提示缺失，而不会访问 `/path/to/...` 这种模板目录。上游工程的目录要求和自包含发布建议见 [`../external/README.md`](../external/README.md)。
+只有在训练、闭环评估或采集单元中才需要 PROJECT_ROOT、DATA_ROOT 和模型目录；01–06 的路径审计、指标读取和分支内视频预览可以直接运行。分支中没有复制完整 MuJoCo 工程，未设置 PROJECT_ROOT 时训练单元会明确提示缺失，而不会访问 /path/to/... 这种模板目录。上游工程的目录要求和自包含发布建议见 [../external/README.md](../external/README.md)。
+
+需要批量运行闭环或回放数据集时，使用 [../code/README.md](../code/README.md)
+中的 Python 脚本入口。脚本与 Notebook 共用路径变量和严格成功判定，但不会把
+长时间训练、模型权重或数据集放进 Git。
 
 | Notebook | 对应章节 | 主要用途 |
 | --- | --- | --- |

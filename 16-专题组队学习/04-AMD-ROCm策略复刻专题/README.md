@@ -130,6 +130,14 @@ Markdown 章节主要负责讲清楚背景、判断口径和实验结论；Noteb
 
 建议不要把所有诊断都塞进 Notebook。批量评估和训练入口应该脚本化，这样组队学习时不同同学的结果更容易比较。
 
+本专题的脚本化入口见 [code/README.md](./code/README.md)。其中
+run_closed_loop.py 与 Notebook 11 使用同一套 legacy_success /
+physical_success 判定，适合一次运行多个 held-out seed、保存 H.264 视频和
+results.jsonl；task11_smolvla_eval.py 是 SmolVLA 的快捷入口；
+replay_dataset.py 用于把 LeRobot episode 回放成视频。两个 demo/ 脚本只
+用于确认 MuJoCo 渲染链路，不代表模型已经完成训练。数据集、checkpoint 和
+mujoco_pnp 上游工程仍需按环境变量从专题外部挂载。
+
 ## 学习产物怎么整理
 
 完成复刻后，不要只留下一串命令或一段“跑通了”的描述。更好的做法是把证据整理成一份小型实验报告，让别人能看出你验证了什么、还没有验证什么。

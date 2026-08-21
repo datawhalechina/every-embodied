@@ -1,70 +1,167 @@
 #!/usr/bin/env python
-"""数据集回放工具：从 omy_pnp_language 数据集读取示教帧，合成 mp4 视频
+"""从 LeRobot 数据集回放一个 episode 的 agent/wrist 视角视频。
 
-用法:
-  /opt/venv/bin/python replay_dataset.py -e 0                  # 回放 episode 0（蓝杯，agent 视角）
-  /opt/venv/bin/python replay_dataset.py -e 3 -v wrist         # 回放 episode 3（红杯，wrist 视角）
-  /opt/venv/bin/python replay_dataset.py -e 10 --fps 20        # 指定 fps
-  /opt/venv/bin/python replay_dataset.py --list                # 列出所有 episode（指令/帧数）
+示例：
+  python code/replay_dataset.py --list
+  python code/replay_dataset.py --episode 0
+  python code/replay_dataset.py --episode 3 --view wrist --fps 20
 
-参数:
-  -e, --episode     episode 编号 (0-19)，默认 0
-  -v, --view        视角: agent / wrist，默认 agent
-  -o, --output      输出 mp4 路径，默认 /tmp/replay_ep{X}_{view}.mp4
-      --fps         视频帧率，默认 15
-      --max-frames  最多输出帧数（超出自动抽帧），默认 200
-      --list        只列出 episode 清单
+数据集、模型和输出不随轻量分支提交。默认数据目录是
+DATA_ROOT/omy_pnp_language，也可以通过 DATASET_ROOT 显式指定。
 """
-import argparse, json, sys
+from __future__ import annotations
+
+import argparse
+import json
+import math
+import os
 from pathlib import Path
+
 import numpy as np
 
-TOPIC = Path(__file__).resolve().parents[1]  # code/ 的上一级 = 专题根
-DATA = TOPIC / "data" / "omy_pnp_language"
-sys.path.insert(0, str(TOPIC / "external" / "mujoco_pnp"))
 
-def list_episodes():
-    eps = [json.loads(l) for l in (DATA / "meta/episodes.jsonl").read_text().splitlines() if l.strip()]
+TOPIC_ROOT = Path(__file__).resolve().parents[1]
+DATA_ROOT = Path(os.environ.get("DATA_ROOT", TOPIC_ROOT / "data")).expanduser()
+DATASET_ROOT = Path(
+    os.environ.get("DATASET_ROOT", DATA_ROOT / "omy_pnp_language")
+).expanduser()
+OUTPUT_ROOT = Path(os.environ.get("OUTPUT_ROOT", TOPIC_ROOT / "outputs")).expanduser()
+DATASET_REPO_ID = os.environ.get("DATASET_REPO_ID", "datawhale_eai_pnp_language")
+
+
+def episode_rows() -> list[dict]:
+    path = DATASET_ROOT / "meta" / "episodes.jsonl"
+    if not path.exists():
+        raise FileNotFoundError(f"找不到 episodes.jsonl：{path}")
+    return [
+        json.loads(line)
+        for line in path.read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+
+
+def list_episodes() -> None:
+    rows = episode_rows()
     print(f"{'ep':>3} {'task':<40} {'frames':>6} {'时长s':>6}")
     print("-" * 60)
-    for e in eps:
-        print(f"{e['episode_index']:>3} {e['tasks'][0]:<40} {e['length']:>6} {e['length']/20:>6.1f}")
+    for row in rows:
+        task = str(row.get("tasks", [""])[0])
+        length = int(row.get("length", 0))
+        print(
+            f"{int(row.get('episode_index', 0)):>3} "
+            f"{task:<40} {length:>6} {length / 20:>6.1f}"
+        )
 
-def replay(ep_idx, view, out_path, fps, max_frames):
-    import imageio.v2 as imageio
+
+def to_uint8(image) -> np.ndarray:
+    if hasattr(image, "detach"):
+        image = image.detach().cpu().numpy()
+    image = np.asarray(image)
+
+    if image.ndim == 3 and image.shape[0] in (1, 3) and image.shape[-1] not in (1, 3):
+        image = np.moveaxis(image, 0, -1)
+    if image.ndim == 2:
+        image = np.repeat(image[..., None], 3, axis=-1)
+    if image.ndim != 3 or image.shape[-1] not in (1, 3):
+        raise ValueError(f"无法识别图像形状：{image.shape}")
+    if image.shape[-1] == 1:
+        image = np.repeat(image, 3, axis=-1)
+
+    if np.issubdtype(image.dtype, np.floating):
+        scale = 255.0 if float(np.nanmax(image)) <= 1.5 else 1.0
+        image = image * scale
+    return np.clip(image, 0, 255).astype(np.uint8)
+
+
+def choose_feature(dataset, view: str) -> str:
+    available = set()
+    meta = getattr(dataset, "meta", None)
+    features = getattr(meta, "features", {}) if meta is not None else {}
+    if isinstance(features, dict):
+        available = set(features)
+
+    candidates = (
+        ("observation.image", "observation.agent_image", "agent_image")
+        if view == "agent"
+        else ("observation.wrist_image", "wrist_image")
+    )
+    if available:
+        for candidate in candidates:
+            if candidate in available:
+                return candidate
+        raise KeyError(
+            f"数据集没有 {view} 视角特征；当前可用特征：{sorted(available)}"
+        )
+    return candidates[0]
+
+
+def replay(
+    episode_index: int,
+    view: str,
+    output_path: Path,
+    fps: int,
+    max_frames: int,
+) -> None:
+    from video_io import write_video
     from lerobot.common.datasets.lerobot_dataset import LeRobotDataset
 
-    # 主相机在 LeRobot v2.1 中命名为 observation.image（非 agent_image）
-    if view == "agent":
-        feature = "observation.image"
-    else:
-        feature = f"observation.{view}_image"
-    dataset = LeRobotDataset("datawhale_eai_pnp_language", root=DATA)
-    ep_start = dataset.episode_data_index["from"][ep_idx].item()
-    ep_end = dataset.episode_data_index["to"][ep_idx].item()
-    n = ep_end - ep_start
-    step = max(1, n // max_frames)
-    frames = []
-    for i in range(ep_start, ep_end, step):
-        img = dataset[i][feature]          # torch (3,256,256) CHW
-        if img.dim() == 3 and img.shape[0] == 3:
-            img = img.permute(1, 2, 0)     # -> HWC
-        frames.append((img.numpy() * 255).astype(np.uint8))
-    imageio.mimsave(out_path, frames, fps=fps, quality=8)
-    print(f"✅ episode {ep_idx} ({view}): {len(frames)} 帧 -> {out_path}")
+    if max_frames <= 0:
+        raise ValueError("max_frames 必须大于 0。")
+    rows = episode_rows()
+    indices = [int(row.get("episode_index", -1)) for row in rows]
+    if episode_index not in indices:
+        raise IndexError(
+            f"episode {episode_index} 不存在，可用编号为：{indices}"
+        )
 
-if __name__ == "__main__":
-    ap = argparse.ArgumentParser()
-    ap.add_argument("-e", "--episode", type=int, default=0)
-    ap.add_argument("-v", "--view", default="agent", choices=["agent", "wrist"])
-    ap.add_argument("-o", "--output", default=None)
-    ap.add_argument("--fps", type=int, default=15)
-    ap.add_argument("--max-frames", type=int, default=200)
-    ap.add_argument("--list", action="store_true")
-    args = ap.parse_args()
+    dataset = LeRobotDataset(DATASET_REPO_ID, root=str(DATASET_ROOT))
+    feature = choose_feature(dataset, view)
+    ep_start = int(dataset.episode_data_index["from"][episode_index].item())
+    ep_end = int(dataset.episode_data_index["to"][episode_index].item())
+    frame_count = ep_end - ep_start
+    step = max(1, math.ceil(frame_count / max_frames))
+
+    frames = [
+        to_uint8(dataset[index][feature])
+        for index in range(ep_start, ep_end, step)
+    ]
+    if not frames:
+        raise RuntimeError(f"episode {episode_index} 没有可回放的帧。")
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    codec = write_video(output_path, frames, fps)
+    print(
+       f"完成：episode={episode_index}, view={view}, "
+       f"feature={feature}, codec={codec}, frames={len(frames)} -> {output_path}"
+    )
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-e", "--episode", type=int, default=0)
+    parser.add_argument(
+        "-v", "--view", choices=["agent", "wrist"], default="agent"
+    )
+    parser.add_argument("-o", "--output", type=Path, default=None)
+    parser.add_argument("--dataset-root", type=Path, default=None)
+    parser.add_argument("--fps", type=int, default=15)
+    parser.add_argument("--max-frames", type=int, default=200)
+    parser.add_argument("--list", action="store_true")
+    args = parser.parse_args()
+
+    global DATASET_ROOT
+    if args.dataset_root is not None:
+        DATASET_ROOT = args.dataset_root.expanduser()
 
     if args.list:
         list_episodes()
-    else:
-        out = args.output or f"/tmp/replay_ep{args.episode}_{args.view}.mp4"
-        replay(args.episode, args.view, out, args.fps, args.max_frames)
+        return
+
+    output = args.output
+    if output is None:
+        output = OUTPUT_ROOT / f"replay_ep{args.episode}_{args.view}.mp4"
+    replay(args.episode, args.view, output, args.fps, args.max_frames)
+
+
+if __name__ == "__main__":
+    main()
