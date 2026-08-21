@@ -10,6 +10,24 @@ python code/generate_tutorial_assets.py --source-root "$OUTPUT_ROOT"
 
 其中 `$OUTPUT_ROOT` 应包含批量评估 JSONL/TSV 和代表性 rollout 视频。若不传 `--source-root`，脚本会使用内置的示例指标生成图表，并只用分支内已有 MP4 生成可播放预览；缺失源视频不会再生成误导性的占位图。
 
+## 视频播放兼容性
+
+教学视频统一使用浏览器和 Jupyter 更容易解码的 H.264、`yuv420p` 和 MP4 faststart 配置。某些 `imageio`/FFmpeg 环境默认生成 MPEG-4 Part 2；文件虽然存在，但 Chrome、JupyterLab 或 Code Server 可能只显示黑色播放器和 `0:00`。
+
+检查当前素材的编码：
+
+```bash
+python code/transcode_tutorial_videos.py --check-only
+```
+
+需要转换时运行：
+
+```bash
+python code/transcode_tutorial_videos.py
+```
+
+脚本只处理专题 `assets/` 下的 MP4，转换完成后保留原文件名，Notebook 不需要修改引用路径。
+
 | 文件 | 用途 |
 | --- | --- |
 | `model_status_summary.png` | 专题当前复刻状态总览 |

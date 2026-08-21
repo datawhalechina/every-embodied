@@ -49,6 +49,8 @@ Task 11 已内置一条约 2 MB 的严格成功回放，不需要模型权重，
 - [LeRobot MuJoCo 训练 ACT、SmolVLA、pi_0 教程](https://github.com/datawhalechina/every-embodied/blob/main/06-策略抓取或抓取VLA/大模型控制、VLA、VLM/04mujoco复现ACT、Pi0、SmolVLA/README.md)
 - [策略诊断与物理成功评估](https://github.com/datawhalechina/every-embodied/blob/main/06-策略抓取或抓取VLA/大模型控制、VLA、VLM/04mujoco复现ACT、Pi0、SmolVLA/09策略诊断与物理成功评估.md)
 
+训练、采集和闭环 Notebook 所依赖的上游工程放置方式见 [`external/README.md`](./external/README.md)。当前轻量分支不复制完整上游工作目录；已有主仓库时设置 `PROJECT_ROOT` 即可，发布自包含课程包时再使用精选运行时 bundle 或 Release/LFS 资产。
+
 ## 章节目录
 
 | 任务 | Markdown 概述 | Notebook 实操 |
