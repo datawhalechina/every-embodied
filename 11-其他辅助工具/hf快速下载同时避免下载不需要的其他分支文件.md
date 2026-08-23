@@ -26,9 +26,9 @@ python3 download_hf_files_new.py facebook/dinov3-vits16-pretrain-lvd1689m main -
 
 python hf_downloader.py yifengzhu-hf/LIBERO-datasets main --repo-type dataset --subfolder libero_spatial --download_path ./libero-dataset/dataset/ --download-only
 
-![image.png](/./assets/432e92f2-4655-474d-8551-8b70d0f25541.png)
+![image.png](../06-策略抓取或抓取VLA/大模型控制、VLA、VLM/01SmolVLA-LIBERO/assets/432e92f2-4655-474d-8551-8b70d0f25541.png)
 
-![image.png](/./assets/c669c2be-3b85-4aee-a1fd-c74df4106f9d.png)
+![image.png](../06-策略抓取或抓取VLA/大模型控制、VLA、VLM/01SmolVLA-LIBERO/assets/c669c2be-3b85-4aee-a1fd-c74df4106f9d.png)
 
 需要切换到session所在路径，方可断点续传
 

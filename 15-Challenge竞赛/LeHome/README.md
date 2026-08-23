@@ -846,11 +846,11 @@ GPU 采样也已经表明这轮长训确实把 L40 吃得很满：
 
 训练曲线：
 
-![ACT training metrics](/root/gpufree-data/lehome-outputs/plots/act_four_types_l40_live/train_metrics.png)
+> **训练曲线图待补充**：原图片托管于作者本地服务器（`/root/gpufree-data/...`），对读者不可见。
 
 GPU 曲线：
 
-![L40 GPU monitor](/root/gpufree-data/lehome-outputs/plots/act_four_types_l40_live/gpu_metrics.png)
+> **GPU 监控图待补充**：原图片托管于作者本地服务器（`/root/gpufree-data/...`），对读者不可见。
 
 ### 3.14.6 这个长训为什么定在 50000 steps
 

@@ -33,7 +33,7 @@ models
 
 [](https://github.com/TATP-233/DISCOVERSE/tree/main#-photorealistic-rendering)
 
-[![photorealistic simulation](/TATP-233/DISCOVERSE/raw/main/assets/img2.png)](https://github.com/TATP-233/DISCOVERSE/blob/main/assets/img2.png)
+[![photorealistic simulation](https://github.com/TATP-233/DISCOVERSE/raw/main/assets/img2.png)](https://github.com/TATP-233/DISCOVERSE/blob/main/assets/img2.png)
 
 ### Preparation
 
