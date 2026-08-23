@@ -805,10 +805,6 @@ python /root/gpufree-data/every-embodied/15-Challenge竞赛/LeHome/resources/scr
   - `/root/gpufree-data/lehome-outputs/train/act_four_types_l40.log`
 - GPU 采样：
   - `/root/gpufree-data/lehome-outputs/monitor/act_four_types_l40_gpu.csv`
-- 训练曲线图：
-  - `/root/gpufree-data/lehome-outputs/plots/act_four_types_l40_live/train_metrics.png`
-- GPU 曲线图：
-  - `/root/gpufree-data/lehome-outputs/plots/act_four_types_l40_live/gpu_metrics.png`
 
 训练命令等价于：
 
@@ -840,19 +836,7 @@ GPU 采样也已经表明这轮长训确实把 L40 吃得很满：
 
 从工程角度，这说明当前这份配置已经达到了“稳定且接近吃满单卡”的目标。
 
-### 3.14.5 教程里建议展示的图
-
-下面两张图就是更适合放进教程正文的版本，标题全部用英文，方便读者直接看图学判断。
-
-训练曲线：
-
-> **训练曲线图待补充**：原图片托管于作者本地服务器（`/root/gpufree-data/...`），对读者不可见。
-
-GPU 曲线：
-
-> **GPU 监控图待补充**：原图片托管于作者本地服务器（`/root/gpufree-data/...`），对读者不可见。
-
-### 3.14.6 这个长训为什么定在 50000 steps
+### 3.14.5 这个长训为什么定在 50000 steps
 
 这里故意没有写成无限拉长，原因是：
 
