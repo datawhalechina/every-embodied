@@ -1,0 +1,32 @@
+{
+  "model": "tencent/Hy-MT2-1.8B-GGUF:Q4_K_M",
+  "modelRevision": "dc5f44fcf1fa496ee7ad725982c0c8c553a4de00259b53af84c4b89fb0c06699",
+  "targetRoot": "en",
+  "maxFilesPerRun": 3,
+  "maxBlockChars": 4500,
+  "excludedPrefixes": [
+    "12-待定开源教程/",
+    "19-Datawhale每月组队学习/",
+    "20-公众号短文宣发/"
+  ],
+  "chapterMap": {
+    "01-具身智能概述": "01-embodied-ai-overview",
+    "02-机器人基础和控制、手眼协调": "02-robot-basics-control-and-hand-eye-coordination",
+    "03-机器人硬件、lerobot及地瓜RDK-X5开发板控制教程": "03-robot-hardware-lerobot-and-rdk-x5",
+    "04-具身场景的计算机视觉、3D重建": "04-computer-vision-and-3d-reconstruction",
+    "05-具身场景的深度和强化学习": "05-deep-and-reinforcement-learning",
+    "06-策略抓取或抓取VLA": "06-manipulation-and-vla",
+    "07-机器人操作、运动控制": "07-robot-operation-and-motion-control",
+    "08-具身导航及VLN": "08-navigation-and-vln",
+    "09-具身智能数据及评估基准benchmark": "09-data-and-benchmarks",
+    "10-具身智能其他仿真工具及仿真前沿": "10-simulation-tools-and-frontiers",
+    "11-其他辅助工具": "11-auxiliary-tools",
+    "13-其他前沿项目复现": "13-frontier-project-reproduction",
+    "14-相关参考": "14-references",
+    "15-Challenge竞赛": "15-challenges",
+    "16-专题组队学习": "16-study-programs",
+    "17-具身世界模型": "17-world-models",
+    "18-无人机专题": "18-drones",
+    "21-机械臂和机器人设计": "21-robot-design"
+  }
+}

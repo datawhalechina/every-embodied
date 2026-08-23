@@ -1,0 +1,240 @@
+name: Offline English translation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**/*.md"
+      - "!en/**"
+      - "!.translation/**"
+  schedule:
+    - cron: "17 18 * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Translation mode
+        required: true
+        default: backfill
+        type: choice
+        options:
+          - backfill
+          - changed
+      max_files:
+        description: Maximum Markdown files in this run
+        required: true
+        default: "3"
+  pull_request:
+    paths:
+      - ".github/workflows/offline-translate-en.yml"
+      - ".translation/**"
+      - "scripts/translate-markdown.mjs"
+      - "scripts/translate-markdown.test.mjs"
+      - "package.json"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: offline-english-translation
+  cancel-in-progress: false
+
+env:
+  LLAMA_VERSION: b10593
+  LLAMA_ARCHIVE_SHA256: fb3479dcb6b8ced8d785585af991b9ffa6ce605b51fc06229c1770544922a0db
+  MODEL_URL: https://huggingface.co/tencent/Hy-MT2-1.8B-GGUF/resolve/main/Hy-MT2-1.8B-Q4_K_M.gguf
+  MODEL_SHA256: dc5f44fcf1fa496ee7ad725982c0c8c553a4de00259b53af84c4b89fb0c06699
+  MODEL_CACHE_DIR: ${{ github.workspace }}/.cache/hy-mt2
+  TRANSLATION_SERVER_URL: http://127.0.0.1:8080
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run test:translation
+
+  model-smoke-test:
+    if: github.event_name == 'pull_request'
+    needs: unit-tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 20
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: ${{ env.MODEL_CACHE_DIR }}
+          key: hy-mt2-q4-${{ env.MODEL_SHA256 }}
+      - name: Install pinned llama.cpp
+        shell: bash
+        run: |
+          set -euo pipefail
+          archive="$RUNNER_TEMP/llama.tar.gz"
+          curl --fail --location --retry 5 \
+            "https://github.com/ggml-org/llama.cpp/releases/download/${LLAMA_VERSION}/llama-${LLAMA_VERSION}-bin-ubuntu-x64.tar.gz" \
+            --output "$archive"
+          echo "${LLAMA_ARCHIVE_SHA256}  $archive" | sha256sum --check
+          mkdir -p "$RUNNER_TEMP/llama"
+          tar -xzf "$archive" -C "$RUNNER_TEMP/llama"
+          server="$(find "$RUNNER_TEMP/llama" -type f -name llama-server -print -quit)"
+          chmod +x "$server"
+          echo "LLAMA_SERVER=$server" >> "$GITHUB_ENV"
+      - name: Download pinned offline model
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$MODEL_CACHE_DIR"
+          model="$MODEL_CACHE_DIR/Hy-MT2-1.8B-Q4_K_M.gguf"
+          if [[ ! -f "$model" ]]; then
+            curl --fail --location --retry 5 "$MODEL_URL" --output "$model"
+          fi
+          echo "${MODEL_SHA256}  $model" | sha256sum --check
+          echo "MODEL_PATH=$model" >> "$GITHUB_ENV"
+      - name: Start local translation server
+        shell: bash
+        run: |
+          set -euo pipefail
+          nohup "$LLAMA_SERVER" \
+            --model "$MODEL_PATH" --host 127.0.0.1 --port 8080 \
+            --ctx-size 8192 --threads 4 --jinja \
+            > "$RUNNER_TEMP/llama-server.log" 2>&1 &
+          for _ in {1..180}; do
+            if curl --silent --fail http://127.0.0.1:8080/health >/dev/null; then
+              exit 0
+            fi
+            sleep 2
+          done
+          cat "$RUNNER_TEMP/llama-server.log"
+          exit 1
+      - name: Translate one protected Markdown sentence
+        run: |
+          node --input-type=module <<'NODE'
+          import { createHttpTranslator, translateMarkdown } from './scripts/translate-markdown.mjs';
+          const translate = createHttpTranslator(process.env.TRANSLATION_SERVER_URL);
+          const output = await translateMarkdown('机械臂使用 `VLA` 完成抓取。\n', {
+            translate,
+            glossary: '机械臂 = robotic arm\n抓取 = grasping',
+            maxBlockChars: 1000
+          });
+          console.log(output);
+          if (/[\u3400-\u9fff]/u.test(output) || !output.includes('`VLA`')) process.exit(1);
+          NODE
+
+  translate:
+    if: github.event_name != 'pull_request'
+    needs: unit-tests
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 20
+      - name: Skip while a translation PR is awaiting review
+        id: gate
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          open_pr="$(gh pr list --head automation/update-english --state open --json number --jq 'length')"
+          if [[ "$open_pr" != "0" ]]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "An English translation PR is already open."
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        if: steps.gate.outputs.skip == 'false'
+        with:
+          path: ${{ env.MODEL_CACHE_DIR }}
+          key: hy-mt2-q4-${{ env.MODEL_SHA256 }}
+      - name: Install pinned llama.cpp
+        if: steps.gate.outputs.skip == 'false'
+        shell: bash
+        run: |
+          set -euo pipefail
+          archive="$RUNNER_TEMP/llama.tar.gz"
+          curl --fail --location --retry 5 \
+            "https://github.com/ggml-org/llama.cpp/releases/download/${LLAMA_VERSION}/llama-${LLAMA_VERSION}-bin-ubuntu-x64.tar.gz" \
+            --output "$archive"
+          echo "${LLAMA_ARCHIVE_SHA256}  $archive" | sha256sum --check
+          mkdir -p "$RUNNER_TEMP/llama"
+          tar -xzf "$archive" -C "$RUNNER_TEMP/llama"
+          server="$(find "$RUNNER_TEMP/llama" -type f -name llama-server -print -quit)"
+          chmod +x "$server"
+          echo "LLAMA_SERVER=$server" >> "$GITHUB_ENV"
+      - name: Download pinned offline model
+        if: steps.gate.outputs.skip == 'false'
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$MODEL_CACHE_DIR"
+          model="$MODEL_CACHE_DIR/Hy-MT2-1.8B-Q4_K_M.gguf"
+          if [[ ! -f "$model" ]]; then
+            curl --fail --location --retry 5 "$MODEL_URL" --output "$model"
+          fi
+          echo "${MODEL_SHA256}  $model" | sha256sum --check
+          echo "MODEL_PATH=$model" >> "$GITHUB_ENV"
+      - name: Start local translation server
+        if: steps.gate.outputs.skip == 'false'
+        shell: bash
+        run: |
+          set -euo pipefail
+          nohup "$LLAMA_SERVER" \
+            --model "$MODEL_PATH" --host 127.0.0.1 --port 8080 \
+            --ctx-size 8192 --threads 4 --jinja \
+            > "$RUNNER_TEMP/llama-server.log" 2>&1 &
+          for _ in {1..180}; do
+            if curl --silent --fail http://127.0.0.1:8080/health >/dev/null; then
+              exit 0
+            fi
+            sleep 2
+          done
+          cat "$RUNNER_TEMP/llama-server.log"
+          exit 1
+      - name: Translate changed or stale Markdown
+        if: steps.gate.outputs.skip == 'false'
+        shell: bash
+        env:
+          MAX_FILES: ${{ github.event.inputs.max_files || '3' }}
+        run: |
+          set -euo pipefail
+          if [[ "${{ github.event_name }}" == "push" ]]; then
+            node scripts/translate-markdown.mjs \
+              --base "${{ github.event.before }}" --head "${{ github.sha }}" \
+              --max-files "$MAX_FILES"
+          elif [[ "${{ github.event.inputs.mode || 'backfill' }}" == "changed" ]]; then
+            node scripts/translate-markdown.mjs \
+              --base "${{ github.sha }}^" --head "${{ github.sha }}" \
+              --max-files "$MAX_FILES"
+          else
+            node scripts/translate-markdown.mjs --backfill --max-files "$MAX_FILES"
+          fi
+      - name: Create review pull request
+        if: steps.gate.outputs.skip == 'false'
+        uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676
+        with:
+          token: ${{ github.token }}
+          branch: automation/update-english
+          delete-branch: true
+          commit-message: "docs: 离线更新英文翻译"
+          title: "docs: 离线更新英文翻译"
+          body: |
+            由公共 GitHub Runner 上的 `Hy-MT2-1.8B-GGUF Q4_K_M` 离线生成。
+
+            - 未调用任何付费翻译 API
+            - 代码、公式、URL 和资源路径经过保护与校验
+            - 请重点复核技术术语和复杂长句
+          add-paths: |
+            .translation/state.json
+            en/**
