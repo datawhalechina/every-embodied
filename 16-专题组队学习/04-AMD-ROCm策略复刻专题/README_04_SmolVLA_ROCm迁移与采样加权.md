@@ -117,21 +117,13 @@ SmolVLA 在 ROCm 上训练时，记录：
 
 这里把它称为“保护基线”，意思是后面的新实验都要和它比较。新 checkpoint 只有在同一批 seed、同一 `physical_success` 口径下超过这条基线，才值得替换它。这样可以避免看到某一次训练 loss 更低，就误以为模型真的更好。
 
-<video controls muted preload="metadata" width="100%">
-  <source src="assets/smolvla_weighted500_red_failure_seed8.mp4" type="video/mp4">
-</video>
+![SmolVLA baseline 蓝杯失败关键帧](./assets/smolvla_blue_failure_sequence.jpg)
 
-[直接打开或下载 SmolVLA 失败参考视频](./assets/smolvla_weighted500_red_failure_seed8.mp4)
+图 2：baseline 的蓝杯失败序列。这个失败不是因为环境不能抓杯，而是模型没有稳定执行蓝杯指令。
 
-图 2：分支内已提交的 SmolVLA 红杯失败参考。这里不把它冒充成缺失的蓝杯 baseline 视频；如果要分析蓝杯 baseline，必须提供对应的真实 rollout 输出。
+![SmolVLA 加权采样后蓝杯成功关键帧](./assets/smolvla_blue_success_sequence.jpg)
 
-<video controls muted preload="metadata" width="100%">
-  <source src="assets/smolvla_weighted500_blue_success_seed0.mp4" type="video/mp4">
-</video>
-
-[直接打开或下载 SmolVLA 蓝杯成功视频](./assets/smolvla_weighted500_blue_success_seed0.mp4)
-
-图 3：加权采样后的蓝杯成功回放。它适合放在教程里说明为什么需要按指令颜色拆开评估；对应的 `smolvla_blue_success_sequence.jpg` 由分支内 MP4 生成。
+图 3：加权采样后的蓝杯成功序列。它适合放在教程里说明为什么需要按指令颜色拆开评估。
 
 ## Checkpoint
 

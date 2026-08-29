@@ -105,28 +105,6 @@ pi_0 还需要 Hugging Face gated model 权限。Notebook 只检查 `HF_TOKEN` �
 - `<policy>_seed<seed>.mp4`：用于复核真实行为的 rollout 视频；
 - 终端汇总：严格成功数和总 episode 数。
 
-如果 Notebook 内的闭环单元在远端 kernel 中崩溃，或者需要一次跑多个 seed，
-可以改用专题内的脚本入口。脚本会沿用同一套严格成功判定：
-
-~~~bash
-cd /path/to/every-embodied/16-专题组队学习/04-AMD-ROCm策略复刻专题
-export PROJECT_ROOT=/path/to/mujoco_pnp
-export DATA_ROOT=/path/to/datasets/every_embodied
-export MODEL_ROOT=/path/to/checkpoints/every_embodied
-export OUTPUT_ROOT=/path/to/outputs/every_embodied
-export POLICY_TYPE=smolvla
-export MODEL_RUN_DIR="$MODEL_ROOT/smolvla_weighted_000500"
-export EVAL_SEEDS=1000,1001,1002,1003
-export DEVICE=cuda
-export RENDER=0
-python code/run_closed_loop.py
-~~~
-
-code/task11_smolvla_eval.py 是 SmolVLA 四 seed 的快捷入口；
-code/replay_dataset.py --list 可以先检查 episode，再使用
---episode 0 --view agent 或 --view wrist 导出回放视频。详细的目录约定、
-依赖和故障提示见 [code/README.md](./code/README.md)。
-
 如果 `legacy_success` 高于 `physical_success`，说明出现了推杯、空抓、运输中掉落或其它几何误判。此时回到任务 02–06，按 observation、action、接触阶段和视频证据继续诊断。
 
 ## pi0 strict-input 复核

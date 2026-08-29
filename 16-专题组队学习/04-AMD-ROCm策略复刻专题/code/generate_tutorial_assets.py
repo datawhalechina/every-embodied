@@ -120,23 +120,6 @@ VIDEO_SPECS = [
     ),
 ]
 
-# The lightweight branch carries a small set of real MP4s.  Use them to build
-# previews when the original experiment output directory is not distributed.
-# The red-cup failure is intentionally named as a reference rather than being
-# presented as the missing blue-cup baseline.
-TRACKED_VIDEO_SPECS = [
-    (
-        "smolvla_failure_reference_sequence.jpg",
-        "SmolVLA tracked red-cup failure reference",
-        "smolvla_weighted500_red_failure_seed8.mp4",
-    ),
-    (
-        "smolvla_blue_success_sequence.jpg",
-        "SmolVLA tracked blue-cup success",
-        "smolvla_weighted500_blue_success_seed0.mp4",
-    ),
-]
-
 PI0_DIAGNOSTIC = {
     "raw": {
         "label": "pi0 raw",
@@ -252,19 +235,8 @@ PI0_TCPPLATE_SCAFFOLD = {
 
 
 def load_font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont:
-    configured = FONT_BOLD if bold else FONT_REGULAR
-    candidates = [
-        configured,
-        r"C:\Windows\Fonts\msyhbd.ttc" if bold else r"C:\Windows\Fonts\msyh.ttc",
-        r"C:\Windows\Fonts\arialbd.ttf" if bold else r"C:\Windows\Fonts\arial.ttf",
-        "/usr/share/fonts/truetype/liberation2/LiberationSans-Bold.ttf"
-        if bold
-        else "/usr/share/fonts/truetype/liberation2/LiberationSans-Regular.ttf",
-    ]
-    for path in candidates:
-        if Path(path).exists():
-            return ImageFont.truetype(path, size)
-    return ImageFont.load_default()
+    path = FONT_BOLD if bold else FONT_REGULAR
+    return ImageFont.truetype(path, size)
 
 
 def percent_text(value: float) -> str:
@@ -588,12 +560,10 @@ def placeholder_sheet(title: str, out_path: Path, reason: str) -> None:
 
 def sample_video_frames(video_path: Path, title: str, out_path: Path) -> None:
     if cv2 is None:
-        print(f"Skip preview for {title}: OpenCV is not installed.")
+        placeholder_sheet(title, out_path, "OpenCV is not installed; video keyframes were not extracted.")
         return
     if not video_path.exists():
-        if out_path.exists():
-            out_path.unlink()
-        print(f"Skip preview for {title}: source video is unavailable: {video_path}")
+        placeholder_sheet(title, out_path, "Source video is unavailable in this checkout.")
         return
 
     cap = cv2.VideoCapture(str(video_path))
@@ -601,9 +571,7 @@ def sample_video_frames(video_path: Path, title: str, out_path: Path) -> None:
     fps = float(cap.get(cv2.CAP_PROP_FPS) or 30.0)
     if total <= 1:
         cap.release()
-        if out_path.exists():
-            out_path.unlink()
-        print(f"Skip preview for {title}: source video has no readable frames.")
+        placeholder_sheet(title, out_path, "Source video did not expose readable frames.")
         return
 
     ratios = [0.05, 0.25, 0.50, 0.75, 0.95]
@@ -623,9 +591,7 @@ def sample_video_frames(video_path: Path, title: str, out_path: Path) -> None:
     cap.release()
 
     if not thumbs:
-        if out_path.exists():
-            out_path.unlink()
-        print(f"Skip preview for {title}: no keyframes could be decoded.")
+        placeholder_sheet(title, out_path, "No keyframes could be decoded from the source video.")
         return
 
     gap = 18
@@ -891,23 +857,8 @@ def main() -> None:
     write_metrics_snapshot(smolvla, act_stages, asset_dir / "metrics_snapshot.json")
 
     for filename, title, rel_path in VIDEO_SPECS:
-        video_path = source_root / rel_path if source_root else None
-        if video_path is not None and video_path.exists():
-            sample_video_frames(video_path, title, asset_dir / filename)
-        else:
-            stale_preview = asset_dir / filename
-            if stale_preview.exists():
-                stale_preview.unlink()
-            print(
-                f"Skip preview for {title}: provide --source-root with {rel_path} "
-                "to regenerate the original experiment preview."
-            )
-
-    for filename, title, rel_path in TRACKED_VIDEO_SPECS:
-        out_path = asset_dir / filename
-        if out_path.exists():
-            continue
-        sample_video_frames(asset_dir / rel_path, title, out_path)
+        video_path = source_root / rel_path if source_root else Path(rel_path)
+        sample_video_frames(video_path, title, asset_dir / filename)
 
     sample_video_frames(
         asset_dir / "pnp_four_view_strict_success.mp4",
