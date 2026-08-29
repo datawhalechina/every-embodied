@@ -4,6 +4,11 @@
 动作和诊断指标；脚本用来批量评估、回放数据集和生成可复核的视频。脚本不
 包含数据集、模型权重或完整 mujoco_pnp 工程。
 
+多基准教程还提供两个轻量入口：
+
+- `convert_discoverse_to_lerobot.py`：把 DISCOVERSE AIRBOT 的两路视频、7 维状态和 7 维动作转换成 LeRobot 数据，并输出逐回合转换清单；
+- `robocasa_match16/sitecustomize.py`：在运行期注册固定的 RoboCasa365 16 任务对比面板，不修改 RoboCasa 上游源码。
+
 ## 运行前准备
 
 在专题目录中设置路径：

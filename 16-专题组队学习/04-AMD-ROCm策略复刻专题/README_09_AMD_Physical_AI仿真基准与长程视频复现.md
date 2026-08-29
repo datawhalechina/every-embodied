@@ -2,6 +2,18 @@
 
 本章把 AMD AI DevMaster Physical AI 项目中的仿真、策略评估和多视角视频整理成一条可复用的学习路径。内容覆盖 Every Embodied、RoboCasa365、DexJoCo、DISCOVERSE、RoboWits 和 Unitree G1 安全控制，并统一说明任务协议、AMD ROCm［AMD 开放计算平台］运行路径、结果口径和视频导出方法。
 
+本页负责总览与路线选择。每套 benchmark［评测基准］的下载、环境、迁移、训练、评估和视频命令已经拆成独立教程：
+
+| 阶段 | 详细教程 |
+| --- | --- |
+| 共用准备 | [仿真基准下载、鉴权、断点续传与统一目录](./README_10_仿真基准下载与统一目录.md) |
+| 家庭操作 | [RoboCasa365：资产、GR00T/Pi0.5 训练与 16 任务评估](./README_11_RoboCasa365_ROCm下载训练评估.md) |
+| 灵巧操作 | [DexJoCo：Pi0.5、原生 ROCm JAX［AMD 平台 JAX 运行栈］与 11 任务评估](./README_12_DexJoCo_Pi05_ROCm_JAX迁移训练评估.md) |
+| 合成数据 | [DISCOVERSE：专家数据、ACT/Diffusion Policy［扩散策略］与多视角视频](./README_13_DISCOVERSE_ROCm数据生成训练与多视角视频.md) |
+| 创意解题 | [RoboWits：受限数据、ACT/Pi0/Pi0.5 与 mutation［突变条件］评估](./README_14_RoboWits_ROCm下载训练与创意任务评估.md) |
+| 安全控制 | [Unitree G1：预测 CBF［控制障碍函数］与全身体态回放](./README_15_Unitree_G1预测CBF_ROCm复现.md) |
+| 结果发布 | [统一评估、视频编码与结果归档](./README_16_统一评估视频与结果归档.md) |
+
 ## 1. 从两个长程成功案例开始
 
 下面两段视频都在 AMD Ryzen AI MAX+ 395 上完成闭环推理和仿真录制。动态预览压缩了时间轴；点击预览可观看保持原始动作节奏的完整 MP4［视频文件］。
@@ -51,7 +63,7 @@
 推荐为每个实验保存以下最小结构：
 
 ```text
-runs/<system>/<model>/<task>/
+runs/{system}/{model}/{task}/
 ├── run_config.json
 ├── episodes/
 │   ├── seed_000.json

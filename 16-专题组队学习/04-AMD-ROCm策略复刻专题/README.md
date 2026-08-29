@@ -95,6 +95,13 @@ Task 11 已内置一条约 2 MB 的严格成功回放，不需要模型权重，
 | 12 | [pi0 strict-input 与随机环境复核](./README_07_ROCm端到端采集训练部署.md#pi0-strict-input-复核) | [12_pi0_strict_input_end_to_end.ipynb](./notebooks/12_pi0_strict_input_end_to_end.ipynb) |
 | 13 | [Pi0.5 随机位置、coherent recovery、EEF-delta 与 chunk 对齐](./README_05_pi0_ROCm权限Smoke与训练门控.md#pi05-eef-delta) | [13_pi05_random_position_eef_delta.ipynb](./notebooks/13_pi05_random_position_eef_delta.ipynb) |
 | 14 | [AMD Physical AI 仿真基准与长程视频复现](./README_09_AMD_Physical_AI仿真基准与长程视频复现.md) | 长程 MP4、多视角动态预览与结果协议 |
+| 15 | [仿真基准下载、鉴权与统一目录](./README_10_仿真基准下载与统一目录.md) | 各 benchmark［评测基准］共用的源码、数据、模型和运行目录 |
+| 16 | [RoboCasa365 下载、训练与评估](./README_11_RoboCasa365_ROCm下载训练评估.md) | 厨房资产、GR00T/Pi0.5、16×50 正式评估与四视角视频 |
+| 17 | [DexJoCo Pi0.5 与原生 ROCm JAX 复现](./README_12_DexJoCo_Pi05_ROCm_JAX迁移训练评估.md) | 11 个灵巧任务、数据转换、训练、策略服务与闭环视频 |
+| 18 | [DISCOVERSE 数据生成、训练与多视角视频](./README_13_DISCOVERSE_ROCm数据生成训练与多视角视频.md) | AIRBOT/MMK2、专家轨迹、ACT/Diffusion Policy 与 3DGS |
+| 19 | [RoboWits 下载、训练与创意任务评估](./README_14_RoboWits_ROCm下载训练与创意任务评估.md) | 受限数据、ACT/Pi0/Pi0.5、seed/mutation 评估 |
+| 20 | [Unitree G1 预测 CBF 安全控制复现](./README_15_Unitree_G1预测CBF_ROCm复现.md) | G1 资产、AMD 张量路径、ONNX 策略和全身体态回放 |
+| 21 | [统一评估、视频与结果归档](./README_16_统一评估视频与结果归档.md) | 逐回合 JSON、多视角同步、视频编码和结果发布 |
 
 Markdown 章节主要负责讲清楚背景、判断口径和实验结论；Notebook 负责逐格运行检查、读取指标、生成图表和整理命令模板。可以先读 Markdown，再打开对应 Notebook 跟着跑。
 
