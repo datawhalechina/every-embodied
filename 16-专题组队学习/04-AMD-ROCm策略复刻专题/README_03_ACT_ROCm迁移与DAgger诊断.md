@@ -107,12 +107,11 @@ ckpt/act_scripted_reset_oracle_plus_prefix40_dagger_best025_toffset2_downweight0
 AMD395 protected/act_stable61_to_dagger_nomemleak_step1500_strict15of30
 physical_success = 15/30
 fixed_seed_groups = 3 组，每组 10 条
-model_sha256 = b9b178377995a674a06bc5d1500c8e7e7fc5d02649268855f892b3987bf5bfeb4
 ```
 
-当前可审计的分支是：AMD395 上 stable61/step2500 fallback 为 `7/30`；旧 protected DAgger artifact 为 `2/30`；新的 repair15 protected candidate 为 `15/30`。历史摘要中的 `17/30` 尚未由当前保护权重完全恢复，暂列为历史目标。注意，日志里的专家恢复采集本身有 `17/40` 条成功，不能把数据采集成功数当作策略闭环成功率。
+固定三面板评估中，AMD395 上 stable61/step2500 为 `7/30`，protected DAgger 为 `2/30`，repair15 为 `15/30`。专家恢复采集得到 `17/40` 条合格轨迹；该数值描述数据采集质量，策略结果统一采用后续闭环评估的 `physical_success`。
 
-Notebook 口径必须单独说明：此前 `15/30` 保护权重来自 AMD395 的低学习率续训 wrapper，不是 Notebook 已执行出来的结果。`notebooks/16_act_end_to_end.ipynb` 现已内置同一套 native protected recipe（数据包装、轨迹加权采样、no-VAE、gripper BCE、tqdm、checkpoint 和严格评估），但在 Jupyter runtime 完成一次原生执行前，不把 `15/30` 标成 Notebook 复现结果。
+[`notebooks/16_act_end_to_end.ipynb`](./notebooks/16_act_end_to_end.ipynb)内置同一套保护训练配方：数据包装、轨迹加权采样、no-VAE、gripper BCE、tqdm、checkpoint 和严格评估。运行时设置 `ACT_RECIPE=repair15`，训练与评估使用同一输出目录。
 
 ## ROCm 上要记录什么
 
@@ -129,9 +128,9 @@ ACT 训练通常显存占用不算高，但仍然要记录：
 
 如果训练失败，先用设备日志证明是不是硬件或 ROCm 问题；如果训练稳定但策略失败，优先回到数据和闭环诊断。
 
-## 本轮复刻结果示例
+## 闭环诊断结果
 
-本轮 ACT 复刻中，单纯 clean closed-loop 基线几乎不能通过严格物理成功判定。加入 timestamp offset、downweight correction 和 DAgger 数据后，稳定 fallback 分支为 `7/30`，旧 protected DAgger artifact 为 `2/30`；新的 repair15 continuation 已达到 `15/30`。这说明 ACT 已经形成了一个完整的 ROCm 闭环诊断案例，但与旧教程 `17/30` 仍差 2 条，尚未完全对齐。
+clean closed-loop 基线为 `0/10`。加入 timestamp offset、downweight correction 和 DAgger 数据后，stable61 为 `7/30`，protected DAgger 为 `2/30`，repair15 continuation 为 `15/30`。三个固定面板分别取得 `3/10`、`4/10` 和 `8/10`。
 
 ![ACT DAgger 进展曲线](./assets/act_dagger_progress_curve.png)
 
@@ -145,11 +144,14 @@ ACT 训练通常显存占用不算高，但仍然要记录：
 | stable61 fallback | 7/30 | 旧基线 |
 | protected DAgger artifact | 2/30 | 旧 protected 目录的 exact 结果 |
 | repair15 protected candidate | 15/30 | 当前最佳；三组固定种子各 10 条，分组结果为 `3/10 + 4/10 + 8/10` |
-| 旧教程 best DAgger 摘要 | 17/30（待复核） | 当前原始逐 seed 文件未恢复，不能作为现行分数 |
 
-![ACT DAgger 进展曲线](./assets/act_dagger_progress_curve.png)
+![ACT DAgger 成功关键帧](./assets/act_success_sequence.jpg)
 
-图 2：ACT 从基线到 DAgger 纠偏的物理成功率变化。当前轻量分支保留曲线和指标快照，但没有把原始 ACT rollout 视频复制进来，也不使用无法播放的占位关键帧。拿到完整实验输出后，可用 `python code/generate_tutorial_assets.py --source-root "$OUTPUT_ROOT"` 生成成功/失败关键帧。
+图 2：ACT DAgger 物理成功 rollout，用于观察抓取、搬运和释放阶段。
+
+![ACT DAgger 失败关键帧](./assets/act_failure_sequence.jpg)
+
+图 3：ACT best DAgger 的典型失败 rollout。即使环境几何条件偶尔接近成功，也要继续检查抬升高度和终态姿态。
 
 ## Checkpoint
 

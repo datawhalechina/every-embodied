@@ -18,9 +18,8 @@ This is the protected Pi0 fine-tuning checkpoint used in the Datawhale Every Emb
 - Hard subset: `6/8`
 - Task: MuJoCo mug-to-plate pick and place
 - Recipe: clean-success-only data, blue-task reweighting, protected continuation to the selected checkpoint
-- Model SHA256: `44aa854a5f084d39ba375d1ffe951ca0c8b6d147bacdb1a9e637ed1725514eeb`
 
-This is a fine-tuned Pi0 checkpoint. The result depends on the matching `eef_abs` action bridge, 8-D state (`6DoF + gripper + timestamp`), action-chunk execution, normalization statistics, camera order, and strict physical-success predicate. It must not be described as raw Pi0 zero-shot success.
+This fine-tuned Pi0 checkpoint uses the matching `eef_abs` action bridge, 8-D state (`6DoF + gripper + timestamp`), action-chunk execution, normalization statistics, camera order, and strict physical-success predicate.
 
 ## Tutorial
 
@@ -28,8 +27,8 @@ See the [Every Embodied AMD ROCm topic](https://github.com/datawhalechina/every-
 
 ## Contents
 
-The `weights/` directory contains model and configuration files. Evaluation metadata is kept in `evaluation/`. Optimizer state and raw datasets are intentionally omitted.
+The `weights/` directory contains model and configuration files. Evaluation metadata is kept in `evaluation/`. Dataset preparation and continuation training are documented in the tutorial.
 
 ## License and attribution
 
-Please follow the licenses of Pi0, PaliGemma, LeRobot, the base checkpoint, and the Every Embodied project. This model card describes a reproducible tutorial artifact, not a new foundation model.
+Please follow the licenses of Pi0, PaliGemma, LeRobot, the base checkpoint, and the Every Embodied project.

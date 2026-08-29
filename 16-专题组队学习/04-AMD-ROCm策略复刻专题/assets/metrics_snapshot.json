@@ -73,8 +73,7 @@
       "success": 15,
       "total": 30,
       "rate": 0.5,
-      "panel_breakdown": "3/10 + 4/10 + 8/10",
-      "model_sha256": "b9b178377995a674a06bc5d1500c8e7e7fc5d02649268855f892b3987bf5bfeb4"
+      "panel_breakdown": "3/10 + 4/10 + 8/10"
     },
     {
       "label": "protected DAgger current exact",
@@ -185,8 +184,7 @@
       "physical_success": "7/30"
     },
     "act_protected_dagger_current_exact": {
-      "physical_success": "2/30",
-      "model_sha256": "3f98b40c5d0557ea6b4fb171b47ebfced0db60adc11199e56ea94db3efa4a7f0"
+      "physical_success": "2/30"
     },
     "act_historical_summary_unverified": {
       "physical_success": "17/30"
@@ -233,7 +231,6 @@
     "act_protected_repair15_current_exact": {
       "physical_success": "15/30",
       "panel_breakdown": "3/10 + 4/10 + 8/10",
-      "model_sha256": "b9b178377995a674a06bc5d1500c8e7e7fc5d02649268855f892b3987bf5bfeb4",
       "artifact": "AMD395 protected/act_stable61_to_dagger_nomemleak_step1500_strict15of30"
     }
   }

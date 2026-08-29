@@ -5,18 +5,39 @@
 """
 from __future__ import annotations
 
+import argparse
 from pathlib import Path
 
 import sys
 
-import mujoco
-import numpy as np
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from video_io import write_video
+def parse_args() -> argparse.Namespace:
+    topic_root = Path(__file__).resolve().parents[2]
+    parser = argparse.ArgumentParser(
+        description="Render a MuJoCo falling-ball smoke video.",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=topic_root / "outputs" / "demo_videos" / "ball_fall.mp4",
+    )
+    return parser.parse_args()
 
 
 def main() -> None:
+    args = parse_args()
+    try:
+        import mujoco
+        import numpy as np
+    except ImportError as exc:
+        raise RuntimeError(
+            "This demo requires the mujoco and numpy Python packages."
+        ) from exc
+
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+    from video_io import write_video
+
     xml = """
     <mujoco model="Falling Ball">
       <option gravity="0 0 -9.81"/>
@@ -62,11 +83,8 @@ def main() -> None:
             renderer.update_scene(data, camera=camera)
             frames.append(renderer.render().copy())
 
-    output_dir = (
-        Path(__file__).resolve().parents[2] / "outputs" / "demo_videos"
-    )
-    output_dir.mkdir(parents=True, exist_ok=True)
-    output = output_dir / "ball_fall.mp4"
+    output = args.output.expanduser()
+    output.parent.mkdir(parents=True, exist_ok=True)
     codec = write_video(output, frames, fps=20)
 
     def ball_pixels(frame: np.ndarray) -> np.ndarray:

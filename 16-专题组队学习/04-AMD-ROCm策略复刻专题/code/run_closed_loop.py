@@ -19,37 +19,13 @@ ROCm 下 PyTorch 仍使用 cuda 设备名，这是 LeRobot/ROCm 的兼容约定�
 """
 from __future__ import annotations
 
+import argparse
 import json
 import os
 import random
 import sys
 import time
 from pathlib import Path
-
-
-TOPIC_ROOT = Path(__file__).resolve().parents[1]
-PROJECT_ROOT = Path(
-    os.environ.get("PROJECT_ROOT", TOPIC_ROOT / "external" / "mujoco_pnp")
-).expanduser()
-DATA_ROOT = Path(os.environ.get("DATA_ROOT", TOPIC_ROOT / "data")).expanduser()
-DATASET_ROOT = Path(
-    os.environ.get("DATASET_ROOT", DATA_ROOT / "omy_pnp_language")
-).expanduser()
-OUTPUT_ROOT = Path(os.environ.get("OUTPUT_ROOT", TOPIC_ROOT / "outputs")).expanduser()
-MODEL_ROOT = Path(
-    os.environ.get("MODEL_ROOT", PROJECT_ROOT / "ckpt")
-).expanduser()
-
-POLICY_TYPE = os.environ.get("POLICY_TYPE", "act").lower()
-DATASET_REPO_ID = os.environ.get("DATASET_REPO_ID", "datawhale_eai_pnp_language")
-MODEL_RUN_DIR = Path(
-    os.environ.get("MODEL_RUN_DIR", MODEL_ROOT / f"{POLICY_TYPE}_rocm_full")
-).expanduser()
-POLICY_PATH = os.environ.get("POLICY_PATH", "").strip()
-DEVICE = os.environ.get("DEVICE", "cuda")
-TASK_TEXT = os.environ.get("TASK_TEXT", "Place the blue mug on the plate.")
-OUTPUT_DIR = OUTPUT_ROOT / f"{POLICY_TYPE}_closed_loop"
-
 
 def env_bool(name: str, default: bool) -> bool:
     value = os.environ.get(name)
@@ -70,11 +46,86 @@ def parse_seeds(value: str) -> list[int]:
     return seeds
 
 
-EVAL_SEEDS = parse_seeds(os.environ.get("EVAL_SEEDS", "1000,1001,1002,1003"))
-MAX_ACTION_STEPS = env_int("MAX_ACTION_STEPS", 300)
-VIDEO_STRIDE = max(1, env_int("VIDEO_STRIDE", 2))
-VIDEO_FPS = max(1, env_int("VIDEO_FPS", 10))
-RENDER = env_bool("RENDER", False)
+TOPIC_ROOT = Path(__file__).resolve().parents[1]
+
+
+def parse_args() -> argparse.Namespace:
+    default_project = Path(
+        os.environ.get("PROJECT_ROOT", TOPIC_ROOT / "external" / "mujoco_pnp")
+    )
+    default_data = Path(os.environ.get("DATA_ROOT", TOPIC_ROOT / "data"))
+    default_model = Path(os.environ.get("MODEL_ROOT", default_project / "ckpt"))
+    parser = argparse.ArgumentParser(
+        description="Run fixed-seed ACT, SmolVLA, or Pi0 MuJoCo closed-loop evaluation.",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
+    parser.add_argument("--project-root", type=Path, default=default_project)
+    parser.add_argument("--data-root", type=Path, default=default_data)
+    parser.add_argument(
+        "--dataset-root",
+        type=Path,
+        default=Path(os.environ.get("DATASET_ROOT", default_data / "omy_pnp_language")),
+    )
+    parser.add_argument(
+        "--output-root",
+        type=Path,
+        default=Path(os.environ.get("OUTPUT_ROOT", TOPIC_ROOT / "outputs")),
+    )
+    parser.add_argument("--model-root", type=Path, default=default_model)
+    parser.add_argument(
+        "--policy-type",
+        choices=("act", "smolvla", "pi0"),
+        default=os.environ.get("POLICY_TYPE", "act").lower(),
+    )
+    parser.add_argument("--model-run-dir", type=Path)
+    parser.add_argument("--policy-path", type=Path)
+    parser.add_argument("--device", default=os.environ.get("DEVICE", "cuda"))
+    parser.add_argument(
+        "--task-text",
+        default=os.environ.get("TASK_TEXT", "Place the blue mug on the plate."),
+    )
+    parser.add_argument(
+        "--eval-seeds",
+        default=os.environ.get("EVAL_SEEDS", "1000,1001,1002,1003"),
+    )
+    parser.add_argument(
+        "--max-action-steps",
+        type=int,
+        default=env_int("MAX_ACTION_STEPS", 300),
+    )
+    parser.add_argument(
+        "--video-stride", type=int, default=env_int("VIDEO_STRIDE", 2)
+    )
+    parser.add_argument("--video-fps", type=int, default=env_int("VIDEO_FPS", 10))
+    parser.add_argument(
+        "--render", action="store_true", default=env_bool("RENDER", False)
+    )
+    return parser.parse_args()
+
+
+ARGS = parse_args()
+PROJECT_ROOT = ARGS.project_root.expanduser()
+DATA_ROOT = ARGS.data_root.expanduser()
+DATASET_ROOT = ARGS.dataset_root.expanduser()
+OUTPUT_ROOT = ARGS.output_root.expanduser()
+MODEL_ROOT = ARGS.model_root.expanduser()
+POLICY_TYPE = ARGS.policy_type
+DATASET_REPO_ID = os.environ.get("DATASET_REPO_ID", "datawhale_eai_pnp_language")
+model_run_value = ARGS.model_run_dir or os.environ.get("MODEL_RUN_DIR")
+MODEL_RUN_DIR = (
+    Path(model_run_value).expanduser()
+    if model_run_value
+    else MODEL_ROOT / f"{POLICY_TYPE}_rocm_full"
+)
+POLICY_PATH = str(ARGS.policy_path or os.environ.get("POLICY_PATH", "")).strip()
+DEVICE = ARGS.device
+TASK_TEXT = ARGS.task_text
+OUTPUT_DIR = OUTPUT_ROOT / f"{POLICY_TYPE}_closed_loop"
+EVAL_SEEDS = parse_seeds(ARGS.eval_seeds)
+MAX_ACTION_STEPS = max(1, ARGS.max_action_steps)
+VIDEO_STRIDE = max(1, ARGS.video_stride)
+VIDEO_FPS = max(1, ARGS.video_fps)
+RENDER = ARGS.render
 
 if not PROJECT_ROOT.exists():
     raise FileNotFoundError(

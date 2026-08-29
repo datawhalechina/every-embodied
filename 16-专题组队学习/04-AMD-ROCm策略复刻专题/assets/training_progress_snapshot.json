@@ -8,7 +8,7 @@
       "progress": "2500/2500 continuation steps; selected eval checkpoint step1500",
       "loss": 0.040088,
       "physical_success": "15/30",
-      "note": "从 stable61 step2500 保护权重低学习率续训；chunk20/n10；按闭环选择 step1500；三面板 3/10 + 4/10 + 8/10；模型 SHA b9b178377995a674a06bc5d1500c8e7e7fc5d02649268855f892b3987bf5bfeb4。"
+      "note": "从 stable61 step2500 保护权重低学习率续训；chunk20/n10；按闭环选择 step1500；三面板 3/10 + 4/10 + 8/10。"
     },
     {
       "model": "SmolVLA",

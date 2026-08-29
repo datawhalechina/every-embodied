@@ -2,6 +2,29 @@
 
 RoboWits 是面向机器人意外条件与创造性解题的 benchmark［评测基准］。环境基于 Genesis，数据采用 LeRobot［机器人学习数据框架］格式，官方提供 ACT、Pi0 和 Pi0.5 训练脚本。本章覆盖受限数据申请、资产准备、单卡 AMD 训练、断点续训、10 任务 seed/mutation［原始条件/突变条件］评估与视频输出。
 
+## 本章产出与任务
+
+正式十任务子集为：
+
+| ID | 任务 |
+| --- | --- |
+| 01 | `align_blocks` |
+| 02 | `retrieve_cube` |
+| 03 | `gap_retrieve` |
+| 04 | `pinch_card` |
+| 06 | `dominos` |
+| 09 | `hold_cup` |
+| 13 | `cover_with_lid` |
+| 16 | `stand_bulb` |
+| 17 | `ball_onto_tower` |
+| 25 | `water_into_mug` |
+
+每个任务使用官方 50 个初始状态，环境根据目标物体关系和最终状态输出成功字段。突变评估沿用同一任务语义，并替换指定物体、布局或物理条件。安装后记录版本：
+
+```bash
+git -C "$SRC_ROOT/RoboWits" rev-parse HEAD
+```
+
 ## 1. 申请并下载数据
 
 先在网页申请 [RoboWits LeRobot 数据](https://huggingface.co/datasets/XHRlyb2001/RoboWits_lerobot_dataset)，获批后登录：
@@ -42,7 +65,7 @@ python -m pip install -e third_party/lerobot --no-deps
 
 部分完整场景需要 BlenderKit 资产。通过 Blender 插件登录后下载到上游规定目录；密钥不写入仓库。
 
-## 3. 环境与数据形状门禁
+## 3. 环境与数据形状检查
 
 ```bash
 export PYTHONPATH="$SRC_ROOT/RoboWits/third_party/lerobot/src:$SRC_ROOT/RoboWits"
@@ -105,7 +128,7 @@ lerobot-train \
   --output_dir="$RUN_ROOT/robowits/act_100k"
 ```
 
-先用 `--steps=10` 做反向传播门禁，再启动 100k 长训。每 5k 保存 checkpoint［检查点］，避免远端实例中断后从头开始。
+先用 `--steps=10` 检查反向传播，再启动 100k 长训。每 5k 保存 checkpoint［检查点］，支持远端实例中断后继续训练。
 
 ## 5. ACT 断点续训
 

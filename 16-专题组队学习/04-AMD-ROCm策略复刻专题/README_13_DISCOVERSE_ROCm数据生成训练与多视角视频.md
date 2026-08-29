@@ -2,6 +2,20 @@
 
 DISCOVERSE 是面向 Real2Sim2Real［真实到仿真再到真实］机器人学习的仿真框架，覆盖 AIRBOT、MMK2、专家状态机、模仿学习、LiDAR［激光雷达］与 3DGS［三维高斯泼溅］。本章从源码和模型下载开始，完成专家数据生成、LeRobot［机器人学习数据框架］转换、ACT/Diffusion Policy［扩散策略］训练、闭环评估和三路高清视频。
 
+## 本章产出
+
+- AIRBOT 与 MMK2 场景运行记录；
+- 成功专家轨迹和逐回合生成清单；
+- LeRobot 数据集、动作/观测映射和回放视频；
+- ACT 或 Diffusion Policy 模型、闭环结果和多视角视频；
+- 可选 3DGS 动态渲染。
+
+安装后记录上游版本：
+
+```bash
+git -C "$SRC_ROOT/DISCOVERSE" rev-parse HEAD
+```
+
 ## 1. 下载和安装
 
 ```bash
@@ -33,7 +47,7 @@ python -m pip install -e '.[gs]'
 hf auth login
 ```
 
-## 2. 基础运行门禁
+## 2. 基础运行检查
 
 ```bash
 export MUJOCO_GL=egl
@@ -47,7 +61,7 @@ python examples/mocap_ik/mocap_ik_manipulator.py \
   --camera-names global_camera wrist_camera
 ```
 
-迁移验收覆盖 18 个运行门禁、AIRBOT 12 个任务和 MMK2 8 个固定场景。基础门禁通过后，再生成训练数据。
+迁移验收覆盖 18 个运行检查、AIRBOT 12 个任务和 MMK2 8 个固定场景。基础检查通过后，再生成训练数据。
 
 ## 3. 专家轨迹生成
 
@@ -56,6 +70,8 @@ python examples/mocap_ik/mocap_ik_manipulator.py \
 ```bash
 python examples/tasks_airbot_play/place_block.py --help
 ```
+
+专家状态机需要同时满足运动学和物理约束。出现 IK［逆运动学］不可达时，先检查目标位姿是否超出机械臂工作空间、末端姿态是否导致关节限位，以及相邻状态之间的位姿跳变。对堆叠任务，将专家路径拆为预抓取、抓取、抬升、预放置、下降、释放和撤离，并对相邻状态做插值。支撑物体被碰倒时，调整接近方向和撤离方向，不通过增加质量替代路径修正。
 
 不同版本的参数名可能变化，先以 `--help` 为准。批量生成时固定数据根目录、seed［随机种子］范围和目标成功数：
 
@@ -235,7 +251,7 @@ hf auth login
 
 ## 11. 结果口径
 
-运行门禁、专家成功率和学习策略成功率是三个独立指标。DISCOVERSE 的公开迁移证据包括运行 `18/18`、AIRBOT `12/12`、MMK2 `8/8`、高清任务 `4/4` 和 500 条专家轨迹；训练模型需要使用自己的闭环分母另行汇总。
+环境运行、专家成功率和学习策略成功率分别记录。示例迁移记录包括运行检查 `18/18`、AIRBOT `12/12`、MMK2 `8/8`、高清任务 `4/4` 和 500 条专家轨迹；训练模型使用自己的闭环任务和分母汇总。
 
 ## 12. 官方资料
 

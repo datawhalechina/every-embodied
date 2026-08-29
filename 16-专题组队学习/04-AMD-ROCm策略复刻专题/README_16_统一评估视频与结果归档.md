@@ -40,6 +40,18 @@ PY
 
 不同项目可以增加阶段字段，但 `task`、`seed`、`success`、`steps` 和 `video` 保持统一。
 
+适配器负责把各上游项目的字段映射到统一格式：
+
+| 统一字段 | 常见上游来源 |
+| --- | --- |
+| `task` | 环境名、任务配置名或任务 ID |
+| `seed` | 环境初始化随机种子 |
+| `success` | 环境成功字段或官方任务检查器 |
+| `steps` | 实际执行的仿真步数 |
+| `video` | 同一回合的相对视频路径 |
+
+适配器不重写上游成功条件，只规范字段名、数据类型和文件位置。
+
 ## 3. 聚合成功率
 
 ```python
@@ -100,7 +112,7 @@ ffprobe -v error -show_entries format=duration \
   -of json output.mp4
 ```
 
-## 6. 训练输出门禁
+## 6. 训练输出检查
 
 一个训练目录至少包含：
 
@@ -119,7 +131,7 @@ tail -n 5 "$RUN_DIR/metrics.jsonl"
 find "$RUN_DIR/checkpoints" -maxdepth 3 -type f | head
 ```
 
-训练完成后使用刚生成的 checkpoint［检查点］评估，不在评估脚本中偷偷回退到历史模型。
+训练完成后使用刚生成的 checkpoint［检查点］评估，并把实际模型路径写入单回合结果和运行配置。
 
 ## 7. benchmark 结果清单
 

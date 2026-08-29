@@ -2,6 +2,21 @@
 
 DexJoCo 是基于 MuJoCo 的灵巧操作 benchmark［评测基准］，覆盖 11 个单臂、双臂、工具使用和长时序任务。本章把模拟器与 OpenPI/Pi0.5 分成两个隔离环境，通过 WebSocket［网络通信协议］连接，完成原生 AMD JAX［AMD 平台高性能数组计算框架］推理、数据转换、训练和闭环视频评估。
 
+## 本章产出与任务
+
+| 任务 | 类型 |
+| --- | --- |
+| `click_mouse`、`fold_glasses`、`hammer_nail`、`pick_bucket`、`pinch_tongs`、`water_plant` | 单臂或工具操作 |
+| `bimanual_assembly`、`bimanual_hanoi`、`bimanual_microwave_cook`、`bimanual_photograph`、`bimanual_unlock_ipad` | 双臂协同与长时序操作 |
+
+单臂策略输出 22 维动作，双臂策略输出 44 维动作。每个任务由官方环境的完成条件产生 `success`，包括目标物体关系、工具状态或任务末态。逐回合结果保存任务名、随机种子、步数、成功字段和视频。
+
+安装后记录源码版本：
+
+```bash
+git -C "$SRC_ROOT/dexjoco" rev-parse HEAD
+```
+
 ## 1. 下载源码、数据和模型
 
 ```bash
@@ -27,7 +42,7 @@ hf download DexJoCo/DexJoCo-Pi05 \
 
 只下载多任务模型可节省空间。单任务和 `rand_full` 视觉随机化权重按需下载。
 
-## 2. 模拟器环境与 11 任务门禁
+## 2. 模拟器环境与 11 任务检查
 
 ```bash
 export MUJOCO_GL=egl

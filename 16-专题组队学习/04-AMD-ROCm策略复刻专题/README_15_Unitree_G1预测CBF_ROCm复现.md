@@ -2,6 +2,14 @@
 
 本章复现 PAC-MAN 中的 predictive CBF［预测控制障碍函数］控制路径，并使用 Unitree G1 模型生成全身体态避障视频。上游完整训练由 mjlab、MuJoCo Warp、AMP［对抗运动先验］与 PPO［近端策略优化］组成；本教程先把可独立验证的安全控制与 ONNX［开放神经网络交换格式］策略部署到 AMD PyTorch［AMD 平台张量计算框架］。
 
+## 本章产出
+
+- 固定投球轨迹与 G1 全身体态回放；
+- 最小间距、碰撞、跌倒和避障模式统计；
+- ONNX 或 PyTorch 策略输入输出检查；
+- 小规模训练、正式训练和固定模型评估命令；
+- MuJoCo Warp 在 AMD 上的静态图与条件图迁移路线。
+
 ## 1. 下载源码和上游资产
 
 ```bash
@@ -16,6 +24,15 @@ python -m pip install mujoco imageio imageio-ffmpeg onnxruntime
 
 ## 2. CBF 控制路径
 
+控制障碍函数用安全函数 `h(x)` 表示与障碍物的裕量，安全集合为 `h(x) ≥ 0`。离散控制中，安全层选择最接近名义动作 `u_nom` 的动作 `u`，同时满足下一步安全约束：
+
+```text
+minimize    ||u - u_nom||²
+subject to  h(x_next(u)) ≥ (1 - α) h(x)
+```
+
+`α` 控制安全裕量收缩速度。Link-CBF 在机器人连杆与球的距离上构造约束，Joint-CBF 在关节空间构造约束。
+
 预测控制依次完成：
 
 1. 根据球的位置与速度估计水平轨迹；
@@ -26,7 +43,7 @@ python -m pip install mujoco imageio imageio-ffmpeg onnxruntime
 
 这段张量计算可以批量运行在 ROCm［AMD 开放计算平台］上。
 
-## 3. AMD 控制门禁
+## 3. AMD 控制检查
 
 ```bash
 cd "$SRC_ROOT/radeon-physical-ai-evidence-suite"
@@ -96,7 +113,7 @@ uv run python scripts/list_envs.py
 
 每个脚本默认使用 8192 个并行环境、25000 次迭代，论文结果固定读取第 20000 次迭代的 checkpoint［检查点］。`vision_link.sh` 是部署到真机并导出 `deploy/ckpts/dodge_link_cbf.onnx` 的配置。
 
-### 6.1 小规模训练门禁
+### 6.1 小规模训练检查
 
 先把并行环境和迭代数缩小，验证资产加载、深度渲染、策略前向、反向传播和 checkpoint［检查点］保存：
 
@@ -191,9 +208,9 @@ git clone https://github.com/AMD-Ecosystem/mujoco_warp.git mujoco-warp-amd
 
 AMD 训练环境应与回放环境隔离，避免不同 MuJoCo API［应用程序接口］版本互相覆盖。建议在新环境中依次完成：
 
-1. ROCm PyTorch 的矩阵计算、反向传播和优化器门禁；
+1. ROCm PyTorch 的矩阵计算、反向传播和优化器检查；
 2. G1 MJCF 资产加载与单环境 MuJoCo 步进；
-3. 64 个并行环境的静态图训练门禁；
+3. 64 个并行环境的静态图训练检查；
 4. `capture_while` 条件求解器与 `capture_if` 休眠岛分支的等价性验证；
 5. 逐步执行、静态图和条件图三组吞吐对比；
 6. 再把并行环境扩展到 1024 或设备能够稳定承载的规模。

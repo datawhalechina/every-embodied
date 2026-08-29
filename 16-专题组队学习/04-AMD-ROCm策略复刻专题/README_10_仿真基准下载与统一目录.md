@@ -8,7 +8,13 @@
 
 ```bash
 export EVERY_EMBODIED_ROOT="$(git rev-parse --show-toplevel)"
-export WORK_ROOT=/data/Data14TB/physical-ai
+export WORK_ROOT=${WORK_ROOT:-$HOME/physical-ai}
+
+# AMD 开发者云的持久化 PVC 可使用：
+# export WORK_ROOT=/workspace/physical-ai
+
+# AUP 镜像若约定 /home/jovyan 持久化，可使用：
+# export WORK_ROOT=/home/jovyan/physical-ai
 export SRC_ROOT=$WORK_ROOT/src
 export DATA_ROOT=$WORK_ROOT/datasets
 export MODEL_ROOT=$WORK_ROOT/checkpoints
@@ -141,7 +147,7 @@ runs/{benchmark}/{model}/{run_name}/
 
 `run_config.json` 至少记录上游版本、任务、模型、动作/观测维度、相机、控制频率、训练步数和评估 seed［随机种子］。`summary.json` 必须从逐回合文件聚合，不手填成功率。
 
-## 7. 下载完成门禁
+## 7. 下载完成检查
 
 ```bash
 export PROJECT_DIR="$SRC_ROOT/robocasa"

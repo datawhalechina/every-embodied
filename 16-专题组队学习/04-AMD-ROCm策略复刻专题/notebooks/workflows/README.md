@@ -25,19 +25,20 @@
 
 ## 执行建议
 
-1. 在完整仓库中先执行 `code/rocm/activate_lerobot_rocm.sh`，再运行 `code/rocm/verify_lerobot_rocm_env.py`；本 AMD 轻量分支不复制这组环境脚本。
-2. 首次学习先运行普通 Notebook 的环境检查和 smoke 单元格。
-3. 确认数据、模型和设备正常后，再执行长训单元格。
-4. 训练完成后运行 Notebook 后面的 Full 14 评估单元格，查看本次训练的成功率、阶段统计、视频和 action trace。
-5. 想复现保护结果时，单独打开 protected Notebook；不要在普通 Notebook 中修改路径来代替保护配方。
+1. 先按 [设备与环境确认](../../README_01_AMD_ROCm设备与环境确认.md) 检查 ROCm、PyTorch 和目录变量。
+2. 按 [统一目录](../../README_10_仿真基准下载与统一目录.md) 设置 `DATA_ROOT`、`MODEL_ROOT` 和 `RUN_ROOT`。
+3. 首次学习先运行普通 Notebook 的环境检查和短训练单元格。
+4. 确认数据、模型和设备正常后，再执行长训练单元格。
+5. 训练完成后运行 Notebook 后面的固定协议评估单元格，查看本次训练的成功率、阶段统计、视频和动作轨迹。
+6. 复现保护结果时单独打开 protected Notebook，保留普通训练目录。
 
-两台 AMD 设备应统一使用同一套 Python 3.10、ROCm 7.13、PyTorch 2.11 和 legacy LeRobot commit。完整仓库中的 ROCm 环境锁定文件不随本轻量分支复制；请回到主分支查看 `code/rocm/ROCM_LEROBOT_ENV.md` 和 `code/rocm/requirements-rocm713.txt`。
+多台 AMD 设备使用同一套 Python、ROCm、PyTorch 和 LeRobot 版本。将实际版本写入每次运行的 `environment.txt`，并在更换设备后重新执行环境检查。
 
-每个 Notebook 的结果都保存在专题目录下对应的 `outputs/ordinary/<model>` 或 `outputs/protected/<model>` 中。评估单元格只接受当前 Notebook 训练后生成的 `TRAINED_POLICY_PATH`，没有 checkpoint 会直接报错，不会回退到历史或预训练权重。长训耗时取决于模型、步数和 GPU；进度条只做阶段性刷新，详细指标以 JSONL 和 `training_run_summary.json` 为准。
+每个 Notebook 的结果保存到 `$RUN_ROOT/notebooks/ordinary/<model>` 或 `$RUN_ROOT/notebooks/protected/<model>`。评估单元格读取当前 Notebook 训练后生成的 `TRAINED_POLICY_PATH`。长训练耗时取决于模型、步数和 GPU；进度条只做阶段性刷新，详细指标以 JSONL 和 `training_run_summary.json` 为准。
 
-## Full 14 评估与可视化
+## 固定 14 回合评估与可视化
 
-每个模型的普通版和 Protected 版都包含一个独立的 `Full 14-episode closed-loop evaluation` 单元格。执行后会：
+每个模型的普通版和保护版都包含固定 14 回合闭环评估单元格。执行后会：
 
 - 实际闭环运行 14 个固定 seed，并写出完整 `result.jsonl`；
 - 保留首个物理成功回合和首个物理失败回合的视频；
@@ -45,4 +46,4 @@
 - 在后续单元格内播放成功/失败视频，并绘制动作序列图；
 - 以 `physical_success=x/14` 汇总结果。
 
-这两个案例视频和序列图来自本次评估，不是 Notebook 中预置的静态结果。评估使用 `RENDER_EVAL` 或 Full 评估单元格中的渲染设置；无桌面环境时 Notebook 会尝试启动 Xvfb。
+案例视频和序列图来自本次评估。评估使用 `RENDER_EVAL` 设置；无桌面环境时 Notebook 会尝试启动 Xvfb。

@@ -79,7 +79,7 @@ Notebook 中的 `RUN_SMOKE` 和 `RUN_FULL_TRAIN` 默认都是 `False`。先检�
 
 pi_0 还需要 Hugging Face gated model 权限。Notebook 只检查 `HF_TOKEN` 是否存在，不会打印或保存 token。
 
-08–10 还会读取 AMD 历史训练摘要，显示已经完成的训练步数、闭环结果和文本进度条。它们不是用静态图片冒充本次长训练：真正启动 smoke/full 的代码仍在前面的单元里，训练日志可以在 Notebook 中重复 tail，最终 checkpoint 必须进入 11 再做闭环判断。
+08–10 读取训练步数、运行指标和文本进度条；前置单元负责启动 `smoke` 短测或 `full` 长训练，并在 Notebook 中持续读取日志。11 使用当前训练产出的 checkpoint 执行闭环评估，统计任务成功数并生成视频。
 
 ## MuJoCo closed-loop
 

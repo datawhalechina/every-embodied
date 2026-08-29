@@ -11,6 +11,17 @@ RoboCasa365 是家庭场景机器人训练与 benchmark［评测基准］框架�
 - 中央、左侧、右侧和手眼相机四视角视频；
 - GR00T 或 Pi0.5 的继续训练入口。
 
+### 版本与任务契约
+
+在安装完成后记录源码版本：
+
+```bash
+git -C "$SRC_ROOT/robosuite" rev-parse HEAD
+git -C "$SRC_ROOT/robocasa" rev-parse HEAD
+```
+
+正式评估使用 PandaOmron、12 维动作、同一套 16 个任务和每任务 50 回合。任务成功由 RoboCasa 环境的任务检查器给出：物体状态、容器关系、关节开合和稳定帧必须同时满足相应任务定义。评估脚本将该字段原样写入逐回合结果。
+
 ## 2. 下载源码和资产
 
 ```bash
@@ -87,7 +98,7 @@ checkpoints/robocasa365/
 └── pi05_pretrain_human300_multitask_75000/
 ```
 
-## 4. 先跑环境门禁
+## 4. 环境与动作检查
 
 公开配套脚本位于 [Radeon Physical AI Evidence Suite](https://github.com/Ethan-Chen-plus/radeon-physical-ai-evidence-suite)：
 
@@ -103,7 +114,7 @@ python "$SRC_ROOT/radeon-physical-ai-evidence-suite/scripts/robocasa_amd_smoke.p
   --out-dir "$RUN_ROOT/robocasa365/smoke"
 ```
 
-PandaOmron 移动操作接口为 12 维：右臂 6、夹爪 1、平面底盘 3、升降躯干 1、底盘模式 1。使用配套动作门禁：
+PandaOmron 移动操作接口为 12 维：右臂 6、夹爪 1、平面底盘 3、升降躯干 1、底盘模式 1。使用配套脚本逐维检查动作：
 
 ```bash
 python "$SRC_ROOT/radeon-physical-ai-evidence-suite/scripts/robocasa_mobile_mvp.py" \
@@ -236,10 +247,10 @@ python "$SRC_ROOT/radeon-physical-ai-evidence-suite/scripts/robocasa365_showcase
 | Pi0.5 | JAX CUDA | 隔离安装 ROCm JAX | 64×64 矩阵、模型加载与策略服务 |
 | MuJoCo | 本地图形窗口 | `MUJOCO_GL=egl` | `reset → step → render → MP4` |
 | 数据 | 注册表中的相对路径 | 统一挂载到数据盘，并让两个策略仓库读取同一注册表 | 数据条目数、视频解码与动作维度 |
-| 动作接口 | PandaOmron 12 维动作 | 保持右臂、夹爪、底盘、躯干和模式位顺序 | 固定动作逐维门禁 |
+| 动作接口 | PandaOmron 12 维动作 | 保持右臂、夹爪、底盘、躯干和模式位顺序 | 固定动作逐维检查 |
 | 评估 | 不同策略各自脚本 | 注册同一 `amd_match16` 任务集合 | 16×50 同分母汇总 |
 
-PyTorch［张量计算框架］、JAX［高性能数组计算框架］和 MuJoCo［机器人动力学仿真器］最好分环境安装。策略加载成功后仍要先做动作接口门禁；动作归一化、机器人类型或控制频率错误时，模型可以正常前向，但闭环行为会完全失效。
+PyTorch［张量计算框架］、JAX［高性能数组计算框架］和 MuJoCo［机器人动力学仿真器］最好分环境安装。策略加载成功后先做动作接口检查；动作归一化、机器人类型或控制频率决定闭环动作是否与环境一致。
 
 ## 10. 常见问题
 
