@@ -16,11 +16,11 @@
 
 ## 1. 从两个长程成功案例开始
 
-下面两段视频都在 AMD Ryzen AI MAX+ 395 上完成闭环推理和仿真录制。动态预览压缩了时间轴；点击预览可观看保持原始动作节奏的完整 MP4［视频文件］。
+下面两段视频都在 AMD Ryzen AI MAX+ 395 上完成闭环推理和仿真录制。点击封面可观看保持原始动作节奏的完整 MP4［视频文件］。
 
 | DexJoCo 双臂河内塔 | RoboCasa365 长程装餐任务 |
 | --- | --- |
-| [![DexJoCo 双臂河内塔动态预览](./assets/competition_showcase/dexjoco_bimanual_hanoi_preview.gif)](./assets/competition_showcase/dexjoco_bimanual_hanoi_amd.mp4) | [![RoboCasa365 长程装餐动态预览](./assets/competition_showcase/robocasa_pack_identical_lunches_preview.gif)](./assets/competition_showcase/robocasa_pack_identical_lunches_gr00t_amd.mp4) |
+| [![DexJoCo 双臂河内塔视频封面](./assets/competition_showcase/dexjoco_bimanual_hanoi_poster.jpg)](https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/videos/dexjoco/recovery/bimanual-hanoi.mp4) | [![RoboCasa365 长程装餐视频封面](./assets/competition_showcase/robocasa_pack_identical_lunches_poster.jpg)](https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/videos/robocasa-recovery/pack-success.mp4) |
 | Pi0.5 多任务 checkpoint［检查点］，双臂协同完成搬运与堆叠；外部视角和左右腕部视角同步录制，47.6 秒。 | GR00T N1.5 多任务 checkpoint［检查点］，PandaOmron 在厨房内连续操作；四视角同步录制，195 秒。 |
 
 这两个案例分别展示了两类互补能力：DexJoCo 关注双臂与灵巧操作，RoboCasa365 关注家庭场景中的长时序任务。它们共用同一套工程判断：策略输出必须真正推进模拟器、任务成功条件必须由环境判定、视频必须和该回合的结果记录一一对应。

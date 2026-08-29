@@ -180,7 +180,7 @@ OUT="$RUN_ROOT/dexjoco/pi05_multitask_recovery" \
 
 ## 9. 视频案例
 
-[双臂河内塔完整视频](./assets/competition_showcase/dexjoco_bimanual_hanoi_amd.mp4)为 47.6 秒、外部视角加左右腕部视角。所有相机在同一仿真循环采集，视频结果与该回合成功标记绑定。
+[双臂河内塔完整视频](https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/videos/dexjoco/recovery/bimanual-hanoi.mp4)为 47.6 秒、外部视角加左右腕部视角。所有相机在同一仿真循环采集，视频结果与该回合成功标记绑定。
 
 ## 10. 官方资料
 

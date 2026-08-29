@@ -1,6 +1,6 @@
 # MuJoCo 上游运行工程
 
-本目录是 AMD ROCm 专题的可选运行时入口。课程中的采集、ACT、SmolVLA、pi_0 和 MuJoCo 闭环 Notebook 使用 `PROJECT_ROOT` 指向上游 `mujoco_pnp` 工程；分支内的指标复核、视频预览和大多数诊断单元不依赖它。
+本目录是 AMD ROCm 专题的可选运行时入口。课程中的采集、ACT、SmolVLA、pi_0 和 MuJoCo 闭环 Notebook 使用 `PROJECT_ROOT` 指向上游 `mujoco_pnp` 工程；指标复核、视频预览和大多数诊断单元不依赖本目录中的完整副本。
 
 ## 期望目录
 
@@ -22,9 +22,9 @@ code/run_closed_loop.py
 
 不同 Notebook 还会读取场景 XML、机器人模型、LeRobot 适配代码和少量第三方模块。最终以 Notebook 的路径审计结果为准；缺少工程时，它会明确打印缺失路径，不会回退到作者机器上的绝对目录。
 
-## 当前分支的取舍
+## 源码、资产与实验数据分层
 
-`amd-rocm` 是轻量教学分支，目前不直接复制完整上游目录。完整目录除了运行源码，还包含示例数据、评测视频、媒体文件和大量网格/纹理资产，原始 Git 跟踪内容约 194 MiB，工作目录还可能包含 checkpoint、缓存和实验输出。把整个工作目录压缩后提交到普通 Git，会重新引入大仓库 clone 和二进制版本管理问题。
+教程目录不重复复制完整上游工程。完整工程除了运行源码，还包含示例数据、评测视频、媒体文件和大量网格/纹理资产，工作目录还可能包含 checkpoint、缓存和实验输出。源码与小型配置保存在 Git 中；数据集、checkpoint、缓存、日志和批量视频通过外部目录或模型仓库连接。
 
 这里需要区分两个数字：本机当前工作目录约 3.69 GiB，但这不是 GitHub 上游代码仓库的体积。当前工作区的实测构成为：
 
@@ -35,7 +35,7 @@ code/run_closed_loop.py
 | `ckpt/` | 0.19 GiB | 否 | 本地模型 checkpoint，通常来自训练或模型下载 |
 | `asset/`、`mujoco_env/`、脚本 | 约 0.07 GiB | 视任务筛选 | MuJoCo 场景、机器人/物体网格、环境代码和运行脚本 |
 
-主仓库 `main` 中实际跟踪的上游快照是 263 个文件、约 194 MiB，主要由场景资产、网格/纹理、少量示例数据/视频、Notebook 和 Python 代码组成。也就是说，它不是“3.6GB 的代码”，但也不只是几 MB 的纯代码。
+本仓库已经包含上游课程快照，主要由场景资产、网格/纹理、少量示例数据/视频、Notebook 和 Python 代码组成。若只阅读 Markdown，可直接使用电子书；若要执行训练和闭环评估，再按下面的方式设置 `PROJECT_ROOT`。
 
 本地已有主仓库时，可以直接把 `PROJECT_ROOT` 指向上游目录：
 
@@ -43,7 +43,7 @@ code/run_closed_loop.py
 export PROJECT_ROOT=/path/to/every-embodied/06-策略抓取或抓取VLA/大模型控制、VLA、VLM/04mujoco复现ACT、Pi0、SmolVLA
 ```
 
-如果要发布“克隆后即可运行”的 AMD 课程包，建议只整理运行时源码、当前场景所需资产和最小配置到 `external/mujoco_pnp`；数据集、checkpoint、缓存、日志和生成视频放到外部磁盘。超过 GitHub 普通文件/仓库体量边界的完整包，应使用 Git LFS 或 GitHub Release 资产，并在这里记录固定版本和校验值。
+制作“克隆后即可运行”的独立课程包时，只需要整理运行时源码、当前场景所需资产和最小配置到 `external/mujoco_pnp`；数据集、checkpoint、缓存、日志和生成视频放到外部磁盘或公开模型仓库。
 
 `mujoco_pnp` 本身来自本仓库的上游课程目录，不是 Hugging Face 上的独立代码仓库。Hugging Face 只可能涉及另外下载的模型权重或数据集，例如 SmolVLA、pi_0 的 gated 权重；这些不应和 `mujoco_pnp` 源码混在一起。
 

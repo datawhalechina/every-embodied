@@ -226,7 +226,7 @@ python "$SRC_ROOT/radeon-physical-ai-evidence-suite/scripts/robocasa365_showcase
   --help
 ```
 
-展示脚本保持策略输入分辨率不变，只提高录像相机分辨率。推荐中央、左侧、右侧和手眼相机各 960×540，再拼成 1920×1080@20fps。完整示例见 [PackIdenticalLunches 长程成功视频](./assets/competition_showcase/robocasa_pack_identical_lunches_gr00t_amd.mp4)。
+展示脚本保持策略输入分辨率不变，只提高录像相机分辨率。推荐中央、左侧、右侧和手眼相机各 960×540，再拼成 1920×1080@20fps。完整示例见 [PackIdenticalLunches 长程成功视频](https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/videos/robocasa-recovery/pack-success.mp4)。
 
 ## 9. AMD 迁移重点
 

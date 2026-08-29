@@ -10,10 +10,10 @@
 
 | DexJoCo 双臂河内塔 | RoboCasa365 长程装餐任务 |
 | --- | --- |
-| [![DexJoCo 双臂河内塔动态预览](./assets/competition_showcase/dexjoco_bimanual_hanoi_preview.gif)](./assets/competition_showcase/dexjoco_bimanual_hanoi_amd.mp4) | [![RoboCasa365 长程装餐动态预览](./assets/competition_showcase/robocasa_pack_identical_lunches_preview.gif)](./assets/competition_showcase/robocasa_pack_identical_lunches_gr00t_amd.mp4) |
+| [![DexJoCo 双臂河内塔视频封面](./assets/competition_showcase/dexjoco_bimanual_hanoi_poster.jpg)](https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/videos/dexjoco/recovery/bimanual-hanoi.mp4) | [![RoboCasa365 长程装餐视频封面](./assets/competition_showcase/robocasa_pack_identical_lunches_poster.jpg)](https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/videos/robocasa-recovery/pack-success.mp4) |
 | Pi0.5 双臂协同，三视角，47.6 秒 | GR00T N1.5 家庭长时序操作，四视角，195 秒 |
 
-点击动态预览可观看完整视频。任务协议、AMD ROCm 运行方式、正式成功率和全部仿真矩阵见 [AMD Physical AI 仿真基准与长程视频复现](./README_09_AMD_Physical_AI仿真基准与长程视频复现.md)。
+点击封面可观看完整视频。任务协议、AMD ROCm 运行方式、正式成功率和全部仿真矩阵见 [AMD Physical AI 仿真基准与长程视频复现](./README_09_AMD_Physical_AI仿真基准与长程视频复现.md)。
 
 ## 六章课程笔记入口
 
@@ -28,7 +28,7 @@
 | CH5 | pi_0 训练与推理 | `README_05`、Notebook 05、Notebook 10/15 |
 | CH6 | 自定义任务全流程 | `README_07`、Notebook 07/11，以及 `external/README.md` |
 
-如果后续将飞书页面导出为 Markdown，建议放在本专题的 `course-notes/` 子目录，并把图片下载到该目录的 `assets/`；现有 Notebook、实验结果和 `PROJECT_ROOT` 约定保持不变。这样读者可以先按六章笔记建立整体认识，再进入对应 Task 做可复现实验。
+飞书笔记负责建立整体认识，本目录的 Markdown、Notebook 和脚本负责可复现实验。读者可以先按六章笔记学习概念，再进入对应 Task 完成环境检查、训练、评估和视频复核。
 
 ## 先看到成功，再开始训练
 
@@ -45,7 +45,7 @@
 
 Task 11 已内置一条约 2 MB 的严格成功回放，不需要模型权重，也不会消耗训练额度。可下载 checkpoint、适用任务、评测协议和发布状态统一记录在 [预训练权重与零训练体验](./README_08_预训练权重与零训练体验.md)。
 
-本轻量分支中的教学视频都使用已提交的真实 MP4，并由 Notebook 通过绝对路径嵌入播放；原始蓝杯 baseline 失败视频和 ACT rollout 原文件未随分支分发，因此不会再生成“Source video is unavailable”占位图。拿到完整 `OUTPUT_ROOT` 后，可按 Task 02 的命令重新生成对应关键帧。
+仓库只保存课程需要的轻量媒体；批量视频、训练输出和 checkpoint 放在专题外部的数据目录或公开模型仓库。设置完整 `OUTPUT_ROOT` 后，可按 Task 02 的命令重新生成关键帧和回放视频。
 
 > `5000 steps` 只是一种短训基线，不是通用收敛保证。训练是否够用必须由 held-out closed-loop 成功率和视频判断，不能只看步数或 loss。
 
@@ -74,7 +74,7 @@ Task 11 已内置一条约 2 MB 的严格成功回放，不需要模型权重，
 - [LeRobot MuJoCo 训练 ACT、SmolVLA、pi_0 教程](https://github.com/datawhalechina/every-embodied/blob/main/06-策略抓取或抓取VLA/大模型控制、VLA、VLM/04mujoco复现ACT、Pi0、SmolVLA/README.md)
 - [策略诊断与物理成功评估](https://github.com/datawhalechina/every-embodied/blob/main/06-策略抓取或抓取VLA/大模型控制、VLA、VLM/04mujoco复现ACT、Pi0、SmolVLA/09策略诊断与物理成功评估.md)
 
-训练、采集和闭环 Notebook 所依赖的上游工程放置方式见 [`external/README.md`](./external/README.md)。当前轻量分支不复制完整上游工作目录；已有主仓库时设置 `PROJECT_ROOT` 即可，发布自包含课程包时再使用精选运行时 bundle 或 Release/LFS 资产。
+训练、采集和闭环 Notebook 所依赖的上游工程放置方式见 [`external/README.md`](./external/README.md)。教程仓库不复制完整上游工作目录；按章节设置 `PROJECT_ROOT`、`DATA_ROOT`、`MODEL_ROOT` 和 `RUN_ROOT` 即可连接源码、数据、模型与结果目录。
 
 ## 章节目录
 
