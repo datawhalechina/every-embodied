@@ -1,6 +1,6 @@
 # 资产说明
 
-本目录保存 AMD ROCm 策略复刻专题中使用的小体积教学图和少量真实回放视频。图表和关键帧序列由 `../code/generate_tutorial_assets.py` 生成，用来核对教程中的成功率和 rollout 行为；`aup_cloud_guide/` 中的截图来自 AMD / AUP 云平台使用指南压缩包。
+本目录保存 AMD ROCm 策略复刻专题中使用的教学图、关键帧和代表视频。图表和关键帧序列由 `../code/generate_tutorial_assets.py` 生成，用来核对教程中的成功率和 rollout 行为；`competition_showcase/` 保存 DexJoCo 与 RoboCasa365 的长程成功案例；`aup_cloud_guide/` 中的截图来自 AMD / AUP 云平台使用指南压缩包。
 
 重新生成图表时，先准备自己的实验输出目录，再运行：
 
@@ -51,3 +51,9 @@ python code/transcode_tutorial_videos.py
 | `pnp_four_view_strict_success_sequence.jpg` | 四视角视频 5 个时刻的关键帧序列 |
 | `aup_cloud_guide/` | AUP Learning Cloud JupyterHub / Code Server 使用指南截图（优先入口） |
 | `amd_radeon_cloud/` | AMD Radeon Cloud 开发者云官方教程图片与 AMD ROCm Embodied AI Policy Replication 工作区截图（备用入口） |
+| `competition_showcase/dexjoco_bimanual_hanoi_amd.mp4` | DexJoCo Pi0.5 双臂河内塔三视角完整成功回合 |
+| `competition_showcase/dexjoco_bimanual_hanoi_preview.gif` | DexJoCo 完整回合的加速动态预览 |
+| `competition_showcase/dexjoco_bimanual_hanoi_poster.jpg` | DexJoCo 双臂河内塔完成时刻海报帧 |
+| `competition_showcase/robocasa_pack_identical_lunches_gr00t_amd.mp4` | RoboCasa365 GR00T N1.5 四视角长程装餐成功回合 |
+| `competition_showcase/robocasa_pack_identical_lunches_preview.gif` | RoboCasa365 完整回合的加速动态预览 |
+| `competition_showcase/robocasa_pack_identical_lunches_poster.jpg` | RoboCasa365 长程装餐完成时刻海报帧 |
