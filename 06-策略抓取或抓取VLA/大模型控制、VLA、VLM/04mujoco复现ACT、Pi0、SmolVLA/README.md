@@ -160,32 +160,36 @@ dataloader = torch.utils.data.DataLoader(
 
 <img src="./media/data_v2.gif" width="480" height="360" controls></img>
 
-## 模型与数据集
-| Model 🤗                                                      | Dataset 🤗                                                    |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [pi_0 finetuned](https://huggingface.co/Jeongeun/omy_pnp_pi0) | [dataset](https://huggingface.co/datasets/Jeongeun/omy_pnp_language) |
-| [smolvla finetuned](https://huggingface.co/Jeongeun/omy_pnp_smolvla) | 同上                                                         |
+### 获取语言条件数据
 
-th>
-  </tr>
-  <tr>
-    <td><a href="https://huggingface.co/datawhale-eai/pi0_datawhale_eai">pi_0 finetuned</a></td>
-    <td><a href="https://huggingface.co/datasets/datawhale-eai/datawhale_eai_pnp_language">datawhale_eai_pnp_language</a></td>
-  </tr>
-  <tr>
-    <td><a href="https://huggingface.co/datawhale-eai/smolvla_datawhale_eai">smolvla finetuned</a></td>
-    <td>同上</td>
-  </tr>
-</table>
+可以直接下载公开样例数据，以便先跑通 Pi0 或 SmolVLA：
+
+```bash
+git lfs install
+git clone https://huggingface.co/datasets/Datawhale/datawhale_eai_pnp_language demo_data_language
+```
+
+也可以运行 [5.language_env.ipynb](5.language_env.ipynb)，自行采集红杯和蓝杯两个任务的 20 条示教数据。Notebook 同样会把 LeRobot 格式的数据写入 `./demo_data_language`。
+
+配置中的两个字段含义不同：
+
+- `repo_id: datawhale_eai_pnp_language` 是 LeRobot 数据集的标识名，用于匹配本地 metadata 和统计信息。
+- `root: ./demo_data_language` 是实际数据目录。无论下载样例还是自行采集，只要数据位于该目录，都不需要修改现有配置。
+
+## 模型与数据集
+| Model 🤗 | Dataset 🤗 |
+| --- | --- |
+| [pi_0 finetuned](https://huggingface.co/Jeongeun/omy_pnp_pi0) | [公开样例数据](https://huggingface.co/datasets/Datawhale/datawhale_eai_pnp_language) |
+| [smolvla finetuned](https://huggingface.co/Jeongeun/omy_pnp_smolvla) | 同上 |
 
 ## 7. 训练与部署 pi_0
 - [train_model.py](train_model.py)：训练脚本
-- [pi0_datawhale_eai.yaml](pi0_datawhale_eai.yaml)：训练配置
+- [pi0_omy.yaml](pi0_omy.yaml)：训练配置
 - [7.pi0.ipynb](7.pi0.ipynb)：部署示例
 
 训练命令：
 ```bash
-python train_model.py --config_path pi0_datawhale_eai.yaml
+python train_model.py --config_path pi0_omy.yaml
 ```
 
 部署效果：
@@ -229,12 +233,12 @@ wandb:
 
 ## 8. 训练与部署 SmolVLA
 - [train_model.py](train_model.py)：训练脚本
-- [smolvla_datawhale_eai.yaml](smolvla_datawhale_eai.yaml)：训练配置
+- [smolvla_omy.yaml](smolvla_omy.yaml)：训练配置
 - [8.smolvla.ipynb](8.smolvla.ipynb)：部署示例
 
 训练命令：
 ```bash
-python train_model.py --config_path smolvla_datawhale_eai.yaml
+python train_model.py --config_path smolvla_omy.yaml
 ```
 
 部署效果：
