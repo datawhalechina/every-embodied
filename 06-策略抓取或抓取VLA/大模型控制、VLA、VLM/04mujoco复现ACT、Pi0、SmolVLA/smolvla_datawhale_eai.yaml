@@ -1,0 +1,23 @@
+# LeRobot 10b7b3532543b4adfb65760f02a49b4c537afde7
+dataset:
+  repo_id: datawhale_eai_pnp_language
+  root: ./demo_data_language
+policy:
+  type: smolvla
+  chunk_size: 5
+  n_action_steps: 5
+  device: cuda
+output_dir: ./ckpt/smolvla_datawhale_eai
+batch_size: 16
+job_name: smolvla_datawhale_eai
+resume: false
+seed: 42
+num_workers: 8
+steps: 20000
+eval_freq: -1
+log_freq: 50
+save_checkpoint: true
+save_freq: 10000
+use_policy_training_preset: true
+wandb:
+  enable: false

@@ -108,7 +108,11 @@ features={
 数据默认保存在 `./demo_data` 目录。仓库中已提供示例数据：[demo_data_example](./demo_data_example/)。
 
 ## 2. 回放数据
-运行 [2.visualize_data.ipynb](2.visualize_data.ipynb)
+按采集时使用的机器人选择回放入口，数据路径和机器人模型必须匹配：
+
+- [OMY 回放](2.visualize_data-omy.ipynb)
+- [Nova5 回放](2.visualize_data-nova5.ipynb)
+- [xArm7 回放](2.visualize_data-xarm7.ipynb)
 
 <img src="./media/data.gif" width="480" height="360"></img>
 
@@ -165,20 +169,15 @@ dataloader = torch.utils.data.DataLoader(
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [pi_0 finetuned](https://huggingface.co/Jeongeun/omy_pnp_pi0) | [dataset](https://huggingface.co/datasets/Jeongeun/omy_pnp_language) |
 | [smolvla finetuned](https://huggingface.co/Jeongeun/omy_pnp_smolvla) | 同上                                                         |
-
-th>
-  </tr>
-  <tr>
-    <td><a href="https://huggingface.co/datawhale-eai/pi0_datawhale_eai">pi_0 finetuned</a></td>
-    <td><a href="https://huggingface.co/datasets/datawhale-eai/datawhale_eai_pnp_language">datawhale_eai_pnp_language</a></td>
-  </tr>
-  <tr>
-    <td><a href="https://huggingface.co/datawhale-eai/smolvla_datawhale_eai">smolvla finetuned</a></td>
-    <td>同上</td>
-  </tr>
-</table>
+| [Datawhale pi_0](https://huggingface.co/datawhale-eai/pi0_datawhale_eai) | [Datawhale dataset](https://huggingface.co/datasets/datawhale-eai/datawhale_eai_pnp_language) |
+| [Datawhale SmolVLA](https://huggingface.co/datawhale-eai/smolvla_datawhale_eai) | 同上 |
 
 ## 7. 训练与部署 pi_0
+
+以下命令均在本章目录执行，使用 `requirements.txt` 固定的 LeRobot `10b7b3532543b4adfb65760f02a49b4c537afde7`。
+先执行 `python check_training_configs.py` 检查两个配置（不训练、不下载权重）。
+YAML 命令中 `--config_path` 与文件名之间保留空格；该版本的等号写法会走 JSON checkpoint 加载分支。
+
 - [train_model.py](train_model.py)：训练脚本
 - [pi0_datawhale_eai.yaml](pi0_datawhale_eai.yaml)：训练配置
 - [7.pi0.ipynb](7.pi0.ipynb)：部署示例
@@ -196,36 +195,7 @@ python train_model.py --config_path pi0_datawhale_eai.yaml
 
 <image src="./media/wandb.png"  width="480" height="360">
 
-配置示例：
-```yaml
-dataset:
-  repo_id: datawhale_eai_pnp_language
-  root: ./demo_data_language
-policy:
-  type : pi0
-  chunk_size: 5
-  n_action_steps: 5
-
-save_checkpoint: true
-output_dir: ./ckpt/pi0_datawhale_eai
-batch_size: 16
-job_name : pi0_datawhale_eai
-resume: false
-seed : 42
-num_workers: 8
-steps: 20_000
-eval_freq: -1
-log_freq: 50
-save_checkpoint: true
-save_freq: 10_000
-use_policy_training_preset: true
-
-wandb:
-  enable: true
-  project: pi0_datawhale_eai
-  entity: <your_wandb_entity>
-  disable_artifact: true
-```
+配置以本节链接的 YAML 为准。默认读取第 5 节的 `./demo_data_language`，`dataset.repo_id` 为 `datawhale_eai_pnp_language`；使用其他数据时需同时修改两项。默认关闭 W&B，启用前需设置自己的项目和账号。训练需要完整数据、模型权重和 CUDA 环境；配置解析通过不代表完整训练已验证。
 
 ## 8. 训练与部署 SmolVLA
 - [train_model.py](train_model.py)：训练脚本
@@ -245,37 +215,7 @@ python train_model.py --config_path smolvla_datawhale_eai.yaml
 
 <image src="./media/wandb2.png"  width="480" height="360">
 
-配置示例：
-```yaml
-dataset:
-  repo_id: datawhale_eai_pnp_language
-  root: ./demo_data_language
-policy:
-  type : smolvla
-  chunk_size: 5
-  n_action_steps: 5
-  device: cuda
-
-save_checkpoint: true
-output_dir: ./ckpt/smolvla_datawhale_eai
-batch_size: 16
-job_name : smolvla_datawhale_eai
-resume: false
-seed : 42
-num_workers: 8
-steps: 20_000
-eval_freq: -1
-log_freq: 50
-save_checkpoint: true
-save_freq: 10_000
-use_policy_training_preset: true
-
-wandb:
-  enable: true
-  project: smolvla_datawhale_eai
-  entity: <your_wandb_entity>
-  disable_artifact: true
-```
+配置以本节链接的 YAML 为准。默认读取第 5 节的 `./demo_data_language`，`dataset.repo_id` 为 `datawhale_eai_pnp_language`；使用其他数据时需同时修改两项。默认关闭 W&B，启用前需设置自己的项目和账号。训练需要完整数据、模型权重和 CUDA 环境；配置解析通过不代表完整训练已验证。
 
 
 
