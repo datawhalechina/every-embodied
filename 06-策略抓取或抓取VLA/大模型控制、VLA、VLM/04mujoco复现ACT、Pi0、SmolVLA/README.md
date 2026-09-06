@@ -165,12 +165,43 @@ dataloader = torch.utils.data.DataLoader(
 <img src="./media/data_v2.gif" width="480" height="360" controls></img>
 
 ## 模型与数据集
+### 获取语言条件数据集
+
+Pi0 和 SmolVLA 使用同一份语言条件数据，选择以下一种方式即可。所有命令均在本章目录运行，数据统一放在 `./demo_data_language`。
+
+**方式一：下载公开样例**
+
+[Datawhale 公开样例](https://huggingface.co/datasets/Datawhale/datawhale_eai_pnp_language) 是 OMY 场景的 LeRobot v2.1 数据集，包含 20 个 episode、2621 帧，以及红杯子和蓝杯子两个任务。
+
+先安装 Git LFS，然后执行：
+
+```bash
+git lfs install
+git clone https://huggingface.co/datasets/Datawhale/datawhale_eai_pnp_language demo_data_language
+git -C demo_data_language lfs pull
+```
+
+已有同名目录时不要重复 clone 或删除原数据。如果目录是该数据集的 Git 仓库，可直接执行最后一条命令补齐 LFS 文件。仅下载到 LFS 指针文件不代表数据已完整。
+
+**方式二：自行采集**
+
+运行 [5.language_env.ipynb](5.language_env.ipynb)，保留 `REPO_NAME = 'datawhale_eai_pnp_language'` 和 `ROOT = "./demo_data_language"`，采集并保存红杯子、蓝杯子示教，然后用 [6.visualize_data.ipynb](6.visualize_data.ipynb) 检查轨迹。该 Notebook 在目录已存在时包含删除旧数据的确认步骤；已有下载数据或示教数据时，应先备份或更换目录。
+
+两种方式均可使用本章的 `pi0_datawhale_eai.yaml` 和 `smolvla_datawhale_eai.yaml`，无需改配置：
+
+```yaml
+dataset:
+  repo_id: datawhale_eai_pnp_language
+  root: ./demo_data_language
+```
+
+`root` 是相对于运行目录的本地数据路径；完整数据已在该目录时，固定版本 LeRobot 使用本地文件。`repo_id` 是数据集标识，上述不带组织名的值沿用采集 Notebook 的命名，不能当作可搜索的 Hugging Face 完整地址。需要从 Hub 自动获取时应使用完整 ID `Datawhale/datawhale_eai_pnp_language`。更改本地目录时，需同步修改 YAML 和部署 Notebook 中的路径。
+
+### 模型参考
 | Model 🤗                                                      | Dataset 🤗                                                    |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [pi_0 finetuned](https://huggingface.co/Jeongeun/omy_pnp_pi0) | [dataset](https://huggingface.co/datasets/Jeongeun/omy_pnp_language) |
 | [smolvla finetuned](https://huggingface.co/Jeongeun/omy_pnp_smolvla) | 同上                                                         |
-| [Datawhale pi_0](https://huggingface.co/datawhale-eai/pi0_datawhale_eai) | [Datawhale dataset](https://huggingface.co/datasets/datawhale-eai/datawhale_eai_pnp_language) |
-| [Datawhale SmolVLA](https://huggingface.co/datawhale-eai/smolvla_datawhale_eai) | 同上 |
 
 ## 7. 训练与部署 pi_0
 
