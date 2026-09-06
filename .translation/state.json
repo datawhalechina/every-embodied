@@ -273,7 +273,7 @@
     },
     "06-策略抓取或抓取VLA/大模型控制、VLA、VLM/04mujoco复现ACT、Pi0、SmolVLA/README.md": {
       "target": "en/06-manipulation-and-vla/large-model-control-vla-vlm/04-mujoco-reproduction-act-pi0-smolvla/README.md",
-      "sourceHash": "ccd80838b0d6941ea725dd241f781895806606790081d44b5e2588b54759cc7b",
+      "sourceHash": "74d67e073d6297d7d15f014b7148bd57c6035a21b563444a665af5a2648f2419",
       "model": "tencent/Hy-MT2-1.8B-GGUF:Q4_K_M",
       "modelRevision": "dc5f44fcf1fa496ee7ad725982c0c8c553a4de00259b53af84c4b89fb0c06699"
     },
