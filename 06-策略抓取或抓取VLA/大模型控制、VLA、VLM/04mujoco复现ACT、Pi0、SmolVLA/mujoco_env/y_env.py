@@ -625,6 +625,20 @@ class SimpleEnv:
         else:
             raise ValueError('state_type not recognized')
 
+    def get_commanded_joint_action(self):
+        '''
+        Return the target joint action most recently prepared by step().
+
+        This is distinct from get_joint_state(), which reads the current
+        physical joint state from MuJoCo.
+        '''
+        if not hasattr(self, 'compute_q'):
+            raise RuntimeError('Call step(action) before reading the commanded action')
+        return np.concatenate([
+            np.asarray(self.compute_q, dtype=np.float32),
+            np.asarray([self.gripper_cmd_scalar], dtype=np.float32),
+        ])
+
     def step_env(self):
         # Prefer actuator-control path when available (xarm7 tendon gripper).
         if self.use_actuator_ctrl_mode and (self.ctrl_cmd is not None) and (len(self.ctrl_cmd) == getattr(self.env, 'n_ctrl', 0)):
