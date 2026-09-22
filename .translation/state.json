@@ -1860,6 +1860,12 @@
       "sourceHash": "ec1f138036006cefab5789cb4729285c9771efa58e151b04e54a0a929b8df1fa",
       "model": "tencent/Hy-MT2-1.8B-GGUF:Q4_K_M",
       "modelRevision": "dc5f44fcf1fa496ee7ad725982c0c8c553a4de00259b53af84c4b89fb0c06699"
+    },
+    "06-策略抓取或抓取VLA/大模型控制、VLA、VLM/09APXInf具身端侧推理引擎/README.md": {
+      "target": "en/06-manipulation-and-vla/large-model-control-vla-vlm/09-apxinf-embodied-edge-reasoning-engine/README.md",
+      "sourceHash": "a6048178517f0bd474317e3b774882ff2b9fbb188094b768d15d0f2c3d24b089",
+      "model": "tencent/Hy-MT2-1.8B-GGUF:Q4_K_M",
+      "modelRevision": "dc5f44fcf1fa496ee7ad725982c0c8c553a4de00259b53af84c4b89fb0c06699"
     }
   }
 }
