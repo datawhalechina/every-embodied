@@ -1861,15 +1861,9 @@
       "model": "tencent/Hy-MT2-1.8B-GGUF:Q4_K_M",
       "modelRevision": "dc5f44fcf1fa496ee7ad725982c0c8c553a4de00259b53af84c4b89fb0c06699"
     },
-    "06-策略抓取或抓取VLA/大模型控制、VLA、VLM/09APXInf具身端侧推理引擎/README.md": {
-      "target": "en/06-manipulation-and-vla/large-model-control-vla-vlm/09-apxinf-embodied-edge-reasoning-engine/README.md",
-      "sourceHash": "a51ec6bfcfafad3524d9b58eb541733cb5799070ff172fa193487abdf4ba1fe5",
-      "model": "tencent/Hy-MT2-1.8B-GGUF:Q4_K_M",
-      "modelRevision": "dc5f44fcf1fa496ee7ad725982c0c8c553a4de00259b53af84c4b89fb0c06699"
-    },
-    "06-策略抓取或抓取VLA/大模型控制、VLA、VLM/09APXInf具身端侧推理引擎/assets/official_images/README.md": {
-      "target": "en/06-manipulation-and-vla/large-model-control-vla-vlm/09-apxinf-embodied-edge-reasoning-engine/assets/official_images/README.md",
-      "sourceHash": "063e3040f90200c05d8252925ccabeefe8a417765816ec6cfbfc6a365ec47573",
+    "06-策略抓取或抓取VLA/大模型控制、VLA、VLM/09具身智能推理与部署框架/README.md": {
+      "target": "en/06-manipulation-and-vla/large-model-control-vla-vlm/09-embodied-ai-reasoning-and-deployment-framework/README.md",
+      "sourceHash": "299286093328604081b0f65430cc2b6e65c920e35e2e85c020b6e8cd53afdab4",
       "model": "tencent/Hy-MT2-1.8B-GGUF:Q4_K_M",
       "modelRevision": "dc5f44fcf1fa496ee7ad725982c0c8c553a4de00259b53af84c4b89fb0c06699"
     }
