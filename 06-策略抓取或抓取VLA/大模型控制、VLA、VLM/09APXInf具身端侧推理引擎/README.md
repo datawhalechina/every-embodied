@@ -37,6 +37,12 @@ APXinf-robo policy / OpenPI-compatible server
 机器人客户端或评测环境
 ```
 
+![APXInf 从 Python 接口、Rust Runtime 到高性能算子库和端侧硬件的分层结构](./assets/official_images/apxinf-figure-1.png)
+
+图 1：APXInf 的官方分层示意。上层保留 Python 模型加载、前后处理和推理调用方式，中间由 Rust Runtime 负责调度与资源生命周期，底层再连接面向 Jetson/RTX 和具身模型定制的高性能算子库。
+
+来源：[无问芯穹 APXInf 官方介绍](https://www.infinigence-ai.com/news-updates/233.html)。
+
 官方仓库首发重点是 π0.5，并提供 BF16、FP8 和 INT8 路径。当前公开支持的硬件包括 Jetson AGX Thor、Jetson AGX Orin 和 RTX 4090；FP8 需要校准数据，INT8 主要面向 Orin 和 Ada 架构。具体支持范围应以目标版本的 README 为准。
 
 ### 表 1 相关项目的边界
@@ -66,6 +72,12 @@ APXInf 的公开 benchmark 把测量分成 L1、L2、L3：L1 是从 resized RGB 
 | Jetson AGX Thor | FP8 | 41.16 ms | 26.32 ms |
 | Jetson AGX Orin | BF16 | 165.67 ms | 119.05 ms |
 | RTX 4090 | BF16 | 31.38 ms | 20.36 ms |
+
+![PI 0.5 在 Jetson AGX Thor 上从基线到端到端优化的延迟拆解](./assets/official_images/apxinf-figure-2.png)
+
+图 2：官方给出的优化链路。延迟逐步下降来自融合算子、静态图、CUDA Graph、量化、Kernel 优化和动作生成裁剪的组合；不能把最后的 26 ms 简单归因于 Rust 或某一个 CUDA Kernel。
+
+来源：[无问芯穹 APXInf 官方介绍](https://www.infinigence-ai.com/news-updates/233.html)。
 
 Thor FP8 的 26.32 ms 对应约 38 Hz，说明它的优化目标确实是机器人实时控制，而不是只追求离线吞吐。[官方性能表](https://github.com/RLinf/APXinf-robo#performance)
 
