@@ -46,7 +46,7 @@ MODEL_XML = r"""
 
   <worldbody>
     <light name="key" pos="0.0 0.0 2.0" dir="0 0 -1"/>
-    <geom name="floor" type="plane" size="2 2 0.1" material="mat_floor"/>
+    <geom name="floor" type="plane" size="2 2 0.1" material="mat_floor" contype="1" conaffinity="2"/>
 
     <body name="robot_base" pos="0 0 0.05">
       <geom name="robot_base_geom" type="cylinder" size="0.09 0.05" rgba="0.16 0.16 0.18 1"/>
@@ -79,11 +79,11 @@ MODEL_XML = r"""
                     <site name="ee_site" pos="0 0 0" size="0.008" rgba="0 1 0 1"/>
                     <body name="left_finger" pos="0 0.018 0">
                       <joint name="left_finger_joint" type="slide" axis="0 1 0" range="0 0.03" damping="0.4"/>
-                      <geom name="robot_left_finger_geom" type="box" pos="0.02 0.01 0" size="0.02 0.004 0.012" material="mat_gripper"/>
+                      <geom name="robot_left_finger_geom" type="box" pos="0.02 0 0" size="0.02 0.004 0.012" material="mat_gripper"/>
                     </body>
                     <body name="right_finger" pos="0 -0.018 0">
                       <joint name="right_finger_joint" type="slide" axis="0 -1 0" range="0 0.03" damping="0.4"/>
-                      <geom name="robot_right_finger_geom" type="box" pos="0.02 -0.01 0" size="0.02 0.004 0.012" material="mat_gripper"/>
+                      <geom name="robot_right_finger_geom" type="box" pos="0.02 0 0" size="0.02 0.004 0.012" material="mat_gripper"/>
                     </body>
                   </body>
                 </body>
@@ -94,9 +94,10 @@ MODEL_XML = r"""
       </body>
     </body>
 
-    <body name="object" pos="0.42 0.0 0.03">
+    <!-- The scripted grasp attaches the cube kinematically, so the loose cube only collides with the floor. -->
+    <body name="object" pos="0.42 0.0 0.021">
       <freejoint name="object_free"/>
-      <geom name="cube" type="box" size="0.02 0.02 0.02" material="mat_cube" friction="1.5 0.08 0.03" solref="0.005 1"/>
+      <geom name="cube" type="box" size="0.02 0.02 0.02" material="mat_cube" friction="1.5 0.08 0.03" solref="0.005 1" contype="2" conaffinity="0"/>
     </body>
 
     <body name="drop_zone" pos="0.30 -0.22 0.002">
@@ -133,7 +134,7 @@ ARM_JOINTS = [
 GRIPPER_JOINTS = ["left_finger_joint", "right_finger_joint"]
 
 GRIPPER_OPEN = np.array([0.028, 0.028], dtype=np.float64)
-GRIPPER_CLOSE = np.array([0.003, 0.003], dtype=np.float64)
+GRIPPER_CLOSE = np.array([0.005, 0.005], dtype=np.float64)
 
 
 @dataclass
@@ -144,6 +145,8 @@ class KinematicsIndex:
     gripper_qpos_ids: np.ndarray
     object_qpos_adr: int
     object_dof_adr: int
+    object_body_id: int
+    object_geom_id: int
     ee_site_id: int
 
 
@@ -155,8 +158,13 @@ class URTrajectoryDemo:
         self.drop_pos = np.array([0.30, -0.22, 0.03], dtype=np.float64)
         self.rng = np.random.default_rng()
         self.carrying = False
-        self.attach_offset = np.array([0.0, 0.0, -0.02], dtype=np.float64)
-        self.attach_quat = np.array([1.0, 0.0, 0.0, 0.0], dtype=np.float64)
+        self.attach_offset = np.zeros(3, dtype=np.float64)
+        self.attach_rotmat = np.eye(3, dtype=np.float64)
+        self._object_collision = (
+            int(model.geom_contype[self.idx.object_geom_id]),
+            int(model.geom_conaffinity[self.idx.object_geom_id]),
+        )
+        self._object_gravcomp = float(model.body_gravcomp[self.idx.object_body_id])
         self.pick_success = 0
         self.pick_total = 0
 
@@ -183,6 +191,8 @@ class URTrajectoryDemo:
             grip_qpos_ids.append(self.model.jnt_qposadr[jid])
 
         object_jid = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_JOINT, "object_free")
+        object_body_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_BODY, "object")
+        object_geom_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_GEOM, "cube")
         ee_site_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_SITE, "ee_site")
         return KinematicsIndex(
             arm_qpos_ids=np.array(arm_qpos_ids, dtype=np.int32),
@@ -191,6 +201,8 @@ class URTrajectoryDemo:
             gripper_qpos_ids=np.array(grip_qpos_ids, dtype=np.int32),
             object_qpos_adr=int(self.model.jnt_qposadr[object_jid]),
             object_dof_adr=int(self.model.jnt_dofadr[object_jid]),
+            object_body_id=int(object_body_id),
+            object_geom_id=int(object_geom_id),
             ee_site_id=ee_site_id,
         )
 
@@ -208,10 +220,11 @@ class URTrajectoryDemo:
         print("-" * 72)
 
     def set_random_block(self, pos: Optional[np.ndarray] = None) -> np.ndarray:
+        self._set_object_attached(False)
         if pos is None:
             x = self.rng.uniform(0.33, 0.50)
             y = self.rng.uniform(-0.16, 0.16)
-            z = 0.03
+            z = 0.021
             pos = np.array([x, y, z], dtype=np.float64)
         yaw = float(self.rng.uniform(-0.35, 0.35))
         cy, sy = np.cos(yaw * 0.5), np.sin(yaw * 0.5)
@@ -220,7 +233,6 @@ class URTrajectoryDemo:
         self.data.qpos[qadr : qadr + 3] = pos
         self.data.qpos[qadr + 3 : qadr + 7] = quat
         self.data.qvel[self.idx.object_dof_adr : self.idx.object_dof_adr + 6] = 0.0
-        self.carrying = False
         mujoco.mj_forward(self.model, self.data)
         return pos
 
@@ -401,10 +413,40 @@ class URTrajectoryDemo:
         if not self.carrying:
             return
         ee = self.get_ee_pos()
+        ee_rot = self.get_ee_rotmat()
         qadr = self.idx.object_qpos_adr
-        self.data.qpos[qadr : qadr + 3] = ee + self.attach_offset
-        self.data.qpos[qadr + 3 : qadr + 7] = self.attach_quat
+        object_rot = ee_rot @ self.attach_rotmat
+        object_quat = np.zeros(4, dtype=np.float64)
+        mujoco.mju_mat2Quat(object_quat, object_rot.reshape(-1))
+        self.data.qpos[qadr : qadr + 3] = ee + ee_rot @ self.attach_offset
+        self.data.qpos[qadr + 3 : qadr + 7] = object_quat
         self.data.qvel[self.idx.object_dof_adr : self.idx.object_dof_adr + 6] = 0.0
+        mujoco.mj_forward(self.model, self.data)
+
+    def _set_object_attached(self, attached: bool) -> None:
+        self.carrying = attached
+        geom_id = self.idx.object_geom_id
+        body_id = self.idx.object_body_id
+        if attached:
+            self.model.geom_contype[geom_id] = 0
+            self.model.geom_conaffinity[geom_id] = 0
+            self.model.body_gravcomp[body_id] = 1.0
+        else:
+            self.model.geom_contype[geom_id], self.model.geom_conaffinity[geom_id] = self._object_collision
+            self.model.body_gravcomp[body_id] = self._object_gravcomp
+        mujoco.mj_forward(self.model, self.data)
+
+    def attach_object(self) -> None:
+        ee_pos = self.get_ee_pos()
+        ee_rot = self.get_ee_rotmat()
+        qadr = self.idx.object_qpos_adr
+        dof_adr = self.idx.object_dof_adr
+        object_rot = np.zeros(9, dtype=np.float64)
+        mujoco.mju_quat2Mat(object_rot, self.data.qpos[qadr + 3 : qadr + 7])
+        self.attach_offset = ee_rot.T @ (self.data.qpos[qadr : qadr + 3] - ee_pos)
+        self.attach_rotmat = ee_rot.T @ object_rot.reshape(3, 3)
+        self.data.qvel[dof_adr : dof_adr + 6] = 0.0
+        self._set_object_attached(True)
 
     def pin_object_pose(self, pos: np.ndarray, quat: np.ndarray) -> None:
         qadr = self.idx.object_qpos_adr
@@ -464,11 +506,11 @@ class URTrajectoryDemo:
         for _ in range(trials):
             x = self.rng.uniform(0.34, 0.48)
             y = self.rng.uniform(-0.14, 0.14)
-            z = 0.03
+            z = 0.021
             pos = np.array([x, y, z], dtype=np.float64)
             target_rot = self.build_grasp_orientation(pos)
             pre = pos + np.array([0.0, 0.0, 0.13], dtype=np.float64)
-            grasp = pos + np.array([0.0, 0.0, 0.05], dtype=np.float64)
+            grasp = pos + np.array([0.0, 0.0, 0.02], dtype=np.float64)
             q_pre = self.solve_ik_pose(pre, target_rot=target_rot)
             q_grasp = self.solve_ik_pose(grasp, target_rot=target_rot)
             if q_pre is None or q_grasp is None:
@@ -481,7 +523,7 @@ class URTrajectoryDemo:
             return pos, target_rot
 
         # fallback to central easy pose
-        fallback = np.array([0.40, 0.0, 0.03], dtype=np.float64)
+        fallback = np.array([0.40, 0.0, 0.021], dtype=np.float64)
         self.set_random_block(fallback)
         return fallback, self.build_grasp_orientation(fallback)
 
@@ -509,10 +551,8 @@ class URTrajectoryDemo:
         self.pick_total += 1
         block, grasp_rot = self.sample_reachable_block()
         pre = block + np.array([0.0, 0.0, 0.13], dtype=np.float64)
-        grasp = block + np.array([0.0, 0.0, 0.055], dtype=np.float64)
+        grasp = block + np.array([0.0, 0.0, 0.02], dtype=np.float64)
         lift = block + np.array([0.0, 0.0, 0.18], dtype=np.float64)
-        place_pre = self.drop_pos + np.array([0.0, 0.0, 0.14], dtype=np.float64)
-        place = self.drop_pos + np.array([0.0, 0.0, 0.055], dtype=np.float64)
         place_rot = self.build_grasp_orientation(self.drop_pos)
 
         ok = self.move_to_xyz(pre, GRIPPER_OPEN, viewer=viewer, realtime=realtime, target_rot=grasp_rot)
@@ -533,24 +573,32 @@ class URTrajectoryDemo:
             viewer=viewer,
             realtime=realtime,
         )
-        dist = np.linalg.norm(self.get_ee_pos() - block)
-        self.carrying = dist < 0.07
-        self.attach_quat = self.rotmat_to_quat(grasp_rot)
+        ee_rot = self.get_ee_rotmat()
+        object_pos = self.data.qpos[self.idx.object_qpos_adr : self.idx.object_qpos_adr + 3]
+        object_in_gripper = ee_rot.T @ (object_pos - self.get_ee_pos())
+        grasp_ok = (
+            np.linalg.norm(self.get_ee_pos() - grasp) < 0.04
+            and np.linalg.norm(object_in_gripper[:2]) < 0.025
+            and abs(object_in_gripper[2]) < 0.045
+        )
+        if grasp_ok:
+            self.attach_object()
         if not self.carrying:
-            print("[抓取] 夹爪与目标偏差较大，本次跳过搬运。")
+            print("[抓取] 方块未进入夹爪范围，本次跳过搬运。")
             self.move_arm_to(self.home, GRIPPER_OPEN, viewer=viewer, realtime=realtime)
             return
 
+        placed_pos = self.drop_pos.copy()
+        placed_pos[2] = 0.021  # cube half-height + tiny clearance
+        place = placed_pos - place_rot @ self.attach_offset
+        place_pre = place + np.array([0.0, 0.0, 0.14], dtype=np.float64)
         self.move_to_xyz(lift, GRIPPER_CLOSE, viewer=viewer, realtime=realtime, target_rot=grasp_rot)
         self.move_to_xyz(place_pre, GRIPPER_CLOSE, viewer=viewer, realtime=realtime, target_rot=place_rot)
         self.move_to_xyz(place, GRIPPER_CLOSE, viewer=viewer, realtime=realtime, target_rot=place_rot)
 
         place_quat = self.rotmat_to_quat(place_rot)
-        # Place deterministically on table to avoid late-stage catapult.
-        placed_pos = self.drop_pos.copy()
-        placed_pos[2] = 0.021  # cube half-height + tiny clearance
         self.pin_object_pose(placed_pos, place_quat)
-        self.carrying = False
+        self._set_object_attached(False)
         self.settle_object(steps=35, viewer=viewer, realtime=realtime)
 
         # Open gripper first, then retreat up to avoid side impulses.
