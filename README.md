@@ -215,6 +215,7 @@
   两段完整回合均在 AMD Ryzen AI MAX+ 395 上完成闭环推理和视频录制。查看 [AMD Physical AI 仿真基准与长程视频复现教程](./16-专题组队学习/04-AMD-ROCm策略复刻专题/README_09_AMD_Physical_AI仿真基准与长程视频复现.md)，继续学习 Every Embodied、RoboCasa365、DexJoCo、DISCOVERSE、RoboWits 和 Unitree G1 的任务协议、评估结果与多视角导出流程。
 
   ## 🔥 News & Highlights
+  - **[2026-09-28]** 新增 [Booster K1 浏览器推理与 AMP 训练体验](./07-机器人操作、运动控制/Locomotion/02-BoosterK1-mjlab-AMP/README.md)：在 Windows 浏览器中验证官方 MuJoCo WebAssembly 策略 demo 和键盘控制，并整理 Linux + NVIDIA GPU 上的可选训练及 W&B 仿真评估流程，明确网页推理、模型训练与真机部署的复现边界。
   - **[2026-09-05]** 更新 [Microduck 双足强化学习教程](./05-具身场景的深度和强化学习/05-OpenDuckMini与Microduck双足强化学习/README.md)：新增 BallKick 非对称 actor-critic、奖励与随机化拆解，提供独立训练和 ONNX 导出命令，并接入官方 Microduck Sandbox，讲清 MuJoCo WebAssembly、onnxruntime-web、Three.js 与 50 Hz 浏览器闭环；本机实测右脚策略成功触球并保存画面与 QA 记录。
   - **[2026-09-04]** 新增 [UniCross 统一跨技能灵巧操作导读](./05-具身场景的深度和强化学习/07-UniCross统一跨技能灵巧操作导读/README.md)：归入强化学习与灵巧操作章节，系统拆解抓取、搬移、手内旋转和手内平移如何共享手-物关系观测、增量动作空间与奖励结构，十个 PPO 专家如何通过 DAgger 蒸馏为单一策略，以及未见物体、扰动、Allegro / MANO / Sharpa Wave 跨手型和长时程组合实验；同时更新 [Microduck 双足强化学习教程](./05-具身场景的深度和强化学习/05-OpenDuckMini与Microduck双足强化学习/README.md)，加入由同一 walking policy 实时执行的 12 秒命令编舞视频和可复现录制参数。
   - **[2026-08-29]** 新增 [AMD Physical AI 仿真基准与长程视频复现教程](./16-专题组队学习/04-AMD-ROCm策略复刻专题/README_09_AMD_Physical_AI仿真基准与长程视频复现.md)：汇总 Every Embodied、RoboCasa365、DexJoCo、DISCOVERSE、RoboWits 和 Unitree G1 的 AMD ROCm 运行链路、正式评估协议与多视角视频，并提供 DexJoCo 双臂河内塔和 RoboCasa365 长程装餐任务的完整成功回合。
@@ -323,7 +324,7 @@
   | 章节                   | 关键内容                                       | 状态 |
   | :--------------------- | :--------------------------------------------- | :--- |
   | **5. 计算机视觉 (CV)** | [目标检测 (YOLO)](./04-具身场景的计算机视觉、3D重建/02-抓取注意力热图.md)、[视觉语言定位 (Locate Anything)](./04-具身场景的计算机视觉、3D重建/04-Locate-Anything视觉语言定位.md)、[图像分割 (SAM)](./04-具身场景的计算机视觉、3D重建/01-sam和深度估计.md)、[视频流式三维重建 (LingBot-Map)](./04-具身场景的计算机视觉、3D重建/03-LingBot-Map视频流式三维重建.md)、6D 位姿估计   | ✅    |
-  | **6. 运动与控制**      | 路径规划 (A*/RRT)、轨迹优化、PID 与 MPC 控制、模仿学习 (IL)、[ACT复现](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/04mujoco复现ACT、Pi0、SmolVLA/3.train.ipynb)、[Hand-Eye 标定](./02-机器人基础和控制、手眼协调/补充01手眼协调.md)、AnyGrasp 抓取算法、灵巧手操作   | 🚧    |
+  | **6. 运动与控制**      | 路径规划 (A*/RRT)、轨迹优化、PID 与 MPC 控制、模仿学习 (IL)、[ACT复现](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/04mujoco复现ACT、Pi0、SmolVLA/3.train.ipynb)、[Booster K1 AMP 浏览器推理与训练](./07-机器人操作、运动控制/Locomotion/02-BoosterK1-mjlab-AMP/README.md)、[Hand-Eye 标定](./02-机器人基础和控制、手眼协调/补充01手眼协调.md)、AnyGrasp 抓取算法、灵巧手操作   | 🚧    |
   | **7. 强化学习 (RL)**   | [多机器人PPO/SAC 算法详解](./05-具身场景的深度和强化学习/01多机器人搬运家具强化学习.md)、[Robots That Know What to Ask 奖励对齐](./05-具身场景的深度和强化学习/04-Robots-That-Know-What-to-Ask奖励对齐导读/README.md)、[UniLab + MotrixSim state-based RL 训练](./10-具身智能其他仿真工具及仿真前沿/11UniLab-MotrixSim异构RL训练/README.md)、Isaac Gym 并行训练实战       | ✅    |
   | **8. 仿真环境**        | Isaac Sim 高级渲染、[MuJoCo 物理引擎下OMY/Nova5/Franka机械臂和ACT/Pi0/SmolVLA算法复现](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/04mujoco复现ACT、Pi0、SmolVLA)、[Genie-Sim3教程](./10-具身智能其他仿真工具及仿真前沿/08GenieSim3配置.md)、[MotrixSim PBR teaser 渲染体验](./10-具身智能其他仿真工具及仿真前沿/11UniLab-MotrixSim异构RL训练/README.md#7-扩展体验motrixsim-pbr-teaser-渲染器)、[HumanoidMimicGen 全身规划数据生成](./10-具身智能其他仿真工具及仿真前沿/12HumanoidMimicGen全身规划数据生成导读/README.md)、[PhysicsNeMo 物理 AI 求解器](./10-具身智能其他仿真工具及仿真前沿/13-PhysicsNeMo物理AI求解器导读/README.md) | ✅    |
 
