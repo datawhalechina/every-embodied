@@ -55,6 +55,8 @@ unzip plate_11.zip
 ## 1. 采集示教数据
 运行 [1.collect_data.ipynb](1.collect_data.ipynb)
 
+默认使用 **ROBOTIS OMY 六轴机械臂及夹爪的 MuJoCo 仿真模型**，场景文件为 `asset/example_scene_y.xml`，无需实体机械臂。运行采集单元后，让 MuJoCo 窗口获得键盘焦点再操作。本章固定版本的 `LeRobotDataset` 按 LeRobot v2.1 格式保存数据。
+
 在给定环境中采集示教数据。任务是抓起杯子并放到盘子上。当杯子在盘子上、夹爪打开且末端执行器位于杯子上方时，环境判定成功。
 
 <img src="./media/teleop.gif" width="480" height="360">
@@ -105,7 +107,17 @@ features={
 },
 ```
 
-数据默认保存在 `./demo_data` 目录。仓库中已提供示例数据：[demo_data_example](./demo_data_example/)。
+数据默认保存在 `./demo_data` 目录。仓库中的历史示例 [demo_data_example](./demo_data_example/) 可用于查看目录结构和回放；训练请优先使用本次修复后重新采集的数据。
+
+开始操作后，代码以 20 Hz 缓存图像、状态和动作；成功判定成立后保存一个 episode。`Z` 会丢弃当前未保存回合，成功保存或重置后需重新开始操作才会记录新回合。默认 `NUM_DEMO=1` 只采集一条示教；用于训练时应增加数量并覆盖不同物体位置。
+
+**动作与观测的区别**：四个键盘采集入口的 `observation.state` 是下发本帧命令前的末端位姿，`action` 是逆运动学求出的绝对目标关节角加归一化夹爪命令（0 为开、1 为闭）。OMY、Nova5、xArm6 为 7 维，xArm7 为 8 维。调用 `PnPEnv.step(action)` 准备控制命令后，用 `PnPEnv.get_commanded_joint_action()` 读取动作标签；`step()` 的返回值仍是观测，不能作为目标动作。夹爪有平滑或接触限位时，标签记录经过这些限制后实际下发的命令。
+
+**旧数据处理（2026-10-02）**：旧版本的 `1.collect_data.ipynb`、`1.collect_data_nova5.ipynb`、`1.collect_data_xarm6.ipynb`、`1.collect_data_xarm7.ipynb` 误将当前关节状态保存为动作标签。建议使用本次修复后的代码重新采集并训练；仅更新代码不能修复已有数据中的标签。请保留旧数据备份，改用新的 `ROOT` 目录，并同步修改训练数据路径，避免混入旧数据。更新环境代码后需重启 Notebook kernel，再从头执行。
+
+第 5 节的语言条件采集入口也使用相同的目标动作接口，但其 `observation.state` 保留为当前的六个机械臂关节角，而非末端位姿；训练和部署时应使用各自对应的状态定义。
+
+安装本章依赖后，可在本章目录运行 `python -m unittest -v test_collection_actions` 检查动作标签、夹爪命令、回合边界及五个采集入口。该检查无需打开图形窗口或运行 GPU 训练。
 
 ## 2. 回放数据
 按采集时使用的机器人选择回放入口，数据路径和机器人模型必须匹配：

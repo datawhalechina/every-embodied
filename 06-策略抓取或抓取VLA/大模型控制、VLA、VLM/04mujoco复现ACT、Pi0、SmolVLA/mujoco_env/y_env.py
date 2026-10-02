@@ -479,6 +479,9 @@ class SimpleEnv:
 
         # Set the initial pose of the robot
         self.last_q = copy.deepcopy(q_zero)
+        self.compute_q = copy.deepcopy(q_zero)
+        self.gripper_state = False
+        self.gripper_cmd_scalar = 0.0
         self.ik_rest_pose = copy.deepcopy(q_zero)
         self.q = np.concatenate([q_zero, np.array([0.0] * len(self.gripper_joint_names), dtype=np.float32)])
         if self.use_actuator_ctrl_mode:
@@ -498,19 +501,18 @@ class SimpleEnv:
         for _ in range(100):
             self.step_env()
         print("DONE INITIALIZATION")
-        self.gripper_state = False
-        self.gripper_cmd_scalar = 0.0
         self.past_chars = []
 
     def step(self, action):
         '''
-        Take a step in the environment
+        Prepare the next control command without advancing physics.
+        Use get_commanded_joint_action() for demonstration action labels.
         args:
-            action: np.array of shape (7,), action to take
+            action: end-effector delta pose + gripper, or joint targets + gripper
         returns:
-            state: np.array, state of the environment after taking the action
+            state: np.array, measured state (not the prepared target command)
                 - ee_pose: [px,py,pz,r,p,y]
-                - joint_angle: [j1,j2,j3,j4,j5,j6]
+                - joint_angle: arm joints in self.joint_names order + gripper state
 
         '''
         if self.action_type == 'eef_pose':
@@ -696,6 +698,16 @@ class SimpleEnv:
             self.env.viewer_text_overlay(text1='Key Pressed',text2='%s'%(self.env.get_key_pressed_list()))
             self.env.viewer_text_overlay(text1='Key Repeated',text2='%s'%(self.env.get_key_repeated_list()))
         self.env.render()
+
+    def get_commanded_joint_action(self):
+        """Return a float32 snapshot of arm targets and normalized gripper command.
+
+        Arm targets follow self.joint_names. The last value is the applied
+        gripper command (0=open, 1=closed), after slew/contact limits.
+        """
+        return np.concatenate(
+            [self.compute_q, [self.gripper_cmd_scalar]], dtype=np.float32
+        )
 
     def get_joint_state(self):
         '''
@@ -906,7 +918,7 @@ class SimpleEnv:
 
     def get_ee_pose(self):
         '''
-        get the end effector pose of the robot + gripper state
+        Return the end-effector pose [x,y,z,roll,pitch,yaw].
         '''
         p, R = self.env.get_pR_body(body_name=self.ee_body_name)
         rpy = r2rpy(R)

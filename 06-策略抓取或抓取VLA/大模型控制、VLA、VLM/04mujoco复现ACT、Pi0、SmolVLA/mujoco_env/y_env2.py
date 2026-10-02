@@ -97,6 +97,9 @@ class SimpleEnv2:
 
         # Set the initial pose of the robot
         self.last_q = copy.deepcopy(q_zero)
+        self.compute_q = copy.deepcopy(q_zero)
+        self.gripper_state = False
+        self.gripper_cmd_scalar = 0.0
         self.q = np.concatenate([q_zero, np.array([0.0]*4)])
         self.p0, self.R0 = self.env.get_pR_body(body_name='tcp_link')
         mug_red_init_pose, mug_blue_init_pose, plate_init_pose = self.get_obj_pose()
@@ -105,7 +108,6 @@ class SimpleEnv2:
             self.step_env()
         self.set_instruction()
         print("DONE INITIALIZATION")
-        self.gripper_state = False
         self.past_chars = []
 
     def set_instruction(self, given = None):
@@ -131,13 +133,14 @@ class SimpleEnv2:
 
     def step(self, action):
         '''
-        Take a step in the environment
+        Prepare the next control command without advancing physics.
+        Use get_commanded_joint_action() for demonstration action labels.
         args:
             action: np.array of shape (7,), action to take
         returns:
-            state: np.array, state of the environment after taking the action
+            state: np.array, measured state (not the prepared target command)
                 - ee_pose: [px,py,pz,r,p,y]
-                - joint_angle: [j1,j2,j3,j4,j5,j6]
+                - joint_angle: arm joints in self.joint_names order + gripper state
 
         '''
         if self.action_type == 'eef_pose':
@@ -165,7 +168,8 @@ class SimpleEnv2:
         else:
             raise ValueError('action_type not recognized')
         
-        gripper_cmd = np.array([action[-1]]*4)
+        self.gripper_cmd_scalar = float(action[-1])
+        gripper_cmd = np.array([self.gripper_cmd_scalar]*4)
         gripper_cmd[[1,3]] *= 0.8
         self.compute_q = q
         q = np.concatenate([q, gripper_cmd])
@@ -225,6 +229,12 @@ class SimpleEnv2:
             language_instructions = self.instruction
             self.env.viewer_text_overlay(text1='Language Instructions',text2=language_instructions)
         self.env.render()
+
+    def get_commanded_joint_action(self):
+        """Return a float32 snapshot of arm targets and normalized gripper command."""
+        return np.concatenate(
+            [self.compute_q, [self.gripper_cmd_scalar]], dtype=np.float32
+        )
 
     def get_joint_state(self):
         '''
@@ -369,7 +379,7 @@ class SimpleEnv2:
 
     def get_ee_pose(self):
         '''
-        get the end effector pose of the robot + gripper state
+        Return the end-effector pose [x,y,z,roll,pitch,yaw].
         '''
         p, R = self.env.get_pR_body(body_name='tcp_link')
         rpy = r2rpy(R)
