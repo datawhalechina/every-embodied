@@ -4,6 +4,8 @@
 
 ![MicroDuck 自由滚动篮球仿真回放](./assets/preview.gif)
 
+[篮球平衡 GPU 策略回放视频](./assets/basketball-balance.mp4)（5 秒，无声）。首页播放预览为同一回放的 GIF，保留原始动作时间轴；视频采用 H.264 和 faststart。来源是本专题 `01_篮球平衡_PPO_ONNX_BPU_MuJoCo.ipynb` 对应的已有 GPU 回放，不是 MotrixLab 多机器人球面平衡片段。
+
 ## 1. 先说结论
 
 这个任务不是把地面 walking 策略的动作输出直接叠加到篮球任务上。直接叠加通常会出现两个问题：

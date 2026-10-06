@@ -50,12 +50,12 @@ const homeDemos = [
     doc: "06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/README.md",
   },
   {
-    title: "钢琴移位后继续演奏",
-    subtitle: "G0.5 辅助双臂重新就位，接回下一个乐句",
+    title: "MicroDuck 篮球平衡",
+    subtitle: "机器人在自由滚动的篮球上保持平衡",
     type: "video",
-    media: "06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-relocation-performance.mp4",
-    poster: "06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-relocation-poster.jpg",
-    doc: "06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/G05.md",
+    media: "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/01-任务资料/01-MicroDuck篮球平衡强化学习/assets/basketball-balance.mp4",
+    poster: "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/01-任务资料/01-MicroDuck篮球平衡强化学习/assets/basketball-balance-poster.jpg",
+    doc: "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/01-任务资料/01-MicroDuck篮球平衡强化学习/README.md",
   },
   {
     title: "AMD Physical AI Evidence Lab",

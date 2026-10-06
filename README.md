@@ -79,18 +79,22 @@
 <table align="center">
   <tr>
     <td width="33%" valign="top" align="center">
-      <a href="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-xiaohongshu.mp4"><img src="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-xiaohongshu-poster.jpg" width="100%" alt="G0.5 机器人演奏我爱你中国"></a>
+      <img src="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-xiaohongshu-preview.gif" width="100%" alt="G0.5 机器人弹琴播放预览">
       <br>
       <strong><a href="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/README.md">G0.5 × 机器人弹琴</a></strong>
       <br>
-      <sub>《我爱你，中国》双手多指演奏，点击封面播放</sub>
+      <sub>《我爱你，中国》双手多指演奏</sub>
+      <br>
+      <a href="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-xiaohongshu.mp4">带声音完整视频</a>
     </td>
     <td width="33%" valign="top" align="center">
-      <a href="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-relocation-performance.mp4"><img src="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-relocation-poster.jpg" width="100%" alt="G0.5 辅助钢琴移位后继续演奏"></a>
+      <img src="./16-专题组队学习/05-MicroDuck运动策略与任务开发专题/01-任务资料/01-MicroDuck篮球平衡强化学习/assets/basketball-balance-preview.gif" width="100%" alt="MicroDuck 篮球平衡播放预览">
       <br>
-      <strong><a href="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/G05.md">钢琴移位后继续演奏</a></strong>
+      <strong><a href="./16-专题组队学习/05-MicroDuck运动策略与任务开发专题/01-任务资料/01-MicroDuck篮球平衡强化学习/README.md">MicroDuck 篮球平衡</a></strong>
       <br>
-      <sub>G0.5 辅助双臂重新就位，点击封面播放</sub>
+      <sub>机器人在篮球上保持平衡</sub>
+      <br>
+      <a href="./16-专题组队学习/05-MicroDuck运动策略与任务开发专题/01-任务资料/01-MicroDuck篮球平衡强化学习/assets/basketball-balance.mp4">完整视频</a>
     </td>
     <td width="33%" valign="top" align="center">
       <a href="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/README.md"><img src="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/public-relocation-final.png" width="100%" alt="G0.5 钢琴 Demo 开源教程"></a>
