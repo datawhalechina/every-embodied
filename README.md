@@ -97,11 +97,11 @@
       <a href="./16-专题组队学习/05-MicroDuck运动策略与任务开发专题/01-任务资料/01-MicroDuck篮球平衡强化学习/assets/basketball-balance.mp4">完整视频</a>
     </td>
     <td width="33%" valign="top" align="center">
-      <a href="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/README.md"><img src="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/public-relocation-final.png" width="100%" alt="G0.5 钢琴 Demo 开源教程"></a>
+      <a href="./15-Challenge竞赛/AgiBot_World_Model/AgiBot_World_Model比赛复现与改进教程.md"><img src="./15-Challenge竞赛/AgiBot_World_Model/assets/frame_00036_new.png" width="100%" alt="AgiBot World Model 改进方法评估结果"></a>
       <br>
-      <strong><a href="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/README.md">本地复现钢琴 Demo</a></strong>
+      <strong><a href="./15-Challenge竞赛/AgiBot_World_Model/AgiBot_World_Model比赛复现与改进教程.md">AgiBot World Model 比赛评估</a></strong>
       <br>
-      <sub>模型接入、双手演奏与移琴续弹代码</sub>
+      <sub>改进方法预测结果，点击查看基线对比与复现教程</sub>
     </td>
   </tr>
   <tr>

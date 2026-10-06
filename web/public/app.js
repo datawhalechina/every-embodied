@@ -58,6 +58,12 @@ const homeDemos = [
     doc: "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/01-任务资料/01-MicroDuck篮球平衡强化学习/README.md",
   },
   {
+    title: "AgiBot World Model 比赛评估",
+    subtitle: "改进方法预测结果，查看基线对比与复现教程",
+    media: "15-Challenge竞赛/AgiBot_World_Model/assets/frame_00036_new.png",
+    doc: "15-Challenge竞赛/AgiBot_World_Model/AgiBot_World_Model比赛复现与改进教程.md",
+  },
+  {
     title: "AMD Physical AI Evidence Lab",
     subtitle: "家庭操作、灵巧手、仿真迁移与安全控制的完整 AMD 实践",
     mediaUrl:
