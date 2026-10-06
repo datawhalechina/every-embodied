@@ -1192,11 +1192,17 @@ body.showcase-mode .reader {
   border-radius: 8px;
 }
 
-.home-demo-media img {
+.home-demo-media img,
+.home-demo-media video {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.home-demo-media video {
+  object-fit: contain;
+  background: #000;
 }
 
 .home-demo-copy strong,

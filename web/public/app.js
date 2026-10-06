@@ -42,6 +42,22 @@ const GITHUB_REPO_URL = "https://github.com/datawhalechina/every-embodied";
 
 const homeDemos = [
   {
+    title: "G0.5 × 机器人弹琴",
+    subtitle: "《我爱你，中国》双手多指演奏",
+    type: "video",
+    media: "06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-xiaohongshu.mp4",
+    poster: "06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-xiaohongshu-poster.jpg",
+    doc: "06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/README.md",
+  },
+  {
+    title: "钢琴移位后继续演奏",
+    subtitle: "G0.5 辅助双臂重新就位，接回下一个乐句",
+    type: "video",
+    media: "06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-relocation-performance.mp4",
+    poster: "06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-relocation-poster.jpg",
+    doc: "06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/G05.md",
+  },
+  {
     title: "AMD Physical AI Evidence Lab",
     subtitle: "家庭操作、灵巧手、仿真迁移与安全控制的完整 AMD 实践",
     mediaUrl:
@@ -460,6 +476,9 @@ function getRoute() {
 }
 
 function setMode(mode) {
+  if (mode !== "home") {
+    els.homeDemoGrid.querySelectorAll("video").forEach((video) => video.pause());
+  }
   document.body.classList.toggle("home-mode", mode === "home");
   document.body.classList.toggle("book-mode", mode === "book");
   document.body.classList.toggle("showcase-mode", mode === "showcase");
@@ -652,6 +671,22 @@ function renderHome() {
       const doc = state.flatDocs.find((item) => item.relPath === demo.doc);
       const href = demo.href || (doc ? docHash(doc.id) : "#/book");
       const media = demo.mediaUrl || fileHref(demo.media);
+      if (demo.type === "video") {
+        return `
+          <article class="home-demo-card">
+            <span class="home-demo-media">
+              <video controls playsinline preload="none" poster="${fileHref(demo.poster)}" aria-label="${escapeHtml(demo.title)}">
+                <source src="${media}" type="video/mp4" />
+                <a href="${media}">下载视频</a>
+              </video>
+            </span>
+            <a class="home-demo-copy" href="${href}">
+              <strong>${escapeHtml(demo.title)}</strong>
+              <span>${escapeHtml(demo.subtitle)}</span>
+            </a>
+          </article>
+        `;
+      }
       return `
         <a class="home-demo-card" href="${href}">
           <span class="home-demo-media">
@@ -665,6 +700,15 @@ function renderHome() {
       `;
     })
     .join("");
+
+  const demoVideos = els.homeDemoGrid.querySelectorAll("video");
+  demoVideos.forEach((video) => {
+    video.addEventListener("play", () => {
+      demoVideos.forEach((other) => {
+        if (other !== video) other.pause();
+      });
+    });
+  });
 
   els.homeModuleList.innerHTML = homeModules
     .map(

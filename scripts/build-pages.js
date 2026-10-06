@@ -58,7 +58,7 @@ function collectFileRefs(value, bucket) {
 function collectHomeAssetRefs() {
   const appSource = fsSync.readFileSync(path.join(publicRoot, "app.js"), "utf8");
   const refs = new Set();
-  const matches = appSource.matchAll(/\b(?:media|image):\s*"([^"]+)"/g);
+  const matches = appSource.matchAll(/\b(?:media|image|poster):\s*"([^"]+)"/g);
   for (const match of matches) {
     refs.add(match[1]);
   }

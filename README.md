@@ -79,6 +79,29 @@
 <table align="center">
   <tr>
     <td width="33%" valign="top" align="center">
+      <a href="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-xiaohongshu.mp4"><img src="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-xiaohongshu-poster.jpg" width="100%" alt="G0.5 机器人演奏我爱你中国"></a>
+      <br>
+      <strong><a href="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/README.md">G0.5 × 机器人弹琴</a></strong>
+      <br>
+      <sub>《我爱你，中国》双手多指演奏，点击封面播放</sub>
+    </td>
+    <td width="33%" valign="top" align="center">
+      <a href="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-relocation-performance.mp4"><img src="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-relocation-poster.jpg" width="100%" alt="G0.5 辅助钢琴移位后继续演奏"></a>
+      <br>
+      <strong><a href="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/G05.md">钢琴移位后继续演奏</a></strong>
+      <br>
+      <sub>G0.5 辅助双臂重新就位，点击封面播放</sub>
+    </td>
+    <td width="33%" valign="top" align="center">
+      <a href="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/README.md"><img src="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/public-relocation-final.png" width="100%" alt="G0.5 钢琴 Demo 开源教程"></a>
+      <br>
+      <strong><a href="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/README.md">本地复现钢琴 Demo</a></strong>
+      <br>
+      <sub>模型接入、双手演奏与移琴续弹代码</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="33%" valign="top" align="center">
       <img src="assets/quick_start.gif" width="100%">
       <br>
       <strong><a href="./examples/README.md">项目快速入门</a></strong>
@@ -289,6 +312,8 @@
 
   <span id="sota"></span>
   ## 📽️视频教程
+
+  G0.5 × 机器人弹琴：[《我爱你，中国》音乐室成片](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-xiaohongshu.mp4) · [钢琴移位续弹视频](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-relocation-performance.mp4) · [开源复现教程](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/README.md)
 
   Habitat导航基础复现： https://www.datawhale.cn/learn/content/258/6154
 

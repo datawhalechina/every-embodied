@@ -4,6 +4,15 @@
 
 本节开源这次 Demo 的演奏、模型调用、移琴续弹和结果检查代码。机器人采用 **Galaxea R1 Pro + 双 Shadow Hand**，运行于 MuJoCo / RoboPianist 仿真。先用随附练习跑通，再换成自己有权使用的曲谱。
 
+## 演奏视频
+
+| 音乐室版：《我爱你，中国》 | 钢琴移位后继续演奏 |
+| --- | --- |
+| [![音乐室双手钢琴演奏](assets/piano-xiaohongshu-poster.jpg)](assets/piano-xiaohongshu.mp4) | [![钢琴移位后的重新就位与续弹](assets/piano-relocation-poster.jpg)](assets/piano-relocation-performance.mp4) |
+| 小红书成片，34.6 秒，1080p | 移琴加速成片，36 秒，1080p |
+
+点击封面观看带声音的视频。[素材署名与压缩记录](assets/VIDEO_CREDITS.md)
+
 ![钢琴移位后的双臂重新就位](assets/relocation-after.png)
 
 [观看公开练习：移琴后续弹](assets/public-relocation-demo.mp4) · [观看 6 厘米就位过程](assets/relocation-recovery.mp4) · [G0.5 接入教程](G05.md) · [运行记录](REPRODUCTION.md) · [资源与许可](SOURCES.md)
