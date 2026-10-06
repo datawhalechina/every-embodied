@@ -1,0 +1,20 @@
+{
+  "title": "Five-finger scale over a sustained C-major chord",
+  "tempo_bpm": 80,
+  "notes": [
+    {"midi":48,"start_beat":0,"duration_beats":3.8,"hand":"left","finger":"little"},
+    {"midi":52,"start_beat":0,"duration_beats":3.8,"hand":"left","finger":"middle"},
+    {"midi":55,"start_beat":0,"duration_beats":3.8,"hand":"left","finger":"thumb"},
+    {"midi":60,"start_beat":0,"duration_beats":0.9,"hand":"right","finger":"thumb"},
+    {"midi":62,"start_beat":1,"duration_beats":0.9,"hand":"right","finger":"index"},
+    {"midi":64,"start_beat":2,"duration_beats":0.9,"hand":"right","finger":"middle"},
+    {"midi":65,"start_beat":3,"duration_beats":0.9,"hand":"right","finger":"ring"},
+    {"midi":48,"start_beat":4,"duration_beats":3.8,"hand":"left","finger":"little"},
+    {"midi":52,"start_beat":4,"duration_beats":3.8,"hand":"left","finger":"middle"},
+    {"midi":55,"start_beat":4,"duration_beats":3.8,"hand":"left","finger":"thumb"},
+    {"midi":67,"start_beat":4,"duration_beats":0.9,"hand":"right","finger":"little"},
+    {"midi":64,"start_beat":5,"duration_beats":0.9,"hand":"right","finger":"middle"},
+    {"midi":62,"start_beat":6,"duration_beats":0.9,"hand":"right","finger":"index"},
+    {"midi":60,"start_beat":7,"duration_beats":0.9,"hand":"right","finger":"thumb"}
+  ]
+}

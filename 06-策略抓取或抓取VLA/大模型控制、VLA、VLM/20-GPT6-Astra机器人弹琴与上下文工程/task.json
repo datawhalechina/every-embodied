@@ -1,0 +1,11 @@
+{
+  "goal": "Plan only the first phrase of Twinkle Twinkle Little Star at 60 BPM. Use the supplied melody exactly and assign it to the right hand. Do not generate joint commands.",
+  "melody_midi": [60, 60, 67, 67, 69, 69, 67],
+  "duration_beats": [1, 1, 1, 1, 1, 1, 2],
+  "observation": {
+    "robot_connected": false,
+    "keyboard_midi_range": [21, 108],
+    "joint_state": null,
+    "calibration": null
+  }
+}

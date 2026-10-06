@@ -1,0 +1,10 @@
+/runs/
+/.venv-replay/
+__pycache__/
+*.pyc
+.env
+*.pt
+*.pth
+*.safetensors
+*.mid
+*.midi

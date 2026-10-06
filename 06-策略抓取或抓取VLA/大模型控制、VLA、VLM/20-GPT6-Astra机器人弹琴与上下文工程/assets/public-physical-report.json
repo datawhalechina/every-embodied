@@ -1,0 +1,541 @@
+{
+  "onset_metrics": {
+    "true_positive": 7,
+    "expected_count": 14,
+    "measured_count": 13,
+    "precision": 0.5384615384615384,
+    "recall": 0.5,
+    "f1": 0.5185185185185185,
+    "tolerance_seconds": 0.12
+  },
+  "onset_tolerance_seconds": 0.12,
+  "release_tolerance_seconds": 0.16,
+  "mode": "Galaxea_R1Pro_finger_assigned_polyphony",
+  "plan_sha256": "c57ae47ea2a9fde4e543d39288d2b433477bfaf00544233bd026aed4e7e1c386",
+  "pressed_target_z_m": 0.912,
+  "base": "fixed_chassis",
+  "gravity_compensation": "ideal",
+  "hand_reference_feedback_gain": 0.0,
+  "key_press_feedback_gain_m_per_second": 0.0,
+  "key_press_feedback_limit_m": 0.004,
+  "little_abduction_limit_rad": 0.34,
+  "hover_target_z_m": 0.95,
+  "fixed_torso_controls": true,
+  "contact_surface_control": true,
+  "song_mode": true,
+  "song_active_priority": true,
+  "song_staged_motion": true,
+  "fingering_geometry": {
+    "max_hand_span_m": 0.18,
+    "robot_reachability_verified": false,
+    "hands": {
+      "left": {
+        "worst": {
+          "span_m": 0.09399999999999997,
+          "time_seconds": 0.0,
+          "midi": [
+            48,
+            52,
+            55
+          ],
+          "fingers": [
+            "little",
+            "middle",
+            "thumb"
+          ]
+        },
+        "violations": []
+      },
+      "right": {
+        "worst": {
+          "span_m": 0.0,
+          "time_seconds": null,
+          "midi": [],
+          "fingers": []
+        },
+        "violations": []
+      }
+    },
+    "within_supplied_limit": true
+  },
+  "ik_max_step_radians_per_iteration": 0.08,
+  "song_attack_lead_seconds": 0.14,
+  "song_release_lead_seconds": 0.09,
+  "finger_distal_equal_angle_coupling": true,
+  "finger_position_controller": "IK with native position/tendon actuators",
+  "g05_calls": [],
+  "g05_prior_weight": 0,
+  "g05_role": "disabled",
+  "g05_finger_outputs": false,
+  "simulation_clock_pauses_for_model": false,
+  "arm_qpos_addresses": {
+    "left": [
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98
+    ],
+    "right": [
+      123,
+      124,
+      125,
+      126,
+      127,
+      128,
+      129
+    ]
+  },
+  "joint_state_teleported_during_execution": false,
+  "versions": {
+    "mujoco": "3.1.6",
+    "robopianist": "1.0.10"
+  },
+  "raw_robopianist_sensor_validation": {
+    "note_count_match": false,
+    "timing_match": false,
+    "chords_match": false,
+    "matched": [
+      {
+        "midi": 48,
+        "hand": "left",
+        "finger": "little",
+        "actual_on_seconds": 1.1480000000000008,
+        "actual_off_seconds": 2.585999999999937,
+        "onset_error_seconds": 0.1480000000000008,
+        "release_error_seconds": -1.2640000000000629,
+        "expected_hold_seconds": 2.8499999999999996,
+        "measured_hold_seconds": 1.437999999999936
+      },
+      {
+        "midi": 52,
+        "hand": "left",
+        "finger": "middle",
+        "actual_on_seconds": 1.1380000000000008,
+        "actual_off_seconds": 2.591999999999936,
+        "onset_error_seconds": 0.1380000000000008,
+        "release_error_seconds": -1.2580000000000635,
+        "expected_hold_seconds": 2.8499999999999996,
+        "measured_hold_seconds": 1.4539999999999353
+      },
+      {
+        "midi": 55,
+        "hand": "left",
+        "finger": "thumb",
+        "actual_on_seconds": 1.1280000000000008,
+        "actual_off_seconds": 2.603999999999935,
+        "onset_error_seconds": 0.12800000000000078,
+        "release_error_seconds": -1.2460000000000648,
+        "expected_hold_seconds": 2.8499999999999996,
+        "measured_hold_seconds": 1.475999999999934
+      },
+      {
+        "midi": 60,
+        "hand": "right",
+        "finger": "thumb",
+        "actual_on_seconds": 1.0960000000000008,
+        "actual_off_seconds": 1.6420000000000012,
+        "onset_error_seconds": 0.09600000000000075,
+        "release_error_seconds": -0.03299999999999881,
+        "expected_hold_seconds": 0.675,
+        "measured_hold_seconds": 0.5460000000000005
+      },
+      {
+        "midi": 62,
+        "hand": "right",
+        "finger": "index",
+        "actual_on_seconds": 1.7820000000000014,
+        "actual_off_seconds": 2.411999999999956,
+        "onset_error_seconds": 0.03200000000000136,
+        "release_error_seconds": -0.013000000000043865,
+        "expected_hold_seconds": 0.6749999999999998,
+        "measured_hold_seconds": 0.6299999999999546
+      },
+      {
+        "midi": 64,
+        "hand": "right",
+        "finger": "middle",
+        "actual_on_seconds": 2.5179999999999443,
+        "actual_off_seconds": 2.64799999999993,
+        "onset_error_seconds": 0.017999999999944283,
+        "release_error_seconds": -0.5270000000000699,
+        "expected_hold_seconds": 0.6749999999999998,
+        "measured_hold_seconds": 0.12999999999998568
+      },
+      {
+        "midi": 65,
+        "hand": "right",
+        "finger": "ring",
+        "actual_on_seconds": 3.2699999999998615,
+        "actual_off_seconds": 3.399999999999847,
+        "onset_error_seconds": 0.019999999999861462,
+        "release_error_seconds": -0.5250000000001527,
+        "expected_hold_seconds": 0.6749999999999998,
+        "measured_hold_seconds": 0.12999999999998568
+      },
+      {
+        "midi": 48,
+        "hand": "left",
+        "finger": "little",
+        "actual_on_seconds": 5.637999999999601,
+        "actual_off_seconds": 7.139999999999436,
+        "onset_error_seconds": 0.1379999999996011,
+        "release_error_seconds": -1.2100000000005657,
+        "expected_hold_seconds": 2.8500000000000014,
+        "measured_hold_seconds": 1.5019999999998346
+      },
+      {
+        "midi": 52,
+        "hand": "left",
+        "finger": "middle",
+        "actual_on_seconds": 5.6339999999996015,
+        "actual_off_seconds": 7.155999999999434,
+        "onset_error_seconds": 0.13399999999960155,
+        "release_error_seconds": -1.1940000000005675,
+        "expected_hold_seconds": 2.8500000000000014,
+        "measured_hold_seconds": 1.5219999999998324
+      },
+      {
+        "midi": 55,
+        "hand": "left",
+        "finger": "thumb",
+        "actual_on_seconds": 5.613999999999604,
+        "actual_off_seconds": 8.305999999999443,
+        "onset_error_seconds": 0.11399999999960375,
+        "release_error_seconds": -0.04400000000055826,
+        "expected_hold_seconds": 2.8500000000000014,
+        "measured_hold_seconds": 2.6919999999998394
+      },
+      {
+        "midi": 64,
+        "hand": "right",
+        "finger": "middle",
+        "actual_on_seconds": 6.293999999999529,
+        "actual_off_seconds": 6.901999999999462,
+        "onset_error_seconds": 0.04399999999952886,
+        "release_error_seconds": -0.02300000000053881,
+        "expected_hold_seconds": 0.6750000000000007,
+        "measured_hold_seconds": 0.607999999999933
+      },
+      {
+        "midi": 62,
+        "hand": "right",
+        "finger": "index",
+        "actual_on_seconds": 7.029999999999448,
+        "actual_off_seconds": 7.64799999999938,
+        "onset_error_seconds": 0.0299999999994478,
+        "release_error_seconds": -0.02700000000062097,
+        "expected_hold_seconds": 0.6750000000000007,
+        "measured_hold_seconds": 0.6179999999999319
+      },
+      {
+        "midi": 60,
+        "hand": "right",
+        "finger": "thumb",
+        "actual_on_seconds": 7.761999999999367,
+        "actual_off_seconds": 7.781999999999365,
+        "onset_error_seconds": 0.011999999999367184,
+        "release_error_seconds": -0.6430000000006357,
+        "expected_hold_seconds": 0.6750000000000007,
+        "measured_hold_seconds": 0.019999999999997797
+      }
+    ],
+    "missing": [
+      {
+        "midi": 67,
+        "start_beat": 6,
+        "duration_beats": 0.9,
+        "hand": "right",
+        "finger": "little",
+        "on": 5.5,
+        "off": 6.175000000000001
+      }
+    ],
+    "unexpected": [
+      {
+        "midi": 64,
+        "on": 2.681999999999926,
+        "off": 3.1439999999998753
+      },
+      {
+        "midi": 48,
+        "on": 2.6679999999999278,
+        "off": 3.345999999999853
+      },
+      {
+        "midi": 52,
+        "on": 2.6679999999999278,
+        "off": 3.353999999999852
+      },
+      {
+        "midi": 55,
+        "on": 2.6539999999999293,
+        "off": 3.3719999999998502
+      },
+      {
+        "midi": 65,
+        "on": 3.401999999999847,
+        "off": 3.411999999999846
+      },
+      {
+        "midi": 55,
+        "on": 3.393999999999848,
+        "off": 3.809999999999802
+      },
+      {
+        "midi": 52,
+        "on": 3.411999999999846,
+        "off": 3.8119999999998018
+      },
+      {
+        "midi": 48,
+        "on": 3.411999999999846,
+        "off": 3.8139999999998015
+      },
+      {
+        "midi": 65,
+        "on": 3.4159999999998454,
+        "off": 3.899999999999792
+      },
+      {
+        "midi": 48,
+        "on": 7.209999999999428,
+        "off": 8.309999999999444
+      },
+      {
+        "midi": 52,
+        "on": 7.201999999999429,
+        "off": 8.309999999999444
+      },
+      {
+        "midi": 60,
+        "on": 7.835999999999359,
+        "off": 8.397999999999474
+      }
+    ],
+    "malformed": [],
+    "chords": [
+      {
+        "midi": [
+          48,
+          52,
+          55,
+          60
+        ],
+        "expected_onset_seconds": 1.0,
+        "expected_overlap_seconds": 0.675,
+        "measured_overlap_seconds": 0.5460000000000005,
+        "passed": false
+      },
+      {
+        "midi": [
+          48,
+          52,
+          55,
+          67
+        ],
+        "expected_onset_seconds": 5.5,
+        "expected_overlap_seconds": 0.6750000000000007,
+        "measured_overlap_seconds": 2.6919999999998394,
+        "passed": false
+      }
+    ]
+  },
+  "note_count_match": false,
+  "timing_match": false,
+  "chords_match": false,
+  "finger_matches": true,
+  "matched": [
+    {
+      "midi": 48,
+      "hand": "left",
+      "finger": "little",
+      "actual_on_seconds": 1.1580000000000008,
+      "actual_off_seconds": 3.8499999999997976,
+      "onset_error_seconds": 0.1580000000000008,
+      "release_error_seconds": -2.020605904817785e-13,
+      "expected_hold_seconds": 2.8499999999999996,
+      "measured_hold_seconds": 2.6919999999997968
+    },
+    {
+      "midi": 52,
+      "hand": "left",
+      "finger": "middle",
+      "actual_on_seconds": 1.1480000000000008,
+      "actual_off_seconds": 3.8499999999997976,
+      "onset_error_seconds": 0.1480000000000008,
+      "release_error_seconds": -2.020605904817785e-13,
+      "expected_hold_seconds": 2.8499999999999996,
+      "measured_hold_seconds": 2.7019999999997966
+    },
+    {
+      "midi": 55,
+      "hand": "left",
+      "finger": "thumb",
+      "actual_on_seconds": 1.1360000000000008,
+      "actual_off_seconds": 3.845999999999798,
+      "onset_error_seconds": 0.1360000000000008,
+      "release_error_seconds": -0.00400000000020162,
+      "expected_hold_seconds": 2.8499999999999996,
+      "measured_hold_seconds": 2.7099999999997975
+    },
+    {
+      "midi": 60,
+      "hand": "right",
+      "finger": "thumb",
+      "actual_on_seconds": 1.1000000000000008,
+      "actual_off_seconds": 1.6780000000000013,
+      "onset_error_seconds": 0.10000000000000075,
+      "release_error_seconds": 0.003000000000001224,
+      "expected_hold_seconds": 0.675,
+      "measured_hold_seconds": 0.5780000000000005
+    },
+    {
+      "midi": 62,
+      "hand": "right",
+      "finger": "index",
+      "actual_on_seconds": 1.7840000000000014,
+      "actual_off_seconds": 2.447999999999952,
+      "onset_error_seconds": 0.03400000000000136,
+      "release_error_seconds": 0.02299999999995217,
+      "expected_hold_seconds": 0.6749999999999998,
+      "measured_hold_seconds": 0.6639999999999506
+    },
+    {
+      "midi": 64,
+      "hand": "right",
+      "finger": "middle",
+      "actual_on_seconds": 2.5179999999999443,
+      "actual_off_seconds": 3.1779999999998716,
+      "onset_error_seconds": 0.017999999999944283,
+      "release_error_seconds": 0.002999999999871772,
+      "expected_hold_seconds": 0.6749999999999998,
+      "measured_hold_seconds": 0.6599999999999273
+    },
+    {
+      "midi": 65,
+      "hand": "right",
+      "finger": "ring",
+      "actual_on_seconds": 3.2719999999998612,
+      "actual_off_seconds": 3.935999999999788,
+      "onset_error_seconds": 0.02199999999986124,
+      "release_error_seconds": 0.01099999999978829,
+      "expected_hold_seconds": 0.6749999999999998,
+      "measured_hold_seconds": 0.6639999999999269
+    },
+    {
+      "midi": 48,
+      "hand": "left",
+      "finger": "little",
+      "actual_on_seconds": 5.655999999999599,
+      "actual_off_seconds": 8.347999999999457,
+      "onset_error_seconds": 0.15599999999959913,
+      "release_error_seconds": -0.002000000000544233,
+      "expected_hold_seconds": 2.8500000000000014,
+      "measured_hold_seconds": 2.691999999999858
+    },
+    {
+      "midi": 52,
+      "hand": "left",
+      "finger": "middle",
+      "actual_on_seconds": 5.6479999999996,
+      "actual_off_seconds": 8.345999999999457,
+      "onset_error_seconds": 0.1479999999996,
+      "release_error_seconds": -0.004000000000544901,
+      "expected_hold_seconds": 2.8500000000000014,
+      "measured_hold_seconds": 2.6979999999998565
+    },
+    {
+      "midi": 55,
+      "hand": "left",
+      "finger": "thumb",
+      "actual_on_seconds": 5.623999999999603,
+      "actual_off_seconds": 8.343999999999456,
+      "onset_error_seconds": 0.12399999999960265,
+      "release_error_seconds": -0.006000000000545569,
+      "expected_hold_seconds": 2.8500000000000014,
+      "measured_hold_seconds": 2.719999999999853
+    },
+    {
+      "midi": 64,
+      "hand": "right",
+      "finger": "middle",
+      "actual_on_seconds": 6.295999999999529,
+      "actual_off_seconds": 6.939999999999458,
+      "onset_error_seconds": 0.04599999999952864,
+      "release_error_seconds": 0.014999999999457003,
+      "expected_hold_seconds": 0.6750000000000007,
+      "measured_hold_seconds": 0.6439999999999291
+    },
+    {
+      "midi": 62,
+      "hand": "right",
+      "finger": "index",
+      "actual_on_seconds": 7.031999999999448,
+      "actual_off_seconds": 7.6859999999993756,
+      "onset_error_seconds": 0.03199999999944758,
+      "release_error_seconds": 0.010999999999374843,
+      "expected_hold_seconds": 0.6750000000000007,
+      "measured_hold_seconds": 0.653999999999928
+    },
+    {
+      "midi": 60,
+      "hand": "right",
+      "finger": "thumb",
+      "actual_on_seconds": 7.7679999999993665,
+      "actual_off_seconds": 8.431999999999485,
+      "onset_error_seconds": 0.017999999999366523,
+      "release_error_seconds": 0.00699999999948453,
+      "expected_hold_seconds": 0.6750000000000007,
+      "measured_hold_seconds": 0.6640000000001187
+    }
+  ],
+  "missing": [
+    {
+      "midi": 67,
+      "start_beat": 6,
+      "duration_beats": 0.9,
+      "hand": "right",
+      "finger": "little",
+      "on": 5.5,
+      "off": 6.175000000000001
+    }
+  ],
+  "unexpected": [],
+  "malformed": [],
+  "chords": [
+    {
+      "midi": [
+        48,
+        52,
+        55,
+        60
+      ],
+      "expected_onset_seconds": 1.0,
+      "expected_overlap_seconds": 0.675,
+      "measured_overlap_seconds": 0.5780000000000005,
+      "passed": false
+    },
+    {
+      "midi": [
+        48,
+        52,
+        55,
+        67
+      ],
+      "expected_onset_seconds": 5.5,
+      "expected_overlap_seconds": 0.6750000000000007,
+      "measured_overlap_seconds": 0.0,
+      "passed": false
+    }
+  ],
+  "interhand_contact_steps": 0,
+  "key_sensor": {
+    "press_travel_fraction": 0.9,
+    "release_travel_fraction": 0.5,
+    "uses_reference_score": false
+  },
+  "performance_passed": false
+}

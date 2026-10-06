@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["task", "steps", "g05_prior_weight", "g05_phase", "finger_controller", "rationale"],
+  "properties": {
+    "task": {"type": "string", "enum": ["Adieu_0"]},
+    "steps": {"type": "integer", "enum": [120]},
+    "g05_prior_weight": {"type": "number", "minimum": 0.01, "maximum": 0.15},
+    "g05_phase": {"type": "string", "enum": ["preparation_only"]},
+    "finger_controller": {"type": "string", "enum": ["pianomime_low_level"]},
+    "rationale": {"type": "string"}
+  }
+}

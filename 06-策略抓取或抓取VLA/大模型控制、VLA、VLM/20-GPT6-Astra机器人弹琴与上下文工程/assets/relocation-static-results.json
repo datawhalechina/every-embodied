@@ -1,0 +1,85 @@
+{
+  "trials": [
+    {
+      "case": "aligned",
+      "mode": "ik_only",
+      "initial_qpos_sha256": "ba8299c966808c2f052d31e05384243cc72e98a201fa0b9428ee47b81e3cbf49",
+      "piano_shift_world_m": [
+        0.0,
+        0.06,
+        0.0
+      ],
+      "initial_error": {
+        "position_m": 0.06000000000000005,
+        "rotation_rad": 3.650024149988857e-08
+      },
+      "final_error": {
+        "time_seconds": 1.6000000000000012,
+        "position_m": 4.991095882862191e-06,
+        "rotation_rad": 7.864312816624049e-06
+      },
+      "success": true,
+      "safety_stop": null,
+      "model_calls": [],
+      "wall_seconds": 0.846657529938966,
+      "simulated_seconds": 1.6000000000000012,
+      "max_actual_arm_speed_rad_s": 0.34747332235735245,
+      "first_sustained_success_seconds": 0.7700000000000006,
+      "initial_penetrating_contacts": 0,
+      "integrated_position_error": 0.01452682424212464,
+      "mean_position_error_m": 0.009079265151327894,
+      "max_actual_arm_change_rad": 0.18897975084984786,
+      "model_induced_command_distance_rad_seconds": 0.0,
+      "qpos_teleported_during_execution": false,
+      "song_success_claimed": false
+    },
+    {
+      "case": "aligned",
+      "mode": "g05_assisted",
+      "initial_qpos_sha256": "ba8299c966808c2f052d31e05384243cc72e98a201fa0b9428ee47b81e3cbf49",
+      "piano_shift_world_m": [
+        0.0,
+        0.06,
+        0.0
+      ],
+      "initial_error": {
+        "position_m": 0.06000000000000005,
+        "rotation_rad": 3.650024149988857e-08
+      },
+      "final_error": {
+        "time_seconds": 1.6000000000000012,
+        "position_m": 5.528076902439095e-05,
+        "rotation_rad": 0.001745871315396716
+      },
+      "success": true,
+      "safety_stop": null,
+      "model_calls": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "wall_seconds": 5.871961246943101,
+      "simulated_seconds": 1.6000000000000012,
+      "max_actual_arm_speed_rad_s": 0.3464357021753242,
+      "first_sustained_success_seconds": 0.7700000000000006,
+      "initial_penetrating_contacts": 0,
+      "integrated_position_error": 0.014571943574014675,
+      "mean_position_error_m": 0.009107464733759164,
+      "max_actual_arm_change_rad": 0.18955007729278164,
+      "model_induced_command_distance_rad_seconds": 0.005792469110781408,
+      "qpos_teleported_during_execution": false,
+      "song_success_claimed": false
+    }
+  ],
+  "paired": [
+    {
+      "case": "aligned",
+      "equal_horizon_without_safety_stop": true,
+      "assisted_minus_baseline_integrated_position_error": 4.511933189003427e-05,
+      "baseline_success": true,
+      "assisted_success": true,
+      "assisted_has_lower_error": false
+    }
+  ]
+}
