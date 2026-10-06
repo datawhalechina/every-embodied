@@ -11,7 +11,7 @@
 | [![音乐室双手钢琴演奏](assets/piano-xiaohongshu-poster.jpg)](assets/piano-xiaohongshu.mp4) | [![钢琴移位后的重新就位与续弹](assets/piano-relocation-poster.jpg)](assets/piano-relocation-performance.mp4) |
 | 小红书成片，34.6 秒，1080p | 移琴加速成片，36 秒，1080p |
 
-点击封面观看带声音的视频。[素材署名与压缩记录](assets/VIDEO_CREDITS.md)
+点击封面观看带声音的视频。[素材署名与压缩记录](VIDEO_CREDITS.md)
 
 ![钢琴移位后的双臂重新就位](assets/relocation-after.png)
 

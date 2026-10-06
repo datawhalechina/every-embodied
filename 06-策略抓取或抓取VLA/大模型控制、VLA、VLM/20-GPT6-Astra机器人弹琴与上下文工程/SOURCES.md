@@ -21,7 +21,7 @@
 - `assets/relocation-session-report.json`：历史连续移琴续弹结果。
 - `assets/public-relocation-demo.mp4`、`public-relocation-final.png`、`public-relocation-report.json`：本次公开练习的连续移琴续弹视频、截图和完整结果。
 - `assets/public-physical-report.json`：公开练习固定琴位演奏报告。
-- `assets/piano-xiaohongshu.mp4`、`piano-relocation-performance.mp4`：音乐室宣传成片与钢琴移位续弹成片，带实际按键事件生成的钢琴声音；素材署名、剪辑及压缩说明见 [VIDEO_CREDITS.md](assets/VIDEO_CREDITS.md)。
+- `assets/piano-xiaohongshu.mp4`、`piano-relocation-performance.mp4`：音乐室宣传成片与钢琴移位续弹成片，带实际按键事件生成的钢琴声音；素材署名、剪辑及压缩说明见 [VIDEO_CREDITS.md](VIDEO_CREDITS.md)。
 - `relocation-exercise.json`：本章公开的和弦与音阶调试练习。
 
 机器人仿真改动包括固定底盘、理想重力补偿、双 Shadow Hand 安装适配、接触控制、琴键阻尼与灯光。回放包内许可证位于 `scene/LICENSE-*.txt`，来源通知位于 `scene/NOTICE*.txt`。
