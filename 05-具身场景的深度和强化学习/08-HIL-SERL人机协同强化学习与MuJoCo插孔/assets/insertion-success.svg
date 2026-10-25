@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1380" height="720" viewBox="0 0 1380 720" role="img" aria-labelledby="title desc">
+  <title id="title">插孔任务的对齐、插入与成功判定</title>
+  <desc id="desc">三个剖面示意分别显示销未对齐、销已进入孔但仍需检查深度、以及深度姿态和保持时间均达标。绿色成功条件由任务配置决定，本图不是实验结果。</desc>
+  <defs>
+    <style>
+      text{font-family:"Microsoft YaHei","Noto Sans CJK SC",sans-serif;fill:#203149}
+      .title{font-size:34px;font-weight:700}.subtitle{font-size:21px;fill:#52647c}
+      .heading{font-size:26px;font-weight:700}.label{font-size:21px}.small{font-size:19px;fill:#52647c}
+      .hole{fill:#dfe7f1;stroke:#6a7d94;stroke-width:3;stroke-linejoin:round}
+      .peg{fill:#81b7ee;stroke:#286ca8;stroke-width:3}.guide{stroke:#8ba0b8;stroke-width:2;stroke-dasharray:7 7}
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#bd7321"/></marker>
+  </defs>
+  <rect width="1380" height="720" rx="24" fill="#f5f8fc"/>
+  <text x="42" y="58" class="title">插进去 ≠ 已触发成功：同时检查几何与时间</text>
+  <text x="42" y="96" class="subtitle">销孔剖面示意 · 几何尺寸与阈值由任务设定 · 图形不按实际比例</text>
+  <rect x="38" y="128" width="412" height="400" rx="18" fill="#fff" stroke="#d6e0eb"/>
+  <rect x="484" y="128" width="412" height="400" rx="18" fill="#fff" stroke="#d6e0eb"/>
+  <rect x="930" y="128" width="412" height="400" rx="18" fill="#fff" stroke="#c4dece"/>
+  <text x="62" y="171" class="heading">01 先对齐</text>
+  <text x="508" y="171" class="heading">02 再插入</text>
+  <text x="954" y="171" class="heading">03 稳定后成功</text>
+  <path d="M104 327H228V425H260V327H384V470H104Z" class="hole"/>
+  <path d="M550 327H674V425H706V327H830V470H550Z" class="hole"/>
+  <path d="M996 327H1120V425H1152V327H1276V470H996Z" class="hole"/>
+  <path d="M244 207V453M690 207V453M1136 207V453" class="guide"/>
+  <rect x="174" y="228" width="26" height="88" rx="3" class="peg"/>
+  <rect x="677" y="283" width="26" height="98" rx="3" class="peg"/>
+  <rect x="1123" y="313" width="26" height="104" rx="3" fill="#7bbf9b" stroke="#27734c" stroke-width="3"/>
+  <path d="M187 214H244" fill="none" stroke="#bd7321" stroke-width="2.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text x="270" y="234" class="label">横向误差 e</text>
+  <path d="M730 327V381M719 327H741M719 381H741" fill="none" stroke="#bd7321" stroke-width="2.5"/>
+  <text x="747" y="358" class="label">深度 d</text>
+  <text x="62" y="506" class="small">先消除横向与姿态偏差</text>
+  <text x="508" y="506" class="small">已进入孔口，继续检查完成条件</text>
+  <text x="954" y="506" class="small">各条件持续达标，再结束回合</text>
+  <rect x="38" y="551" width="1304" height="124" rx="18" fill="#e9f5ef" stroke="#c4dece"/>
+  <text x="62" y="587" class="heading" style="fill:#256547">成功判定模板</text>
+  <text x="62" y="625" class="label">深度 d ≥ d_min</text>
+  <text x="372" y="625" class="label">横向误差 e ≤ ε_p</text>
+  <text x="718" y="625" class="label">姿态误差 θ ≤ ε_r</text>
+  <text x="1042" y="625" class="label">保持时间 τ ≥ τ_min</text>
+  <text x="62" y="657" class="small">回放时同步查看：物理深度 / 姿态 / 成功标记 / 实际执行动作，定位检测阈值或接触控制问题。</text>
+</svg>

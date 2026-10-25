@@ -11,6 +11,7 @@
 - [Open Duck Mini 与 Microduck 双足强化学习](05-OpenDuckMini与Microduck双足强化学习/README.md)：区分两代小鸭子机器人，跑通 URDF/STL 资产下载、走路与踢球 PPO 训练、ONNX 导出、RDK 策略推理和 MuJoCo WebAssembly 浏览器部署链路。
 - [SMP 可复用分数匹配运动先验](06-SMP可复用分数匹配运动先验/README.md)：拆解扩散运动先验如何通过 SDS、ESM、Adaptive Normalization 和 GSI 变成 PPO 奖励，并给出 MimicKit 原始实现与 Unitree G1 开源复现路线。
 - [UniCross 统一跨技能灵巧操作导读](07-UniCross统一跨技能灵巧操作导读/README.md)：从手-物关系运动出发，拆解抓取、搬移、手内旋转和平移的统一观测、动作和奖励，以及十个 PPO 专家如何通过 DAgger 蒸馏成单一跨技能策略。
+- [HIL-SERL 人机协同强化学习与 MuJoCo 插孔](08-HIL-SERL人机协同强化学习与MuJoCo插孔/README.md)：配图理解干预动作、双回放缓冲区和 actor/learner，并通过官方 Panda 仿真学习采集、训练与插孔任务移植流程。
 
 ## 学习建议
 

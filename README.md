@@ -246,6 +246,8 @@
 
   ## 🔥 News & Highlights
 
+  - **[2026-10-25]** 新增 [HIL-SERL 人机协同强化学习与 MuJoCo 插孔](./05-具身场景的深度和强化学习/08-HIL-SERL人机协同强化学习与MuJoCo插孔/README.md)：配图讲解干预动作如何进入双回放缓冲区，并提供官方 Panda 仿真、示范采集、actor/learner 启动与插孔任务移植路线。
+
   - **[2026-10-25]** 新增 [SmolWAM 轻量世界动作模型](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/12SmolWAM轻量世界动作模型/README.md)：以三张官方图拆解单帧适配、注意力汇、边界层剪枝、状态条件动作查询和单步整流流，整理 LIBERO 结果、布局蒸馏与官方代码入口。
 
   - **[2026-10-23]** 新增 [Agnes Harness 多设备 Demo 实践](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/11Agnes-Harness多设备Demo/README.md)：在 Ubuntu 上运行 MHS 四设备、火星基地与三个插件示例，提供固定版本启动器、自动验证脚本和实机运行截图；手动与模拟模型路线无需 API Key。
@@ -367,7 +369,7 @@
   | :--------------------- | :--------------------------------------------- | :--- |
   | **5. 计算机视觉 (CV)** | [目标检测 (YOLO)](./04-具身场景的计算机视觉、3D重建/02-抓取注意力热图.md)、[视觉语言定位 (Locate Anything)](./04-具身场景的计算机视觉、3D重建/04-Locate-Anything视觉语言定位.md)、[图像分割 (SAM)](./04-具身场景的计算机视觉、3D重建/01-sam和深度估计.md)、[视频流式三维重建 (LingBot-Map)](./04-具身场景的计算机视觉、3D重建/03-LingBot-Map视频流式三维重建.md)、[DepthART 轻量单目深度估计](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/10DepthART轻量单目深度估计/README.md)、[LTX Alpha Gen 视频抠像与透明合成](./04-具身场景的计算机视觉、3D重建/05-LTX-Alpha-Gen视频抠像与透明合成.md)、6D 位姿估计   | ✅    |
   | **6. 运动与控制**      | 路径规划 (A*/RRT)、轨迹优化、PID 与 MPC 控制、模仿学习 (IL)、[ACT复现](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/04mujoco复现ACT、Pi0、SmolVLA/3.train.ipynb)、[Booster K1 网页 MuJoCo 本机部署与 AMP 训练](./07-机器人操作、运动控制/Locomotion/02-BoosterK1-mjlab-AMP/README.md)、[Hand-Eye 标定](./02-机器人基础和控制、手眼协调/补充01手眼协调.md)、AnyGrasp 抓取算法、灵巧手操作   | 🚧    |
-  | **7. 强化学习 (RL)**   | [多机器人PPO/SAC 算法详解](./05-具身场景的深度和强化学习/01多机器人搬运家具强化学习.md)、[Robots That Know What to Ask 奖励对齐](./05-具身场景的深度和强化学习/04-Robots-That-Know-What-to-Ask奖励对齐导读/README.md)、[UniLab + MotrixSim state-based RL 训练](./10-具身智能其他仿真工具及仿真前沿/11UniLab-MotrixSim异构RL训练/README.md)、Isaac Gym 并行训练实战       | ✅    |
+  | **7. 强化学习 (RL)**   | [HIL-SERL 人机协同强化学习与 MuJoCo 插孔](./05-具身场景的深度和强化学习/08-HIL-SERL人机协同强化学习与MuJoCo插孔/README.md)、[多机器人PPO/SAC 算法详解](./05-具身场景的深度和强化学习/01多机器人搬运家具强化学习.md)、[Robots That Know What to Ask 奖励对齐](./05-具身场景的深度和强化学习/04-Robots-That-Know-What-to-Ask奖励对齐导读/README.md)、[UniLab + MotrixSim state-based RL 训练](./10-具身智能其他仿真工具及仿真前沿/11UniLab-MotrixSim异构RL训练/README.md)、Isaac Gym 并行训练实战       | ✅    |
   | **8. 仿真环境**        | Isaac Sim 高级渲染、[MuJoCo 物理引擎下OMY/Nova5/Franka机械臂和ACT/Pi0/SmolVLA算法复现](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/04mujoco复现ACT、Pi0、SmolVLA)、[Genie-Sim3教程](./10-具身智能其他仿真工具及仿真前沿/08GenieSim3配置.md)、[MotrixSim PBR teaser 渲染体验](./10-具身智能其他仿真工具及仿真前沿/11UniLab-MotrixSim异构RL训练/README.md#7-扩展体验motrixsim-pbr-teaser-渲染器)、[HumanoidMimicGen 全身规划数据生成](./10-具身智能其他仿真工具及仿真前沿/12HumanoidMimicGen全身规划数据生成导读/README.md)、[PhysicsNeMo 物理 AI 求解器](./10-具身智能其他仿真工具及仿真前沿/13-PhysicsNeMo物理AI求解器导读/README.md) | ✅    |
 
   ### 三、具身大脑 - 前沿论文复现与真机部署

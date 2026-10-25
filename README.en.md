@@ -41,6 +41,8 @@ This repository collects and organizes tutorial materials related to AI hardware
 
 ## ✨ Latest Highlights
 
+- **[2026-10-25]** [HIL-SERL and MuJoCo insertion (Chinese guide)](./05-具身场景的深度和强化学习/08-HIL-SERL人机协同强化学习与MuJoCo插孔/README.md): illustrated intervention data flow, dual replay buffers, insertion success criteria, and official Panda simulation and training entry points.
+
 - **[2026-10-23]** [Agnes Harness device demos (Chinese guide)](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/11Agnes-Harness多设备Demo/README.md): pinned source, Ubuntu setup, real virtual-device checks, plugin tests, and focused screenshots. Manual and simulated-model routes require no API key.
 
 ### 🍳 Smart Home Assistant
