@@ -1,0 +1,17 @@
+{
+  "state": "complete",
+  "started_unix": 1792717371.2740374,
+  "finished_unix": 1792717373.4663696,
+  "stage": "preflight",
+  "result": {
+    "torch": "2.12.1+rocm7.2",
+    "hip": "7.2.53211",
+    "device": "AMD Radeon 8060S",
+    "matmul_sum": 262144.0,
+    "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+    "hostname": "aup-NucBox-EVO-X2",
+    "free_disk_gib": 45.959232330322266,
+    "dataset_episodes": 502,
+    "note": "Device and data contract only; not a learned-policy success."
+  }
+}

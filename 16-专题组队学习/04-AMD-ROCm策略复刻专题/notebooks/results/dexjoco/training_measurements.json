@@ -1,0 +1,10 @@
+{
+  "metrics_recovery": {
+    "retained_rows": 0,
+    "archived_rows": 0
+  },
+  "parameter_digest_before": "217a529c40708fbbddc636423b271f98b30bf1d43dfbfbf78ef47cb80fa28f5f",
+  "trainable_parameters": 466957072,
+  "steps_start": 0,
+  "parameter_digest_after": "4c81718d79c151f32679b24476c716dc038f0b26ea64de37e5aaa32e588abc3a"
+}

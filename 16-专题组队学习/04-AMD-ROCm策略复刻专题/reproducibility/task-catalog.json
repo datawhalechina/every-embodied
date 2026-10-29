@@ -1,0 +1,134 @@
+{
+  "schema": "amd-task-catalog/v1",
+  "website": "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/",
+  "source_website_repository": "https://github.com/Ethan-Chen-plus/amd-physical-ai-showcase",
+  "groups": [
+    {
+      "directory": "00-设备与环境",
+      "title": "设备、存储与结果导航",
+      "notebooks": [
+        "00-设备与环境/03-Notebook/00_任务入口与已记录结果.ipynb",
+        "00-设备与环境/03-Notebook/01_device_env_check.ipynb",
+        "00-设备与环境/03-Notebook/05_pi0_smoke_gate.ipynb",
+        "00-设备与环境/03-Notebook/06_rocm_debug_playbook.ipynb"
+      ]
+    },
+    {
+      "directory": "01-抓杯子",
+      "title": "抓杯子：优先使用已发布权重与保存结果",
+      "notebooks": [
+        "01-抓杯子/03-Notebook/00_任务入口与已记录结果.ipynb",
+        "01-抓杯子/03-Notebook/14_smolvla_end_to_end.ipynb",
+        "01-抓杯子/03-Notebook/11_mujoco_closed_loop_deploy.ipynb",
+        "01-抓杯子/03-Notebook/04_smolvla_weighted_sampling.ipynb",
+        "01-抓杯子/03-Notebook/15_pi0_end_to_end.ipynb",
+        "01-抓杯子/03-Notebook/16_act_end_to_end.ipynb",
+        "01-抓杯子/03-Notebook/02_physical_success_review.ipynb",
+        "01-抓杯子/03-Notebook/03_act_dagger_diagnostics.ipynb",
+        "01-抓杯子/03-Notebook/07_data_collection_and_audit.ipynb",
+        "01-抓杯子/03-Notebook/08_act_training_rocm.ipynb",
+        "01-抓杯子/03-Notebook/09_smolvla_training_rocm.ipynb",
+        "01-抓杯子/03-Notebook/10_pi0_training_rocm.ipynb",
+        "01-抓杯子/03-Notebook/12_pi0_strict_input_end_to_end.ipynb",
+        "01-抓杯子/03-Notebook/13_pi05_random_position_eef_delta.ipynb",
+        "01-抓杯子/03-Notebook/workflows/ordinary/14_smolvla_end_to_end.ipynb",
+        "01-抓杯子/03-Notebook/workflows/ordinary/15_pi0_end_to_end.ipynb",
+        "01-抓杯子/03-Notebook/workflows/ordinary/16_act_end_to_end.ipynb",
+        "01-抓杯子/03-Notebook/workflows/protected/14_smolvla_end_to_end.ipynb",
+        "01-抓杯子/03-Notebook/workflows/protected/15_pi0_end_to_end.ipynb",
+        "01-抓杯子/03-Notebook/workflows/protected/16_act_end_to_end.ipynb",
+        "01-抓杯子/03-Notebook/19_cup_collect_train_evaluate.ipynb",
+        "01-抓杯子/03-Notebook/20_cup_deterministic_train_evaluate.ipynb"
+      ]
+    },
+    {
+      "directory": "02-RoboCasa厨房操作",
+      "title": "RoboCasa 厨房操作",
+      "notebooks": [
+        "02-RoboCasa厨房操作/03-Notebook/00_任务入口与已记录结果.ipynb",
+        "02-RoboCasa厨房操作/03-Notebook/17_robocasa365_amd_train_eval.ipynb"
+      ]
+    },
+    {
+      "directory": "03-DexJoCo灵巧手",
+      "title": "DexJoCo 灵巧手",
+      "notebooks": [
+        "03-DexJoCo灵巧手/03-Notebook/00_任务入口与已记录结果.ipynb",
+        "03-DexJoCo灵巧手/03-Notebook/18_dexjoco_amd_train_eval.ipynb"
+      ]
+    },
+    {
+      "directory": "04-DISCOVERSE仿真与渲染",
+      "title": "DISCOVERSE 专家数据、策略与三维渲染",
+      "notebooks": [
+        "04-DISCOVERSE仿真与渲染/03-Notebook/00_任务入口与已记录结果.ipynb",
+        "04-DISCOVERSE仿真与渲染/03-Notebook/01_数据生成训练与多视角视频.ipynb",
+        "04-DISCOVERSE仿真与渲染/03-Notebook/02_历史完整训练与闭环诊断.ipynb"
+      ]
+    },
+    {
+      "directory": "05-RoboWits异常条件操作",
+      "title": "RoboWits 异常条件操作",
+      "notebooks": [
+        "05-RoboWits异常条件操作/03-Notebook/00_任务入口与已记录结果.ipynb",
+        "05-RoboWits异常条件操作/03-Notebook/01_完整训练与异常条件评估.ipynb"
+      ]
+    },
+    {
+      "directory": "06-宇树G1安全控制",
+      "title": "宇树 G1 安全控制与整机演示",
+      "notebooks": [
+        "06-宇树G1安全控制/03-Notebook/00_任务入口与已记录结果.ipynb",
+        "06-宇树G1安全控制/03-Notebook/01_控制检查与训练迁移.ipynb"
+      ]
+    },
+    {
+      "directory": "07-推理与仿真加速",
+      "title": "推理与仿真加速：动手计时、图重放与物理校验",
+      "notebooks": [
+        "07-推理与仿真加速/03-Notebook/00_加速实验入口与比赛材料.ipynb",
+        "07-推理与仿真加速/03-Notebook/01_推理计时与重复数据搬运.ipynb",
+        "07-推理与仿真加速/03-Notebook/02_固定形状计算图重放.ipynb",
+        "07-推理与仿真加速/03-Notebook/03_MuJoCo多步调用与状态一致性.ipynb",
+        "07-推理与仿真加速/03-Notebook/04_AMD原生条件图与历史结果复核.ipynb"
+      ]
+    }
+  ],
+  "legacy_flat_notebooks_retained": true,
+  "new_training_executed": true,
+  "scope": "Published protected policy is the recommended cup route; two completed ACT experiments are separately retained supplements.",
+  "coverage": {
+    "cup": "Archived strict evaluation and existing complete training notebooks",
+    "robocasa": "Historical 16x50 official policy comparison and latest single-task full training",
+    "dexjoco": "Historical 11-task inference archive and latest single-task full training with separated deployment conditions",
+    "discoverse": "Archived expert tasks and rendering; learned-policy aggregate not inferred from expert success",
+    "robowits": "Published 100k training route and individual success video; full ten-task aggregate not verified",
+    "unitree": "AMD proxy control audit and separately labeled reference-runtime free-base demonstration; complete current-device RL training unverified",
+    "acceleration": "Bounded action-head inference exercises, static graph replay, native MuJoCo multi-step calls, and separately labeled historical AMD conditional-graph evidence."
+  },
+  "website_records_sha256": {
+    "dexjoco-showcase.json": "f3ae2912b8b4272d75cb31f0416702f61dc81aab0a487b88f98f8655dcaeb205",
+    "perceptive-cbf-rl-amd-eval.json": "bbecfa7f81748c9481fea0a720bd0afa8e2e38f2d511cb00f33be4da5afcb28f",
+    "robocasa-recovery-showcase.json": "6040dd538e8e6065791d7c37e6f982f94925233308f7994aa915c4d316e9c913",
+    "discoverse-hd-showcase.json": "2ce98060ae72c43b4dcd96911c3651d9a96b35c1ad692e60040a3880f01a50bd",
+    "discoverse-3dgs-showcase.json": "8a52d454844e80f9c47b89ea728885ec4621842b8ba923152e9a01a24170bad1",
+    "perceptive-cbf-rl-amd-run-manifest.json": "346fda25450f2ef333b536f90fd50679820a3a838f1fbe62be1b9a019e60a04e",
+    "robocasa-official-match.json": "b8fc233614891805eed2c826ac4f3ad15ddeb821fb528693ec4c4f38ab6c09d1",
+    "perceptive-cbf-rl-g1/run_manifest.json": "07668df3e7563d9d5540b2df0593405806b8d8d032ef0e123d46ea81b7050b65",
+    "perceptive-cbf-rl-g1/sha256sum.txt": "c3bd023532f00c099b65255c301334ba658aa0dc1ecee087af3a615b52edc273",
+    "perceptive-cbf-rl-g1/eval_info.json": "8c12cc440aa693ffa627b64309033646d7496aa135e7c1248e116764f7b34fc7"
+  },
+  "recommended_cup_route": {
+    "notebook": "01-抓杯子/03-Notebook/14_smolvla_end_to_end.ipynb",
+    "policy": "SmolVLA weighted500",
+    "successes": 57,
+    "episodes": 60,
+    "red": "27/30",
+    "blue": "30/30",
+    "default_action": "Read saved outputs and reuse released policy; training and full evaluation are opt-in",
+    "supplementary_experiments": [
+      "01-抓杯子/03-Notebook/19_cup_collect_train_evaluate.ipynb",
+      "01-抓杯子/03-Notebook/20_cup_deterministic_train_evaluate.ipynb"
+    ]
+  }
+}

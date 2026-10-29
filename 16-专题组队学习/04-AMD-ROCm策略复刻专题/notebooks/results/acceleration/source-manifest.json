@@ -1,0 +1,25 @@
+{
+  "source_repository": "https://github.com/Ethan-Chen-plus/mujoco-warp-amd-conditional-graph",
+  "retrieved_from": "existing AMD workstation source and frozen results; no new benchmark execution",
+  "files_sha256": {
+    "strict_latency_summary.json": "f7ec74424ca1e2e62442528c77e57b1b6834600f43cba5bbb6e2c2df28109a6c",
+    "strict_latency_warmup.json": "5d96e2612f6cb9d00ede760953b1eecc42b609b19247af26c61cdb6ee4da0248",
+    "strict_latency_model_load_audit.json": "b29a7b5387563dbb902bb73dc0f5f473d4c3efc1895d60ff0dc0fa4631442b3a",
+    "conditional-graph-source/README.md": "90d54c6bb32c157adbe0ebe532997b363f31500022160eddc814ce0840e67682",
+    "conditional-graph-source/LICENSE": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+    "conditional-graph-source/docs/graph-acceleration-explained.md": "5b84af20de95943fdf701fbf8050f324431cbf54b6112868d4edbc4d3edd7076",
+    "conditional-graph-source/docs/benchmark-protocol.md": "73c55c0d8a405a8c9424ec8ad50027cd375fe9e053d6e962b13fe5e5c01b6817",
+    "conditional-graph-source/scripts/run_mjwarp_variant.py": "a59d818acab49e6178359e88ad669e481e52fa9166d1663689a05667722515d9",
+    "conditional-graph-source/scripts/compare_native_mjwarp.py": "edfa6fe039f243c75fd86f769091b2cdd33f3bf6b55361e6b4393f47ad80bec8",
+    "conditional-graph-source/scripts/run_native_mjwarp_benchmark.sh": "bea45fbd58d3a10d7c915e3481126cfc99de0a118af1f9d3511570a5bf891081",
+    "conditional-graph-source/results/mjwarp_native_conditional_amd395/summary.json": "c97fcbace8114f8bf02ff95b577153b50745d3fd9b1557aee003b337680c27a2",
+    "conditional-graph-source/results/mjwarp_native_conditional_amd395/eager_state.json": "f63eb86d782fb8cd33f31bb5b5384376e609cec864cba521967a0b0f87375e39",
+    "conditional-graph-source/results/mjwarp_native_conditional_amd395/native_state.json": "f23b47f339a2fccc0bd15c78aad774b5dd934ae86bd1e99bef158260f346ba97",
+    "conditional-graph-source/results/native_sleeping_islands_amd395_final/summary.json": "f11acd61e4679591cca83aba00b288cdfad6c7f6d3151cc674c6723c361d05e1",
+    "conditional-graph-source/results/aloha_physical_graph_amd395/wake_cycle_long/summary.json": "58e698807c3c2a3970451511de11b54c42d78cae4143bcf5d380aa224c575a62",
+    "conditional-graph-source/results/aloha_physical_graph_amd395/settled_long/summary.json": "8adc6acb73617a76c1974171a8dfffc70c0742a1901535af216a64a7129b2500",
+    "conditional-graph-source/results/aloha_physical_graph_amd395/active_long/summary.json": "bec47e2bc4370ae734710033bcea7c5dde79181b832cb51baef8f2882d46afc5"
+  },
+  "performance_protocol": "1024 worlds x 1000 steps",
+  "paired_state_protocol": "256 worlds x 100 steps; separate from throughput run"
+}

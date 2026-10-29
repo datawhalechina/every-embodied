@@ -1,0 +1,51 @@
+{
+  "episodes": 20,
+  "successes": 12,
+  "success_rate": 0.6,
+  "seeds": [
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119
+  ],
+  "protocol": "official task stepping and success; physics pauses during inference waits (separate deployment condition)",
+  "checkpoint_sha256": "21640047e97354a64b658c00396bb2832b19f1c9775c2b7582ca4c9994f1f594",
+  "directory": "/home/aup/amd-notebook-work/runs/dexjoco-clock-20261025-v1/baseline_21640047e973_f341bdda",
+  "policy_variant": "base",
+  "warmup_policy": true,
+  "loader_contract": "strict-adapters-v2",
+  "evaluation_clock": "pause_while_waiting",
+  "model_load_audit": {
+    "adapter_tensor_count": 20,
+    "paligemma_variant": "gemma_2b_lora",
+    "action_expert_variant": "gemma_300m_lora",
+    "remove_extra_params": false,
+    "loader_contract": "strict-adapters-v2"
+  },
+  "warmup": {
+    "seconds": 18.57087594596669,
+    "rng_restored": true,
+    "action_shape": [
+      30,
+      22
+    ],
+    "scope": "Real reset observation; compile before any evaluated episode starts."
+  },
+  "validation_only": false
+}

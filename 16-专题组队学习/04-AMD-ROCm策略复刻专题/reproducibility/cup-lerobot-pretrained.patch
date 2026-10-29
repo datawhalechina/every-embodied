@@ -1,0 +1,22 @@
+diff --git a/lerobot/common/policies/pretrained.py b/lerobot/common/policies/pretrained.py
+index da4ef157..84f4e48a 100644
+--- a/lerobot/common/policies/pretrained.py
++++ b/lerobot/common/policies/pretrained.py
+@@ -147,7 +147,16 @@ class PreTrainedPolicy(nn.Module, HubMixin, abc.ABC):
+                 )
+                 model.to(map_location)
+         else:
+-            safetensors.torch.load_model(model, model_file, strict=strict, device=map_location)
++            target_device = str(map_location)
++            load_device = "cpu" if target_device != "cpu" else target_device
++            if load_device != target_device:
++                logging.warning(
++                    "Loading safetensors weights on CPU first, then moving the policy to %s. "
++                    "This avoids ROCm crashes seen when safetensors loads large Pi0 weights "
++                    "directly onto the GPU.",
++                    target_device,
++                )
++            safetensors.torch.load_model(model, model_file, strict=strict, device=load_device)
+         return model
+ 
+     # def generate_model_card(self, *args, **kwargs) -> ModelCard:
