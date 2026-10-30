@@ -101,7 +101,7 @@ def validate(stage):
     return result
 
 
-def run(stage):
+def run(stage, train_callable=None, stage_callable=None):
     RUN.mkdir(parents=True, exist_ok=True)
     with (RUN / "stage.lock").open("w") as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
@@ -141,7 +141,48 @@ def run(stage):
             log.rename(RUN / (stage + ".failed-" + str(time.time_ns()) + ".log"))
         try:
             with log.open("w") as stream:
-                subprocess.run(argv, cwd=SOURCE, env=env, stdout=stream, stderr=subprocess.STDOUT, check=True)
+                if stage_callable is not None or (stage == "train" and train_callable is not None):
+                    import contextlib
+                    old_cwd = Path.cwd()
+                    old_env = os.environ.copy()
+                    virtual_display = None
+                    try:
+                        if stage != "train" and not env.get("DISPLAY"):
+                            reader, writer = os.pipe()
+                            try:
+                                virtual_display = subprocess.Popen(
+                                    ["Xvfb", "-displayfd", str(writer), "-screen", "0", "1280x720x24", "-nolisten", "tcp"],
+                                    pass_fds=(writer,), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                            finally:
+                                os.close(writer)
+                            with os.fdopen(reader) as pipe:
+                                display_number = pipe.readline().strip()
+                            if not display_number.isdigit():
+                                raise RuntimeError("Private virtual display failed to start")
+                            env["DISPLAY"] = ":" + display_number
+                        os.chdir(SOURCE)
+                        os.environ.update(env)
+                        class Tee:
+                            def __init__(self, file, notebook):
+                                self.file, self.notebook = file, notebook
+                            def write(self, value):
+                                self.file.write(value)
+                                self.notebook.write(value)
+                            def flush(self):
+                                self.file.flush()
+                                self.notebook.flush()
+                        stdout, stderr = Tee(stream, sys.stdout), Tee(stream, sys.stderr)
+                        with contextlib.redirect_stdout(stdout), contextlib.redirect_stderr(stderr):
+                            (stage_callable or train_callable)(command(stage))
+                    finally:
+                        if virtual_display is not None:
+                            virtual_display.terminate()
+                            virtual_display.wait(timeout=10)
+                        os.chdir(old_cwd)
+                        os.environ.clear()
+                        os.environ.update(old_env)
+                else:
+                    subprocess.run(argv, cwd=SOURCE, env=env, stdout=stream, stderr=subprocess.STDOUT, check=True)
             result = validate(stage)
         except BaseException as exc:
             state.update(status="failed", error=repr(exc), log=str(log))
