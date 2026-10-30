@@ -1,0 +1,1388 @@
+{
+  "completed_episodes_only": true,
+  "full_evaluation_finished": true,
+  "comparison": [
+    {
+      "seed": 2000,
+      "original": {
+        "initial_mug_pos": [
+          0.3312,
+          0.0259,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.2901,
+          -0.1905,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.01969852950590989,
+        "first_closed_step": 80,
+        "closed_steps": 212,
+        "last_xy_distance_m": 0.4852892931240771,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.3312,
+          0.0259,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.2901,
+          -0.1905,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.007618939870984054,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.21906478682165073,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2001,
+      "original": {
+        "initial_mug_pos": [
+          0.2666,
+          -0.1675,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3901,
+          0.0484,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690338269544794,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.2487567506413678,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.2666,
+          -0.1675,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3901,
+          0.0484,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.019494117738856342,
+        "first_closed_step": 525,
+        "closed_steps": 676,
+        "last_xy_distance_m": 0.176893547864007,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2002,
+      "original": {
+        "initial_mug_pos": [
+          0.3446,
+          -0.081,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.397,
+          0.174,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.13411014360308637,
+        "first_closed_step": 105,
+        "closed_steps": 606,
+        "last_xy_distance_m": 0.0530346705683271,
+        "recorded_steps": 710
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.3446,
+          -0.081,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.397,
+          0.174,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.09645439382721288,
+        "first_closed_step": 78,
+        "closed_steps": 1009,
+        "last_xy_distance_m": 0.029153932308628686,
+        "recorded_steps": 1086
+      },
+      "deterministic_episode_success": true
+    },
+    {
+      "seed": 2003,
+      "original": {
+        "initial_mug_pos": [
+          0.3187,
+          -0.0217,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.2963,
+          0.1777,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.024656707134585343,
+        "first_closed_step": 69,
+        "closed_steps": 22,
+        "last_xy_distance_m": 0.3834353076425093,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.3187,
+          -0.0217,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.2963,
+          0.1777,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.04512653307534498,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.15850386943210337,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2004,
+      "original": {
+        "initial_mug_pos": [
+          0.3339,
+          0.1219,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3188,
+          -0.1424,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690338269544794,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.26453477663220126,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.3339,
+          0.1219,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3188,
+          -0.1424,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690338269544794,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.2645347766322012,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2005,
+      "original": {
+        "initial_mug_pos": [
+          0.2688,
+          0.1728,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3318,
+          -0.0263,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690338269545904,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.20860239943002964,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.2688,
+          0.1728,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3318,
+          -0.0263,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690338269544794,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.20860239943002967,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2006,
+      "original": {
+        "initial_mug_pos": [
+          0.2786,
+          0.1888,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3625,
+          -0.082,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690338269545904,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.28335556795947076,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.2786,
+          0.1888,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3625,
+          -0.082,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690338269545904,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.2833555679594709,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2007,
+      "original": {
+        "initial_mug_pos": [
+          0.3429,
+          -0.0919,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3617,
+          0.1338,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0851903459862361,
+        "first_closed_step": 76,
+        "closed_steps": 1125,
+        "last_xy_distance_m": 0.23651570345791312,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.3429,
+          -0.0919,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3617,
+          0.1338,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.10089849138934348,
+        "first_closed_step": 78,
+        "closed_steps": 233,
+        "last_xy_distance_m": 0.008752489740551522,
+        "recorded_steps": 310
+      },
+      "deterministic_episode_success": true
+    },
+    {
+      "seed": 2008,
+      "original": {
+        "initial_mug_pos": [
+          0.2828,
+          -0.1709,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.2687,
+          0.0743,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690338269544794,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.24570657953299094,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.2828,
+          -0.1709,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.2687,
+          0.0743,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690338269544794,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.24570657953299108,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2009,
+      "original": {
+        "initial_mug_pos": [
+          0.2495,
+          0.1482,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3444,
+          -0.1839,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007685938913183366,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.3452088501033471,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.2495,
+          0.1482,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3444,
+          -0.1839,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007685938913183366,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.3452088501033472,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2010,
+      "original": {
+        "initial_mug_pos": [
+          0.2467,
+          -0.0379,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3479,
+          0.1509,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.13420573058199448,
+        "first_closed_step": 345,
+        "closed_steps": 686,
+        "last_xy_distance_m": 0.0046342192925895405,
+        "recorded_steps": 1030
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.2467,
+          -0.0379,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3479,
+          0.1509,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.019408227941786427,
+        "first_closed_step": 228,
+        "closed_steps": 903,
+        "last_xy_distance_m": 0.7559830315826825,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2011,
+      "original": {
+        "initial_mug_pos": [
+          0.3883,
+          0.0157,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.2628,
+          -0.1773,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.015544275428267085,
+        "first_closed_step": 252,
+        "closed_steps": 454,
+        "last_xy_distance_m": 0.40360393676304557,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.3883,
+          0.0157,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.2628,
+          -0.1773,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.09408717408492917,
+        "first_closed_step": 225,
+        "closed_steps": 976,
+        "last_xy_distance_m": 0.0042874127015110975,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2012,
+      "original": {
+        "initial_mug_pos": [
+          0.2513,
+          -0.0487,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3904,
+          0.1996,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.027623482702098467,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.2517334943162504,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.2513,
+          -0.0487,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3904,
+          0.1996,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.028209257003083965,
+        "first_closed_step": 98,
+        "closed_steps": 1045,
+        "last_xy_distance_m": 0.20930509953767812,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2013,
+      "original": {
+        "initial_mug_pos": [
+          0.348,
+          0.1826,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.2535,
+          -0.0678,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690338269547015,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.26752574422657305,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.348,
+          0.1826,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.2535,
+          -0.0678,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.021784452070405358,
+        "first_closed_step": 1049,
+        "closed_steps": 152,
+        "last_xy_distance_m": 0.32639321420796785,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2014,
+      "original": {
+        "initial_mug_pos": [
+          0.2696,
+          -0.0792,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3929,
+          0.155,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.019927880000722875,
+        "first_closed_step": 55,
+        "closed_steps": 68,
+        "last_xy_distance_m": 0.3619178927252163,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.2696,
+          -0.0792,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3929,
+          0.155,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.027189568840767953,
+        "first_closed_step": 256,
+        "closed_steps": 876,
+        "last_xy_distance_m": 0.22676578826197116,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2015,
+      "original": {
+        "initial_mug_pos": [
+          0.3579,
+          0.0071,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.2502,
+          0.1756,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.08124801988746111,
+        "first_closed_step": 132,
+        "closed_steps": 1069,
+        "last_xy_distance_m": 0.01336775589545255,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.3579,
+          0.0071,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.2502,
+          0.1756,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.08126149792958359,
+        "first_closed_step": 115,
+        "closed_steps": 1086,
+        "last_xy_distance_m": 0.21582644237050466,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2016,
+      "original": {
+        "initial_mug_pos": [
+          0.3834,
+          0.0922,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.2611,
+          -0.1424,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690338269544794,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.2644809387765,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.3834,
+          0.0922,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.2611,
+          -0.1424,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.04847973426686314,
+        "first_closed_step": 162,
+        "closed_steps": 1039,
+        "last_xy_distance_m": 0.377039542577672,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2017,
+      "original": {
+        "initial_mug_pos": [
+          0.2433,
+          0.1069,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.2625,
+          -0.1073,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690338269544794,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.21498532215846577,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.2433,
+          0.1069,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.2625,
+          -0.1073,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690338269544794,
+        "first_closed_step": 728,
+        "closed_steps": 473,
+        "last_xy_distance_m": 0.2149853221584657,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2018,
+      "original": {
+        "initial_mug_pos": [
+          0.3811,
+          -0.1582,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3739,
+          0.0791,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690338269545904,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.2375576489561907,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.3811,
+          -0.1582,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3739,
+          0.0791,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.11412882018084025,
+        "first_closed_step": 122,
+        "closed_steps": 169,
+        "last_xy_distance_m": 0.10110741186747696,
+        "recorded_steps": 297
+      },
+      "deterministic_episode_success": true
+    },
+    {
+      "seed": 2019,
+      "original": {
+        "initial_mug_pos": [
+          0.3845,
+          -0.0427,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3523,
+          0.1613,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690338269547015,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.20663733895998612,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.3845,
+          -0.0427,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3523,
+          0.1613,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690338269548125,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.2066373389599863,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2020,
+      "original": {
+        "initial_mug_pos": [
+          0.3977,
+          0.1495,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.2835,
+          -0.0652,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007692065882858312,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.24310065752210303,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.3977,
+          0.1495,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.2835,
+          -0.0652,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.011475254032253135,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.25477968588079875,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2021,
+      "original": {
+        "initial_mug_pos": [
+          0.3369,
+          0.0934,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3655,
+          -0.1612,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690338269545904,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.25612368187409035,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.3369,
+          0.0934,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3655,
+          -0.1612,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690338269545904,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.2561236818740903,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2022,
+      "original": {
+        "initial_mug_pos": [
+          0.2414,
+          -0.0003,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3734,
+          0.1828,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.01875753994995888,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.14368728737593547,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.2414,
+          -0.0003,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3734,
+          0.1828,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.011825776327834214,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.2937496094331777,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2023,
+      "original": {
+        "initial_mug_pos": [
+          0.2914,
+          0.1563,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.2602,
+          -0.1434,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690338269545904,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.30120507427543936,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.2914,
+          0.1563,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.2602,
+          -0.1434,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.009570799981999056,
+        "first_closed_step": 116,
+        "closed_steps": 323,
+        "last_xy_distance_m": 0.31394224623532163,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2024,
+      "original": {
+        "initial_mug_pos": [
+          0.334,
+          0.0797,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.247,
+          -0.118,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690105460425034,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.2159261685895112,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.334,
+          0.0797,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.247,
+          -0.118,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690105460423924,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.21592616858951122,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2025,
+      "original": {
+        "initial_mug_pos": [
+          0.2616,
+          0.1552,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3113,
+          -0.0447,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690338269544794,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.20584997222748064,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.2616,
+          0.1552,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3113,
+          -0.0447,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690338269545904,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.20584997222748058,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2026,
+      "original": {
+        "initial_mug_pos": [
+          0.275,
+          -0.0347,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3511,
+          0.1694,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.03330097047622338,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.19406799024691868,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.275,
+          -0.0347,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3511,
+          0.1694,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690338269544794,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.21788225892123084,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2027,
+      "original": {
+        "initial_mug_pos": [
+          0.3682,
+          0.1617,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3747,
+          -0.1074,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007692432532554472,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.2690531553466452,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.3682,
+          0.1617,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3747,
+          -0.1074,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.017975651905730916,
+        "first_closed_step": 791,
+        "closed_steps": 345,
+        "last_xy_distance_m": 0.3491757233411669,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2028,
+      "original": {
+        "initial_mug_pos": [
+          0.2534,
+          -0.1299,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3576,
+          0.1176,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690338269544794,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.2686126825055538,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.2534,
+          -0.1299,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3576,
+          0.1176,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.0007690338269544794,
+        "first_closed_step": null,
+        "closed_steps": 0,
+        "last_xy_distance_m": 0.2686126825055537,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    },
+    {
+      "seed": 2029,
+      "original": {
+        "initial_mug_pos": [
+          0.2619,
+          -0.0943,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3825,
+          0.0707,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.11912648073160437,
+        "first_closed_step": 55,
+        "closed_steps": 336,
+        "last_xy_distance_m": 0.211854481807448,
+        "recorded_steps": 1200
+      },
+      "deterministic": {
+        "initial_mug_pos": [
+          0.2619,
+          -0.0943,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3825,
+          0.0707,
+          0.8079
+        ],
+        "gripper_closed_definition": "Recorded gripper_open_norm < 0.3",
+        "max_lift_m": 0.017210293844241886,
+        "first_closed_step": 59,
+        "closed_steps": 1142,
+        "last_xy_distance_m": 0.18273886101642392,
+        "recorded_steps": 1200
+      },
+      "deterministic_episode_success": false
+    }
+  ],
+  "video_verification": [
+    {
+      "seed": 2000,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2000.mp4",
+      "sha256": "b8fdc20d800005d91a6dc4b7990ba37073fb20e97fa47e58fd6ad5182dede652",
+      "decoded": true
+    },
+    {
+      "seed": 2001,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2001.mp4",
+      "sha256": "875fc339bab2d270a50b453e8c5cc30e6f0c948878975e4c5b1fe77675942fcb",
+      "decoded": true
+    },
+    {
+      "seed": 2002,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_success_seed2002.mp4",
+      "sha256": "210085f07fee2495ace1abf8a7437481adcc4447baf2b0baa61bb0c7c0103fee",
+      "decoded": true
+    },
+    {
+      "seed": 2003,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2003.mp4",
+      "sha256": "c367764cf2dee7d796498d0c7848b00845d011359efc19c61acc9f827459a411",
+      "decoded": true
+    },
+    {
+      "seed": 2004,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2004.mp4",
+      "sha256": "9018ce97b2049f106b21016684a1f74afd0765b1d0e545c770acab4739166af0",
+      "decoded": true
+    },
+    {
+      "seed": 2005,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2005.mp4",
+      "sha256": "fe416a797931164a87588f8354a762e15acb093b25bd877fa8881d58431343af",
+      "decoded": true
+    },
+    {
+      "seed": 2006,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2006.mp4",
+      "sha256": "38bc2bd7b0c576cbe7789454291f63c6bdd351e486fde248f2762a703923d62c",
+      "decoded": true
+    },
+    {
+      "seed": 2007,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_success_seed2007.mp4",
+      "sha256": "2f90d07fb6558ac1401be096f2f0c64545d63eaa53ad9e10230e30c3b4bb755c",
+      "decoded": true
+    },
+    {
+      "seed": 2008,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2008.mp4",
+      "sha256": "f38c0c0c782e668d7c3defa4df93b27c487462e49e2fdba85f88e25a62e25c78",
+      "decoded": true
+    },
+    {
+      "seed": 2009,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2009.mp4",
+      "sha256": "c1e18819da4afc9397e0f71d0c240be021fcb25824bd8f6dce2465f36b137e63",
+      "decoded": true
+    },
+    {
+      "seed": 2010,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2010.mp4",
+      "sha256": "8ae7104508816696f9e6697413788ae966b9bfe6be8f0305d7a44f18022e5766",
+      "decoded": true
+    },
+    {
+      "seed": 2011,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2011.mp4",
+      "sha256": "6161fc4524f668152426ec232244117d3ede860aef6b336edfcac72d52504c06",
+      "decoded": true
+    },
+    {
+      "seed": 2012,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2012.mp4",
+      "sha256": "69af070d9ef0edf566065baa0624e41bc1657dfba37f13e12be36ef8259b5be9",
+      "decoded": true
+    },
+    {
+      "seed": 2013,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2013.mp4",
+      "sha256": "247adc326a82ae27aa4cc6c2d4720a9095230ad58f9d913ad01fac220f845011",
+      "decoded": true
+    },
+    {
+      "seed": 2014,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2014.mp4",
+      "sha256": "513208d152db65a6a16869200787d79989a4d04708a01c0dba6a0e7774fbb86f",
+      "decoded": true
+    },
+    {
+      "seed": 2015,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2015.mp4",
+      "sha256": "d88039b3c7d0b2264f08abe86b2b20d501868b456e777a89b67ffb5b10ee6742",
+      "decoded": true
+    },
+    {
+      "seed": 2016,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2016.mp4",
+      "sha256": "5cbb4fcfbfd44f01fcefd1800ba67de9ca1e242221ae2fb222b18ae76efa13d9",
+      "decoded": true
+    },
+    {
+      "seed": 2017,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2017.mp4",
+      "sha256": "833fc79d6843ff549ec276fab42cf8a138ad50f91ae3fedb6fddd55e1ab2d897",
+      "decoded": true
+    },
+    {
+      "seed": 2018,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_success_seed2018.mp4",
+      "sha256": "422deb0068a4acf81ea3726feafe0cb1a98cfd0338ef01aadcec76e9a3f08cce",
+      "decoded": true
+    },
+    {
+      "seed": 2019,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2019.mp4",
+      "sha256": "aac0c3caef8731c5398005af0fecece8b4ca3c192c7c6a9bc33acad6d3e6f142",
+      "decoded": true
+    },
+    {
+      "seed": 2020,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2020.mp4",
+      "sha256": "816b8535dfe5f9bacb1b9fe91db9d7466505c34357ef6b0a1ffd2adf102051a0",
+      "decoded": true
+    },
+    {
+      "seed": 2021,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2021.mp4",
+      "sha256": "f59c97b1bc5e946583263e11156ca0e01b1adca0cd628cc96a3f7f3910c85ef4",
+      "decoded": true
+    },
+    {
+      "seed": 2022,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2022.mp4",
+      "sha256": "5b9903dc69a4b5b775f55803619758c441b3ad317b88bce481c5f2902b1bd424",
+      "decoded": true
+    },
+    {
+      "seed": 2023,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2023.mp4",
+      "sha256": "8d3279665309d2f642877754e2394b09eb00cbdc32be2fdb5c2432c277f5ecdc",
+      "decoded": true
+    },
+    {
+      "seed": 2024,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2024.mp4",
+      "sha256": "280d745c23946d2b375f631f02fbc7dc85ad842b437329b5cfc291af22630fb0",
+      "decoded": true
+    },
+    {
+      "seed": 2025,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2025.mp4",
+      "sha256": "4a9eb31882a97ead4b5a3c28226c4c5bf1c3183a82bfbd225caf680129e6789c",
+      "decoded": true
+    },
+    {
+      "seed": 2026,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2026.mp4",
+      "sha256": "a90c6cf3fccf61d06b6bc82ae5297e676bc14fd06254dab97efaa6d8e072222a",
+      "decoded": true
+    },
+    {
+      "seed": 2027,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2027.mp4",
+      "sha256": "ae686c28cbf42ac58b69e9f3dad50c6fb3bb0db01bdf56559d0e70233e50dc0b",
+      "decoded": true
+    },
+    {
+      "seed": 2028,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2028.mp4",
+      "sha256": "70d505b6cd1e8cb9e9fb2d0cc97defb5bab8a5c2e3fbc8ba48a29d4d3ef7ee05",
+      "decoded": true
+    },
+    {
+      "seed": 2029,
+      "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-deterministic-20261028-v2/evaluation-videos/act_full14_failure_seed2029.mp4",
+      "sha256": "95602d0907584194a75530299d74de98c858fa92806ab3caaa8cd174e4d08865",
+      "decoded": true
+    }
+  ]
+}

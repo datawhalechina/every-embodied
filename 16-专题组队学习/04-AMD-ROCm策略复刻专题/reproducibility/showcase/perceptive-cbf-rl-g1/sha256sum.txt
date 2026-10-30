@@ -1,0 +1,4 @@
+7dcb11a01dccc7040b500ab7b61d8cacaea3d60223885ade1004bc0b48f9a756  assets/videos/perceptive-cbf-rl/pacman-g1-amd-replay.mp4
+e8cb64901e1543842529641862a1716b656eb8180249f7e800595d7c2d384c58  assets/posters/perceptive-cbf-rl/pacman-g1-amd-replay.jpg
+8c12cc440aa693ffa627b64309033646d7496aa135e7c1248e116764f7b34fc7  data/perceptive-cbf-rl-g1/eval_info.json
+164f9ea7ce80709942905e4f5436c58c87680f086004176368d3593380f62f9a  .vendor/perceptive_cbf_rl/deploy/ckpts/dodge_link_cbf.onnx

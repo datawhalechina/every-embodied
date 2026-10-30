@@ -1,0 +1,13 @@
+{
+  "hostname": "aup-NucBox-EVO-X2",
+  "python": "3.10.19 (main, Oct 21 2025, 16:43:05) [GCC 11.2.0]",
+  "torch": "2.11.0+rocm7.13.0a20260425",
+  "hip": "7.13.26162",
+  "gpu": "Radeon 8060S Graphics",
+  "work_mount": "/dev/shm",
+  "work_free_bytes": 18131025920,
+  "scope": "shared AMD device; other services left running; no training or robot task evaluation",
+  "remote_reported_time": "2026-10-29T03:40:02.777923+08:00",
+  "published_client_time": "2026-10-28T19:39:28.823020+08:00",
+  "clock_note": "Remote clock is approximately 8h04m ahead; remote time retained separately. Client publication time uses Asia/Shanghai."
+}

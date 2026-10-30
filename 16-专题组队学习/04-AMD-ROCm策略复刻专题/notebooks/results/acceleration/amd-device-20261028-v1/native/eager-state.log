@@ -1,0 +1,33 @@
+/home/aup/tmp/mujoco-warp-amd-conditional-graph-20260821/upstream/mujoco_warp/mujoco_warp/_src/io.py:146: UserWarning: HIP/ROCm device detected: CUDA graph conditional nodes are not supported on this backend. Model.opt.graph_conditional will remain disabled; the solver falls back to a Python for-loop around the iteration kernel. Set WP_HIP_CONDITIONAL_EMULATION=1 to use the device-gated single-graph solver path.
+  warp_util.check_toolkit_driver()
+Warp 1.13.0+rocm.0 initialized:
+   ROCm 7.2, HIP driver 7.2
+   Devices:
+     "cpu"      : "x86_64"
+     "cuda:0"   : "AMD Radeon Graphics" (64 GiB, gfx1151, mempool enabled)
+   Kernel cache:
+     /dev/shm/amd-acceleration-20261028-v1/warp-cache/1.13.0+rocm.0
+Module mujoco_warp._src.smooth ac222a6 load on device 'cuda:0' took 2.43 ms  (cached)
+Module mujoco_warp._src.collision_driver 55a8b3b load on device 'cuda:0' took 0.44 ms  (cached)
+Module _nxn_broadphase__locals__kernel_216d21d7 216d21d load on device 'cuda:0' took 0.27 ms  (cached)
+Module _primitive_narrowphase__locals__primitive_narrowphase_fd671857 fd67185 load on device 'cuda:0' took 0.34 ms  (cached)
+Module mujoco_warp._src.constraint eb0e24d load on device 'cuda:0' took 0.79 ms  (cached)
+Module _efc_contact_init__locals__kernel_9ba4ce0a 9ba4ce0 load on device 'cuda:0' took 0.28 ms  (cached)
+Module _efc_contact_jac_dense__locals__kernel_01c4be66 7acc2da load on device 'cuda:0' took 0.28 ms  (cached)
+Module _efc_contact_update__locals__kernel_17621467 1762146 load on device 'cuda:0' took 0.29 ms  (cached)
+Module mujoco_warp._src.forward 9de471e load on device 'cuda:0' took 0.88 ms  (cached)
+Module mujoco_warp._src.passive 616927b load on device 'cuda:0' took 0.46 ms  (cached)
+Module mujoco_warp._src.forward 5ceccde load on device 'cuda:0' took 0.79 ms  (cached)
+Module mujoco_warp._src.support eb80ed0 load on device 'cuda:0' took 0.35 ms  (cached)
+Module batched_factor_solve_i__locals__kernel_e7193419 4737d71 load on device 'cuda:0' took 0.27 ms  (cached)
+Module mujoco_warp._src.solver afb0c7e load on device 'cuda:0' took 1.99 ms  (cached)
+Module solve_init_jaref__locals__kernel_d6d96ba0 d6d96ba load on device 'cuda:0' took 0.27 ms  (cached)
+Module mul_m_dense__locals___mul_m_dense_45fa5d05 45fa5d0 load on device 'cuda:0' took 0.29 ms  (cached)
+Module update_constraint_efc__locals__kernel_6bfb2757 6bfb275 load on device 'cuda:0' took 0.27 ms  (cached)
+Module update_constraint_gauss_cost__locals__kernel_9c10b2a4 9c10b2a load on device 'cuda:0' took 0.28 ms  (cached)
+Module update_gradient_JTDAJ_dense_tiled__locals__kernel_20e0a2fe d155e82 load on device 'cuda:0' took 0.28 ms  (cached)
+Module batched_cholesky_factorize_solve__locals__kernel_20ba0cc6 84b4ef5 load on device 'cuda:0' took 0.27 ms  (cached)
+Module linesearch_iterative__locals__kernel_b3dcfe19 510eb2d load on device 'cuda:0' took 0.29 ms  (cached)
+Module update_constraint_efc__locals__kernel_8ad6290a 8ad6290 load on device 'cuda:0' took 0.29 ms  (cached)
+Module mujoco_warp._src.sensor 04d8f44 load on device 'cuda:0' took 0.96 ms  (cached)
+{"schema": "mujoco-warp-amd-native-state-v1", "variant": "eager", "device": "cuda:0", "python": "3.12.13", "worlds": 256, "steps": 100, "elapsed_s": 0.19688046909868717}

@@ -1,0 +1,47 @@
+{
+  "schema": "mujoco-warp-amd-native-conditional-v1",
+  "execution": "patched_hip_clr_runtime",
+  "native_runtime_s": 1.3344836281612515,
+  "eager_runtime_s": 2.084073576144874,
+  "native_worlds_per_second": 767338.0012993802,
+  "eager_worlds_per_second": 491345.4168418557,
+  "throughput_speedup": 1.5617078637498627,
+  "runtime_reduction": 0.3596753764184355,
+  "max_abs_qpos_error": 6.1793252825737e-07,
+  "max_abs_qvel_error": 9.5367431640625e-07,
+  "max_abs_time_error": 0.0,
+  "numerically_equivalent": true,
+  "native_state": "results/mjwarp_native_conditional_amd395/native_state.json",
+  "eager_state": "results/mjwarp_native_conditional_amd395/eager_state.json",
+  "hardware": {
+    "host": "AMD Ryzen AI Max+ 395",
+    "gpu": "Radeon 8060S",
+    "arch": "gfx1151",
+    "rocm": "7.2.1",
+    "hip_driver": "7.2"
+  },
+  "protocol": {
+    "model": "upstream/mujoco_warp/mujoco_warp/test_data/humanoid/humanoid.xml",
+    "worlds": 1024,
+    "steps": 1000,
+    "warmup_steps": 4,
+    "device": "cuda:0",
+    "nconmax": 128,
+    "njmax": 128
+  },
+  "runtime_sha256": "35189e8a2b85245f65670f39c0ca934159291e0408577c328a58d43b171f2c60",
+  "warp_extension_sha256": "004488a1a929acd5b33b7d6e380db3cb3ca050f55bd56569f7fecb1b9b4e5cc8",
+  "artifacts": [
+    "results/conditional_while_device_amd395.txt",
+    "results/native_conditional_handle_benchmark_amd395.json",
+    "results/mjwarp_native_conditional_amd395/native.log",
+    "results/mjwarp_native_conditional_amd395/eager.log",
+    "results/mjwarp_native_conditional_amd395/native_state.json",
+    "results/mjwarp_native_conditional_amd395/eager_state.json"
+  ],
+  "notes": [
+    "The native result executes the experimental hipGraphConditionalHandle while node through the patched HIP/CLR runtime.",
+    "The eager comparison keeps the same MuJoCo-Warp model and protocol with native conditional execution disabled.",
+    "This is a workload-specific result; ALOHA is recorded separately because its larger graph is slower with the current prototype."
+  ]
+}

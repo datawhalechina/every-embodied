@@ -1,0 +1,1948 @@
+{
+  "client_time": "2026-10-29T20:38:08.899749+08:00",
+  "reclaimed_gib": 93.85094972979277,
+  "free_gib_after_cleanup": 127.32454299926758,
+  "removed_derived_cache_builders": 113,
+  "source_parquet_header_checks": 2580,
+  "source_data_retained": true,
+  "models_deleted": true,
+  "removed_uploaded_staging_bytes": 1197797562,
+  "backup_status": "verified",
+  "backup_repo": "Datawhale/every-embodied-amd-training-archive-20261027",
+  "backup_commit": "48ae75d5772942b4f3e53be1c4906d435fb7953a",
+  "backup_verified_files": [
+    {
+      "file": "models/cup/smolvla-protected-57of60/SHA256SUMS.txt",
+      "bytes": 765,
+      "verified_by": "git_blob_sha1",
+      "sha256": "0a9ac40e81d09816d9cdada99aafbe0f6e9591ee3cdc40f11e8f61d478de16a5"
+    },
+    {
+      "file": "models/cup/smolvla-protected-57of60/README.md",
+      "bytes": 2662,
+      "verified_by": "git_blob_sha1",
+      "sha256": "cc91255072636f9464a78d3ce63eebb57f33145bcbd623010bb5c510d811d8df"
+    },
+    {
+      "file": "models/cup/smolvla-protected-57of60/weights/train_config.json",
+      "bytes": 5524,
+      "verified_by": "git_blob_sha1",
+      "sha256": "dc72d6be8fc7b8b204c09c13b19fe910d636df81899e9dbf2a0b9b12dac8c523"
+    },
+    {
+      "file": "models/cup/smolvla-protected-57of60/weights/model.safetensors",
+      "bytes": 1197790032,
+      "verified_by": "lfs_sha256",
+      "sha256": "abc335dbd4d4fdbfca8b188b22588b3d768747c9b4ee3051593a4a506c893e0d"
+    },
+    {
+      "file": "models/cup/smolvla-protected-57of60/weights/config.json",
+      "bytes": 2006,
+      "verified_by": "git_blob_sha1",
+      "sha256": "03a6b976fdfc7c0e97cbe3a97970a1ae815ce34b2e78b084a6cd2bd448930e8a"
+    },
+    {
+      "file": "models/cup/smolvla-protected-57of60/evaluation/strict_summary_60.json",
+      "bytes": 10065,
+      "verified_by": "git_blob_sha1",
+      "sha256": "fbab6e8bc2f444327fae991307533b2bf3a9020aa5f4e2f6eaedf863c74e5c4d"
+    },
+    {
+      "file": "models/cup/smolvla-protected-57of60/evaluation/videos/red_success_seed0.mp4",
+      "bytes": 1343521,
+      "verified_by": "lfs_sha256",
+      "sha256": "ac94a26c56c37695299739e1cb61aa2c14d1d9f654121a9202cdacbd1d7c8794"
+    },
+    {
+      "file": "models/cup/smolvla-protected-57of60/evaluation/videos/red_failure_seed8.mp4",
+      "bytes": 1302140,
+      "verified_by": "lfs_sha256",
+      "sha256": "50e77e384be69c7b85fb8959ec836b5f74bf7e5a12789f5e2521d3f4b5ecc18e"
+    },
+    {
+      "file": "models/cup/smolvla-protected-57of60/evaluation/videos/blue_success_seed0.mp4",
+      "bytes": 1987655,
+      "verified_by": "lfs_sha256",
+      "sha256": "d870786c6fee675d70817d2c862bc166de3c0912a0df190a3dfdd48ec7d461af"
+    }
+  ],
+  "private_backup": true,
+  "credential_values_included": false,
+  "upload_network": {
+    "provider": "\u826f\u5fc3\u4e91",
+    "isolated_upload_lane": true,
+    "shared_download_lane_modified": false,
+    "remote_proxy": "http://127.0.0.1:17897",
+    "status": "uploading",
+    "samples": [
+      {
+        "epoch": 1793262994.9351003,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3075597.371125471,
+        "lane_uploaded_bytes": 25576559690
+      },
+      {
+        "epoch": 1793263055.4853966,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1784874.3404717208,
+        "lane_uploaded_bytes": 25684634292
+      },
+      {
+        "epoch": 1793263116.0237875,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1577744.5163370906,
+        "lane_uploaded_bytes": 25780148415
+      },
+      {
+        "epoch": 1793263176.6647248,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1798593.8985802475,
+        "lane_uploaded_bytes": 25889216872
+      },
+      {
+        "epoch": 1793263237.201584,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1850718.1441679676,
+        "lane_uploaded_bytes": 26001253590
+      },
+      {
+        "epoch": 1793263297.8366237,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2743102.7515398962,
+        "lane_uploaded_bytes": 26167581697
+      },
+      {
+        "epoch": 1793263358.368823,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3703846.8940849956,
+        "lane_uploaded_bytes": 26391783819
+      },
+      {
+        "epoch": 1793263418.9612172,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1283394.6773318301,
+        "lane_uploaded_bytes": 26469547705
+      },
+      {
+        "epoch": 1793263479.4767585,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1467622.1733010702,
+        "lane_uploaded_bytes": 26558361573
+      },
+      {
+        "epoch": 1793263540.1104627,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3480875.802198115,
+        "lane_uploaded_bytes": 26769419983
+      },
+      {
+        "epoch": 1793263600.6277077,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2547613.817439895,
+        "lane_uploaded_bytes": 26923594821
+      },
+      {
+        "epoch": 1793263661.145521,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2714600.7633830304,
+        "lane_uploaded_bytes": 27087876452
+      },
+      {
+        "epoch": 1793263721.7681184,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1129471.282478204,
+        "lane_uploaded_bytes": 27156347862
+      },
+      {
+        "epoch": 1793263782.393363,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2104469.199415156,
+        "lane_uploaded_bytes": 27283931846
+      },
+      {
+        "epoch": 1793263843.007491,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1655156.62194485,
+        "lane_uploaded_bytes": 27384257827
+      },
+      {
+        "epoch": 1793263903.5196922,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3373351.055109708,
+        "lane_uploaded_bytes": 27588386617
+      },
+      {
+        "epoch": 1793263964.03968,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1594527.0107109249,
+        "lane_uploaded_bytes": 27684887345
+      },
+      {
+        "epoch": 1793264024.5510695,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2228686.4928038665,
+        "lane_uploaded_bytes": 27819748283
+      },
+      {
+        "epoch": 1793264085.0641081,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3705013.630197777,
+        "lane_uploaded_bytes": 28043950085
+      },
+      {
+        "epoch": 1793264145.5674222,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 474369.6107201644,
+        "lane_uploaded_bytes": 28072651000
+      },
+      {
+        "epoch": 1793264206.1060882,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 607183.1904521162,
+        "lane_uploaded_bytes": 28109409068
+      },
+      {
+        "epoch": 1793264266.6303144,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 244944.17608559475,
+        "lane_uploaded_bytes": 28124234116
+      },
+      {
+        "epoch": 1793264327.1569753,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 127014.73697032701,
+        "lane_uploaded_bytes": 28131921904
+      },
+      {
+        "epoch": 1793264387.7782583,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 157311.73484869546,
+        "lane_uploaded_bytes": 28141458340
+      },
+      {
+        "epoch": 1793264448.4071481,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 156164.13238648121,
+        "lane_uploaded_bytes": 28150926394
+      },
+      {
+        "epoch": 1793264508.9100924,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 164689.34191270042,
+        "lane_uploaded_bytes": 28160890586
+      },
+      {
+        "epoch": 1793264569.5473077,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 169611.3649513883,
+        "lane_uploaded_bytes": 28171175342
+      },
+      {
+        "epoch": 1793264630.0615695,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 147341.13469930956,
+        "lane_uploaded_bytes": 28180091586
+      },
+      {
+        "epoch": 1793264690.6859198,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 155681.45405812937,
+        "lane_uploaded_bytes": 28189529677
+      },
+      {
+        "epoch": 1793264751.2898045,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 158930.52364534116,
+        "lane_uploaded_bytes": 28199161487
+      },
+      {
+        "epoch": 1793264811.9241698,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 127605.80837441339,
+        "lane_uploaded_bytes": 28206898777
+      },
+      {
+        "epoch": 1793264872.5517488,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 181950.8882329069,
+        "lane_uploaded_bytes": 28217930024
+      },
+      {
+        "epoch": 1793264933.1733868,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 182972.09328932903,
+        "lane_uploaded_bytes": 28229022086
+      },
+      {
+        "epoch": 1793264993.7971723,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 121680.30870779487,
+        "lane_uploaded_bytes": 28236398807
+      },
+      {
+        "epoch": 1793265054.4176953,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 222068.18292434418,
+        "lane_uploaded_bytes": 28249860701
+      },
+      {
+        "epoch": 1793265115.0333989,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 176812.2904923778,
+        "lane_uploaded_bytes": 28260578304
+      },
+      {
+        "epoch": 1793265175.6620793,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 136796.9365459749,
+        "lane_uploaded_bytes": 28268872124
+      },
+      {
+        "epoch": 1793265236.1613317,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 149303.187305034,
+        "lane_uploaded_bytes": 28277904852
+      },
+      {
+        "epoch": 1793265296.8026361,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 191004.0340862806,
+        "lane_uploaded_bytes": 28289487590
+      },
+      {
+        "epoch": 1793265357.4030724,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 182463.5290802969,
+        "lane_uploaded_bytes": 28300544953
+      },
+      {
+        "epoch": 1793265418.0575914,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 172919.5051401705,
+        "lane_uploaded_bytes": 28311033306
+      },
+      {
+        "epoch": 1793265478.6677268,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 126995.13593545627,
+        "lane_uploaded_bytes": 28318730496
+      },
+      {
+        "epoch": 1793265539.2832847,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 56657.44968589327,
+        "lane_uploaded_bytes": 28322164816
+      },
+      {
+        "epoch": 1793265599.9018147,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 176040.47637605332,
+        "lane_uploaded_bytes": 28332836131
+      },
+      {
+        "epoch": 1793265660.5227048,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 144379.2410552478,
+        "lane_uploaded_bytes": 28341588542
+      },
+      {
+        "epoch": 1793265721.1457396,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 152902.14819778045,
+        "lane_uploaded_bytes": 28350857924
+      },
+      {
+        "epoch": 1793265781.654283,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 162510.46155637753,
+        "lane_uploaded_bytes": 28360691203
+      },
+      {
+        "epoch": 1793265842.1674778,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 157849.48960106247,
+        "lane_uploaded_bytes": 28370243179
+      },
+      {
+        "epoch": 1793265902.7024903,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 221163.81553352275,
+        "lane_uploaded_bytes": 28383631327
+      },
+      {
+        "epoch": 1793265963.3152256,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 188764.9622205295,
+        "lane_uploaded_bytes": 28395072895
+      },
+      {
+        "epoch": 1793266023.944909,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 203299.125303782,
+        "lane_uploaded_bytes": 28407398851
+      },
+      {
+        "epoch": 1793266084.5706444,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 234591.99944005703,
+        "lane_uploaded_bytes": 28421621166
+      },
+      {
+        "epoch": 1793266145.205244,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 175677.65358949229,
+        "lane_uploaded_bytes": 28432273309
+      },
+      {
+        "epoch": 1793266205.810997,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 162133.12200503098,
+        "lane_uploaded_bytes": 28442099509
+      },
+      {
+        "epoch": 1793266266.3394647,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 189554.92306234097,
+        "lane_uploaded_bytes": 28453572975
+      },
+      {
+        "epoch": 1793266326.9551165,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 163187.38878696464,
+        "lane_uploaded_bytes": 28463464683
+      },
+      {
+        "epoch": 1793266387.5896626,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 161632.63874513315,
+        "lane_uploaded_bytes": 28473265208
+      },
+      {
+        "epoch": 1793266448.2019272,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 169798.06533986147,
+        "lane_uploaded_bytes": 28483557057
+      },
+      {
+        "epoch": 1793266508.8242183,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 180459.02093932495,
+        "lane_uploaded_bytes": 28494496893
+      },
+      {
+        "epoch": 1793266569.4557772,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 109058.79764073259,
+        "lane_uploaded_bytes": 28501109295
+      },
+      {
+        "epoch": 1793266630.0637395,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 132283.38732607246,
+        "lane_uploaded_bytes": 28509126724
+      },
+      {
+        "epoch": 1793266690.6937444,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 267761.4547657982,
+        "lane_uploaded_bytes": 28525361104
+      },
+      {
+        "epoch": 1793266751.3242977,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 128680.21074487231,
+        "lane_uploaded_bytes": 28533163061
+      },
+      {
+        "epoch": 1793266811.9323084,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 200274.82997103865,
+        "lane_uploaded_bytes": 28545301312
+      },
+      {
+        "epoch": 1793266872.434391,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 182287.36541663535,
+        "lane_uploaded_bytes": 28556330083
+      },
+      {
+        "epoch": 1793266932.9480126,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 146752.88982152706,
+        "lane_uploaded_bytes": 28565210631
+      },
+      {
+        "epoch": 1793266993.5000458,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 203705.66858031056,
+        "lane_uploaded_bytes": 28577545406
+      },
+      {
+        "epoch": 1793267054.1172004,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 150872.24142568724,
+        "lane_uploaded_bytes": 28586690851
+      },
+      {
+        "epoch": 1793267114.7550416,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 281269.3428527136,
+        "lane_uploaded_bytes": 28603746445
+      },
+      {
+        "epoch": 1793267175.3510928,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 218166.2888971687,
+        "lane_uploaded_bytes": 28616966457
+      },
+      {
+        "epoch": 1793267235.8848867,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 169477.03539437862,
+        "lane_uploaded_bytes": 28627225551
+      },
+      {
+        "epoch": 1793267296.500882,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 141345.57192136708,
+        "lane_uploaded_bytes": 28635793346
+      },
+      {
+        "epoch": 1793267357.0564933,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 180233.8084236112,
+        "lane_uploaded_bytes": 28646707521
+      },
+      {
+        "epoch": 1793267417.644946,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 161098.25452051059,
+        "lane_uploaded_bytes": 28656468213
+      },
+      {
+        "epoch": 1793267478.2602258,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 227337.43790616532,
+        "lane_uploaded_bytes": 28670248334
+      },
+      {
+        "epoch": 1793267538.8883195,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 110209.93033434314,
+        "lane_uploaded_bytes": 28676930150
+      },
+      {
+        "epoch": 1793267599.4064906,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 159326.07687791318,
+        "lane_uploaded_bytes": 28686572276
+      },
+      {
+        "epoch": 1793267660.0291383,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 152903.01798918974,
+        "lane_uploaded_bytes": 28695841658
+      },
+      {
+        "epoch": 1793267720.639562,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 100091.16633289983,
+        "lane_uploaded_bytes": 28701908227
+      },
+      {
+        "epoch": 1793267781.1685646,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 118507.21816603316,
+        "lane_uploaded_bytes": 28709081353
+      },
+      {
+        "epoch": 1793267841.7894928,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 216780.77004203072,
+        "lane_uploaded_bytes": 28722222800
+      },
+      {
+        "epoch": 1793267902.423309,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 230239.18244278216,
+        "lane_uploaded_bytes": 28736183083
+      },
+      {
+        "epoch": 1793267963.0345342,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 97177.71258598221,
+        "lane_uploaded_bytes": 28742073141
+      },
+      {
+        "epoch": 1793268023.6535604,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 141164.8712568292,
+        "lane_uploaded_bytes": 28750630419
+      },
+      {
+        "epoch": 1793268084.278418,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 162507.73894946056,
+        "lane_uploaded_bytes": 28760482435
+      },
+      {
+        "epoch": 1793268144.762472,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 171123.94177293373,
+        "lane_uploaded_bytes": 28770832699
+      },
+      {
+        "epoch": 1793268205.2604005,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 290853.2437249754,
+        "lane_uploaded_bytes": 28788428710
+      },
+      {
+        "epoch": 1793268265.7642205,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 274774.1820004053,
+        "lane_uploaded_bytes": 28805053597
+      },
+      {
+        "epoch": 1793268326.268209,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 261718.61547584055,
+        "lane_uploaded_bytes": 28820888630
+      },
+      {
+        "epoch": 1793268386.8743293,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 166907.2398430648,
+        "lane_uploaded_bytes": 28831004230
+      },
+      {
+        "epoch": 1793268447.5025427,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 184016.14543428645,
+        "lane_uploaded_bytes": 28842160799
+      },
+      {
+        "epoch": 1793268508.131736,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 196732.54373336592,
+        "lane_uploaded_bytes": 28854088535
+      },
+      {
+        "epoch": 1793268568.746684,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 209501.63791619948,
+        "lane_uploaded_bytes": 28866787463
+      },
+      {
+        "epoch": 1793268629.3713017,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 232562.12964310707,
+        "lane_uploaded_bytes": 28880886456
+      },
+      {
+        "epoch": 1793268689.996777,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 147280.80943502192,
+        "lane_uploaded_bytes": 28889815431
+      },
+      {
+        "epoch": 1793268750.6163704,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 219173.67327528124,
+        "lane_uploaded_bytes": 28903101638
+      },
+      {
+        "epoch": 1793268811.237382,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 203272.71749958128,
+        "lane_uploaded_bytes": 28915424235
+      },
+      {
+        "epoch": 1793268871.8665676,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 145440.26303114303,
+        "lane_uploaded_bytes": 28924242140
+      },
+      {
+        "epoch": 1793268932.4858766,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 178846.38452043815,
+        "lane_uploaded_bytes": 28935083714
+      },
+      {
+        "epoch": 1793268993.1108391,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 213524.38161589467,
+        "lane_uploaded_bytes": 28948028623
+      },
+      {
+        "epoch": 1793269053.6081266,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 161999.4977727343,
+        "lane_uploaded_bytes": 28957829148
+      },
+      {
+        "epoch": 1793269114.137519,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 200015.03553223514,
+        "lane_uploaded_bytes": 28969935936
+      },
+      {
+        "epoch": 1793269174.7661662,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 193723.5735697369,
+        "lane_uploaded_bytes": 28981681139
+      },
+      {
+        "epoch": 1793269235.3812404,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 211397.46322330166,
+        "lane_uploaded_bytes": 28994495018
+      },
+      {
+        "epoch": 1793269296.006082,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 123521.84608875407,
+        "lane_uploaded_bytes": 29001983506
+      },
+      {
+        "epoch": 1793269356.6268058,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 182942.49234182452,
+        "lane_uploaded_bytes": 29013073615
+      },
+      {
+        "epoch": 1793269417.148414,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 154899.21718131664,
+        "lane_uploaded_bytes": 29022448351
+      },
+      {
+        "epoch": 1793269477.7739775,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 72973.33231859503,
+        "lane_uploaded_bytes": 29026872401
+      },
+      {
+        "epoch": 1793269538.3919895,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 178850.5626767664,
+        "lane_uploaded_bytes": 29037713975
+      },
+      {
+        "epoch": 1793269599.0090375,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 144225.88409509405,
+        "lane_uploaded_bytes": 29046456518
+      },
+      {
+        "epoch": 1793269659.651771,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 195521.2231112358,
+        "lane_uploaded_bytes": 29058313466
+      },
+      {
+        "epoch": 1793269720.2605717,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 233036.82001189046,
+        "lane_uploaded_bytes": 29072437559
+      },
+      {
+        "epoch": 1793269780.774257,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 177652.79792915905,
+        "lane_uploaded_bytes": 29083187976
+      },
+      {
+        "epoch": 1793269841.3809483,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 144296.17284120873,
+        "lane_uploaded_bytes": 29091933294
+      },
+      {
+        "epoch": 1793269901.9232364,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 153223.10635551106,
+        "lane_uploaded_bytes": 29101209767
+      },
+      {
+        "epoch": 1793269962.5378976,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 188163.964552897,
+        "lane_uploaded_bytes": 29112615264
+      },
+      {
+        "epoch": 1793270023.159613,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 191065.88454506797,
+        "lane_uploaded_bytes": 29124198002
+      },
+      {
+        "epoch": 1793270083.7870793,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 149427.28127459393,
+        "lane_uploaded_bytes": 29133257403
+      },
+      {
+        "epoch": 1793270144.4123483,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 179486.7467714979,
+        "lane_uploaded_bytes": 29144138836
+      },
+      {
+        "epoch": 1793270205.023413,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 174007.62599199367,
+        "lane_uploaded_bytes": 29154685624
+      },
+      {
+        "epoch": 1793270265.6533837,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 217829.13763113815,
+        "lane_uploaded_bytes": 29167892591
+      },
+      {
+        "epoch": 1793270326.1584241,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 46804.7853473251,
+        "lane_uploaded_bytes": 29170724516
+      },
+      {
+        "epoch": 1793270386.7859824,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 132207.0696921199,
+        "lane_uploaded_bytes": 29178739911
+      },
+      {
+        "epoch": 1793270447.4121597,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 222705.19641471753,
+        "lane_uploaded_bytes": 29192241676
+      },
+      {
+        "epoch": 1793270508.0227308,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 169145.54220007517,
+        "lane_uploaded_bytes": 29202493678
+      },
+      {
+        "epoch": 1793270568.6471379,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 176247.46382843103,
+        "lane_uploaded_bytes": 29213178585
+      },
+      {
+        "epoch": 1793270629.2842374,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1414005.7721059169,
+        "lane_uploaded_bytes": 29298919707
+      },
+      {
+        "epoch": 1793270689.8934875,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1552919.8960922419,
+        "lane_uploaded_bytes": 29393041063
+      },
+      {
+        "epoch": 1793270750.5218363,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3496604.0558808534,
+        "lane_uploaded_bytes": 29605034021
+      },
+      {
+        "epoch": 1793270811.1362252,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 710628.1513365498,
+        "lane_uploaded_bytes": 29648108399
+      },
+      {
+        "epoch": 1793270871.6583803,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3335478.2557092127,
+        "lane_uploaded_bytes": 29849978630
+      },
+      {
+        "epoch": 1793270932.276039,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2428153.1946196994,
+        "lane_uploaded_bytes": 29997167736
+      },
+      {
+        "epoch": 1793270992.8966463,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2643348.7339824215,
+        "lane_uploaded_bytes": 30157409017
+      },
+      {
+        "epoch": 1793271053.5222907,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3643103.5721813575,
+        "lane_uploaded_bytes": 30378274647
+      },
+      {
+        "epoch": 1793271114.1349158,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1234065.7138926983,
+        "lane_uploaded_bytes": 30453074600
+      },
+      {
+        "epoch": 1793271174.7607563,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1234062.5852342232,
+        "lane_uploaded_bytes": 30527890678
+      },
+      {
+        "epoch": 1793271235.4377022,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3056913.7049803827,
+        "lane_uploaded_bytes": 30713374967
+      },
+      {
+        "epoch": 1793271295.97737,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 936839.1312733039,
+        "lane_uploaded_bytes": 30770090879
+      },
+      {
+        "epoch": 1793271356.5249076,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3114335.8270924995,
+        "lane_uploaded_bytes": 30958656100
+      },
+      {
+        "epoch": 1793271417.1509898,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1382898.0097048553,
+        "lane_uploaded_bytes": 31042495878
+      },
+      {
+        "epoch": 1793271477.8974555,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1118030.0945639887,
+        "lane_uploaded_bytes": 31110412184
+      },
+      {
+        "epoch": 1793271538.4979303,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1006230.3563716981,
+        "lane_uploaded_bytes": 31171390259
+      },
+      {
+        "epoch": 1793271599.0058804,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3361633.6526411655,
+        "lane_uploaded_bytes": 31374795835
+      },
+      {
+        "epoch": 1793271659.636298,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2573715.5807690546,
+        "lane_uploaded_bytes": 31530841281
+      },
+      {
+        "epoch": 1793271720.266048,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 666090.9613690082,
+        "lane_uploaded_bytes": 31571226213
+      },
+      {
+        "epoch": 1793271780.8742087,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3195302.1855454273,
+        "lane_uploaded_bytes": 31764887632
+      },
+      {
+        "epoch": 1793271841.5074334,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2713957.583995858,
+        "lane_uploaded_bytes": 31929443462
+      },
+      {
+        "epoch": 1793271902.1108885,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1283917.5091138764,
+        "lane_uploaded_bytes": 32007253357
+      },
+      {
+        "epoch": 1793271962.7412193,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3364418.921880918,
+        "lane_uploaded_bytes": 32211239183
+      },
+      {
+        "epoch": 1793272023.2510695,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1641289.6190463428,
+        "lane_uploaded_bytes": 32310553415
+      },
+      {
+        "epoch": 1793272083.7688808,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1261449.7132509886,
+        "lane_uploaded_bytes": 32386893554
+      },
+      {
+        "epoch": 1793272144.4204078,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3630428.1270891246,
+        "lane_uploaded_bytes": 32607084667
+      },
+      {
+        "epoch": 1793272205.0208313,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1466358.0430994553,
+        "lane_uploaded_bytes": 32695946489
+      },
+      {
+        "epoch": 1793272265.6347241,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3595051.8527267734,
+        "lane_uploaded_bytes": 32913856764
+      },
+      {
+        "epoch": 1793272326.2584991,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2691953.78947804,
+        "lane_uploaded_bytes": 33077053100
+      },
+      {
+        "epoch": 1793272386.7497032,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2181814.415393281,
+        "lane_uploaded_bytes": 33209033619
+      },
+      {
+        "epoch": 1793272447.29337,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3868965.9893481676,
+        "lane_uploaded_bytes": 33443274847
+      },
+      {
+        "epoch": 1793272507.9204764,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1286291.8541488315,
+        "lane_uploaded_bytes": 33521259119
+      },
+      {
+        "epoch": 1793272568.5509775,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3585206.9069230407,
+        "lane_uploaded_bytes": 33738631962
+      },
+      {
+        "epoch": 1793272629.1722212,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1702041.2652571872,
+        "lane_uploaded_bytes": 33841811777
+      },
+      {
+        "epoch": 1793272689.810264,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 321407.8081234121,
+        "lane_uploaded_bytes": 33861301314
+      },
+      {
+        "epoch": 1793272750.4219363,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2143059.4647343243,
+        "lane_uploaded_bytes": 33991195867
+      },
+      {
+        "epoch": 1793272811.029435,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2623351.4658525325,
+        "lane_uploaded_bytes": 34150190559
+      },
+      {
+        "epoch": 1793272871.641121,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1333704.1300710917,
+        "lane_uploaded_bytes": 34231028632
+      },
+      {
+        "epoch": 1793272932.1660686,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3724041.508963881,
+        "lane_uploaded_bytes": 34456426076
+      },
+      {
+        "epoch": 1793272992.6734564,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2504357.4712517546,
+        "lane_uploaded_bytes": 34607958200
+      },
+      {
+        "epoch": 1793273053.2047076,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1753739.882024046,
+        "lane_uploaded_bytes": 34714114192
+      },
+      {
+        "epoch": 1793273113.7436867,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2898862.88685426,
+        "lane_uploaded_bytes": 34889608430
+      },
+      {
+        "epoch": 1793273174.2466218,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1707561.5757728266,
+        "lane_uploaded_bytes": 34992920925
+      },
+      {
+        "epoch": 1793273234.8598156,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3137986.007228279,
+        "lane_uploaded_bytes": 35183124333
+      },
+      {
+        "epoch": 1793273295.3728487,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2181020.1160409995,
+        "lane_uploaded_bytes": 35315104583
+      },
+      {
+        "epoch": 1793273355.8934436,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1037294.1086345402,
+        "lane_uploaded_bytes": 35377882165
+      },
+      {
+        "epoch": 1793273416.395893,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1059434.95875822,
+        "lane_uploaded_bytes": 35441980559
+      },
+      {
+        "epoch": 1793273477.0513854,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2203395.379234593,
+        "lane_uploaded_bytes": 35575628660
+      },
+      {
+        "epoch": 1793273537.6597016,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2289401.0226675975,
+        "lane_uploaded_bytes": 35714385358
+      },
+      {
+        "epoch": 1793273598.2731886,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 735925.7724100673,
+        "lane_uploaded_bytes": 35758992406
+      },
+      {
+        "epoch": 1793273658.8161225,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1588063.0723862716,
+        "lane_uploaded_bytes": 35855138350
+      },
+      {
+        "epoch": 1793273719.4234586,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2598692.9457692476,
+        "lane_uploaded_bytes": 36012638395
+      },
+      {
+        "epoch": 1793273780.0329022,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1367064.3304058248,
+        "lane_uploaded_bytes": 36095495347
+      },
+      {
+        "epoch": 1793273840.5161476,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 737562.4316563362,
+        "lane_uploaded_bytes": 36140105509
+      },
+      {
+        "epoch": 1793273901.0956364,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1492373.2208131468,
+        "lane_uploaded_bytes": 36230512696
+      },
+      {
+        "epoch": 1793273961.6974623,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1868641.590066316,
+        "lane_uploaded_bytes": 36343755837
+      },
+      {
+        "epoch": 1793274022.221102,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1588527.9582299492,
+        "lane_uploaded_bytes": 36439899302
+      },
+      {
+        "epoch": 1793274082.723198,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1600967.7711919611,
+        "lane_uploaded_bytes": 36536761207
+      },
+      {
+        "epoch": 1793274143.3174655,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2904561.791373581,
+        "lane_uploaded_bytes": 36712760987
+      },
+      {
+        "epoch": 1793274203.9738734,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1625521.239989253,
+        "lane_uploaded_bytes": 36811359306
+      },
+      {
+        "epoch": 1793274264.6048758,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2273964.45269268,
+        "lane_uploaded_bytes": 36949232051
+      },
+      {
+        "epoch": 1793274325.2810972,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3496619.9747669343,
+        "lane_uploaded_bytes": 37161393944
+      },
+      {
+        "epoch": 1793274385.8400052,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 686750.0584409345,
+        "lane_uploaded_bytes": 37202982729
+      },
+      {
+        "epoch": 1793274446.472828,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2105393.0203186395,
+        "lane_uploaded_bytes": 37330638680
+      },
+      {
+        "epoch": 1793274507.0882607,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1994013.1517614292,
+        "lane_uploaded_bytes": 37451506502
+      },
+      {
+        "epoch": 1793274567.7295604,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2993161.5330458754,
+        "lane_uploaded_bytes": 37633015966
+      },
+      {
+        "epoch": 1793274628.3287692,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1546691.4732485288,
+        "lane_uploaded_bytes": 37726744241
+      },
+      {
+        "epoch": 1793274688.8895826,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1946616.5476389695,
+        "lane_uploaded_bytes": 37844632862
+      },
+      {
+        "epoch": 1793274749.4680014,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3019185.809393113,
+        "lane_uploaded_bytes": 38027530408
+      },
+      {
+        "epoch": 1793274810.088093,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 803504.469624945,
+        "lane_uploaded_bytes": 38076238931
+      },
+      {
+        "epoch": 1793274870.7082646,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2096550.19402205,
+        "lane_uploaded_bytes": 38203332090
+      },
+      {
+        "epoch": 1793274931.217967,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2195874.797547846,
+        "lane_uploaded_bytes": 38336203907
+      },
+      {
+        "epoch": 1793274991.7673967,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1822042.360278938,
+        "lane_uploaded_bytes": 38446527464
+      },
+      {
+        "epoch": 1793275052.4540675,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 796953.1153771589,
+        "lane_uploaded_bytes": 38494891891
+      },
+      {
+        "epoch": 1793275112.9554286,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3445219.426176007,
+        "lane_uploaded_bytes": 38703332409
+      },
+      {
+        "epoch": 1793275173.5041566,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2260401.1234080223,
+        "lane_uploaded_bytes": 38840196917
+      },
+      {
+        "epoch": 1793275234.0680377,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2218672.511394634,
+        "lane_uploaded_bytes": 38974568248
+      },
+      {
+        "epoch": 1793275294.5736628,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3162507.8698171,
+        "lane_uploaded_bytes": 39165917811
+      },
+      {
+        "epoch": 1793275355.1721687,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 978162.6956483125,
+        "lane_uploaded_bytes": 39225192968
+      },
+      {
+        "epoch": 1793275415.6981149,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2582759.118194958,
+        "lane_uploaded_bytes": 39381516977
+      },
+      {
+        "epoch": 1793275476.2246456,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3421601.5744382106,
+        "lane_uploaded_bytes": 39588614721
+      },
+      {
+        "epoch": 1793275536.8234596,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1085219.9613381317,
+        "lane_uploaded_bytes": 39654377738
+      },
+      {
+        "epoch": 1793275597.4354122,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 990922.2595274118,
+        "lane_uploaded_bytes": 39714439457
+      },
+      {
+        "epoch": 1793275658.1000443,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1886011.6286868278,
+        "lane_uploaded_bytes": 39828853722
+      },
+      {
+        "epoch": 1793275718.6921494,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2741871.205962184,
+        "lane_uploaded_bytes": 39994989392
+      },
+      {
+        "epoch": 1793275779.2011695,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1456550.154983524,
+        "lane_uploaded_bytes": 40083123828
+      },
+      {
+        "epoch": 1793275839.834142,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3265837.0649666316,
+        "lane_uploaded_bytes": 40281141295
+      },
+      {
+        "epoch": 1793275900.5135787,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1564909.6161181878,
+        "lane_uploaded_bytes": 40376099153
+      },
+      {
+        "epoch": 1793275961.0694492,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3111248.489295926,
+        "lane_uploaded_bytes": 40564503434
+      },
+      {
+        "epoch": 1793276021.69813,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1672284.0477272926,
+        "lane_uploaded_bytes": 40665891754
+      },
+      {
+        "epoch": 1793276082.315444,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1572606.7788732548,
+        "lane_uploaded_bytes": 40761219018
+      },
+      {
+        "epoch": 1793276142.9357443,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 776983.0957839059,
+        "lane_uploaded_bytes": 40808319975
+      },
+      {
+        "epoch": 1793276203.639773,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2983815.052502221,
+        "lane_uploaded_bytes": 40989449599
+      },
+      {
+        "epoch": 1793276264.1541362,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1980716.2369306677,
+        "lane_uploaded_bytes": 41109311285
+      },
+      {
+        "epoch": 1793276324.7984607,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1199631.8072492348,
+        "lane_uploaded_bytes": 41182062163
+      },
+      {
+        "epoch": 1793276385.2889714,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3427106.378374632,
+        "lane_uploaded_bytes": 41389369660
+      },
+      {
+        "epoch": 1793276445.8142023,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1934776.6640223793,
+        "lane_uploaded_bytes": 41506472350
+      },
+      {
+        "epoch": 1793276506.5845525,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 993941.5233701899,
+        "lane_uploaded_bytes": 41566874526
+      },
+      {
+        "epoch": 1793276567.4582987,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3449792.9117516954,
+        "lane_uploaded_bytes": 41776876497
+      },
+      {
+        "epoch": 1793276627.973568,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1668109.4802083992,
+        "lane_uploaded_bytes": 41877822592
+      },
+      {
+        "epoch": 1793276688.5185754,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 939228.1137866448,
+        "lane_uploaded_bytes": 41934688135
+      },
+      {
+        "epoch": 1793276749.011196,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 745004.0120637169,
+        "lane_uploaded_bytes": 41979755382
+      },
+      {
+        "epoch": 1793276809.7282968,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 3339790.820750837,
+        "lane_uploaded_bytes": 42182537763
+      },
+      {
+        "epoch": 1793276870.6867976,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 510716.9592706728,
+        "lane_uploaded_bytes": 42213670288
+      },
+      {
+        "epoch": 1793276931.2011971,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2726812.876565144,
+        "lane_uploaded_bytes": 42378681856
+      },
+      {
+        "epoch": 1793276991.7248054,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 423988.26157458074,
+        "lane_uploaded_bytes": 42404343159
+      },
+      {
+        "epoch": 1793277052.343768,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2487478.375887713,
+        "lane_uploaded_bytes": 42555131429
+      },
+      {
+        "epoch": 1793277113.078217,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1209787.8409518155,
+        "lane_uploaded_bytes": 42628606797
+      },
+      {
+        "epoch": 1793277173.816303,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1782544.7298623677,
+        "lane_uploaded_bytes": 42736875890
+      },
+      {
+        "epoch": 1793277234.41348,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2315404.2980385846,
+        "lane_uploaded_bytes": 42877182707
+      },
+      {
+        "epoch": 1793277295.0349107,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1899508.619081744,
+        "lane_uploaded_bytes": 42992333716
+      },
+      {
+        "epoch": 1793277355.6333683,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2483879.6480107727,
+        "lane_uploaded_bytes": 43142852877
+      },
+      {
+        "epoch": 1793277416.3654537,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 1423634.4490615455,
+        "lane_uploaded_bytes": 43229313213
+      },
+      {
+        "epoch": 1793277477.1096144,
+        "job": "project-archive",
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "bytes_per_second": 2508080.386095761,
+        "lane_uploaded_bytes": 43381664193
+      }
+    ],
+    "route_changes": [
+      {
+        "epoch": 1793246365.1076336,
+        "from": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "to": "\ud83c\udded\ud83c\uddf0\u9999\u6e2f\u9ad8\u901f01|BGP|CMCU",
+        "reason": "failed/stalled or sustained below 100 KiB/s",
+        "previous_bytes_per_second": 1043087.4130074976
+      },
+      {
+        "epoch": 1793246446.5987813,
+        "from": "\ud83c\udded\ud83c\uddf0\u9999\u6e2f\u9ad8\u901f01|BGP|CMCU",
+        "to": "\ud83c\uddef\ud83c\uddf5\u65e5\u672c\u9ad8\u901f02|CTCU|0.5x",
+        "reason": "failed/stalled or sustained below 100 KiB/s",
+        "previous_bytes_per_second": 25.46076658735956
+      },
+      {
+        "epoch": 1793248042.281629,
+        "from": "\ud83c\uddef\ud83c\uddf5\u65e5\u672c\u9ad8\u901f02|CTCU|0.5x",
+        "to": "\ud83c\udded\ud83c\uddf0\u9999\u6e2f\u9ad8\u901f01|BGP|CMCU",
+        "reason": "failed/stalled or sustained below 100 KiB/s",
+        "previous_bytes_per_second": 37911.13676825824
+      },
+      {
+        "epoch": 1793248112.2820413,
+        "from": "\ud83c\udded\ud83c\uddf0\u9999\u6e2f\u9ad8\u901f01|BGP|CMCU",
+        "to": "\ud83c\uddf8\ud83c\uddec\u65b0\u52a0\u5761\u9ad8\u901f01|BGP|CTCUCM",
+        "reason": "failed/stalled or sustained below 100 KiB/s",
+        "previous_bytes_per_second": 25.471018720280597
+      },
+      {
+        "epoch": 1793248616.1362631,
+        "from": "\ud83c\uddf8\ud83c\uddec\u65b0\u52a0\u5761\u9ad8\u901f01|BGP|CTCUCM",
+        "to": "\ud83c\uddef\ud83c\uddf5\u65e5\u672c\u9ad8\u901f02|CTCU|0.5x",
+        "reason": "failed/stalled or sustained below 100 KiB/s",
+        "previous_bytes_per_second": 0.0
+      },
+      {
+        "epoch": 1793250936.4427154,
+        "from": "\ud83c\uddef\ud83c\uddf5\u65e5\u672c\u9ad8\u901f02|CTCU|0.5x",
+        "to": "\ud83c\udded\ud83c\uddf0\u9999\u6e2f\u9ad8\u901f01|BGP|CMCU",
+        "reason": "failed/stalled or sustained below 100 KiB/s",
+        "previous_bytes_per_second": 39827.53498140224
+      },
+      {
+        "epoch": 1793251738.9614644,
+        "from": "\ud83c\udded\ud83c\uddf0\u9999\u6e2f\u9ad8\u901f01|BGP|CMCU",
+        "to": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "reason": "failed/stalled or sustained below 100 KiB/s",
+        "previous_bytes_per_second": 378554.75135166186
+      },
+      {
+        "epoch": 1793253883.23387,
+        "from": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "to": "\ud83c\uddef\ud83c\uddf5\u65e5\u672c\u9ad8\u901f02|CTCU|0.5x",
+        "reason": "failed/stalled or sustained below 100 KiB/s",
+        "previous_bytes_per_second": 51484.95641354881
+      },
+      {
+        "epoch": 1793255120.998481,
+        "from": "\ud83c\uddef\ud83c\uddf5\u65e5\u672c\u9ad8\u901f02|CTCU|0.5x",
+        "to": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "reason": "failed/stalled or sustained below 100 KiB/s",
+        "previous_bytes_per_second": 20539.159637574438
+      }
+    ],
+    "latest_node_probe": [
+      {
+        "node": "\ud83c\uddef\ud83c\uddf5\u65e5\u672c\u9ad8\u901f02|CTCU|0.5x",
+        "valid": true,
+        "seconds": 2.484344
+      },
+      {
+        "node": "\ud83c\uddef\ud83c\uddf5\u65e5\u672c\u9ad8\u901f01|CTCU|0.5x",
+        "valid": true,
+        "seconds": 5.404626
+      },
+      {
+        "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+        "valid": true,
+        "seconds": 3.582126
+      },
+      {
+        "node": "\ud83c\udded\ud83c\uddf0\u9999\u6e2f\u9ad8\u901f01|BGP|CMCU",
+        "valid": false,
+        "seconds": 4.176052
+      },
+      {
+        "node": "\ud83c\uddf8\ud83c\uddec\u65b0\u52a0\u5761\u9ad8\u901f01|BGP|CTCUCM",
+        "valid": false,
+        "seconds": 5.00119
+      }
+    ],
+    "recovery_reason": "Inspected prior multipart TLS EOF; choose another verified Liangxin node",
+    "node": "\ud83c\uddfa\ud83c\uddf8\u7f8e\u56fd\u9ad8\u901f01|CTCU|0.1x",
+    "local_proxy": "http://127.0.0.1:40665",
+    "monitor_pid": 222261,
+    "node_selection_basis": "HF TLS/API preflight; actual payload throughput below determines switching",
+    "tunnel_pid": 223667,
+    "client_time": "2026-10-29T20:37:57.109636+08:00",
+    "upload_pid": 231512,
+    "job": "project-archive",
+    "bytes_per_second": 2508080.386095761,
+    "upload_status": "uploading",
+    "verified_objects": 22397
+  },
+  "current_free_gib": 219.38928604125977,
+  "new_cup_model_archive": {
+    "status": "verified",
+    "commit": "674bd503927d34c5e46b0fb280a24edeca3ad5d5",
+    "repo_id": "Datawhale/every-embodied-amd-training-archive-20261027",
+    "url": "https://huggingface.co/Datawhale/every-embodied-amd-training-archive-20261027/tree/674bd503927d34c5e46b0fb280a24edeca3ad5d5/models/cup/act-red-full-5000",
+    "total_bytes": 206378984
+  },
+  "old_optimizer_archive": {
+    "repo_id": "Datawhale/every-embodied-amd-training-archive-20261027",
+    "source": "/home/aup/course_model_rebuild_20260724/notebook_protected_split/runs/pi0_protected_recipe/clean40_s7500/checkpoints/007500",
+    "status": "verified",
+    "models_deleted": false,
+    "scope": "optimizer state only; model weights retained",
+    "total_bytes": 10896059452,
+    "started_epoch": 1793165944.0513144,
+    "commit": "d9a0339cbf2d19f67809c1e8c575f942a99718d5",
+    "verified_files": [
+      {
+        "file": "training-states/cup/pi0-clean40-s7500/training_state/optimizer_state.safetensors",
+        "bytes": 10896059452,
+        "verified_by": "lfs_sha256",
+        "sha256": "ec3c485298a9cb5d1a2d09b80520db9320361b02758f2c8b2ccd5da892bbbf72"
+      }
+    ],
+    "completed_epoch": 1793171030.2173717,
+    "url": "https://huggingface.co/Datawhale/every-embodied-amd-training-archive-20261027/tree/d9a0339cbf2d19f67809c1e8c575f942a99718d5/training-states/cup/pi0-clean40-s7500",
+    "pruned_optimizer_bytes": 10896059452,
+    "pruned_optimizer_file": "/home/aup/course_model_rebuild_20260724/notebook_protected_split/runs/pi0_protected_recipe/clean40_s7500/checkpoints/007500/training_state/optimizer_state.safetensors"
+  },
+  "optimizer_reclaimed_bytes": 10896059452,
+  "total_reclaimed_gib": 317.1960875550285,
+  "public_project_archive": {
+    "repo_id": "Datawhale/every-embodied-amd-project-archive-20261028",
+    "repo_type": "dataset",
+    "public": true,
+    "status": "uploading",
+    "source_roots": [
+      "/home/aup/jiahang/every-embodied",
+      "/home/aup/jiahang/course_model_rebuild_20260717",
+      "/home/aup/jiahang/troncamp-smolvla-teacher",
+      "/home/aup/jiahang/discoverse-airbot-amd"
+    ],
+    "updated_epoch": 1793306474.875881,
+    "url": "https://huggingface.co/datasets/Datawhale/every-embodied-amd-project-archive-20261028",
+    "fingerprint_progress": {
+      "status": "hashing",
+      "files_done": 22951,
+      "files_total": 26528,
+      "logical_bytes_done": 335790850912,
+      "elapsed_s": 368.9804663658142,
+      "credential_files": 10
+    },
+    "fingerprinted_files": 26528,
+    "public_files": 26516,
+    "retained_credential_files": 10,
+    "logical_archive_bytes": 342723284156,
+    "unique_objects": 22842,
+    "unique_bytes": 294792217369,
+    "manifest_commit": "dab6c6c9828395eb3ee8a4ddcf56cb2c4d2269f0",
+    "reused_public_objects": 12,
+    "inaccessible_owned_processes": [
+      186132,
+      4042225,
+      4042229,
+      4053225,
+      4163351,
+      4163742,
+      4186335,
+      4186789
+    ],
+    "pruned_files": 23992,
+    "pruned_logical_bytes": 230604611047,
+    "pruned_allocated_bytes": 227721158656,
+    "last_commit": "f39fca915af0288259753b6057406e3c9671e432",
+    "verified_objects": 22397,
+    "verified_unique_bytes": 183329340754,
+    "retained_referenced_files": 28794,
+    "retained_unmaterialized_pointer_files": 2,
+    "object_storage_attributes_commit": "904a6c1c626056ebba8643ede15d6eefd5165ff0",
+    "payload_network_retry": 1
+  },
+  "project_reclaimed_bytes": 227721158656,
+  "original_model_weights_retained": true
+}

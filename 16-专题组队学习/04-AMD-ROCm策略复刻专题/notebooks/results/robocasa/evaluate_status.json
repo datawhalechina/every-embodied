@@ -1,0 +1,41 @@
+{
+  "state": "complete",
+  "started_unix": 1792721556.7088275,
+  "finished_unix": 1792722808.1602542,
+  "stage": "evaluate",
+  "result": {
+    "episodes": 20,
+    "successes": 14,
+    "success_rate": 0.7,
+    "horizon": 750,
+    "official_horizon": 750,
+    "seeds": [
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119
+    ],
+    "split": "target",
+    "protocol": "official simulator stepping and success; fresh environment per explicit constructor seed",
+    "policy_variant": "trained",
+    "validation_only": false,
+    "checkpoint_sha256": "9d64f32346807e6071261b150434cbcaa0765c3a4a0569617e5bf51f9ce000fe",
+    "directory": "/home/aup/amd-notebook-work/runs/robocasa-formal-20261023-v1/eval_9d64f3234680_4267a62d"
+  }
+}

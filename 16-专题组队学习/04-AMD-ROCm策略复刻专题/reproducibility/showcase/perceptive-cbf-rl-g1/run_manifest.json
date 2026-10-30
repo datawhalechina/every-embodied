@@ -1,0 +1,38 @@
+{
+  "schema": "perceptive-cbf-rl/upstream-freebase-run/v1",
+  "command": "MUJOCO_GL=egl /data/Data14TB/envs/perceptive-cbf-rl-official/bin/python code/perceptive_cbf_rl_amd/official_freebase_capture.py",
+  "upstream_commit": "2d4266978805e8272daa7f029a8bca91cf45e1ba",
+  "task": "Unitree-G1-AMP-Dodge-Depth-Single-BallOnly-Flat",
+  "runtime": {
+    "python": "3.11.15",
+    "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
+    "mjlab": "1.5.3",
+    "mujoco": "3.10.0",
+    "mujoco_warp": "3.10.0.3",
+    "warp": "1.15.0",
+    "onnxruntime": "1.23.2",
+    "renderer": "EGL",
+    "simulation_device": "cuda:0 (upstream reference runtime)"
+  },
+  "policy_contract": {
+    "observation_dim": 960,
+    "action_dim": 29,
+    "frame_offsets": [
+      0,
+      3,
+      8,
+      18
+    ],
+    "control_hz": 50
+  },
+  "outputs_sha256": {
+    "pacman-g1-freebase-dodge-modes-1080p.mp4": "7dcb11a01dccc7040b500ab7b61d8cacaea3d60223885ade1004bc0b48f9a756",
+    "eval_info.json": "8c12cc440aa693ffa627b64309033646d7496aa135e7c1248e116764f7b34fc7",
+    "dodge_link_cbf.onnx": "164f9ea7ce80709942905e4f5436c58c87680f086004176368d3593380f62f9a"
+  },
+  "published_assets": {
+    "video": "assets/videos/perceptive-cbf-rl/pacman-g1-amd-replay.mp4",
+    "poster": "assets/posters/perceptive-cbf-rl/pacman-g1-amd-replay.jpg",
+    "evaluation": "data/perceptive-cbf-rl-g1/eval_info.json"
+  }
+}

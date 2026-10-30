@@ -1,0 +1,7 @@
+{
+  "dataset_stats_sha256": "b46d9a528a39c0a04dee485595d57249f348c4dfc0cc1925a657780fe8e15336",
+  "dataset_verification_sha256": "eb900d7b11db6fc5b56698bbeb126919e1d12e3ddf8e7488fe8be672128d4e7c",
+  "model_sha256": "37649b2391dc0756114e471ccc866b032298748cecec79fca8995e51f51ebcd3",
+  "trainer": "/home/aup/jiahang/every-embodied/06-\u7b56\u7565\u6293\u53d6\u6216\u6293\u53d6VLA/\u5927\u6a21\u578b\u63a7\u5236\u3001VLA\u3001VLM/04mujoco\u590d\u73b0ACT\u3001Pi0\u3001SmolVLA/tools/pi05_rocm_finetune.py",
+  "trainer_sha256": "30b6af28076e0afb51f3a0c19b8cdc9037d6324d89e69f1c07c21c013a4bd951"
+}

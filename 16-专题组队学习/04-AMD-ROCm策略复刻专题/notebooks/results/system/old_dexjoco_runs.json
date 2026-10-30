@@ -1,0 +1,24 @@
+{
+  "native_single_task": {
+    "successful_seeds": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "source_directory": "/home/aup/dexjoco-runs/amd_openpi_jax010_native_20260731",
+    "shown_video": "historical_demos/official_seed0.mp4",
+    "shown_video_sha256": "7c1144025d86dda7877e1f765c4b8fe48db6c9d85ee799786aa4b6ff250dc50b"
+  },
+  "official_multitask_inference": {
+    "tasks": 11,
+    "episodes_per_task": 1,
+    "seed": 0,
+    "successes": 5,
+    "self_trained_multitask": false
+  },
+  "searched_recovery": {
+    "water_plant_first_success_seed": 2,
+    "scope": "Seed search; not a fixed-seed success-rate denominator"
+  }
+}

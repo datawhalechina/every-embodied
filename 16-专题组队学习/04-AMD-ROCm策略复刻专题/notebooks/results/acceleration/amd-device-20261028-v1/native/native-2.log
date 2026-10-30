@@ -1,0 +1,1 @@
+{"jit_duration": 0.19987248198594898, "run_time": 2.1182326497510076, "steps_per_second": 483421.87536405335, "converged_worlds": 1024, "model_memory": 53059, "data_memory": 62902280, "total_memory": 14998831104, "ncon_mean": 6.5660849609375, "ncon_p95": 7.9853515625, "nefc_mean": 34.197, "nefc_p95": 38.0, "solver_niter_mean": 1.722234375, "solver_niter_p95": 4.0}

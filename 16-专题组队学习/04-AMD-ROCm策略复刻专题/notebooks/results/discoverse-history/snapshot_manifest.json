@@ -1,0 +1,23 @@
+{
+  "source": "Historical device logs copied 2026-10-27; no new experiment",
+  "files_sha256": {
+    "act-training.log": "3cf9ec74d922311e686ac4ac58c208f9803e1eecd70eccae9d8f97cd8059a55d",
+    "diffusion-evaluation.json": "06c2297bb0ba03be9862e8f8409d6208e16f74856672b4c7f06155f288432b0a",
+    "act-evaluation.json": "48ece14b0f921f718c6d803ff4e1a9f6895eefe19d5eb5271cd00e7b378109d4",
+    "act-heldout-failure.gif": "76fbd7c4113d8ec6ef997ac197623675f4e550e85d54470f3fd96b5497a918da",
+    "pi05-heldout-failure.gif": "6cceb9b8fb589f82c18d3d945dc45ebe50fa7eaa0fc9337aa69bde77bcd2d2db",
+    "diffusion-gate.json": "71cca26764630d61560ffb2aef360c81d77b1eacb2525d533328296ef55e0146",
+    "sources.json": "a24fd714911e516d9a7c0dd8cde65e8a618234acdeb069482ee7dfa2b4ea1900",
+    "act-phases.json": "8a092d8c44bf3d5b663fb99c2d3e475c15b7fea18096b3c90d61ce236f031512",
+    "pi05-heldout-failure.mp4": "9f9a56f185dd93172832bbe68b078bcf3643f4478e81ebe1207a8808a8026759",
+    "hdf5-audit.json": "e3110e685f8ba38a7e258b5802463a89d019dc98597c363b067cc880754b6e6e",
+    "pi05-evaluation.json": "7fc4253de7ac645334709ced0a715d0c123fd6bfa4448c44326cbccb87f2b2ab",
+    "expert-coverage.json": "09ded3f2c1bb1f60fd1b1471d30d3e05d8c7bb4cca41dd7dde3c10266f066ec9",
+    "pi05-provenance.json": "8ab94c5a79450f4b128ad99d733cf33de74f28f75df77c16c64ef1b9746fba0f",
+    "pi05-metrics.jsonl": "d37e97a1b378016420f7f6848a19073e6dc60cb4ef2a4de64c00f64c0c48eddf",
+    "act-heldout-failure.mp4": "72e5a8654424451ab27d069670a9258aa1513c4e43e83bb147a50a89a97e1c5f",
+    "act-epochs.json": "2a21920bcbc1f200b50fb59d208b4ed72ffbac0205aa3e04450245952e4af797",
+    "pi05-training.json": "879905689a4fb71e8b6b0386dc50ea84a6a8968a1e78f639a233a27ef101c53c",
+    "diffusion-metrics.jsonl": "e87eba90f715665b3c2956761a1a00001474af2038e8316941df7b520cc6ff86"
+  }
+}
