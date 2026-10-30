@@ -1,0 +1,104 @@
+{
+  "comparison": {
+    "device": {
+      "hostname": "aup-NucBox-EVO-X2",
+      "python": "3.10.19 (main, Oct 21 2025, 16:43:05) [GCC 11.2.0]",
+      "torch": "2.11.0+rocm7.13.0a20260425",
+      "hip": "7.13.26162",
+      "gpu": "Radeon 8060S Graphics",
+      "work_mount": "/dev/shm",
+      "work_free_bytes": 18131025920,
+      "scope": "shared AMD device; other services left running; no training or robot task evaluation",
+      "remote_reported_time": "2026-10-29T03:40:02.777923+08:00",
+      "published_client_time": "2026-10-28T19:39:28.823020+08:00",
+      "clock_note": "Remote clock is approximately 8h04m ahead; remote time retained separately. Client publication time uses Asia/Shanghai."
+    },
+    "rows": [
+      {
+        "lesson": "01 数据准备复用",
+        "unit": "每次小型动作头调用",
+        "before_ms": 0.06507864920422435,
+        "after_ms": 0.04629313014447689,
+        "speed_ratio": 1.4057949635533278,
+        "max_abs_error": 0.0,
+        "correctness_passed": true
+      },
+      {
+        "lesson": "02 固定计算图重放",
+        "unit": "每次小型动作头调用",
+        "before_ms": 0.040528030367568135,
+        "after_ms": 0.039372630417346954,
+        "speed_ratio": 1.0293452567932095,
+        "max_abs_error": 0.0,
+        "correctness_passed": true
+      },
+      {
+        "lesson": "03 仿真多步调用",
+        "unit": "4000物理步、200次控制更新",
+        "before_ms": 7.746794959530234,
+        "after_ms": 6.92281499505043,
+        "speed_ratio": 1.1190238313560192,
+        "max_abs_error": 0.0,
+        "correctness_passed": true
+      },
+      {
+        "lesson": "04 原生条件图",
+        "unit": "1024世界×1000步",
+        "before_ms": 2717.1812439337373,
+        "after_ms": 2124.600625014864,
+        "speed_ratio": 1.2789138871286587,
+        "max_abs_error": 3.123283386230469e-05,
+        "correctness_passed": false
+      }
+    ],
+    "graph_setup_ms": 66.74419401679188,
+    "graph_break_even_calls": 57768,
+    "native_correctness_tolerance": 1e-05,
+    "native_paired_state_worlds": 256,
+    "native_paired_state_steps": 100,
+    "native_state_errors": {
+      "qpos": 5.632638931274414e-06,
+      "qvel": 3.123283386230469e-05,
+      "time": 0.0
+    },
+    "native_correctness_passed": false,
+    "raw_execution_archive": "/data/Data14TB/01Proj/every-embodied-amd/acceleration-20261028-v1/amd-run",
+    "shared_device": true,
+    "other_services_stopped": false
+  },
+  "notebooks": [
+    {
+      "file": "07-推理与仿真加速/03-Notebook/00_加速实验入口与比赛材料.ipynb",
+      "raw_sha256": "c8c9ea2580693850aadda3afa222b1a1ace8635db0e02323e42b434e856b77ca",
+      "published_sha256": "29f0cd0e07ef31c292916df22de665a17cf73d0888abc4d4f10e48e1b1193c35"
+    },
+    {
+      "file": "07-推理与仿真加速/03-Notebook/01_推理计时与重复数据搬运.ipynb",
+      "raw_sha256": "d7117f3fa6f812c41c666e434d1346b2e540595007f036f38997902344375081",
+      "published_sha256": "716b491868ae515ea004cb17f9c4da13546a07fde6997658364355eceebb1f6a"
+    },
+    {
+      "file": "07-推理与仿真加速/03-Notebook/02_固定形状计算图重放.ipynb",
+      "raw_sha256": "023c8f890750e3c0c1f7f29bb4069064b3e535bec1354e26e89ed7a71dd43f96",
+      "published_sha256": "c38395518fa21ef046ca8074eacb1b9a802663d67b095c4e3fd2ba352db13bef"
+    },
+    {
+      "file": "07-推理与仿真加速/03-Notebook/03_MuJoCo多步调用与状态一致性.ipynb",
+      "raw_sha256": "3b518dc890b2eb98e1116a860ed71ab2767c7ffbb3890e2e7040b6d2c3cce833",
+      "published_sha256": "51eacfe2b1596a30ced49f461831eff0d7368c716551a4195dbedde365e7c5bf"
+    },
+    {
+      "file": "07-推理与仿真加速/03-Notebook/04_AMD原生条件图与历史结果复核.ipynb",
+      "raw_sha256": "64a59fd843da3001b8e0ba00d43e4c911cab99f7aa4210292c3b52d8473bd757",
+      "published_sha256": "fe8f5f9803e36936e69cefa903156df7a635a2c0d27d26dd682272e240429488"
+    }
+  ],
+  "executed_notebooks": 5,
+  "executed_code_cells": 18,
+  "native_timing_trials": 6,
+  "native_paired_state_runs": 2,
+  "native_correctness_passed": false,
+  "training_started": false,
+  "robot_task_evaluation_started": false,
+  "clock_labels_normalized": true
+}

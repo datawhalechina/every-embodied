@@ -1,0 +1,9 @@
+{
+  "seconds": 19.355242121004267,
+  "rng_restored": true,
+  "action_shape": [
+    30,
+    22
+  ],
+  "scope": "Real reset observation; compile before any evaluated episode starts."
+}

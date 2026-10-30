@@ -1,0 +1,27 @@
+{
+  "source": "Original tutorial assets recovered from ryzen-ai-halo on 2026-10-27",
+  "files_sha256": {
+    "smolvla_blue_success_sequence.jpg": "97d00483f70a075f1f75ffddfcea360fc0818fdbfefd7d239abc1819db3dfe96",
+    "training_progress_overview.png": "01284db46fe28f58f3412aab2ee746d3eee2afb0096327f7c86353d0caf58913",
+    "model_status_summary.png": "b3a4dd9921b1138f4eff1f0185eeb1a0f9a309a404346b38c4699843e2d6b501",
+    "pi05_canonical_s800_seed1003.mp4": "9ae968f6cedfbafe932b5e9f1d0978862c2252b9e37c74586ea7a1757bf3c154",
+    "act_dagger_progress_curve.png": "169d7f393c122eb4c279dc206ff26035c6f422830a1699c3e9e0f91a287678e3",
+    "smolvla_weighted500_blue_success_seed0.mp4": "d870786c6fee675d70817d2c862bc166de3c0912a0df190a3dfdd48ec7d461af",
+    "pi05_canonical_chunk10_training_and_recovery.png": "7d585f3bb7e0de105f1219beec1d2dad6c6aeb0252d607cf04288dccb98452f8",
+    "pi05_canonical_s800_seed1003_montage.png": "d0047025754b1b5c7f4e917d2a3922228f02ad4ceb060bb8df3dd0ac42352ae1",
+    "pi0_ep2_raw_vs_finisher_side_by_side.mp4": "158c7173f32b0d1ae71406670eb3f8644866e7dc350dbe997f7e3933e1a3efe2",
+    "pnp_four_view_strict_success_sequence.jpg": "adc704a88a3aecac763629b51c2827e2932d3cd13d2160043e25f98c8aa1bbce",
+    "act_success_sequence.jpg": "b719f497bd706ece2ec6a029fb970ef494511eb9ceaf51942f7228258b333e2d",
+    "pi05_eefdelta_h5_seed2133_montage.png": "1fd3cd3b8197b959a33ef83052fa1d687b5d7c4d986c047b36d437206e01ed65",
+    "smolvla_weighted500_red_success_seed0.mp4": "ac94a26c56c37695299739e1cb61aa2c14d1d9f654121a9202cdacbd1d7c8794",
+    "act_failure_sequence.jpg": "084400baf0a6335327c035efb9f64c129a69c9c870538093042901770ecf2557",
+    "pi0_strict_input_progress.png": "6b87b96ca7983607c286053c786693179e2e81fb2fa7fab340396393fbb31fca",
+    "pi0_ep2_raw_vs_finisher_frame.png": "68fb4b6c7aa07e092a4f5211d18c50f36c81fdc1e58b2ec612ebbbb50e2978d0",
+    "pi0_raw_vs_finisher_diagnostic.png": "e05ef3eabc94af0d3fe30c8c570a6d516fb93985c4ada19d4c03b5fcccf59bf6",
+    "pi05_eefdelta_h5_seed2133.mp4": "fe73c35a29d25a7286c6db739e340328d7c714ee96499aa7ea0e4d0e6938f9df",
+    "pnp_four_view_strict_success.mp4": "166d6361729320fce833f485f5884490c3a2881ca54f223877c5a05163bbccca",
+    "smolvla_weighted500_red_failure_seed8.mp4": "50e77e384be69c7b85fb8959ec836b5f74bf7e5a12789f5e2521d3f4b5ecc18e",
+    "smolvla_red_blue_success.png": "653db9c999f128f1060b22c378deebe69d921a51b957007c04b0276e907ef570",
+    "smolvla_blue_failure_sequence.jpg": "5633cbcdf45d86f437bfc2684a880fddadb7db3044597084166a6c83d41a9927"
+  }
+}

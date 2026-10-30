@@ -1,0 +1,10 @@
+{
+  "schema": "mujoco-warp-amd-import-probe-v1",
+  "python": "3.12.13",
+  "mujoco_distribution": "3.8.1",
+  "mujoco_warp_distribution": "3.8.1",
+  "mujoco_module_version": "3.8.1",
+  "mujoco_import": "ok",
+  "mujoco_warp_import": "ok",
+  "mujoco_warp_module": "/home/aup/tmp/mujoco-warp-amd-conditional-graph-20260821/upstream/mujoco_warp/mujoco_warp/__init__.py"
+}

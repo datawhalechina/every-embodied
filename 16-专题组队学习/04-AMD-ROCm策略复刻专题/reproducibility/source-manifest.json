@@ -1,0 +1,40 @@
+{
+  "gr00t": {
+    "commit": "9d7d7a9eb7ad30bd8ce30448d9ab53a918b45b10",
+    "files": {
+      "gr00t/model/gr00t_n1.py": "1b4a9653f3818f7417f2e99aa558be0abf19dc1cd05e3d026a987dde294f8138",
+      "gr00t/data/dataset.py": "654d25bd9f43fdaf13cd36eb5b392d706fb5dc3d913737cd107c6d8fc90033f6",
+      "gr00t/eval/simulation.py": "da6dd610d169a84717393769cd4b6ec19bb1872022634a1e9cd8cc9beb539111"
+    },
+    "source_url": "https://github.com/robocasa-benchmark/Isaac-GR00T"
+  },
+  "robocasa": {
+    "commit": "b4684e6ee37d377cc392e98302a6b916d588b415",
+    "files": {},
+    "source_url": "https://github.com/robocasa/robocasa"
+  },
+  "robosuite": {
+    "commit": "5ce6643f3092639d08f7b0f90ed1c6a84f50552c",
+    "files": {},
+    "source_url": "https://github.com/ARISE-Initiative/robosuite"
+  },
+  "dexjoco": {
+    "commit": null,
+    "files": {
+      "openpi/scripts/train.py": "99c5101a3a76cc6b483e0c8ab9834ceac62fe559e2a1f9045dac461005600745",
+      "openpi/scripts/compute_norm_stats.py": "cfeb50f6098b8c174c4586861899d6ae44768e57f623550ba7da7ed0bde1e96f",
+      "openpi/src/openpi/training/config.py": "9e681fcd5fef6c75a46977b3064826033110be2e514fe4d78776408be16cd592",
+      "openpi/src/openpi/training/data_loader.py": "7fa9e506393c7de12912c6cf19d6610eb22694ed57e1f53d7c8a46014df2ef07",
+      "openpi/src/openpi/shared/nnx_utils.py": "4da7111ba3011c4d1c381c9ed17257771df6a50ed89182647c3fb6f79208005e",
+      "configs/rand_obj/water_plant.yaml": "6bed46a80e40774564a3b76cb6b2567eaab57b36538c0ccbe3b8444d43e3948e"
+    },
+    "reference_commit": "46fcd70db460b3be5487387adab2aaf3e2e7b74f",
+    "reference_comparison": "Compared trainer, library and client source files against this commit; only a blank line in image_tools.py differs. Remote source has no .git directory.",
+    "source_url": "https://github.com/Ethan-Chen-plus/dexjoco"
+  },
+  "lerobot": {
+    "commit": "00b5f65752e1e5882f96c99a34e1d8b6d5d67f11",
+    "files": {},
+    "source_url": "https://github.com/huggingface/lerobot"
+  }
+}

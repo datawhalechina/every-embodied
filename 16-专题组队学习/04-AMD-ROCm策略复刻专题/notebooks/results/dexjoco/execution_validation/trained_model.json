@@ -1,0 +1,111 @@
+{
+  "checkpoint": "/home/aup/amd-notebook-work/runs/dexjoco-notebook-e2e-20261023/checkpoints/water_plant/course/19",
+  "checkpoint_sha256": "a297dcaaf751bd2676165f46bbea515ea1bf4139abdc2cf278dfe316c39252d7",
+  "checkpoint_index": 19,
+  "trained_steps_target": 20,
+  "duration_s": 76.43780398368835,
+  "batch_size": 1,
+  "gradient_accumulation": 1,
+  "effective_batch": 1,
+  "learning_rate": 1e-05,
+  "freeze_scope": "All(PathRegex(pattern=re.compile('.*llm.*'), sep='/'), Not(PathRegex(pattern=re.compile('.*lora.*'), sep='/')))",
+  "identity_files": [
+    {
+      "path": "assets/local_repo/norm_stats.json",
+      "bytes": 5383,
+      "sha256": "601d5267de60ab0ee218a3bc4d1281cf3b5b677e0d758119b268fb61b2471409"
+    },
+    {
+      "path": "params/_METADATA",
+      "bytes": 33071,
+      "sha256": "2cb332dd1d2d706dd51ac967f24d617e264c716542cb43a33839bc75485458db"
+    },
+    {
+      "path": "params/_sharding",
+      "bytes": 21749,
+      "sha256": "23bb45158be9267393931bcf7d5518d049bc069f97c1194d0e79cfa9a7283aec"
+    },
+    {
+      "path": "params/array_metadatas/process_0",
+      "bytes": 12891,
+      "sha256": "da5f8952b77ab352fa92e3e58d742bfe0db5b9c1b956212f8279895b9df03721"
+    },
+    {
+      "path": "params/d/72e92c713699e8c817b8fc32f70dea11",
+      "bytes": 2560,
+      "sha256": "147e441d73c6c197b35b7be90cbbf78d205e9d7c94669f9c2fb816a5a5ab1ba4"
+    },
+    {
+      "path": "params/manifest.ocdbt",
+      "bytes": 118,
+      "sha256": "490251abb4ab768a8f690236080f202c2cf39045c604ffcce354af85a74dc54a"
+    },
+    {
+      "path": "params/ocdbt.process_0/d/2b38badef2460164218d6369af6d982e",
+      "bytes": 213,
+      "sha256": "fff2f8b328c86ab34912c01d5758210df1805bcd73e3709be401d1989b9b18c3"
+    },
+    {
+      "path": "params/ocdbt.process_0/d/32ac9112473b979d7bbb935c415be2d7",
+      "bytes": 163438592,
+      "sha256": "a219d47215df1c2c5c7b250c939d91ac7e72674bfe6bc48b68423945a4c5c202"
+    },
+    {
+      "path": "params/ocdbt.process_0/d/459027cbb0d911fcba5b0ec25a4df182",
+      "bytes": 759070720,
+      "sha256": "abe930cd05b3e8f11de625edcfae5194a2542c0494ccd4539da7fb9e49eb0184"
+    },
+    {
+      "path": "params/ocdbt.process_0/d/8e02b3837f894e0c494304c601b45818",
+      "bytes": 1376,
+      "sha256": "e43163c6c67941f90156dcc5ae501720f0e0ea0dabfe8651c50b5c3aca84ff33"
+    },
+    {
+      "path": "params/ocdbt.process_0/d/9b3b73208e923bfd099736488049185c",
+      "bytes": 752779264,
+      "sha256": "25e74813070717e86ac84df60c90ed36cb3a4a386d3d064d40ffd44e5842e572"
+    },
+    {
+      "path": "params/ocdbt.process_0/d/ced384a49825aef781990bcef7eadd4f",
+      "bytes": 994136064,
+      "sha256": "657bdd605fa2ff2bd30344ab424a529879917f06491ddd32398a5b3de834b29a"
+    },
+    {
+      "path": "params/ocdbt.process_0/d/d2fe66d5069d38222aea9cab46a95b0f",
+      "bytes": 1774809088,
+      "sha256": "1461229ba32588138774cd38067e711548dc2e38ab4d588838459410fc211138"
+    },
+    {
+      "path": "params/ocdbt.process_0/d/de5572049ba2e19f607b31043b4e4e8b",
+      "bytes": 5727,
+      "sha256": "495531e80e8bff8eca3dda1884998083e7909d9c7a3e779a0cb897321b8cf052"
+    },
+    {
+      "path": "params/ocdbt.process_0/d/eea06bbffabff6ff643b68ae3210efd9",
+      "bytes": 1891246080,
+      "sha256": "e5da5a0258e98ee54801f8240d77a63a87834b3dcba0d6026218c7b3af30ab38"
+    },
+    {
+      "path": "params/ocdbt.process_0/manifest.ocdbt",
+      "bytes": 498,
+      "sha256": "00bfdfbc235cb6deab332e3cdc1a01698d9a1c912c2fedf6135f4c995d3940f0"
+    }
+  ],
+  "resume_replayed_batches": 0,
+  "parameter_digest_before": "217a529c40708fbbddc636423b271f98b30bf1d43dfbfbf78ef47cb80fa28f5f",
+  "trainable_parameters": 466957072,
+  "steps_start": 0,
+  "parameter_digest_after": "cb83982ea163d9919d192bded3c357ad7624e405a3d6e851a454a00bc23e0f68",
+  "device_memory_stats": {
+    "num_allocs": 1058,
+    "bytes_in_use": 0,
+    "peak_bytes_in_use": 17324256512,
+    "largest_alloc_size": 5671166208,
+    "bytes_limit": 51539607552,
+    "bytes_reserved": 0,
+    "peak_bytes_reserved": 0,
+    "largest_free_block_bytes": 0,
+    "pool_bytes": 34366029824,
+    "peak_pool_bytes": 34366029824
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "protocol": {
+    "split": "pretrain",
+    "tasks": [
+      "ArrangeTea",
+      "CloseFridge",
+      "CloseToasterOvenDoor",
+      "CoffeeSetupMug",
+      "DeliverStraw",
+      "OpenCabinet",
+      "OpenDrawer",
+      "PackIdenticalLunches",
+      "PickPlaceDrawerToCounter",
+      "PortionHotDogs",
+      "PrepareCoffee",
+      "RecycleBottlesByType",
+      "RinseSinkBasin",
+      "ScrubCuttingBoard",
+      "SeparateFreezerRack",
+      "SlideDishwasherRack"
+    ],
+    "episodes_per_task": 50,
+    "videos": true,
+    "note": "Pi0.5 and GR00T use the same task directories produced by the completed GR00T official run."
+  },
+  "models": {
+    "gr00t": {
+      "model": "GR00T",
+      "checkpoint": "robocasa/robocasa365_checkpoints:gr00t_n1-5_multitask_120000",
+      "tasks": [
+        {
+          "task": "ArrangeTea",
+          "episodes": 50,
+          "successes": 4,
+          "success_rate": 0.08
+        },
+        {
+          "task": "CloseFridge",
+          "episodes": 50,
+          "successes": 39,
+          "success_rate": 0.78
+        },
+        {
+          "task": "CloseToasterOvenDoor",
+          "episodes": 50,
+          "successes": 24,
+          "success_rate": 0.48
+        },
+        {
+          "task": "CoffeeSetupMug",
+          "episodes": 50,
+          "successes": 14,
+          "success_rate": 0.28
+        },
+        {
+          "task": "DeliverStraw",
+          "episodes": 50,
+          "successes": 1,
+          "success_rate": 0.02
+        },
+        {
+          "task": "OpenCabinet",
+          "episodes": 50,
+          "successes": 32,
+          "success_rate": 0.64
+        },
+        {
+          "task": "OpenDrawer",
+          "episodes": 50,
+          "successes": 20,
+          "success_rate": 0.4
+        },
+        {
+          "task": "PackIdenticalLunches",
+          "episodes": 50,
+          "successes": 7,
+          "success_rate": 0.14
+        },
+        {
+          "task": "PickPlaceDrawerToCounter",
+          "episodes": 50,
+          "successes": 19,
+          "success_rate": 0.38
+        },
+        {
+          "task": "PortionHotDogs",
+          "episodes": 50,
+          "successes": 3,
+          "success_rate": 0.06
+        },
+        {
+          "task": "PrepareCoffee",
+          "episodes": 50,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        {
+          "task": "RecycleBottlesByType",
+          "episodes": 50,
+          "successes": 1,
+          "success_rate": 0.02
+        },
+        {
+          "task": "RinseSinkBasin",
+          "episodes": 50,
+          "successes": 17,
+          "success_rate": 0.34
+        },
+        {
+          "task": "ScrubCuttingBoard",
+          "episodes": 50,
+          "successes": 26,
+          "success_rate": 0.52
+        },
+        {
+          "task": "SeparateFreezerRack",
+          "episodes": 50,
+          "successes": 1,
+          "success_rate": 0.02
+        },
+        {
+          "task": "SlideDishwasherRack",
+          "episodes": 50,
+          "successes": 22,
+          "success_rate": 0.44
+        }
+      ],
+      "episodes": 800,
+      "successes": 230,
+      "success_rate": 0.2875
+    },
+    "pi05": {
+      "model": "Pi0.5",
+      "checkpoint": "robocasa/robocasa365_checkpoints:pi05_pretrain_human300_multitask_75000",
+      "tasks": [
+        {
+          "task": "ArrangeTea",
+          "episodes": 50,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        {
+          "task": "CloseFridge",
+          "episodes": 50,
+          "successes": 15,
+          "success_rate": 0.3
+        },
+        {
+          "task": "CloseToasterOvenDoor",
+          "episodes": 50,
+          "successes": 6,
+          "success_rate": 0.12
+        },
+        {
+          "task": "CoffeeSetupMug",
+          "episodes": 50,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        {
+          "task": "DeliverStraw",
+          "episodes": 50,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        {
+          "task": "OpenCabinet",
+          "episodes": 50,
+          "successes": 20,
+          "success_rate": 0.4
+        },
+        {
+          "task": "OpenDrawer",
+          "episodes": 50,
+          "successes": 25,
+          "success_rate": 0.5
+        },
+        {
+          "task": "PackIdenticalLunches",
+          "episodes": 50,
+          "successes": 1,
+          "success_rate": 0.02
+        },
+        {
+          "task": "PickPlaceDrawerToCounter",
+          "episodes": 50,
+          "successes": 31,
+          "success_rate": 0.62
+        },
+        {
+          "task": "PortionHotDogs",
+          "episodes": 50,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        {
+          "task": "PrepareCoffee",
+          "episodes": 50,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        {
+          "task": "RecycleBottlesByType",
+          "episodes": 50,
+          "successes": 9,
+          "success_rate": 0.18
+        },
+        {
+          "task": "RinseSinkBasin",
+          "episodes": 50,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        {
+          "task": "ScrubCuttingBoard",
+          "episodes": 50,
+          "successes": 2,
+          "success_rate": 0.04
+        },
+        {
+          "task": "SeparateFreezerRack",
+          "episodes": 50,
+          "successes": 0,
+          "success_rate": 0.0
+        },
+        {
+          "task": "SlideDishwasherRack",
+          "episodes": 50,
+          "successes": 33,
+          "success_rate": 0.66
+        }
+      ],
+      "episodes": 800,
+      "successes": 142,
+      "success_rate": 0.1775
+    }
+  },
+  "created_at": "2026-07-31T18:24:00.820670",
+  "source_sha256": "76f058011b3293168becfeeb943a26d9671bd64855b7507ae620ee48f31dac94",
+  "note": "Sanitized public result derived from the SHA-verified official match JSON."
+}

@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "checked_at_shanghai": "2026-10-30T11:04:55.384518+08:00",
+  "reading_executions": 19,
+  "training_notebooks": 12,
+  "entry_notebooks": 1,
+  "workflow_variants": 6,
+  "code_cells_compiled": 312,
+  "embedded_players": 38,
+  "unique_embedded_media": 27,
+  "all_embedded_payloads_match_media": true,
+  "video_codec": "h264",
+  "new_training_executed": false,
+  "fixtures": [
+    {
+      "test": "cup_pipeline inline implementation change and reuse",
+      "passed": true
+    },
+    {
+      "test": "cup_pipeline_deterministic inline implementation change and reuse",
+      "passed": true
+    },
+    {
+      "test": "live notebook namespace repeat, resume twice, exception and successful-return cleanup",
+      "passed": true,
+      "observed_skip_batches": [
+        0,
+        2,
+        2
+      ]
+    },
+    {
+      "test": "non-finite scalar loss and gradient guards",
+      "passed": true
+    }
+  ]
+}

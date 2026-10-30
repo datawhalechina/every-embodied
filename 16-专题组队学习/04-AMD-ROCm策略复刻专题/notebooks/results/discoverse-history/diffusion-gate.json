@@ -1,0 +1,8 @@
+{
+  "status": "stopped_no_closed_loop_success",
+  "scope": "Diffusion Policy 5000-step fixed train-like and unseen canary",
+  "successes": 0,
+  "episodes": 4,
+  "success_rate": 0.0,
+  "automatic_long_training_started": false
+}

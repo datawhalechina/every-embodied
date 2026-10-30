@@ -1,0 +1,68 @@
+{
+  "benchmark": "robocasa",
+  "source_run_root": "/home/aup/amd-notebook-work/runs/robocasa-formal-20261023-v1",
+  "formal_target_steps": 3000,
+  "selected_videos": [
+    {
+      "variant": "base",
+      "seed": 101,
+      "success": true,
+      "path": "videos/base_seed_101.mp4",
+      "checkpoint_sha256": "181b64f0bf07e46bacd13b3350e6be7d876c4081277cbacf91e941dd04f7907b"
+    },
+    {
+      "variant": "base",
+      "seed": 105,
+      "success": false,
+      "path": "videos/base_seed_105.mp4",
+      "checkpoint_sha256": "181b64f0bf07e46bacd13b3350e6be7d876c4081277cbacf91e941dd04f7907b"
+    },
+    {
+      "variant": "trained",
+      "seed": 101,
+      "success": false,
+      "path": "videos/trained_seed_101.mp4",
+      "checkpoint_sha256": "9d64f32346807e6071261b150434cbcaa0765c3a4a0569617e5bf51f9ce000fe"
+    },
+    {
+      "variant": "trained",
+      "seed": 105,
+      "success": true,
+      "path": "videos/trained_seed_105.mp4",
+      "checkpoint_sha256": "9d64f32346807e6071261b150434cbcaa0765c3a4a0569617e5bf51f9ce000fe"
+    }
+  ],
+  "files_sha256": {
+    "prepare_status.json": "5e5c0a39f82f9eed07b57b830d3647c72b4e1d7a89c8d9b729321e606df5ec8e",
+    "pipeline_preflight_config.json": "48c67fddacfe9b09250b732ea00af81c2a61dfef0e90a285d025295d08194c3c",
+    "pipeline_train_config.json": "48c67fddacfe9b09250b732ea00af81c2a61dfef0e90a285d025295d08194c3c",
+    "metrics.jsonl": "2bb18fa2c7003eb1a31fa287880497506b48a7d1d7d636aabe44d21ad35f51e6",
+    "evaluate_status.json": "a1bf28629d7a7710cb8e2019a193b8647e34b6de53f3cb4e1251d252c2955512",
+    "pipeline_baseline_config.json": "f62c16c118819dcb19771fa37cf6b8093b0f48fc9d596c485cbfa81b469792ec",
+    "prepare_manifest.json": "4a766e6c19faaad591776a4839c9264c20cb07768d5e2a35c7b98b001d1154c6",
+    "preflight_status.json": "cad621a2e58b4c8bd8e05dfd692e625d454413a2992ab6ea87829f3db32a1d66",
+    "trained_model.json": "b94cc086a92f0b76a075b7d711c78b75c86498cc4654c4e7418a90cf4e1775e7",
+    "pipeline_evaluate_config.json": "774635702fbc295b506ffe6e446bd5e8a99230f0c0abfcee03933946d6fe30c0",
+    "metadata.json": "022ce0d3cf8b8e98816f5a0f7719d23a6c8025bdf3021e36a908417f45485f1a",
+    "pipeline_prepare_config.json": "48c67fddacfe9b09250b732ea00af81c2a61dfef0e90a285d025295d08194c3c",
+    "train_status.json": "a386628aba0797a8295aa161c76affaaaa51d30d4b456191ff473174ec3922cb",
+    "identity.json": "41807dee68ec67f5d24b0956d7042a63267726c988c0e3198c43134807820f36",
+    "dataset_info.json": "a81da28d5ed15abf6bb886babd38a332bed38d35f866dcf74e5faa9e11bad376",
+    "baseline_status.json": "e2691dd245180bfddd7dea11a01c5572a5717ce4b7639ba8e01c20a15352fa50",
+    "formal_config.json": "774635702fbc295b506ffe6e446bd5e8a99230f0c0abfcee03933946d6fe30c0",
+    "formal_comparison.json": "1b44583a5c2549f857d42aa7b56e0cbe7e1ead0036b18f17555817d0ba0f70aa",
+    "videos/base_seed_101.mp4": "51680ff32e0b234b55ff068df4ab2c2fc0eb57857f30b0e67652a1c8774f0e33",
+    "videos/trained_seed_105.mp4": "122911b601191be58e468e07b511ea3d710939f25f3b1c186f506ea0670d2802",
+    "videos/base_seed_105.mp4": "55e4709eb2a381a85fda3acccd55fca2aab3d173b6fa4e1f047bb016697c96c1",
+    "videos/trained_seed_101.mp4": "331a12f001933c3f9bdf4ab86397aff9e19a0f02f7002084635e14adcbec6bd1",
+    "eval_9d64f3234680_4267a62d/summary.json": "5a06b14d0e3bc4d110787a074d79865ca8873cc0999733ccc475dc600ba43dc4",
+    "eval_9d64f3234680_4267a62d/results.jsonl": "3db9cfd52ef2c4de41d219c579d65c2e3dff26d55ad50952ed6f02506bd10f46",
+    "eval_9d64f3234680_4267a62d/evaluation_config.json": "774635702fbc295b506ffe6e446bd5e8a99230f0c0abfcee03933946d6fe30c0",
+    "baseline_181b64f0bf07_2601d044/evaluation_config.json": "29ff1fb1f2d0f7c31ac0b736c342f6f1437f7529ee1560f3d33988c03550e09a",
+    "baseline_181b64f0bf07_ad82a04d/summary.json": "f19139e09276859bf2c1c2ca6b4a2284887c225610f3870376975dca4788d099",
+    "baseline_181b64f0bf07_ad82a04d/results.jsonl": "eebcbc3745bb09022b9258f056f62b525eb78fba9effe7384742bdcb4727a89d",
+    "baseline_181b64f0bf07_ad82a04d/evaluation_config.json": "46e127b9e725d9234caeedd7222f30f68577c60f080666b4cd195a38c6810fad"
+  },
+  "snapshot_scope": "Recorded evidence; snapshot viewing never runs or resumes training.",
+  "refreshed_client_time": "2026-10-25T11:35:51.726527+08:00"
+}

@@ -1,0 +1,137 @@
+{
+  "status": "complete",
+  "pid": 4077189,
+  "seeds": [
+    1000,
+    1019
+  ],
+  "weights_sha256": "e332621cc67f5462990f21316847ec082d45fc911ef70264e6d0ed54124e39fc",
+  "scope": "Two training-scene closed-loop diagnostics; separate from the30 held-out episodes",
+  "current_seed": 1019,
+  "results": [
+    {
+      "policy": "act",
+      "seed": 1000,
+      "success": true,
+      "physical_success": true,
+      "action_steps": 430,
+      "sim_steps": 10751,
+      "elapsed_s": 201.141,
+      "act_force_dataset_gripper": false,
+      "debug": {
+        "xy_dist": 0.027874949464640832,
+        "z_dist": 0.04610453085479693,
+        "ee_z": 0.9029485818543992,
+        "gripper_open_norm": 0.3010654592256248,
+        "object_placed": true,
+        "ee_height_ok": true,
+        "gripper_open": true,
+        "released": true,
+        "strict_success": true,
+        "configured_success": true,
+        "success_xy_threshold": 0.1,
+        "success_z_threshold": 0.12,
+        "success_ee_height_threshold": 0.9,
+        "success_gripper_open_norm_threshold": 0.3,
+        "success_require_gripper_open": true,
+        "success_require_ee_height": false,
+        "success": true,
+        "physical_success": true,
+        "physical_lifted_enough": true,
+        "physical_final_upright": true,
+        "physical_min_lift": 0.06,
+        "physical_min_lift_steps": 3,
+        "physical_final_upright_cos_threshold": 0.85,
+        "initial_mug_pos": [
+          0.3445,
+          -0.1539,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3171,
+          0.149,
+          0.8079
+        ],
+        "final_mug_pos": [
+          0.3019,
+          0.1257,
+          0.854
+        ],
+        "max_mug_z": 0.9232357045533637,
+        "max_mug_lift": 0.07935050167123536,
+        "lifted_steps": 324,
+        "finger_mug_contact_steps": 0,
+        "closed_finger_mug_contact_steps": 0,
+        "final_mug_upright_cos": 0.9776624268696182,
+        "legacy_success_ever": true,
+        "first_legacy_success_step": 430,
+        "physical_success_ever": true,
+        "first_physical_success_step": 430
+      },
+      "video_path": "/home/aup/amd-notebook-work/cup-training-seeds-20261028-v1/seed1000/videos/act_full14_success_seed1000.mp4",
+      "trace_path": "/home/aup/amd-notebook-work/cup-training-seeds-20261028-v1/seed1000/traces/act_full14_success_seed1000.json"
+    },
+    {
+      "policy": "act",
+      "seed": 1019,
+      "success": true,
+      "physical_success": false,
+      "action_steps": 1200,
+      "sim_steps": 29976,
+      "elapsed_s": 564.626,
+      "act_force_dataset_gripper": false,
+      "debug": {
+        "xy_dist": 0.08881064018847597,
+        "z_dist": 0.03851501411041702,
+        "ee_z": 0.922084176550372,
+        "gripper_open_norm": 0.9999372096483834,
+        "object_placed": true,
+        "ee_height_ok": true,
+        "gripper_open": true,
+        "released": true,
+        "strict_success": true,
+        "configured_success": true,
+        "success_xy_threshold": 0.1,
+        "success_z_threshold": 0.12,
+        "success_ee_height_threshold": 0.9,
+        "success_gripper_open_norm_threshold": 0.3,
+        "success_require_gripper_open": true,
+        "success_require_ee_height": false,
+        "success": true,
+        "physical_success": false,
+        "physical_lifted_enough": true,
+        "physical_final_upright": false,
+        "physical_min_lift": 0.06,
+        "physical_min_lift_steps": 3,
+        "physical_final_upright_cos_threshold": 0.85,
+        "initial_mug_pos": [
+          0.2917,
+          -0.1528,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3778,
+          0.1138,
+          0.8079
+        ],
+        "final_mug_pos": [
+          0.3139,
+          0.137,
+          0.8464
+        ],
+        "max_mug_z": 0.9349066628845921,
+        "max_mug_lift": 0.0910214600024638,
+        "lifted_steps": 368,
+        "finger_mug_contact_steps": 0,
+        "closed_finger_mug_contact_steps": 0,
+        "final_mug_upright_cos": 0.2860663833382932,
+        "legacy_success_ever": true,
+        "first_legacy_success_step": 1130,
+        "physical_success_ever": false,
+        "first_physical_success_step": null
+      },
+      "video_path": "/home/aup/amd-notebook-work/cup-training-seeds-20261028-v1/seed1019/videos/act_full14_failure_seed1019.mp4",
+      "trace_path": "/home/aup/amd-notebook-work/cup-training-seeds-20261028-v1/seed1019/traces/act_full14_failure_seed1019.json"
+    }
+  ]
+}

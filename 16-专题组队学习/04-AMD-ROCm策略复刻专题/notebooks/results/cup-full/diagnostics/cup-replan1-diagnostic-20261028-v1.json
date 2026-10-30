@@ -1,0 +1,138 @@
+{
+  "status": "complete",
+  "pid": 4097576,
+  "seeds": [
+    2000,
+    2001
+  ],
+  "n_action_steps": 1,
+  "weights_sha256": "e332621cc67f5462990f21316847ec082d45fc911ef70264e6d0ed54124e39fc",
+  "scope": "Two per-step-replanning diagnostics on former held-out failures; separate from the original30 and not a new full evaluation",
+  "current_seed": 2001,
+  "results": [
+    {
+      "policy": "act",
+      "seed": 2000,
+      "success": false,
+      "physical_success": false,
+      "action_steps": 1200,
+      "sim_steps": 29976,
+      "elapsed_s": 559.463,
+      "act_force_dataset_gripper": false,
+      "debug": {
+        "xy_dist": 0.22019971236283975,
+        "z_dist": 0.036743962119267004,
+        "ee_z": 0.9721665444192255,
+        "gripper_open_norm": 0.9999365033362158,
+        "object_placed": false,
+        "ee_height_ok": true,
+        "gripper_open": true,
+        "released": true,
+        "strict_success": false,
+        "configured_success": false,
+        "success_xy_threshold": 0.1,
+        "success_z_threshold": 0.12,
+        "success_ee_height_threshold": 0.9,
+        "success_gripper_open_norm_threshold": 0.3,
+        "success_require_gripper_open": true,
+        "success_require_ee_height": false,
+        "success": false,
+        "physical_success": false,
+        "physical_lifted_enough": false,
+        "physical_final_upright": true,
+        "physical_min_lift": 0.06,
+        "physical_min_lift_steps": 3,
+        "physical_final_upright_cos_threshold": 0.85,
+        "initial_mug_pos": [
+          0.3312,
+          0.0259,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.2901,
+          -0.1905,
+          0.8079
+        ],
+        "final_mug_pos": [
+          0.3313,
+          0.0258,
+          0.8447
+        ],
+        "max_mug_z": 0.8446542367090828,
+        "max_mug_lift": 0.0007690338269547015,
+        "lifted_steps": 0,
+        "finger_mug_contact_steps": 0,
+        "closed_finger_mug_contact_steps": 0,
+        "final_mug_upright_cos": 0.9999594838457347,
+        "legacy_success_ever": false,
+        "first_legacy_success_step": null,
+        "physical_success_ever": false,
+        "first_physical_success_step": null
+      },
+      "video_path": "/home/aup/amd-notebook-work/cup-replan1-diagnostic-20261028-v1/seed2000/videos/act_full14_failure_seed2000.mp4",
+      "trace_path": "/home/aup/amd-notebook-work/cup-replan1-diagnostic-20261028-v1/seed2000/traces/act_full14_failure_seed2000.json"
+    },
+    {
+      "policy": "act",
+      "seed": 2001,
+      "success": false,
+      "physical_success": false,
+      "action_steps": 1200,
+      "sim_steps": 29976,
+      "elapsed_s": 551.886,
+      "act_force_dataset_gripper": false,
+      "debug": {
+        "xy_dist": 0.248756750641368,
+        "z_dist": 0.036743962119267004,
+        "ee_z": 0.981871579370176,
+        "gripper_open_norm": 0.9999371651746581,
+        "object_placed": false,
+        "ee_height_ok": true,
+        "gripper_open": true,
+        "released": true,
+        "strict_success": false,
+        "configured_success": false,
+        "success_xy_threshold": 0.1,
+        "success_z_threshold": 0.12,
+        "success_ee_height_threshold": 0.9,
+        "success_gripper_open_norm_threshold": 0.3,
+        "success_require_gripper_open": true,
+        "success_require_ee_height": false,
+        "success": false,
+        "physical_success": false,
+        "physical_lifted_enough": false,
+        "physical_final_upright": true,
+        "physical_min_lift": 0.06,
+        "physical_min_lift_steps": 3,
+        "physical_final_upright_cos_threshold": 0.85,
+        "initial_mug_pos": [
+          0.2666,
+          -0.1675,
+          0.8439
+        ],
+        "initial_plate_pos": [
+          0.3901,
+          0.0484,
+          0.8079
+        ],
+        "final_mug_pos": [
+          0.2668,
+          -0.1676,
+          0.8447
+        ],
+        "max_mug_z": 0.8446542367090828,
+        "max_mug_lift": 0.0007690338269544794,
+        "lifted_steps": 0,
+        "finger_mug_contact_steps": 0,
+        "closed_finger_mug_contact_steps": 0,
+        "final_mug_upright_cos": 0.999959483845735,
+        "legacy_success_ever": false,
+        "first_legacy_success_step": null,
+        "physical_success_ever": false,
+        "first_physical_success_step": null
+      },
+      "video_path": "/home/aup/amd-notebook-work/cup-replan1-diagnostic-20261028-v1/seed2001/videos/act_full14_failure_seed2001.mp4",
+      "trace_path": "/home/aup/amd-notebook-work/cup-replan1-diagnostic-20261028-v1/seed2001/traces/act_full14_failure_seed2001.json"
+    }
+  ]
+}

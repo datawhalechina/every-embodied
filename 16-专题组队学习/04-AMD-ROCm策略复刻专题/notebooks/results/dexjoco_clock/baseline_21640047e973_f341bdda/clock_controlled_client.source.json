@@ -1,0 +1,6 @@
+{
+  "source_sha256": "8433f5ab10f5dc79ac249b1483b06e2ea46ed20d182eb3a6a845224376e82d12",
+  "client_sha256": "398e88f752f4ee16dff69d1d6b9bb483ec1e476e5b3682a0be8886b01004953e",
+  "evaluation_clock": "pause_while_waiting",
+  "contract": "Official action merging, timestamps, task stepping and termination preserved. Physics and its timestamp stop when the action buffer is empty; wall time continues. This is a separate deployment condition, not the official asynchronous score."
+}

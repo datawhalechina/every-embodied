@@ -1,0 +1,282 @@
+{
+  "episodes": 30,
+  "successes": 3,
+  "failed_episodes": 27,
+  "failures_never_closed": 15,
+  "failures_never_met_physical_lift": 25,
+  "failures_met_lift_but_not_final_task": 2,
+  "max_initial_object_position_difference_m": 0.0,
+  "scope": "Observed failure stages from complete traces; no single causal mechanism established",
+  "rows": [
+    {
+      "seed": 2000,
+      "physical_success": false,
+      "ever_closed": false,
+      "first_closed_step": null,
+      "ever_physical_lift_threshold": false,
+      "max_lift_m": 0.007618939870984054,
+      "steps": 1200
+    },
+    {
+      "seed": 2001,
+      "physical_success": false,
+      "ever_closed": true,
+      "first_closed_step": 525,
+      "ever_physical_lift_threshold": false,
+      "max_lift_m": 0.019494117738856342,
+      "steps": 1200
+    },
+    {
+      "seed": 2002,
+      "physical_success": true,
+      "ever_closed": true,
+      "first_closed_step": 78,
+      "ever_physical_lift_threshold": true,
+      "max_lift_m": 0.09645439382721288,
+      "steps": 1086
+    },
+    {
+      "seed": 2003,
+      "physical_success": false,
+      "ever_closed": false,
+      "first_closed_step": null,
+      "ever_physical_lift_threshold": false,
+      "max_lift_m": 0.04512653307534498,
+      "steps": 1200
+    },
+    {
+      "seed": 2004,
+      "physical_success": false,
+      "ever_closed": false,
+      "first_closed_step": null,
+      "ever_physical_lift_threshold": false,
+      "max_lift_m": 0.0007690338269544794,
+      "steps": 1200
+    },
+    {
+      "seed": 2005,
+      "physical_success": false,
+      "ever_closed": false,
+      "first_closed_step": null,
+      "ever_physical_lift_threshold": false,
+      "max_lift_m": 0.0007690338269544794,
+      "steps": 1200
+    },
+    {
+      "seed": 2006,
+      "physical_success": false,
+      "ever_closed": false,
+      "first_closed_step": null,
+      "ever_physical_lift_threshold": false,
+      "max_lift_m": 0.0007690338269545904,
+      "steps": 1200
+    },
+    {
+      "seed": 2007,
+      "physical_success": true,
+      "ever_closed": true,
+      "first_closed_step": 78,
+      "ever_physical_lift_threshold": true,
+      "max_lift_m": 0.10089849138934348,
+      "steps": 310
+    },
+    {
+      "seed": 2008,
+      "physical_success": false,
+      "ever_closed": false,
+      "first_closed_step": null,
+      "ever_physical_lift_threshold": false,
+      "max_lift_m": 0.0007690338269544794,
+      "steps": 1200
+    },
+    {
+      "seed": 2009,
+      "physical_success": false,
+      "ever_closed": false,
+      "first_closed_step": null,
+      "ever_physical_lift_threshold": false,
+      "max_lift_m": 0.0007685938913183366,
+      "steps": 1200
+    },
+    {
+      "seed": 2010,
+      "physical_success": false,
+      "ever_closed": true,
+      "first_closed_step": 228,
+      "ever_physical_lift_threshold": false,
+      "max_lift_m": 0.019408227941786427,
+      "steps": 1200
+    },
+    {
+      "seed": 2011,
+      "physical_success": false,
+      "ever_closed": true,
+      "first_closed_step": 225,
+      "ever_physical_lift_threshold": true,
+      "max_lift_m": 0.09408717408492917,
+      "steps": 1200
+    },
+    {
+      "seed": 2012,
+      "physical_success": false,
+      "ever_closed": true,
+      "first_closed_step": 98,
+      "ever_physical_lift_threshold": false,
+      "max_lift_m": 0.028209257003083965,
+      "steps": 1200
+    },
+    {
+      "seed": 2013,
+      "physical_success": false,
+      "ever_closed": true,
+      "first_closed_step": 1049,
+      "ever_physical_lift_threshold": false,
+      "max_lift_m": 0.021784452070405358,
+      "steps": 1200
+    },
+    {
+      "seed": 2014,
+      "physical_success": false,
+      "ever_closed": true,
+      "first_closed_step": 256,
+      "ever_physical_lift_threshold": false,
+      "max_lift_m": 0.027189568840767953,
+      "steps": 1200
+    },
+    {
+      "seed": 2015,
+      "physical_success": false,
+      "ever_closed": true,
+      "first_closed_step": 115,
+      "ever_physical_lift_threshold": true,
+      "max_lift_m": 0.08126149792958359,
+      "steps": 1200
+    },
+    {
+      "seed": 2016,
+      "physical_success": false,
+      "ever_closed": true,
+      "first_closed_step": 162,
+      "ever_physical_lift_threshold": false,
+      "max_lift_m": 0.04847973426686314,
+      "steps": 1200
+    },
+    {
+      "seed": 2017,
+      "physical_success": false,
+      "ever_closed": true,
+      "first_closed_step": 728,
+      "ever_physical_lift_threshold": false,
+      "max_lift_m": 0.0007690338269544794,
+      "steps": 1200
+    },
+    {
+      "seed": 2018,
+      "physical_success": true,
+      "ever_closed": true,
+      "first_closed_step": 122,
+      "ever_physical_lift_threshold": true,
+      "max_lift_m": 0.11412882018084025,
+      "steps": 297
+    },
+    {
+      "seed": 2019,
+      "physical_success": false,
+      "ever_closed": false,
+      "first_closed_step": null,
+      "ever_physical_lift_threshold": false,
+      "max_lift_m": 0.0007690338269548125,
+      "steps": 1200
+    },
+    {
+      "seed": 2020,
+      "physical_success": false,
+      "ever_closed": false,
+      "first_closed_step": null,
+      "ever_physical_lift_threshold": false,
+      "max_lift_m": 0.011475254032253135,
+      "steps": 1200
+    },
+    {
+      "seed": 2021,
+      "physical_success": false,
+      "ever_closed": false,
+      "first_closed_step": null,
+      "ever_physical_lift_threshold": false,
+      "max_lift_m": 0.0007690338269545904,
+      "steps": 1200
+    },
+    {
+      "seed": 2022,
+      "physical_success": false,
+      "ever_closed": false,
+      "first_closed_step": null,
+      "ever_physical_lift_threshold": false,
+      "max_lift_m": 0.011825776327834214,
+      "steps": 1200
+    },
+    {
+      "seed": 2023,
+      "physical_success": false,
+      "ever_closed": true,
+      "first_closed_step": 116,
+      "ever_physical_lift_threshold": false,
+      "max_lift_m": 0.009570799981999056,
+      "steps": 1200
+    },
+    {
+      "seed": 2024,
+      "physical_success": false,
+      "ever_closed": false,
+      "first_closed_step": null,
+      "ever_physical_lift_threshold": false,
+      "max_lift_m": 0.0007690105460423924,
+      "steps": 1200
+    },
+    {
+      "seed": 2025,
+      "physical_success": false,
+      "ever_closed": false,
+      "first_closed_step": null,
+      "ever_physical_lift_threshold": false,
+      "max_lift_m": 0.0007690338269545904,
+      "steps": 1200
+    },
+    {
+      "seed": 2026,
+      "physical_success": false,
+      "ever_closed": false,
+      "first_closed_step": null,
+      "ever_physical_lift_threshold": false,
+      "max_lift_m": 0.0007690338269544794,
+      "steps": 1200
+    },
+    {
+      "seed": 2027,
+      "physical_success": false,
+      "ever_closed": true,
+      "first_closed_step": 791,
+      "ever_physical_lift_threshold": false,
+      "max_lift_m": 0.017975651905730916,
+      "steps": 1200
+    },
+    {
+      "seed": 2028,
+      "physical_success": false,
+      "ever_closed": false,
+      "first_closed_step": null,
+      "ever_physical_lift_threshold": false,
+      "max_lift_m": 0.0007690338269544794,
+      "steps": 1200
+    },
+    {
+      "seed": 2029,
+      "physical_success": false,
+      "ever_closed": true,
+      "first_closed_step": 59,
+      "ever_physical_lift_threshold": false,
+      "max_lift_m": 0.017210293844241886,
+      "steps": 1200
+    }
+  ]
+}
