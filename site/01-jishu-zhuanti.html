@@ -1,0 +1,155 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>01 · 技术专题（拆机体检式调研）</title><link rel="stylesheet" href="assets/style.css"></head>
+<body><nav><a class="brand" href="index.html">📚 VLA 六年演进</a><span class="nav-sub">2020–2026 课程式总览</span><span class="spacer"></span><a class="back" href="index.html">← 返回目录</a></nav>
+<header class="paper-head"><div class="chips"><a class="chip cat" href="index.html">01 技术专题</a><span class="chip">更新 2026-11-01</span></div>
+<h1>01 · 技术专题（拆机体检式调研）</h1>
+<div class="infobox"><div class="irow"><span class="ik">📚 章节</span><span class="iv"><span class="au">01</span></span></div><div class="irow"><span class="ik">🏷️ 主题</span><span class="iv"><span class="au">技术专题</span></span></div><div class="irow"><span class="ik">🔗 姊妹篇</span><span class="iv"><a href="00-xuexi-rukou.html">00 学习入口</a> · <a href="02-lunwen-pingce.html">02 论文与评测</a> · <a href="03-dongshou-yanjiu.html">03 动手与研究</a></span></div><div class="irow"><span class="ik">🗓️ 更新</span><span class="iv">2026-11-01</span></div><div class="irow"><span class="ik">🏢 系列</span><span class="iv">VLA 六年演进综述（2020–2026）</span></div></div>
+<p class="metric">⭐ 7 条技术线 · 8 组横向对照 · 1 张选型总表</p>
+<p class="oneliner">动作表示 / 图像 backbone / 训练 / 3DGS / 轻量化 / 世界模型 / harness 七条线逐一拆机。</p></header>
+<main class="paper-body"><blockquote>本文参考用户提供的《VLA 图像 backbone 如何选择》的调研思路：每个环节先明确“要做什么决策”，再逐个拆机体检，用固定维度对比，最后按场景给选型与“明确不要做”。来源 S1–S24；外部材料未独立复核。论文全表与榜单见 <a href="02-lunwen-pingce.html">02-论文与评测.md</a>。</blockquote>
+<h3>0. 调研方法：四步拆机</h3>
+<ol><li><strong>本节要做的决策</strong>：这个环节到底在选什么，选错的代价是什么。</li><li><strong>候选逐个拆机</strong>：本体 / 机制 / 关键能力 / 成本 / 评级。</li><li><strong>对比总表</strong>：固定维度，避免“各有千秋”式空话。</li><li><strong>结论与建议</strong>：按场景排序，再给“求稳 / 求新 / 明确不要做”。</li></ol>
+<p>评级说明：★ 是本文基于现有材料的判断，不是论文指标；延迟与成功率来自来源，未在本机复测。带【索】的数字来自社区索引，带【推】的是来源作者的推断。</p>
+<h3>1. 动作表示：四条路线怎么选</h3>
+<h4>1.1 本节要做的决策</h4>
+<p>控制频率有多高？动作是否多峰？要不要复用 VLM 词表？需不需要跨本体？这四个问题决定动作表示，而不是“哪种最新”。</p>
+<h4>1.2 逐个拆机</h4>
+<p>① <strong>离散 token / 分类（RT-1、RT-2）</strong></p>
+<ul><li>本体：RT-1 用 EfficientNet + Transformer，35M，动作每维 256 bins，约 3Hz；RT-2 用 PaLI-X/PaLM-E，55B，动作直接生成文本 token，低于 1Hz。</li><li>机制：把动作变成分类或语言 token，复用 VLM 的词表与自回归解码。</li><li>能力：语义泛化强，适合语言条件复杂、长程的任务；高频控制弱。</li><li>成本：RT-1 便宜；RT-2 的 55B 推理很贵。</li><li>评级：RT-1 ★★★☆；RT-2 ★★★（能力上限高，但慢）。</li></ul>
+<p>② <strong>连续回归 / 动作块（ACT、OpenVLA）</strong></p>
+<ul><li>本体：ACT 51.55M，ResNet18 + CVAE + Transformer，一次预测 10 步；OpenVLA 7B 级，SigLIP/DINOv2 + LLaMA-2，输出 7 维连续动作。</li><li>机制：直接回归连续动作，或用动作块降低推理频率。</li><li>能力：平滑、低延迟，适合高频控制；多峰动作分布难建模。</li><li>成本：ACT 单卡 30–60 分钟；OpenVLA 约 10.3GB 显存。</li><li>评级：ACT ★★★★★（入门首选）；OpenVLA ★★★★（开源部署友好）。</li></ul>
+<p>③ <strong>扩散 / flow matching（DiT4DiT、DM0.5、PRTS、Dexora）</strong></p>
+<ul><li>本体：DiT4DiT 10.64B、只训 1.53%；DM0.5 6B；PRTS Qwen3-VL-4B + flow expert；Dexora diffusion transformer。</li><li>机制：学习速度场或去噪过程，生成动作序列。</li><li>能力：适合多峰、连续动作；推理步数与延迟更贵。</li><li>成本：DiT4DiT 建议 ≥48GB 显存；DM0.5 的 9.29× 部署栈未完整公开。</li><li>评级：★★★★（2026 年主流动作头，但要算延迟）。</li></ul>
+<p>④ <strong>残差向量量化（RVQ，G0.5 ActionCodec）</strong></p>
+<ul><li>本体：G0.5 用 Qwen3.5 2B + 27 维共享动作空间 + residual vector quantizer。</li><li>机制：把异构动作映射到共享空间，多轮残差量化成 token，自回归 decoder 生成后由 action decoder 重构。</li><li>能力：共享离散空间，支持异构本体与多轮精修；只对 active motion groups 出 token。</li><li>成本：需要 tokenizer/decoder 配套；码本与量化层数影响精度。</li><li>评级：★★★★（目前只有 G0.5 一条本地证据）。</li></ul>
+<h4>1.3 对比总表</h4>
+<table><tr><th>路线</th><th>代表</th><th>表达</th><th>连续/多峰</th><th>推理成本</th><th>跨本体</th><th>代码成熟度</th><th>拆机价值</th></tr><tr><td>离散 token</td><td>RT-1、RT-2</td><td>256 bins / 文本 token</td><td>弱</td><td>低 / 极高</td><td>弱 / 中</td><td>高 / 无</td><td>★★★☆</td></tr><tr><td>连续 / 动作块</td><td>ACT、OpenVLA</td><td>连续 7 维 / 10 步块</td><td>中</td><td>低</td><td>中 / 强</td><td>高</td><td>★★★★</td></tr><tr><td>扩散 / flow</td><td>DiT4DiT、DM0.5、PRTS</td><td>速度场 / 去噪</td><td>强</td><td>高</td><td>中</td><td>中</td><td>★★★★</td></tr><tr><td>RVQ</td><td>G0.5</td><td>27 维共享空间 + 残差量化</td><td>强</td><td>中</td><td>强</td><td>中</td><td>★★★★</td></tr></table>
+<h4>1.4 结论与建议</h4>
+<ul><li><strong>高频控制</strong>：优先连续/动作块或 flow；RT-2 的文本 token 低于 1Hz，不适合直接上高频回路。</li><li><strong>语言条件复杂、长程</strong>：离散 token 仍是最稳的语义接口；RT-2 的联合微调思路值得学。</li><li><strong>跨本体</strong>：RVQ 和统一动作空间最有潜力，但目前只有 G0.5 一条证据。</li><li><strong>求稳</strong>：ACT 入门，OpenVLA 看部署；<strong>求新</strong>：RVQ-head 的系统比较；<strong>明确不要做</strong>：拿 RT-2 的 55B 文本 token 去追 20Hz 控制。</li></ul>
+<h3>2. 图像 backbone：拆机体检</h3>
+<h4>2.1 本节要做的决策</h4>
+<p>VLA 的“眼睛”选谁：要几何还是语义？能不能进 32Hz 控制回路？许可是否允许商用？这一节直接采用用户提供的知乎拆机文章（S24）的框架。</p>
+<h4>2.2 逐个拆机</h4>
+<p>① <strong>DINOv3 —— 生来就是 backbone</strong></p>
+<ul><li>本体：ViT-B/L，86M/0.3B；自监督 + Gram anchoring。</li><li>能力：几何稠密强（分割 55.9、深度 RMSE 0.309、NAVI 64.4），2–10ms。</li><li>短板：没有语义对齐，需要下游交互模块补。</li><li>评级：★★★★★ 首选主眼。</li></ul>
+<p>② <strong>Perception Encoder（SAM3 的塔）—— 本轮黑马</strong></p>
+<ul><li>本体：约 450M，1024px 输入，1024 维特征；对比学习 + 稠密自监督双目标。</li><li>能力：几何接近 DINOv3，语义接近 CLIP，是“单塔兼得”的候选。</li><li>成本：1024px 下 15–30ms，进 32Hz 要降到 224–448px 并重验特征。</li><li>评级：★★★★☆ 潜力股，需自己降分辨率。</li></ul>
+<p>③ <strong>SigLIP-2（Qwen3-VL 的塔）—— 语义副塔</strong></p>
+<ul><li>本体：304M/400M，NaFlex 原生分辨率，图文对比。</li><li>能力：语义对齐好；几何弱（分割 42.7、NAVI 49.4、深度 RMSE 0.494），5–12ms。</li><li>评级：★★★☆ 适合双塔里的语义眼，不适合单独当主眼。</li></ul>
+<p>④ <strong>Swin（GroundingDINO 的塔）—— 不合格</strong></p>
+<ul><li>本体：Swin-T 28M / Swin-B 88M，检测框监督。</li><li>问题：任务特化、层级窗口破坏全局 patch 网格、2023 年设计。</li><li>评级：★☆ 拆出来没有意义；GroundingDINO 的价值在检测头 + BERT。</li></ul>
+<p>⑤ <strong>MoonViT（LocateAnything 的塔）—— 有等价平替</strong></p>
+<ul><li>本体：约 400M，SigLIP 族 NaFlex 变体。</li><li>结论：拆出来与 SigLIP-2 没有本质差别，直接用 SigLIP-2 原版更干净。</li><li>评级：★★★ 没必要抠。</li></ul>
+<p>⑥ <strong>AM-RADIO / Theia / DINOv2 —— 备选</strong></p>
+<ul><li>AM-RADIO：0.4–1B，聚合蒸馏，几何语义双高（53.1 / 0.340 / 59.5），6–15ms，GR00T N1 同款，★★★★ 单塔方案。</li><li>Theia：26–86M，多教师蒸馏，1–3ms，★★★★ 边缘端。</li><li>DINOv2：304M，4–8ms，上代几何王，★★★ 已被 DINOv3 取代。</li></ul>
+<h4>2.3 对比总表</h4>
+<table><tr><th>候选</th><th>参数</th><th>预训练目标</th><th>几何</th><th>语义</th><th>单帧延迟</th><th>32Hz</th><th>拆机价值</th></tr><tr><td>DINOv3 ViT-B</td><td>86M</td><td>自监督 + Gram</td><td>★★★★★</td><td>✗</td><td>2–10ms</td><td>✅</td><td>★★★★★</td></tr><tr><td>Perception Encoder</td><td>~450M</td><td>对比 + 稠密</td><td>★★★★☆</td><td>✓</td><td>15–30ms（1024px）</td><td>⚠️ 降分辨率</td><td>★★★★☆</td></tr><tr><td>SigLIP-2</td><td>304M/400M</td><td>图文对比</td><td>★★☆</td><td>✓✓</td><td>5–12ms</td><td>✅</td><td>★★★☆</td></tr><tr><td>Swin（GroundingDINO）</td><td>28M/88M</td><td>检测框</td><td>★☆</td><td>✗</td><td>5–10ms</td><td>✅</td><td>★☆</td></tr><tr><td>MoonViT（LocateAnything）</td><td>~400M</td><td>对比</td><td>★★☆</td><td>✓</td><td>5–12ms</td><td>✅</td><td>★★★</td></tr><tr><td>AM-RADIO</td><td>0.4–1B</td><td>聚合蒸馏</td><td>★★★★</td><td>★★★★</td><td>6–15ms</td><td>⚠️</td><td>★★★★</td></tr><tr><td>Theia</td><td>26–86M</td><td>多教师蒸馏</td><td>★★★</td><td>★★★</td><td>1–3ms</td><td>✅</td><td>★★★★</td></tr><tr><td>DINOv2</td><td>304M</td><td>自监督</td><td>★★★★</td><td>✗</td><td>4–8ms</td><td>✅</td><td>★★★</td></tr></table>
+<h4>2.4 结论与建议</h4>
+<ul><li><strong>高频控制/几何任务</strong>：DINOv3 ViT-B；极端边缘用 Theia 或 DINOv3 ViT-S。</li><li><strong>语言条件复杂</strong>：DINOv3 + SigLIP2-Base 双塔（OpenVLA 验证过的配方）。</li><li><strong>单塔、算力宽裕</strong>：AM-RADIO；<strong>LLM-centric 复现</strong>：SigLIP-2 / PaliGemma，跟随原架构。</li><li><strong>求稳</strong>：DINOv3 ViT-B 单塔起步，语义不够加 SigLIP2-Base；<strong>求新</strong>：PE vs DINOv3 vs 双塔的对照消融。</li><li><strong>明确不要做</strong>：从 Qwen3-VL/LocateAnything 里抠塔（有同源平替、许可问题）；从 GroundingDINO 抠 Swin（表征不合格）；把 SAM3/LocateAnything 整模型当“眼睛”（它们是任务模型/慢层工具）。</li></ul>
+<h3>3. 训练范式：SFT、RL 与在线适应</h3>
+<h4>3.1 本节要做的决策</h4>
+<p>你是在做“能跑通的策略”，还是“部署后继续变好的系统”？前者看 SFT，后者看 RL 与在线适应；两者的数据与算力差一个量级。</p>
+<h4>3.2 逐个拆机</h4>
+<p>① <strong>SFT / 联合微调（RT-2、OpenVLA、SmolVLA、ACT）</strong></p>
+<ul><li>数据：示教轨迹；算力：单卡到多卡；改基座：是；部署后继续学：否。</li><li>评级：★★★★★ 入门与复现首选。</li></ul>
+<p>② <strong>RL 预训练（PRTS）</strong></p>
+<ul><li>本体：Qwen3-VL-4B + flow expert + contrastive RL；约 167B tokens、64 张 H100。</li><li>能力：LIBERO 98.4；改基座；部署后不直接继续学。</li><li>评级：★★★☆ 研究向，算力门槛高。</li></ul>
+<p>③ <strong>机群 offline-to-online RL（LWD）</strong></p>
+<ul><li>本体：16 台 AgiBot G1、8 个真实任务、652.5h 离线 buffer；平均 95%。</li><li>成本：多机器人、调度、在线 replay、人类接管接口。</li><li>评级：★★★ 工业向，不是单机可复现。</li></ul>
+<p>④ <strong>后置在线适应（Agentic-VLA）</strong></p>
+<ul><li>本体：OpenVLA-OFT + Experience Memory + LGE + ARS + GRPO；4 张 A100，LIBERO 97.8。</li><li>能力：不改基座，部署后可在仿真里继续学；真机未验证。</li><li>评级：★★★★ 部署向，性价比高。</li></ul>
+<p>⑤ <strong>工程化 RL 后端（Dexbotic-RLinf）</strong></p>
+<ul><li>本体：Dexbotic + RLinf，PPO 在线微调；1 节点 8 GPU；章节未给成功率。</li><li>评级：★★★ 工程集成，适合已有 Dexbotic 栈的团队。</li></ul>
+<p>⑥ <strong>质量感知训练（Dexora）</strong></p>
+<ul><li>本体：discriminator 给 diffusion loss 加权；basic 约 90%，dexterous 66.7% vs 51.7%。</li><li>评级：★★★★ 数据质量路线，值得借鉴。</li></ul>
+<h4>3.3 对比总表</h4>
+<table><tr><th>范式</th><th>代表</th><th>数据需求</th><th>算力</th><th>改基座</th><th>部署后继续学</th><th>证据强度</th><th>拆机价值</th></tr><tr><td>SFT / 联合微调</td><td>RT-2、OpenVLA、ACT</td><td>中</td><td>低–中</td><td>是</td><td>否</td><td>强</td><td>★★★★★</td></tr><tr><td>RL 预训练</td><td>PRTS</td><td>高</td><td>64×H100</td><td>是</td><td>否</td><td>强</td><td>★★★☆</td></tr><tr><td>机群 offline-to-online</td><td>LWD</td><td>极高</td><td>多机器人</td><td>是</td><td>是</td><td>中</td><td>★★★</td></tr><tr><td>后置在线适应</td><td>Agentic-VLA</td><td>中</td><td>4×A100</td><td>否</td><td>是（仿真）</td><td>中</td><td>★★★★</td></tr><tr><td>工程化 RL 后端</td><td>Dexbotic-RLinf</td><td>中</td><td>8 GPU</td><td>否</td><td>是</td><td>弱（无数字）</td><td>★★★</td></tr><tr><td>质量感知训练</td><td>Dexora</td><td>中</td><td>中</td><td>是</td><td>否</td><td>中</td><td>★★★★</td></tr></table>
+<h4>3.4 结论与建议</h4>
+<ul><li><strong>入门/复现</strong>：SFT + ACT/OpenVLA；先把数据、评测、显存跑通。</li><li><strong>部署后继续变好</strong>：Agentic-VLA 这类后置外环优先；不要一上来做机群 RL。</li><li><strong>研究</strong>：PRTS 的 RL 预训练值得读，但先确认 64×H100 的算力。</li><li><strong>求稳</strong>：SFT；<strong>求新</strong>：后置在线适应 + 质量感知；<strong>明确不要做</strong>：没有评测与安全策略就上 RL。</li></ul>
+<h3>4. 3DGS × VLA：四种结合方式</h3>
+<h4>4.1 本节要做的决策</h4>
+<p>3DGS 是当数据引擎、场景表示、世界模型，还是直接当图像塔？前三种有工程路径，第四种目前是空位。</p>
+<h4>4.2 逐个拆机</h4>
+<p>① <strong>数据引擎（LEGS、Action-View、EmbodiedSplat、RoboGSim）</strong></p>
+<ul><li>本体：3DGS 重建场景 + SAM3D mesh / 轨迹优化；LEGS 在 G1 上 1,110 次真机试验、9/9 匹配遥操作，新外观适应成本约 1/15【索】。</li><li>能力：不用遥操作也能造数据；不进策略网络。</li><li>评级：★★★★★ 最实的路线。</li></ul>
+<p>② <strong>场景表示（Embodied MM Grounding、Gaussian-LIC2）</strong></p>
+<ul><li>本体：语义高斯地图 / 3DGS SLAM；开放词汇定位、避障、站位选择。</li><li>能力：把“看懂 3D”卸载到外部表示，缓解 VLA 的空间重绑定。</li><li>评级：★★★★ 被低估。</li></ul>
+<p>③ <strong>世界模型 / 动作场（GAF、GWM、GaussianWAM）</strong></p>
+<ul><li>本体：4D 高斯动作场 / 3DGS 世界模型 / 训练期教师；GaussianWAM 推理不渲染。</li><li>能力：预演、model-based RL、训练期 3D 蒸馏。</li><li>评级：★★★★ 训练耦合、部署丢弃。</li></ul>
+<p>④ <strong>轻量化 3D 表征（CompactSplat）</strong></p>
+<ul><li>本体：前馈高斯 + 推理期稀疏度控制；端侧 3DGS。</li><li>能力：让 3DGS 能在边缘跑；目前没有配 VLA。</li><li>评级：★★★ 潜力，未验证。</li></ul>
+<p>⑤ <strong>3DGS 作为图像塔</strong></p>
+<ul><li>现状：现有材料没有把 3DGS 渲染直接作为 VLA 视觉塔的论文。</li><li>最接近：GaussianWAM（训练期教师）、Embodied MM Grounding（外部表示）、3DVLA（3D 特征增强）、CompactSplat（轻量 3DGS）。</li><li>评级：★ 空位，需要外部检索/新论文。</li></ul>
+<h4>4.3 对比总表</h4>
+<table><tr><th>方式</th><th>代表</th><th>3DGS 角色</th><th>进策略网络</th><th>证据强度</th><th>工程成本</th><th>拆机价值</th></tr><tr><td>数据引擎</td><td>LEGS、Action-View</td><td>造数据</td><td>否</td><td>强</td><td>中</td><td>★★★★★</td></tr><tr><td>场景表示</td><td>Embodied MM Grounding</td><td>外部 3D 地图</td><td>否（间接）</td><td>中</td><td>中</td><td>★★★★</td></tr><tr><td>世界模型</td><td>GAF、GWM、GaussianWAM</td><td>预演/教师</td><td>部分（训练期）</td><td>中</td><td>高</td><td>★★★★</td></tr><tr><td>轻量 3D</td><td>CompactSplat</td><td>端侧 3DGS</td><td>否</td><td>弱</td><td>中</td><td>★★★</td></tr><tr><td>图像塔</td><td>无</td><td>视觉输入</td><td>是</td><td>无</td><td>高</td><td>★</td></tr></table>
+<h4>4.4 结论与建议</h4>
+<ul><li><strong>想快速见效</strong>：数据引擎；LEGS/Action-View 是目前最强的实证。</li><li><strong>想解决空间问题</strong>：场景表示；把 3D 从策略网络卸载到外部地图。</li><li><strong>想做研究</strong>：3DGS 直接当图像塔是空位，但先回答渲染延迟、显存、梯度链路三个问题。</li><li><strong>求稳</strong>：数据引擎；<strong>求新</strong>：3DGS-native 轻量 VLA；<strong>明确不要做</strong>：把 3DGS 渲染直接塞进 32Hz 回路而不做延迟预算。</li></ul>
+<h3>5. 轻量化：参数、推理、数据三条路</h3>
+<h4>5.1 本节要做的决策</h4>
+<p>你要降的是参数、延迟，还是数据成本？三条路的瓶颈不同，不能用一个“小模型”概括。</p>
+<h4>5.2 逐个拆机</h4>
+<p>① <strong>参数小（SmolVLA 450M、Evo-1 0.77B、VLA-Adapter 0.5B）</strong></p>
+<ul><li>Evo-1：InternVL3-1B + cross-modulated DiT flow；Meta-World 80.6、LIBERO 94.8、RoboTwin 37.8、xArm6 78%；RTX 4090D 2.3GB / 16.4Hz；无机器人预训练。</li><li>评级：★★★★★ 单任务/边缘首选。</li></ul>
+<p>② <strong>推理快（SpecVLA、FAST、VLAQuantBench、Multi-Teacher OPD）</strong></p>
+<ul><li>SpecVLA 推测推理；FAST 用 DCT+BPE 压缩动作序列；VLAQuantBench 闭环比较 PTQ；OPD 多教师蒸馏。</li><li>评级：★★★★ 不改参数即可降延迟。</li></ul>
+<p>③ <strong>数据省（MiDAS）</strong></p>
+<ul><li>少量专家示范启动 → 自主试错 → 按结果筛选。</li><li>评级：★★★ 数据成本路线。</li></ul>
+<p>④ <strong>效率膝（EffVLA）</strong></p>
+<ul><li>文件称约 3.75B 是效率膝；VLM 初始化对齐 +7.1 点、零延迟【索】。</li><li>评级：★★★ 选型参考，不是硬门槛。</li></ul>
+<p>⑤ <strong>TurboVLA</strong></p>
+<ul><li>本地章节与两份外部调研均未收录；需要 arXiv/项目页后补。</li><li>评级：待补，不编造指标。</li></ul>
+<h4>5.3 对比总表</h4>
+<table><tr><th>路径</th><th>代表</th><th>参数/加速</th><th>精度</th><th>训练成本</th><th>部署场景</th><th>代码/权重</th><th>拆机价值</th></tr><tr><td>参数小</td><td>SmolVLA 450M、Evo-1 0.77B</td><td>0.45–1B</td><td>接近 3B</td><td>中</td><td>边缘/单任务</td><td>✅</td><td>★★★★★</td></tr><tr><td>推理快</td><td>SpecVLA、FAST、VLAQuantBench</td><td>推测/量化/蒸馏</td><td>保持</td><td>低–中</td><td>已有模型加速</td><td>部分</td><td>★★★★</td></tr><tr><td>数据省</td><td>MiDAS</td><td>—</td><td>逐步提升</td><td>低</td><td>数据稀缺</td><td>待核</td><td>★★★</td></tr><tr><td>效率膝</td><td>EffVLA</td><td>~3.75B</td><td>参考</td><td>高</td><td>研究</td><td>部分</td><td>★★★</td></tr><tr><td>待补</td><td>TurboVLA</td><td>未知</td><td>未知</td><td>未知</td><td>未知</td><td>未知</td><td>待补</td></tr></table>
+<h4>5.4 结论与建议</h4>
+<ul><li><strong>单任务/边缘</strong>：0.5–1B 足够；Evo-1 是当前最完整的 0.77B 证据。</li><li><strong>跨本体</strong>：0.5B 的极限没有系统答案；不要把单任务结果外推。</li><li><strong>已有大模型</strong>：先做推理加速/量化，再考虑换小模型。</li><li><strong>求稳</strong>：SmolVLA/Evo-1；<strong>求新</strong>：TurboVLA 与 RVQ-head 的交叉；<strong>明确不要做</strong>：只比参数、不比延迟与成功率。</li></ul>
+<h3>6. 世界模型：WAM 与 3DGS 世界模型</h3>
+<h4>6.1 本节要做的决策</h4>
+<p>世界模型是当训练期教师、部署期预演，还是当纯视频生成？只有前两者与 VLA 直接相关。</p>
+<h4>6.2 逐个拆机</h4>
+<p>① <strong>Efficient-WAM（1B）</strong></p>
+<ul><li>预测未来 + 动作；降低“想象未来”的成本；★★★★。</li></ul>
+<p>② <strong>Light-WAM</strong></p>
+<ul><li>状态融合动作解码；LIBERO 强、RoboTwin 多任务；★★★★。</li></ul>
+<p>③ <strong>InternVLA-A1.5</strong></p>
+<ul><li>2B + 460M expert，冻结 WAN 做 latent foresight；训练耦合、部署丢弃；★★★。</li></ul>
+<p>④ <strong>GAF / GWM / GaussianWAM</strong></p>
+<ul><li>4D 高斯动作场 / 3DGS 世界模型 / 训练期 3D 蒸馏；★★★。</li></ul>
+<p>⑤ <strong>纯视频世界模型</strong></p>
+<ul><li>不在本节范围，见仓库 <code>17-具身世界模型</code>。</li></ul>
+<h4>6.3 对比总表</h4>
+<table><tr><th>模型</th><th>预测目标</th><th>输出动作</th><th>参数/延迟</th><th>训练成本</th><th>证据强度</th><th>拆机价值</th></tr><tr><td>Efficient-WAM</td><td>未来 + 动作</td><td>是</td><td>1B</td><td>中</td><td>中</td><td>★★★★</td></tr><tr><td>Light-WAM</td><td>未来 + 动作</td><td>是</td><td>轻量</td><td>低</td><td>中</td><td>★★★★</td></tr><tr><td>InternVLA-A1.5</td><td>latent foresight</td><td>是</td><td>2B+460M</td><td>高</td><td>中</td><td>★★★</td></tr><tr><td>GAF/GWM/GaussianWAM</td><td>3D 世界</td><td>部分</td><td>中–高</td><td>高</td><td>中</td><td>★★★</td></tr></table>
+<h4>6.4 结论与建议</h4>
+<ul><li><strong>想降训练成本</strong>：训练期 3D 教师（GaussianWAM）优先；推理不渲染。</li><li><strong>想部署预演</strong>：Efficient-WAM/Light-WAM 的 1B 级方案值得试，但要算推理成本。</li><li><strong>求稳</strong>：训练期教师；<strong>求新</strong>：1B WAM 的“想象几步最划算”；<strong>明确不要做</strong>：把纯视频生成模型直接当控制策略。</li></ul>
+<h3>7. Agent / harness：冻结策略，把智能放到运行时</h3>
+<h4>7.1 本节要做的决策</h4>
+<p>你是要改模型，还是改编排？harness 的前提是冻结策略；如果策略本身不够强，harness 只能补系统层，不能变出能力。</p>
+<h4>7.2 逐个拆机</h4>
+<p>① <strong>Harness VLA（2026-07-09）</strong></p>
+<ul><li>本体：冻结 VLA + <code>vla_act</code> + 6 个解析原语 + TSM/GM 双记忆；LIBERO-Pro 82.4%、RoboCasa 57.2%、C2R 58.4%。</li><li>关键：LIBERO 上 84.2% 调用是解析原语，<code>vla_act</code> 只占 15.8%。</li><li>评级：★★★★★ harness 主线起点。</li></ul>
+<p>② <strong>RoboHarness（2026-07-20）</strong></p>
+<ul><li>本体：异构策略（VLA/RL/TAMP）+ Memory Bridge；LIBERO-LoHo 95.2%，π0.5 6.4%。</li><li>评级：★★★★ 长程组合的强证据。</li></ul>
+<p>③ <strong>Zetta（2026-08-16）</strong></p>
+<ul><li>本体：代码化 critic + recovery，三时间尺度；LIBERO-Pro 90.8%、RoboCasa 93.6%、11.1×。</li><li>评级：★★★★ 闭环 critic 的代表。</li></ul>
+<p>④ <strong>Orchestra（2026-10-13）</strong></p>
+<ul><li>本体：规划/执行分离 + 独立评估器；RMBench 68.22%（Mem-0 42.00%）。</li><li>评级：★★★★ 在线拆解路线。</li></ul>
+<p>⑤ <strong>EMERGE / AdaHVLA</strong></p>
+<ul><li>图结构多 agent / 执行证据自适应修订；★★★ 补充路线。</li></ul>
+<p>⑥ <strong>本地对照：Agentic-VLA / EVA-Client / Dexbotic-RLinf</strong></p>
+<ul><li>Agentic-VLA 是在线适应外环；EVA-Client 是部署/评测 harness；Dexbotic-RLinf 是 RL 后端。它们不是同一种架构，放在一起看的是“策略之外的系统层”。</li></ul>
+<h4>7.3 对比总表</h4>
+<table><tr><th>工作</th><th>冻结策略</th><th>增益来源</th><th>记忆/规划</th><th>基准</th><th>工程复杂度</th><th>代码</th><th>拆机价值</th></tr><tr><td>Harness VLA</td><td>是</td><td>解析原语 + 双记忆</td><td>强</td><td>LIBERO-Pro/RoboCasa/C2R</td><td>中</td><td>RLinf/RPent</td><td>★★★★★</td></tr><tr><td>RoboHarness</td><td>是</td><td>异构策略 + Memory Bridge</td><td>强</td><td>LIBERO-LoHo</td><td>高</td><td>占位</td><td>★★★★</td></tr><tr><td>Zetta</td><td>是</td><td>代码化 critic + recovery</td><td>中</td><td>LIBERO-Pro/RoboCasa</td><td>中</td><td>✅</td><td>★★★★</td></tr><tr><td>Orchestra</td><td>是</td><td>规划/执行分离 + 评估器</td><td>中</td><td>RMBench</td><td>中</td><td>✅</td><td>★★★★</td></tr><tr><td>Agentic-VLA</td><td>否（改外环）</td><td>记忆/探索/奖励 + GRPO</td><td>强</td><td>LIBERO/RoboTwin</td><td>中</td><td>无</td><td>★★★★</td></tr><tr><td>EVA-Client</td><td>是</td><td>部署/评测协议</td><td>弱</td><td>6 类机器人</td><td>中</td><td>✅</td><td>★★★★</td></tr><tr><td>Dexbotic-RLinf</td><td>否（RL 后端）</td><td>PPO</td><td>弱</td><td>LIBERO</td><td>高</td><td>✅</td><td>★★★</td></tr></table>
+<h4>7.4 结论与建议</h4>
+<ul><li><strong>想快速涨点</strong>：Harness VLA 的解析原语 + 记忆；先看 84.2% 的调用分布。</li><li><strong>长程组合</strong>：RoboHarness/RoboHarness 的 Memory Bridge；单策略在 LIBERO-LoHo 只有 6.4%。</li><li><strong>过程闭环</strong>：Zetta 的 runtime critic；Orchestra 的在线拆解。</li><li><strong>求稳</strong>：Harness VLA/RPent；<strong>求新</strong>：harness 可验证性与记忆容量；<strong>明确不要做</strong>：跨基准直接比成功率（LIBERO-Pro/LoHo/RMBench/RoboCasa/C2R/EmbodiedBench 各用各的）。</li></ul>
+<h3>8. 八组横向对照</h3>
+<table><tr><th>对照</th><th>一方</th><th>另一方</th><th>读法</th></tr><tr><td>RT-2 vs OpenVLA</td><td>55B 闭源，文本 token</td><td>7B 开源，7 维连续</td><td>能力上限 vs 可部署</td></tr><tr><td>ACT vs SmolVLA</td><td>51.55M 从零训练</td><td>预训练 base 微调</td><td>小数据自训 vs 大模型适配</td></tr><tr><td>DiT4DiT vs DM0.5</td><td>2B 视频 backbone，10.64B</td><td>Gemma3 + Action Expert，6B</td><td>研究复现 vs 产品化</td></tr><tr><td>PRTS vs Agentic-VLA</td><td>RL 预训练，64×H100</td><td>后置在线适应，4×A100</td><td>改基座 vs 改外环</td></tr><tr><td>3DVLA vs VisualThink</td><td>3D 空间/实例先验</td><td>视觉证据通道</td><td>补几何 vs 补推理</td></tr><tr><td>G0.5 vs DM0.5</td><td>自回归 + RVQ</td><td>独立 Action Expert + flow</td><td>统一序列 vs 分离动作头</td></tr><tr><td>Dexora vs LWD</td><td>36-DoF 本体/遥操作</td><td>机群数据闭环/RL</td><td>补身体 vs 补数据飞轮</td></tr><tr><td>EVA-Client vs DM0.5</td><td>系统侧协议/调度</td><td>模型侧延迟</td><td>部署不是单层问题</td></tr></table>
+<h3>9. 总表：按场景选型</h3>
+<table><tr><th>场景</th><th>推荐</th><th>理由</th></tr><tr><td>高频控制（≥20Hz）</td><td>DINOv3 ViT-B + flow/RVQ 动作头</td><td>几何 + 低延迟</td></tr><tr><td>极端边缘</td><td>Theia / DINOv3 ViT-S / SmolVLA / Evo-1</td><td>1–3ms 视觉 + 0.45–0.77B 策略</td></tr><tr><td>语言条件复杂</td><td>DINOv3 + SigLIP2-Base 双塔</td><td>几何 + 语义互补</td></tr><tr><td>单塔、算力宽裕</td><td>AM-RADIO</td><td>几何语义双高</td></tr><tr><td>入门复现</td><td>ACT / OpenVLA</td><td>代码、权重、评测链路完整</td></tr><tr><td>数据引擎</td><td>LEGS / Action-View</td><td>3DGS 造数据实证最强</td></tr><tr><td>部署/评测</td><td>DM0.5 / EVA-Client</td><td>推理优化 + 可审计协议</td></tr><tr><td>harness</td><td>Harness VLA / RPent</td><td>解析原语 + 记忆，工程化最好</td></tr><tr><td>研究选题</td><td>3DGS-native 轻量 VLA / RVQ-head / PE 对照 / harness 可验证性</td><td>空位明确、可做消融</td></tr></table>
+<p><strong>求稳</strong>：DINOv3 ViT-B 单塔 + SFT/ACT 起步；语义不够加 SigLIP2-Base 双塔。</p>
+<p><strong>求新</strong>：PE vs DINOv3 vs 双塔的对照；RVQ-head 的系统比较；3DGS-native 轻量 VLA；harness 的记忆容量与可验证性。</p>
+<p><strong>明确不要做</strong>：从 Qwen3-VL/LocateAnything 抠塔；从 GroundingDINO 抠 Swin；把 3DGS 渲染直接塞进 32Hz 回路；跨基准直接比成功率；只看参数不看延迟。</p>
+<p>一句话：<strong>眼睛优先 DINOv3（求稳）或 PE（求新），动作头按控制频率选，训练先 SFT 后 RL，3DGS 先做数据引擎，harness 先看 84.2% 的解析原语。</strong></p></main>
+<footer>本页由 VLA 六年演进综述笔记自动生成 · <a href="index.html">返回目录</a></footer>
+<button class="totop" aria-label="回到顶部" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>addEventListener('scroll',function(){document.querySelector('.totop').classList.toggle('show',scrollY>600)},{passive:true})</script>
+</body></html>
