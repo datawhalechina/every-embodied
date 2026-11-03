@@ -2049,7 +2049,7 @@
     },
     "06-策略抓取或抓取VLA/具身上下文工程/01-Gemini-Argon机器人上下文工程案例.md": {
       "target": "en/06-manipulation-and-vla/embodied-context-engineering/01-gemini-argon-robot-context-engineering-case.md",
-      "sourceHash": "8832d9b31ace90188b5eb9c4ab76afecce8fab90ffecf39297b8e0649b37ebe4",
+      "sourceHash": "8b34cfc8510c315afa58df792d78e330cff00004d05d11b51855d25b2775e04a",
       "model": "tencent/Hy-MT2-1.8B-GGUF:Q4_K_M",
       "modelRevision": "dc5f44fcf1fa496ee7ad725982c0c8c553a4de00259b53af84c4b89fb0c06699"
     },
