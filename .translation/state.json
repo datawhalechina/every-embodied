@@ -2046,6 +2046,24 @@
       "sourceHash": "51deb7e2c2600c7252adbd93f8c3a1d231ffe7834e04dce02e72b9b903d0b837",
       "model": "tencent/Hy-MT2-1.8B-GGUF:Q4_K_M",
       "modelRevision": "dc5f44fcf1fa496ee7ad725982c0c8c553a4de00259b53af84c4b89fb0c06699"
+    },
+    "06-策略抓取或抓取VLA/具身上下文工程/01-Gemini-Argon机器人上下文工程案例.md": {
+      "target": "en/06-manipulation-and-vla/embodied-context-engineering/01-gemini-argon-robot-context-engineering-case.md",
+      "sourceHash": "8832d9b31ace90188b5eb9c4ab76afecce8fab90ffecf39297b8e0649b37ebe4",
+      "model": "tencent/Hy-MT2-1.8B-GGUF:Q4_K_M",
+      "modelRevision": "dc5f44fcf1fa496ee7ad725982c0c8c553a4de00259b53af84c4b89fb0c06699"
+    },
+    "06-策略抓取或抓取VLA/具身上下文工程/02-机器人上下文设计与实践模板.md": {
+      "target": "en/06-manipulation-and-vla/embodied-context-engineering/02-robot-context-design-and-practice-template.md",
+      "sourceHash": "366abbb4a73b56af81ad44b7069b60f67f5f600ef1b75d83f87f5d2424dfb402",
+      "model": "tencent/Hy-MT2-1.8B-GGUF:Q4_K_M",
+      "modelRevision": "dc5f44fcf1fa496ee7ad725982c0c8c553a4de00259b53af84c4b89fb0c06699"
+    },
+    "06-策略抓取或抓取VLA/具身上下文工程/README.md": {
+      "target": "en/06-manipulation-and-vla/embodied-context-engineering/README.md",
+      "sourceHash": "4531c2738c4187dee4c67d85c1810d54bebf62a00f34eb0e51e691131371f745",
+      "model": "tencent/Hy-MT2-1.8B-GGUF:Q4_K_M",
+      "modelRevision": "dc5f44fcf1fa496ee7ad725982c0c8c553a4de00259b53af84c4b89fb0c06699"
     }
   }
 }
