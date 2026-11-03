@@ -2064,6 +2064,12 @@
       "sourceHash": "4531c2738c4187dee4c67d85c1810d54bebf62a00f34eb0e51e691131371f745",
       "model": "tencent/Hy-MT2-1.8B-GGUF:Q4_K_M",
       "modelRevision": "dc5f44fcf1fa496ee7ad725982c0c8c553a4de00259b53af84c4b89fb0c06699"
+    },
+    "07-机器人操作、运动控制/Manipulation/01-AssembleNIST精密装配与强化学习/README.md": {
+      "target": "en/07-robot-operation-and-motion-control/Manipulation/01-assemblenist-precise-assembly-and-reinforcement-learning/README.md",
+      "sourceHash": "f4b67ec832552e871dc6ec110c6fb207b8a858273917d03b3c4a9f9e0e02bec0",
+      "model": "tencent/Hy-MT2-1.8B-GGUF:Q4_K_M",
+      "modelRevision": "dc5f44fcf1fa496ee7ad725982c0c8c553a4de00259b53af84c4b89fb0c06699"
     }
   }
 }
