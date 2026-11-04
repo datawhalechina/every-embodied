@@ -4,6 +4,8 @@
 
 ## 入口文档
 
+- [MuJoCo Roadster 特技仿真](15-MuJoCo-Roadster特技仿真/README.md) - 理解喷气飞行轨迹优化、LQR 姿态修正与 MPC 着陆控制。
+
 - [PhysX-Omni 彩色资产生成实践](14-PhysX-Omni彩色资产生成实践/README.md) - 单图部件生成、Blackwell 环境兼容、权重校验、Isaac Sim 渲染及机器人碰撞验收边界。
 
 - [仿真平台选型与目录导览](01仿真配置文档.md) - 对比 MuJoCo、Isaac Sim、ManiSkill、Habitat、GenieSim、Genesis、AirSim 等平台的定位和适用任务。
@@ -53,3 +55,4 @@
 - CUDA 和 NVIDIA 驱动，用于 GPU 仿真或高质量渲染。
 - MuJoCo、Isaac Sim、ManiSkill、Habitat 等平台对应依赖。
 - NVIDIA GPU，复杂渲染和大规模并行仿真建议使用更高显存配置。
+
