@@ -1857,7 +1857,7 @@
     },
     "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/README.md": {
       "target": "en/16-study-programs/05-microduck-movement-policy-and-task-development-topic/README.md",
-      "sourceHash": "b6f763d070457ccc752043c02935a8fd9c9943ae7363957d2f22b2f51a6d2870",
+      "sourceHash": "599a2a223c193707e1210cd07bbe3bc2a8d01f7b4b8eea61bfaba99399b7f933",
       "model": "tencent/Hy-MT2-1.8B-GGUF:Q4_K_M",
       "modelRevision": "dc5f44fcf1fa496ee7ad725982c0c8c553a4de00259b53af84c4b89fb0c06699"
     },
@@ -2074,6 +2074,12 @@
     "07-机器人操作、运动控制/Locomotion/08-UniSuperMimic世界模型全身动作跟踪/README.md": {
       "target": "en/07-robot-operation-and-motion-control/Locomotion/08-unisupermimic-world-model-full-body-motion-tracking/README.md",
       "sourceHash": "7bdb45eaf111609c84e3370f8d515cd82c0cc23e4cb2f6fb57d4503cd6d87ae7",
+      "model": "tencent/Hy-MT2-1.8B-GGUF:Q4_K_M",
+      "modelRevision": "dc5f44fcf1fa496ee7ad725982c0c8c553a4de00259b53af84c4b89fb0c06699"
+    },
+    "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/01-任务资料/09-AI智能体辅助MicroDuck训练/README.md": {
+      "target": "en/16-study-programs/05-microduck-movement-policy-and-task-development-topic/01-task-information/09-ai-agent-assisted-microduck-training/README.md",
+      "sourceHash": "1a1d8221c312141080fff4bd3e42bbc87a98bce7e8f40ae74ba726a527bea0f8",
       "model": "tencent/Hy-MT2-1.8B-GGUF:Q4_K_M",
       "modelRevision": "dc5f44fcf1fa496ee7ad725982c0c8c553a4de00259b53af84c4b89fb0c06699"
     }
