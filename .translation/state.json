@@ -2079,7 +2079,7 @@
     },
     "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/01-任务资料/09-AI智能体辅助MicroDuck训练/README.md": {
       "target": "en/16-study-programs/05-microduck-movement-policy-and-task-development-topic/01-task-information/09-ai-agent-assisted-microduck-training/README.md",
-      "sourceHash": "1a1d8221c312141080fff4bd3e42bbc87a98bce7e8f40ae74ba726a527bea0f8",
+      "sourceHash": "334ffbfd8efadedec7eaca6793fa32de8cafd0a8238d4540435a84dcaf69bff5",
       "model": "tencent/Hy-MT2-1.8B-GGUF:Q4_K_M",
       "modelRevision": "dc5f44fcf1fa496ee7ad725982c0c8c553a4de00259b53af84c4b89fb0c06699"
     }
