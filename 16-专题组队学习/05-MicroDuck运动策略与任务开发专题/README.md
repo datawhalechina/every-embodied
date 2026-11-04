@@ -20,6 +20,7 @@
 8. 需要按直播顺序运行检查时，打开 [Notebook 学习入口](./03-Notebook/README.md)。
 9. 第 8 天让小鸭子理解语言指令并在不同房间中导航，运行 [LightNav-0 多场景导航](./03-Notebook/08_LightNav0_视觉语言导航_GPU_多场景.ipynb)。使用 GPU［图形处理器］接入已有模型，不训练导航模型、不连接开发板。
 10. 拓展体验[跨缝跳跃](./01-任务资料/08-MicroDuck跨缝跳跃/README.md)：高平台起跳、低平台落地，比较原始模型、10 轮 PPO 续训与 ONNX。第 9 本 Notebook 不改动原有学习日程。
+11. 了解 [AI 智能体辅助 MicroDuck 训练](./01-任务资料/09-AI智能体辅助MicroDuck训练/README.md)，区分任务规划、开源行走训练与视觉越障适配。
 
 ## 目录结构
 
@@ -38,6 +39,7 @@
 │   ├── 06-MicroDuck梯面攀爬强化学习导读/
 │   ├── 07-RDK端侧与网页部署/
 │   ├── 08-MicroDuck跨缝跳跃/
+│   ├── 09-AI智能体辅助MicroDuck训练/
 │   └── 精选视频/
 ├── 02-可运行代码/
 │   ├── microduck-playground-stilts/
@@ -88,3 +90,4 @@ ONNX 使用与 RDK X5 SDK 匹配的工具链编译为 HBM，编译在 Ubuntu Doc
 ## 后续记录方式
 
 每次实验记录任务名、代码版本、checkpoint、环境数量、训练轮数、随机种子、成功判定、视频路径和评测结果，方便复现与对照。
+
