@@ -729,7 +729,7 @@
     },
     "10-具身智能其他仿真工具及仿真前沿/README.md": {
       "target": "en/10-simulation-tools-and-frontiers/README.md",
-      "sourceHash": "894ceadf05c4cd1d39f05e6d9cf3fa4584880404b9a8feacf79252dfa6dd0d79",
+      "sourceHash": "33b70448081f0743d3693cde727a9bcbda2d4ef04e2e442353a15861a29b90f2",
       "model": "tencent/Hy-MT2-1.8B-GGUF:Q4_K_M",
       "modelRevision": "dc5f44fcf1fa496ee7ad725982c0c8c553a4de00259b53af84c4b89fb0c06699"
     },
@@ -2080,6 +2080,12 @@
     "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/01-任务资料/09-AI智能体辅助MicroDuck训练/README.md": {
       "target": "en/16-study-programs/05-microduck-movement-policy-and-task-development-topic/01-task-information/09-ai-agent-assisted-microduck-training/README.md",
       "sourceHash": "334ffbfd8efadedec7eaca6793fa32de8cafd0a8238d4540435a84dcaf69bff5",
+      "model": "tencent/Hy-MT2-1.8B-GGUF:Q4_K_M",
+      "modelRevision": "dc5f44fcf1fa496ee7ad725982c0c8c553a4de00259b53af84c4b89fb0c06699"
+    },
+    "10-具身智能其他仿真工具及仿真前沿/15-MuJoCo-Roadster特技仿真/README.md": {
+      "target": "en/10-simulation-tools-and-frontiers/15-mujoco-roadster-simulation/README.md",
+      "sourceHash": "85df4d067c0e2128ec8bf89056aec1046b0275895515f056a234242f22428ebd",
       "model": "tencent/Hy-MT2-1.8B-GGUF:Q4_K_M",
       "modelRevision": "dc5f44fcf1fa496ee7ad725982c0c8c553a4de00259b53af84c4b89fb0c06699"
     }
