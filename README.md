@@ -220,6 +220,16 @@
     </td>
   </tr>
 
+  <tr>
+    <td width="33%" valign="top" align="center">
+      <a href="./10-具身智能其他仿真工具及仿真前沿/15-MuJoCo-Roadster特技仿真/README.md"><img src="https://raw.githubusercontent.com/xkhainguyen/roadster-stunt/a726d1a23ee1954d7376e6e48cc7c4460fd3ac4f/docs/kickflip.gif" width="100%" alt="Roadster 汽车空中翻转 MuJoCo 仿真预览"></a>
+      <br>
+      <strong><a href="./10-具身智能其他仿真工具及仿真前沿/15-MuJoCo-Roadster特技仿真/README.md">Roadster 汽车特技仿真</a></strong>
+      <br>
+      <sub>社区开源演示：喷气推力与空中翻转</sub>
+    </td>
+  </tr>
+
 </table>
 
 
@@ -494,6 +504,7 @@
   <br />
   你可以自由分享与改编本项目内容，但需保留来源署名。详细条款见 <a href="LICENSE">LICENSE</a>。
   </div>
+
 
 
 
