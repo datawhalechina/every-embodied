@@ -19,6 +19,14 @@
 
 ### 1.1 本机带球演示
 
+球场场景中，机器人跟随足球运动，周围摆放了球门、看台和训练假人：
+
+[![球场带球动态预览](assets/g1-stadium-preview.gif)](assets/g1-stadium.mp4)
+
+**球场场景视频：** [观看 16 秒片段](assets/g1-stadium.mp4)。本机使用第二阶段预训练模型、单环境与随机种子 42 录制，完整回合 600 步，回报约 442.54。场地、球门、看台和假人来自公开资产，仅用于渲染；机器人和球仍按原任务进行物理仿真，假人没有碰撞或避障行为。场地模型的水平尺寸缩放至原来的四分之一，便于展示。
+
+以下保留原始平地场景，便于观察动作和速度箭头：
+
 点击画面可打开视频：机器人接近足球、调整脚步触球，并跟随足球运动。红色箭头表示目标球速，绿色箭头表示实际球速；两个箭头越接近，球的实际运动越接近目标。
 
 [![本机 G1 足球带球动态预览](assets/g1-dribble-preview.gif)](assets/g1-dribble.mp4)
@@ -158,6 +166,28 @@ ffmpeg -ss 2 -i "$VIDEO_OUT/test_video.mp4" -t 16 \
 ```
 
 查看结果时，先观察球是否出现在镜头中，再看机器人与球之间的距离、触球后的球速方向，以及目标改变后的调整。回报和回合长度用于辅助观察，实际运动仍应结合视频逐帧检查。
+
+### 4.2 录制球场视觉场景
+
+球场、球门与看台来自 [Football Soccer Stadium and Club Grounds](https://3dassets.dev/packs/football-soccer-club-grounds)；训练假人来自同一套资产中的 [Free kick training mannequin](https://3dassets.dev/assets/football-soccer-club-grounds-free-kick-mannequin-1412ba74)。资产发布方标注为 [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)；本仓库存放经 Blender 转换的文件，以便当前 `trimesh` 版本正确读取模型。模型为低多边形风格，场景脚本调整了缩放与摆放位置。
+
+完成第 3 节环境配置后，设置本仓库的实际位置，再运行场景脚本：
+
+```bash
+export EVERY_EMBODIED=/path/to/every-embodied
+export DRIBBLEAMP_MIMICKIT="$WORK_ROOT/DribbleAMP/MimicKit"
+export STADIUM_DEMO="$EVERY_EMBODIED/07-机器人操作、运动控制/Locomotion/09-DribbleAMP人形机器人足球带球/stadium_demo"
+cd "$DRIBBLEAMP_MIMICKIT"
+python -u "$STADIUM_DEMO/stadium_run.py" \
+  --mode test --devices cuda:0 --num_envs 1 --visualize false --video true \
+  --engine_config data/engines/newton_engine.yaml \
+  --env_config data/envs/amp_soccer_g1_env_phase2.yaml \
+  --agent_config data/agents/amp_task_g1_agent_phase2.yaml \
+  --model_file "$WORK_ROOT/DribbleAMP/models/g1_stage2.pt" \
+  --test_episodes 1 --rand_seed 42 --out_dir "$WORK_ROOT/recordings/g1-stadium"
+```
+
+输出为 `test_video.mp4`。脚本只扩展录制器的视觉网格，没有改变策略输入、物理场景或奖励；要研究真实绕障，需要另外添加碰撞体、障碍观测和对应策略训练或规划。
 
 ## 5. 两阶段训练
 

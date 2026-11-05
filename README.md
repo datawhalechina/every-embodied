@@ -76,11 +76,11 @@
 <table align="center">
   <tr>
     <td width="33%" valign="top" align="center">
-      <a href="./07-机器人操作、运动控制/Locomotion/09-DribbleAMP人形机器人足球带球/assets/g1-dribble.mp4"><img src="./07-机器人操作、运动控制/Locomotion/09-DribbleAMP人形机器人足球带球/assets/g1-dribble-preview.gif" width="100%" alt="G1 人形机器人足球带球仿真预览"></a>
+      <a href="./07-机器人操作、运动控制/Locomotion/09-DribbleAMP人形机器人足球带球/assets/g1-stadium.mp4"><img src="./07-机器人操作、运动控制/Locomotion/09-DribbleAMP人形机器人足球带球/assets/g1-stadium-preview.gif" width="100%" alt="G1 人形机器人球场带球仿真预览"></a>
       <br>
       <strong><a href="./07-机器人操作、运动控制/Locomotion/09-DribbleAMP人形机器人足球带球/README.md">G1 人形机器人足球带球</a></strong>
       <br>
-      <sub>接近足球，触球带球</sub> · <a href="./07-机器人操作、运动控制/Locomotion/09-DribbleAMP人形机器人足球带球/assets/g1-dribble.mp4">观看视频</a>
+      <sub>球场带球，训练假人场景</sub> · <a href="./07-机器人操作、运动控制/Locomotion/09-DribbleAMP人形机器人足球带球/assets/g1-stadium.mp4">观看视频</a>
     </td>
   </tr>
   <tr>
@@ -291,7 +291,7 @@
 
   - **[2026-11-05]** 新增 [第一视角手部重建到机器人动作重定向](./07-机器人操作、运动控制/Manipulation/02-MANO第一视角到机器人动作重定向/README.md)：梳理 MANO 手部重建、坐标标定、机械臂和灵巧手映射、仿真检查及真机复现流程。
 
-  - **[2026-11-05]** 新增 [DribbleAMP 人形机器人足球带球](./07-机器人操作、运动控制/Locomotion/09-DribbleAMP人形机器人足球带球/README.md)：提供本机带球视频与截图，介绍 G1 预训练策略、动作先验、两阶段训练与六杆绕行扩展。
+  - **[2026-11-05]** 新增 [DribbleAMP 人形机器人足球带球](./07-机器人操作、运动控制/Locomotion/09-DribbleAMP人形机器人足球带球/README.md)：提供本机球场与训练假人场景视频，介绍 G1 预训练策略、动作先验、两阶段训练与六杆绕行扩展。
 
   - **[2026-11-04]** 新增 [MorphMimic 跨人形机器人世界模型与动作跟踪](./07-机器人操作、运动控制/Locomotion/04-MorphMimic跨人形机器人世界模型与动作跟踪/README.md)：梳理三机器人共享策略、预训练权重、BONES-SEED 数据准备、单卡训练和三卡联合训练流程。
 
