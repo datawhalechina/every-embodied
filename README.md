@@ -76,6 +76,15 @@
 <table align="center">
   <tr>
     <td width="33%" valign="top" align="center">
+      <a href="./07-机器人操作、运动控制/Locomotion/09-DribbleAMP人形机器人足球带球/assets/g1-dribble.mp4"><img src="./07-机器人操作、运动控制/Locomotion/09-DribbleAMP人形机器人足球带球/assets/g1-dribble-preview.gif" width="100%" alt="G1 人形机器人足球带球仿真预览"></a>
+      <br>
+      <strong><a href="./07-机器人操作、运动控制/Locomotion/09-DribbleAMP人形机器人足球带球/README.md">G1 人形机器人足球带球</a></strong>
+      <br>
+      <sub>接近足球，触球带球</sub> · <a href="./07-机器人操作、运动控制/Locomotion/09-DribbleAMP人形机器人足球带球/assets/g1-dribble.mp4">观看视频</a>
+    </td>
+  </tr>
+  <tr>
+    <td width="33%" valign="top" align="center">
       <img src="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-xiaohongshu-preview.gif" width="100%" alt="G0.5 机器人弹琴播放预览">
       <br>
       <strong><a href="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/README.md">G0.5 × 机器人弹琴</a></strong>
@@ -280,7 +289,7 @@
 
   ## 🔥 News & Highlights
 
-  - **[2026-11-05]** 新增 [DribbleAMP 人形机器人足球带球](./07-机器人操作、运动控制/Locomotion/09-DribbleAMP人形机器人足球带球/README.md)：介绍 G1 预训练策略、动作先验、两阶段带球训练与六杆绕行扩展。
+  - **[2026-11-05]** 新增 [DribbleAMP 人形机器人足球带球](./07-机器人操作、运动控制/Locomotion/09-DribbleAMP人形机器人足球带球/README.md)：提供本机带球视频与截图，介绍 G1 预训练策略、动作先验、两阶段训练与六杆绕行扩展。
 
   - **[2026-11-04]** 新增 [MorphMimic 跨人形机器人世界模型与动作跟踪](./07-机器人操作、运动控制/Locomotion/04-MorphMimic跨人形机器人世界模型与动作跟踪/README.md)：梳理三机器人共享策略、预训练权重、BONES-SEED 数据准备、单卡训练和三卡联合训练流程。
 

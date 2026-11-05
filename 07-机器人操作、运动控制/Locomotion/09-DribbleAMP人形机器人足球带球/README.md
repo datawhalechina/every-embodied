@@ -17,6 +17,20 @@
 
 建议先看两个上游演示，再运行预训练模型，最后阅读训练代码。带球演示中的红色箭头表示目标球速，绿色箭头表示实际球速。
 
+### 1.1 本机带球演示
+
+点击画面可打开视频：机器人接近足球、调整脚步触球，并跟随足球运动。红色箭头表示目标球速，绿色箭头表示实际球速；两个箭头越接近，球的实际运动越接近目标。
+
+[![本机 G1 足球带球动态预览](assets/g1-dribble-preview.gif)](assets/g1-dribble.mp4)
+
+**视频 1：G1 足球带球仿真。** 本机使用上游第二阶段预训练模型、单环境和随机种子 42 录制；视频为 20 秒回合中第 2–18 秒的裁剪画面。播放完整版片段：[G1 足球带球视频](assets/g1-dribble.mp4)。
+
+| 接近足球 | 足球处于脚前 |
+| --- | --- |
+| ![机器人靠近足球](assets/g1-approach.png) | ![机器人脚前的足球和速度箭头](assets/g1-dribble.png) |
+
+**图 1：本机回放画面。** 左图展示机器人接近足球，右图展示足球、机器人和速度箭头的相对位置；两张图均截取自同一次本机仿真录制。
+
 ## 2. 从参考动作到带球策略
 
 训练时，仿真器提供机器人关节与身体状态、足球状态以及期望的球速方向。策略输出控制动作；足球与机器人在物理仿真中接触，奖励同时评价带球效果和动作风格。
@@ -37,6 +51,31 @@
 第二阶段配置中，任务奖励与风格奖励的权重分别为 0.8 和 0.2；任务内球速、方向和距离权重分别为 0.3、0.5、0.2。G1 参考动作清单实际包含 `g1_walk.pkl`、`g1_run.pkl` 和 `g1_kick_combo.pkl`，权重依次为 1、2、1，见 [G1 动作清单](https://github.com/ErykHalicki/DribbleAMP/blob/f25a4bcf0362c60730faf07b0604b5213aa40dd1/MimicKit/data/datasets/dataset_g1_locomotion.yaml)。该清单没有标明这些动作来源于梅西。
 
 上游报告还比较了去掉风格奖励的策略：任务误差降低，但步态更蹲伏。这个取舍有助于理解为什么“球控制得好”和“动作风格自然”需要分别观察。
+
+### 2.1 机器人看到什么
+
+每个控制周期，足球任务把以下信息加入机器人自身的运动观测：
+
+1. **球相对身体的位置**：用球的位置减去机器人根部位置，再转换到机器人当前朝向对应的坐标系。
+2. **球的速度**：将仿真中的球速旋转到机器人朝向坐标系，用于判断球正在朝哪里运动。
+3. **目标方向与速度**：方向同样转换到机器人朝向坐标系，再与目标速度数值拼接。
+4. **身体状态**：由基础运动环境提供，并与上述足球观测拼接后送入策略。
+
+这组观测直接来自仿真状态；要部署到真实机器人，需要另外提供球检测、相对位置和速度估计。上游第二阶段配置每 4–7 秒重新采样一次目标，目标速度范围为 0–4 米/秒。
+
+### 2.2 奖励怎样引导带球
+
+设球的水平速度大小为 `v`，目标速度大小为 `v_target`，机器人与球的水平距离为 `d`，则第二阶段任务奖励由三部分组成：
+
+| 奖励项 | 计算方式 | 作用 |
+| --- | --- | --- |
+| 速度 | `exp(-0.2 * (v_target - v)^2)` | 鼓励球速接近目标 |
+| 方向 | `max(球速单位方向 · 目标单位方向, 0)` | 鼓励球沿目标方向运动 |
+| 距离 | `exp(-0.1 * d^2)` | 鼓励机器人留在球附近 |
+
+第二阶段将这三项分别乘以 0.3、0.5、0.2，再将任务奖励与动作风格奖励分别按 0.8、0.2 组合。球速接近零时，代码对方向归一化的分母设有下限，避免除零。具体实现参见 [`compute_soccer_reward`](https://github.com/ErykHalicki/DribbleAMP/blob/f25a4bcf0362c60730faf07b0604b5213aa40dd1/MimicKit/mimickit/envs/task_soccer_env.py)。
+
+代码中 `control_freq: 30` 表示每秒 30 个控制周期，`sim_freq: 240` 表示每秒 240 个物理仿真步；一个控制周期对应 8 个物理步。20 秒最长回合因而对应 600 个控制步。
 
 ## 3. 准备环境与源码
 
@@ -90,6 +129,35 @@ python mimickit/run.py \
 **本机检查**：2026-11-05 在 Linux、Python 3.11、PyTorch 2.15.0、MuJoCo 3.6.0、Newton 1.0.0 和 Warp 1.12.0 环境中，以 CPU、单环境、无窗口、随机种子 42 加载上游 `g1_stage2.pt`，完成 1 个回合；输出回合长度 600 步、回报 372.97。同一环境使用 RTX PRO 6000、CUDA 图形回放也完成 1 个 600 步回合，回报 464.48。两次运行的计算设备与渲染设置不同；带球动作的可视效果可结合上游演示和图形回放观察。
 
 想看第一阶段，只需将上面三个带 `phase2` 的环境配置、智能体配置和 `g1_stage2.pt` 分别改为 `phase1`、`phase1` 和 `g1_stage1.pt`。无图形环境可把 `--visualize true` 改为 `--visualize false`，观察终端指标；这一步不会生成视频。CPU 无窗口检查还可将 `--devices cuda:0` 改为 `--devices cpu`。
+
+### 4.1 录制自己的回合
+
+上游程序支持离屏录制。以下命令使用第二阶段模型、单个环境和固定种子；`--video true` 启用录制，`--visualize false` 避免同时启动交互窗口。录制仍需要可用的图形渲染环境。
+
+```bash
+cd "$WORK_ROOT/DribbleAMP/MimicKit"
+export VIDEO_OUT="$WORK_ROOT/recordings/g1-seed42"
+python -u mimickit/run.py \
+  --mode test --devices cuda:0 --num_envs 1 --visualize false --video true \
+  --engine_config data/engines/newton_engine.yaml \
+  --env_config data/envs/amp_soccer_g1_env_phase2.yaml \
+  --agent_config data/agents/amp_task_g1_agent_phase2.yaml \
+  --model_file "$WORK_ROOT/DribbleAMP/models/g1_stage2.pt" \
+  --test_episodes 1 --rand_seed 42 --out_dir "$VIDEO_OUT"
+```
+
+运行结束时，终端输出回报、回合长度及 `Video saved to .../test_video.mp4`。原始录制为 1920 × 1080、30 帧/秒；单个 20 秒回合约 600 帧。录制器会在保存前缓存画面，因此长回合会占用较多内存。
+
+本章视频来自上述命令的本机运行，原始回合长度为 600 步、回报约 451.43。视频中展示的 16 秒片段通过裁剪原始画面和缩放得到，适合网页查看：
+
+```bash
+ffmpeg -ss 2 -i "$VIDEO_OUT/test_video.mp4" -t 16 \
+  -vf 'crop=1440:810:240:200,scale=960:540' \
+  -c:v libx264 -crf 21 -pix_fmt yuv420p -movflags +faststart \
+  "$VIDEO_OUT/g1-dribble.mp4"
+```
+
+查看结果时，先观察球是否出现在镜头中，再看机器人与球之间的距离、触球后的球速方向，以及目标改变后的调整。回报和回合长度用于辅助观察，实际运动仍应结合视频逐帧检查。
 
 ## 5. 两阶段训练
 
