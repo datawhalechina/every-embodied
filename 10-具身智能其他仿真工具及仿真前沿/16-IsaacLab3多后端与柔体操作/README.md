@@ -47,7 +47,9 @@ Rizon 4s 机械臂配合 SHARPA 灵巧手，在一次连续仿真中完成插入
 
 ### 2.3 Teapot Fill：茶壶倒水与液体仿真
 
-![茶壶倒水官方场景图](https://isaac-sim.github.io/IsaacLab/main/_static/demos/teapot_fill.jpg)
+[![茶壶倒水本机视频预览](assets/teapot-preview.gif)](assets/teapot-local.mp4)
+
+[观看本机录制视频](assets/teapot-local.mp4)：官方茶壶脚本、3 毫米粒子间距、25 帧每秒。画面中部分水流入碗中，部分洒在桌面。
 
 [Teapot Fill 官方源码（固定版本）](https://github.com/isaac-sim/IsaacLab/blob/e3a79743e3119b82ebb72e8e3e2410c9275cc168/examples/demos/teapot_fill.py)使用 Newton MPM［物质点法］模拟壶内水流、容器与接水碗的相互作用。默认场景没有机械臂：程序直接按预设的时间曲线更新茶壶的位姿与速度，观察水从壶嘴流出。
 
