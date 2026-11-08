@@ -99,6 +99,18 @@
   </tr>
   <tr>
     <td width="33%" valign="top" align="center">
+      <a href="./10-具身智能其他仿真工具及仿真前沿/16-IsaacLab3多后端与柔体操作/README.md#23-teapot-fill茶壶倒水与液体仿真"><img src="https://isaac-sim.github.io/IsaacLab/main/_static/demos/teapot_fill.jpg" width="100%" alt="官方茶壶倒水仿真场景"></a>
+      <br><strong><a href="./10-具身智能其他仿真工具及仿真前沿/16-IsaacLab3多后端与柔体操作/README.md#23-teapot-fill茶壶倒水与液体仿真">茶壶倒水与液体仿真</a></strong>
+      <br><sub>官方场景图 · 启动方式与原理</sub>
+    </td>
+    <td width="33%" valign="top" align="center">
+      <a href="./10-具身智能其他仿真工具及仿真前沿/16-IsaacLab3多后端与柔体操作/README.md#24-rizonsharpa-coffee舀取倒入和搅拌"><img src="https://isaac-sim.github.io/IsaacLab/main/_static/environment-previews/rizon_sharpa_coffee.jpg" width="100%" alt="官方灵巧手咖啡仿真场景"></a>
+      <br><strong><a href="./10-具身智能其他仿真工具及仿真前沿/16-IsaacLab3多后端与柔体操作/README.md#24-rizonsharpa-coffee舀取倒入和搅拌">灵巧手舀咖啡</a></strong>
+      <br><sub>官方场景图 · 启动、录制与训练路线</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="33%" valign="top" align="center">
       <img src="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-xiaohongshu-preview.gif" width="100%" alt="G0.5 机器人弹琴播放预览">
       <br>
       <strong><a href="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/README.md">G0.5 × 机器人弹琴</a></strong>
