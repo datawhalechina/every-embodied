@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">人形机器人羽毛球</title>
+  <desc id="desc">球场、球拍、羽毛球和播放按钮组成的示意封面。</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#102b36"/><stop offset="1" stop-color="#146d5d"/></linearGradient>
+    <linearGradient id="court" x2="0" y2="1"><stop stop-color="#247b6a"/><stop offset="1" stop-color="#10423b"/></linearGradient>
+  </defs>
+  <rect width="960" height="540" rx="18" fill="url(#bg)"/>
+  <path d="M0 345L960 260V540H0Z" fill="url(#court)"/>
+  <path d="M0 445L960 330M170 540L480 308M705 540L615 295" fill="none" stroke="#d2f2d6" stroke-opacity=".35" stroke-width="4"/>
+  <circle cx="720" cy="174" r="150" fill="#a6e6cb" opacity=".07"/>
+  <path d="M595 236Q663 188 731 151" fill="none" stroke="#a9ebc5" stroke-width="7" stroke-dasharray="10 12" opacity=".75"/>
+  <ellipse cx="738" cy="136" rx="61" ry="85" transform="rotate(38 738 136)" fill="none" stroke="#e5f6e9" stroke-width="9"/>
+  <path d="M693 197L635 269M634 269L618 288" stroke="#e5f6e9" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="580" cy="230" r="9" fill="#ffd477"/>
+  <path d="M572 229L552 211L546 219L570 238Z" fill="#f9f3df"/>
+  <circle cx="480" cy="320" r="37" fill="#fff" opacity=".95"/><path d="M470 298L470 342L504 320Z" fill="#185b50"/>
+  <text x="70" y="111" fill="#bfe9d8" font-family="sans-serif" font-size="25" letter-spacing="4">HUMANOID BADMINTON</text>
+  <text x="70" y="175" fill="#fff" font-family="sans-serif" font-size="48" font-weight="700">人形机器人羽毛球</text>
+  <text x="70" y="218" fill="#d2ede1" font-family="sans-serif" font-size="24">真机击球 · 点击观看演示</text>
+</svg>

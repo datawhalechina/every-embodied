@@ -108,6 +108,18 @@
       <br><strong><a href="./10-具身智能其他仿真工具及仿真前沿/16-IsaacLab3多后端与柔体操作/README.md#24-rizonsharpa-coffee舀取倒入和搅拌">灵巧手舀咖啡</a></strong>
       <br><sub>本机仿真 · 舀粉、倒入与搅拌</sub> · <a href="./10-具身智能其他仿真工具及仿真前沿/16-IsaacLab3多后端与柔体操作/assets/coffee-local.mp4">观看视频</a>
     </td>
+    <td width="33%" valign="top" align="center">
+      <a href="https://sunlight02.github.io/humanoid-badminton/"><img src="./07-机器人操作、运动控制/Locomotion/08-UniSuperMimic世界模型全身动作跟踪/assets/badminton-cover.svg" width="100%" alt="人形机器人羽毛球真机对打演示封面"></a>
+      <br><strong><a href="https://sunlight02.github.io/humanoid-badminton/">人形机器人羽毛球对打</a></strong>
+      <br><sub>独立研究 · 真机正反手与跳跃回球</sub> · <a href="https://sunlight02.github.io/humanoid-badminton/">观看视频</a>
+    </td>
+  </tr>
+  <tr>
+    <td width="33%" valign="top" align="center">
+      <a href="https://supermimic.github.io/media/real/real_bay-wide.mp4"><img src="https://raw.githubusercontent.com/miao-org/awesome-supermimic/2467d16a13a7898d6ae01998b0c654fdfae5b2eb/assets/official/real-g1-wide.gif" width="100%" alt="SuperMimic 官方 G1 真机动作视频预览"></a>
+      <br><strong><a href="./07-机器人操作、运动控制/Locomotion/08-UniSuperMimic世界模型全身动作跟踪/README.md">SuperMimic 全身动作跟踪</a></strong>
+      <br><sub>论文作者真机演示 · 翻滚与起身</sub> · <a href="https://supermimic.github.io/media/real/real_bay-wide.mp4">观看视频</a>
+    </td>
   </tr>
   <tr>
     <td width="33%" valign="top" align="center">
@@ -315,7 +327,7 @@
 
   ## 🔥 News & Highlights
 
-  - **[2026-11-08]** 更新 [UniSuperMimic 全身动作跟踪](./07-机器人操作、运动控制/Locomotion/08-UniSuperMimic世界模型全身动作跟踪/README.md)：增加从羽毛球比赛视频到机器人参考动作、重定向与跟踪训练的开源路线。
+  - **[2026-11-08]** 更新 [UniSuperMimic 全身动作跟踪](./07-机器人操作、运动控制/Locomotion/08-UniSuperMimic世界模型全身动作跟踪/README.md)：增加视频动作、训练加速、灵巧手实战和 41 个社区项目的完整中文合集。
 
   - **[2026-11-05]** 新增 [MotionBricks 与 CrowdBricks 实时动作生成](./07-机器人操作、运动控制/Locomotion/10-MotionBricks与CrowdBricks实时动作生成/README.md)：梳理关键姿态动作生成、智能原语、群体批量推理与官方演示。
 

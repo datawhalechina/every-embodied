@@ -2,6 +2,8 @@
 
 本章介绍 [Motphys 的 Uni-SuperMimic](https://github.com/Motphys/Uni-SuperMimic)：它是在 UniLab 上对 [SuperMimic](https://supermimic.github.io/) 的独立复现，目标是让 Unitree G1 跟踪多种参考动作。项目提供 LAFAN1 与 BONES-SEED 数据处理、训练、评测和视频导出，支持 mjwarp、MuJoCo 和 Motrix 后端。
 
+**学习路线：**本页介绍方法与基础训练；[视频动作与社区复现实战](./02-视频动作与社区复现.md)介绍视频到参考动作、训练加速和灵巧手任务；[SuperMimic 社区项目完整合集](./03-SuperMimic社区项目完整合集.md)保留 41 个项目的中文分类、演示与原始来源。
+
 ![UniSuperMimic 策略与参考动作对比](https://raw.githubusercontent.com/Motphys/Uni-SuperMimic/main/docs/assets/supermimic_comparison.gif)
 
 *图 1：上游仿真演示，实体机器人是策略输出，蓝色虚影是参考动作。来源：[Uni-SuperMimic](https://github.com/Motphys/Uni-SuperMimic)。*
@@ -65,7 +67,7 @@ uv run scripts/gvhmr_to_robot.py \
 
 ### 接入跟踪训练需要什么
 
-GMR 保存的 `.pkl` 文件不能直接作为本章训练命令的动作库。以核对时的 [Uni-SuperMimic 动作加载器](https://github.com/Motphys/Uni-SuperMimic/blob/d78a5e2bc26ee26c3a94ae10418b7fb9018836ee/src/unisupermimic/tasks/motion_tracking/g1/supermimic/motion.py)为例，其普通动作输入为每帧 36 列的 `.csv`：根部位置 3 列、`xyzw` 顺序的四元数 4 列、29 个关节位置；源动作默认按每秒 30 帧读取。GMR 脚本同样保存根部旋转为 `xyzw`，但仍要根据两边的机器人模型逐项核实并转换关节顺序、坐标系、尺度和帧率，再配置动作文件。项目也支持另一种压缩动作库格式；具体配置应以所用版本为准。
+GMR 保存的 `.pkl` 文件不能直接作为本章训练命令的动作库。以核对时的 [Uni-SuperMimic 动作加载器](https://github.com/Motphys/Uni-SuperMimic/blob/d78a5e2bc26ee26c3a94ae10418b7fb9018836ee/src/unisupermimic/tasks/motion_tracking/g1/supermimic/motion.py)为例，其普通动作输入为每帧 36 列的 `.csv`：根部位置 3 列、`xyzw` 顺序的四元数 4 列、29 个关节位置；源动作默认按每秒 30 帧读取。GMR 脚本同样保存根部旋转为 `xyzw`；[NJU 视频转动作工具](./02-视频动作与社区复现.md#22-生成-g1-动作及对照视频)进一步提供关节限位、脚底接地和 `.csv` 导出。固定版本的两个项目关节顺序一致，仍需检查动作坐标、尺度和质量；具体接入步骤见[视频动作实战](./02-视频动作与社区复现.md#24-接入-uni-supermimic)。项目也支持另一种压缩动作库格式；具体配置应以所用版本为准。
 
 建议先用少量片段完成转换，回放并检查朝向、脚底接触、关节限位和帧率，再训练与评测。记录使用的片段划分、硬件、训练步数、完整回合跟踪成功的判定条件及对应视频。这样可以判断是参考动作重建、重定向还是策略跟踪影响了结果。若要实现对真实来球的反应与击球，还需要球、球拍、观测和交互任务设计。
 
