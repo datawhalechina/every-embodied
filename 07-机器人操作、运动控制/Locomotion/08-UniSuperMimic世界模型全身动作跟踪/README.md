@@ -20,6 +20,55 @@ SuperMimic 先从物理仿真采集状态和动作转换，训练可微的动力
 
 论文的研究结果、Motphys 的独立实现及本章教程应分别理解。截图显示的是社区演示；仓库将其实现标注为独立复现，不能直接视为论文作者原始代码。本章尚未运行训练或评测。
 
+## 从羽毛球比赛视频到全身动作跟踪
+
+这条路线把比赛视频转换为 G1 的参考动作，再训练机器人在物理仿真中跟踪。可先打开 [SuperMimic 原论文的交互演示](https://supermimic.github.io/demo/)，观察不同参考动作与机器人跟踪的关系；上方动图展示的是 Uni-SuperMimic 社区复现。具体的羽毛球比赛片段、动作数据和训练检查点，需要来自相应实验的发布者。
+
+```text
+比赛视频 + 回合标注 → 选取球员和片段 → GVHMR 人体动作重建
+    → GMR 人体到 G1 动作重定向 → 格式与关节顺序适配
+    → Uni-SuperMimic 世界模型与跟踪策略训练 → 仿真评测与视频
+```
+
+| 环节 | 可用的开源资料 | 作用 |
+| --- | --- | --- |
+| 比赛与标注 | [ShuttleSet](https://github.com/wywyWang/CoachAI-Projects/tree/main/ShuttleSet) | 提供比赛、回合、击球时间与球员位置等标注，并提供球场单应性信息；使用比赛影像需核对其获取方式和授权。 |
+| 人体动作重建 | [GVHMR](https://github.com/zju3dv/GVHMR) | 从单目视频估计世界坐标系下的人体动作，输出参数化人体模型 SMPL-X 的运动参数。 |
+| 动作重定向 | [GMR](https://github.com/YanjieZe/GMR#retargeting-from-gvhmr-video-to-robot) | 将人体动作映射到 G1，生成机器人根部位姿和关节轨迹，并可录制可视化视频。 |
+| 跟踪训练 | [Uni-SuperMimic](https://github.com/Motphys/Uni-SuperMimic) | 以适配后的机器人动作作为参考，联合训练世界模型和全身跟踪策略。 |
+
+ShuttleSet 的回合与击球标注可用于选取片段；它本身并不提供可直接用于 G1 训练的关节轨迹。比赛画面中可能同时出现两名球员、遮挡和镜头切换，需要先确认目标球员及片段连续性。重建的人体坐标与球场坐标还需要结合画面、球场标定和尺度进行对齐。
+
+### 先跑通人体重建和机器人重定向
+
+下面使用上游提供的网球视频检查前处理链路；替换成已获授权的羽毛球单人片段后，可按相同入口处理。先分别依照 [GVHMR 安装说明](https://github.com/zju3dv/GVHMR)和 [GMR 安装说明](https://github.com/YanjieZe/GMR#installation)准备环境、模型及依赖；其中 GMR 需要按其文档准备 SMPL-X 人体模型。以下命令展示各仓库中的入口，路径应替换为实际位置。运行环境、模型资源和显示环境需要满足各上游项目要求。
+
+在 GVHMR 仓库根目录运行：
+
+```bash
+python tools/demo/demo.py --video=docs/example_video/tennis.mp4 -s
+```
+
+`-s` 用于固定相机；移动镜头应查看上游的相机运动估计选项。默认结果位于 `outputs/demo/tennis/hmr4d_results.pt`。对于自有片段，将 `--video` 改为视频路径，并按视频文件名查找输出。
+
+在 GMR 仓库根目录运行，将输入路径替换为上一步的结果：
+
+```bash
+uv run scripts/gvhmr_to_robot.py \
+  --gvhmr_pred_file /path/to/GVHMR/outputs/demo/tennis/hmr4d_results.pt \
+  --robot unitree_g1 \
+  --save_path output/tennis_g1.pkl \
+  --record_video
+```
+
+这会显示重定向过程，在 `output/tennis_g1.pkl` 保存运动数据，并在 `videos/` 下录制视频。脚本保存帧率、根部位置、根部旋转和关节位置；它展示的是参考动作的重定向，后续还需进行物理仿真中的策略训练。本文命令依据 [GVHMR 源码](https://github.com/zju3dv/GVHMR/blob/ee960bb6e2ea2d381aa97f08e9b71ef320b624b1/tools/demo/demo.py)及 [GMR 脚本](https://github.com/YanjieZe/GMR/blob/25f56db79ac411258b377b6d4ccba0c8ff3372ac/scripts/gvhmr_to_robot.py)整理，实际运行前请检查对应版本的依赖及参数。
+
+### 接入跟踪训练需要什么
+
+GMR 保存的 `.pkl` 文件不能直接作为本章训练命令的动作库。以核对时的 [Uni-SuperMimic 动作加载器](https://github.com/Motphys/Uni-SuperMimic/blob/d78a5e2bc26ee26c3a94ae10418b7fb9018836ee/src/unisupermimic/tasks/motion_tracking/g1/supermimic/motion.py)为例，其普通动作输入为每帧 36 列的 `.csv`：根部位置 3 列、`xyzw` 顺序的四元数 4 列、29 个关节位置；源动作默认按每秒 30 帧读取。GMR 脚本同样保存根部旋转为 `xyzw`，但仍要根据两边的机器人模型逐项核实并转换关节顺序、坐标系、尺度和帧率，再配置动作文件。项目也支持另一种压缩动作库格式；具体配置应以所用版本为准。
+
+建议先用少量片段完成转换，回放并检查朝向、脚底接触、关节限位和帧率，再训练与评测。记录使用的片段划分、硬件、训练步数、完整回合跟踪成功的判定条件及对应视频。这样可以判断是参考动作重建、重定向还是策略跟踪影响了结果。若要实现对真实来球的反应与击球，还需要球、球拍、观测和交互任务设计。
+
 ## 从 LAFAN1 路线开始
 
 上游列出的环境为 Linux、Python 3.10–3.13 和 `uv`；mjwarp 训练需要 CUDA GPU。下面的命令来自[上游说明](https://github.com/Motphys/Uni-SuperMimic#installation)，在仓库根目录运行：

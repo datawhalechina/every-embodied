@@ -315,6 +315,8 @@
 
   ## 🔥 News & Highlights
 
+  - **[2026-11-08]** 更新 [UniSuperMimic 全身动作跟踪](./07-机器人操作、运动控制/Locomotion/08-UniSuperMimic世界模型全身动作跟踪/README.md)：增加从羽毛球比赛视频到机器人参考动作、重定向与跟踪训练的开源路线。
+
   - **[2026-11-05]** 新增 [MotionBricks 与 CrowdBricks 实时动作生成](./07-机器人操作、运动控制/Locomotion/10-MotionBricks与CrowdBricks实时动作生成/README.md)：梳理关键姿态动作生成、智能原语、群体批量推理与官方演示。
 
   - **[2026-11-07]** 新增 [Isaac Lab 3.0 多后端与柔体操作](./10-具身智能其他仿真工具及仿真前沿/16-IsaacLab3多后端与柔体操作/README.md)：介绍多后端仿真、网线插拔和抽桌布示例，提供官方视频、源码与版本说明。
