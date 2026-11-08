@@ -4,6 +4,8 @@
 
 ## 入口文档
 
+- [Isaac Lab 3.0 多后端与柔体操作](16-IsaacLab3多后端与柔体操作/README.md) - 了解多后端仿真、网线插拔与抽桌布官方示例、视频和运行入口。
+
 - [MuJoCo Roadster 特技仿真](15-MuJoCo-Roadster特技仿真/README.md) - 理解喷气飞行轨迹优化、LQR 姿态修正与 MPC 着陆控制。
 
 - [PhysX-Omni 彩色资产生成实践](14-PhysX-Omni彩色资产生成实践/README.md) - 单图部件生成、Blackwell 环境兼容、权重校验、Isaac Sim 渲染及机器人碰撞验收边界。
