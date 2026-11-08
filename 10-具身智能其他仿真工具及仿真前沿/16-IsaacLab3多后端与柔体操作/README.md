@@ -2,7 +2,7 @@
 
 Isaac Lab 3.0 将机器人学习任务、物理求解、渲染和训练框架的接口进一步解耦。对于具身操作研究，它提供了从轻量仿真验证到大规模训练的共同工作流；网线插拔和抽桌布则让我们直观看到灵巧手、接触与柔性物体如何放进同一场景。
 
-> 本文是官方资料导读和示例运行指南，资料核对日期为 2026-11-08；视频来自官方演示。运行命令及硬件需求以对应版本的官方文档为准，本文未声称在本机完成仿真运行。
+> 本文是官方资料导读和示例运行指南，资料核对日期为 2026-11-08；视频来自官方演示。茶壶和咖啡视频在本机按下文所列配置录制，运行命令及硬件需求以对应版本的官方文档为准。
 
 ## 1. 为什么值得学习？
 
@@ -70,7 +70,9 @@ uv run isaaclab example rizon-sharpa-teapot
 
 ### 2.4 Rizon–Sharpa Coffee：舀取、倒入和搅拌
 
-![灵巧手舀咖啡官方场景图](https://isaac-sim.github.io/IsaacLab/main/_static/environment-previews/rizon_sharpa_coffee.jpg)
+[![灵巧手舀咖啡本机视频预览](assets/coffee-preview.gif)](assets/coffee-local.mp4)
+
+[观看本机录制视频](assets/coffee-local.mp4)：2026-11-08 使用固定版本 `e3a79743`、`--water --physics_hz 120 --grains_per_particle 1`、Newton GL 查看器录制，视频 25.1 秒。脚本依次执行舀取、搬运、倒入、搅拌和收回，运行结束并通过其内置送达检查。画面为脚本控制的仿真，勺子以运动学方式跟随手掌。
 
 官方[咖啡示例说明（固定版本）](https://github.com/isaac-sim/IsaacLab/blob/e3a79743e3119b82ebb72e8e3e2410c9275cc168/source/isaaclab_tasks/isaaclab_tasks/contrib/rizon_sharpa_coffee/README.md)展示 Rizon 4s 和 SHARPA 灵巧手舀咖啡粉、倒入杯中；开启水后还会模拟粉末进入液体、颜色扩散和搅拌。控制器根据测得的勺子位置切换预设动作阶段，再通过 IK［逆运动学］驱动机械臂及手指。勺子通过运动学方式跟随手掌，抓取勺子的过程需要单独构建。
 

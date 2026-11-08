@@ -104,9 +104,9 @@
       <br><sub>本机仿真 · 水流入碗并有洒落</sub> · <a href="./10-具身智能其他仿真工具及仿真前沿/16-IsaacLab3多后端与柔体操作/assets/teapot-local.mp4">观看视频</a>
     </td>
     <td width="33%" valign="top" align="center">
-      <a href="./10-具身智能其他仿真工具及仿真前沿/16-IsaacLab3多后端与柔体操作/README.md#24-rizonsharpa-coffee舀取倒入和搅拌"><img src="https://isaac-sim.github.io/IsaacLab/main/_static/environment-previews/rizon_sharpa_coffee.jpg" width="100%" alt="官方灵巧手咖啡仿真场景"></a>
+      <a href="./10-具身智能其他仿真工具及仿真前沿/16-IsaacLab3多后端与柔体操作/assets/coffee-local.mp4"><img src="./10-具身智能其他仿真工具及仿真前沿/16-IsaacLab3多后端与柔体操作/assets/coffee-preview.gif" width="100%" alt="灵巧手舀咖啡本机仿真视频预览"></a>
       <br><strong><a href="./10-具身智能其他仿真工具及仿真前沿/16-IsaacLab3多后端与柔体操作/README.md#24-rizonsharpa-coffee舀取倒入和搅拌">灵巧手舀咖啡</a></strong>
-      <br><sub>官方场景图 · 启动、录制与训练路线</sub>
+      <br><sub>本机仿真 · 舀粉、倒入与搅拌</sub> · <a href="./10-具身智能其他仿真工具及仿真前沿/16-IsaacLab3多后端与柔体操作/assets/coffee-local.mp4">观看视频</a>
     </td>
   </tr>
   <tr>
