@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "width": 640,
+  "height": 360,
+  "position_tolerance_m": 0.0002,
+  "rotation_tolerance_rad": 0.002,
+  "cameras": [
+    {
+      "prim_path": "/World/envs/env_0/robot/poke_wrist_camera_link/WristCamera",
+      "environment_index": 0,
+      "applied_schemas": [
+        "OmniLensDistortionFthetaAPI"
+      ],
+      "xform_op_order": [
+        "xformOp:translate",
+        "xformOp:orient",
+        "xformOp:scale"
+      ],
+      "usd_mount_position_error_m": 0.0,
+      "usd_mount_rotation_error_rad": 1.3040943178617893e-16,
+      "physx_mount_position_error_m": 5.6142606280965125e-08,
+      "physx_mount_rotation_error_rad": 7.109085520563483e-08,
+      "lens_attributes_match": true,
+      "optical_settings_match": true
+    }
+  ]
+}
