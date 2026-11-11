@@ -327,6 +327,8 @@
 
   ## 🔥 News & Highlights
 
+  - **[2026-11-11]** 新增 [FloodDiffusion 2 流式人体动作生成](./07-机器人操作、运动控制/Locomotion/11-FloodDiffusion2流式人体动作生成/README.md)：介绍文字与路径控制、多窗口共享历史、几何损失和官方复现流程。
+
   - **[2026-11-08]** 更新 [UniSuperMimic 全身动作跟踪](./07-机器人操作、运动控制/Locomotion/08-UniSuperMimic世界模型全身动作跟踪/README.md)：增加视频动作、训练加速、灵巧手实战和 41 个社区项目的完整中文合集。
 
   - **[2026-11-05]** 新增 [MotionBricks 与 CrowdBricks 实时动作生成](./07-机器人操作、运动控制/Locomotion/10-MotionBricks与CrowdBricks实时动作生成/README.md)：梳理关键姿态动作生成、智能原语、群体批量推理与官方演示。
