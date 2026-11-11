@@ -76,6 +76,13 @@
 <table align="center">
   <tr>
     <td width="33%" valign="top" align="center">
+      <a href="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/22-RoboAPI云端动作模型与RoboLab仿真实测/assets/local-mugs-dual.mp4"><img src="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/22-RoboAPI云端动作模型与RoboLab仿真实测/assets/local-mugs-dual-preview.gif" width="100%" alt="RoboAPI 本机仿真：机械臂扶正白杯，外部视角与腕部鱼眼视角"></a>
+      <br>
+      <strong><a href="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/22-RoboAPI云端动作模型与RoboLab仿真实测/README.md">RoboAPI 腕部鱼眼与白杯扶正</a></strong>
+      <br>
+      <sub>本机仿真 · 杂物桌面双视角 · 任务成功</sub> · <a href="./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/22-RoboAPI云端动作模型与RoboLab仿真实测/assets/local-mugs-dual.mp4">观看视频</a>
+    </td>
+    <td width="33%" valign="top" align="center">
       <a href="./07-机器人操作、运动控制/Locomotion/09-DribbleAMP人形机器人足球带球/assets/g1-stadium.mp4"><img src="./07-机器人操作、运动控制/Locomotion/09-DribbleAMP人形机器人足球带球/assets/g1-stadium-preview.gif" width="100%" alt="G1 人形机器人球场带球仿真预览"></a>
       <br>
       <strong><a href="./07-机器人操作、运动控制/Locomotion/09-DribbleAMP人形机器人足球带球/README.md">G1 人形机器人足球带球</a></strong>
@@ -89,6 +96,8 @@
       <br>
       <sub>Isaac Lab 官方仿真 · 脚本控制</sub> · <a href="./10-具身智能其他仿真工具及仿真前沿/16-IsaacLab3多后端与柔体操作/assets/rj45-official.mp4">观看视频</a>
     </td>
+  </tr>
+  <tr>
     <td width="33%" valign="top" align="center">
       <a href="./10-具身智能其他仿真工具及仿真前沿/16-IsaacLab3多后端与柔体操作/assets/tablecloth-official.mp4"><img src="./10-具身智能其他仿真工具及仿真前沿/16-IsaacLab3多后端与柔体操作/assets/tablecloth-preview.gif" width="100%" alt="Isaac Lab 五工位抽桌布官方视频预览"></a>
       <br>
@@ -96,8 +105,6 @@
       <br>
       <sub>Isaac Lab 官方仿真 · 柔性布料</sub> · <a href="./10-具身智能其他仿真工具及仿真前沿/16-IsaacLab3多后端与柔体操作/assets/tablecloth-official.mp4">观看视频</a>
     </td>
-  </tr>
-  <tr>
     <td width="33%" valign="top" align="center">
       <a href="./10-具身智能其他仿真工具及仿真前沿/16-IsaacLab3多后端与柔体操作/assets/teapot-local.mp4"><img src="./10-具身智能其他仿真工具及仿真前沿/16-IsaacLab3多后端与柔体操作/assets/teapot-preview.gif" width="100%" alt="茶壶倒水本机仿真视频预览"></a>
       <br><strong><a href="./10-具身智能其他仿真工具及仿真前沿/16-IsaacLab3多后端与柔体操作/README.md#23-teapot-fill茶壶倒水与液体仿真">茶壶倒水与液体仿真</a></strong>
@@ -108,13 +115,13 @@
       <br><strong><a href="./10-具身智能其他仿真工具及仿真前沿/16-IsaacLab3多后端与柔体操作/README.md#24-rizonsharpa-coffee舀取倒入和搅拌">灵巧手舀咖啡</a></strong>
       <br><sub>本机仿真 · 舀粉、倒入与搅拌</sub> · <a href="./10-具身智能其他仿真工具及仿真前沿/16-IsaacLab3多后端与柔体操作/assets/coffee-local.mp4">观看视频</a>
     </td>
+  </tr>
+  <tr>
     <td width="33%" valign="top" align="center">
       <a href="https://sunlight02.github.io/humanoid-badminton/"><img src="./07-机器人操作、运动控制/Locomotion/08-UniSuperMimic世界模型全身动作跟踪/assets/badminton-cover.svg" width="100%" alt="人形机器人羽毛球真机对打演示封面"></a>
       <br><strong><a href="https://sunlight02.github.io/humanoid-badminton/">人形机器人羽毛球对打</a></strong>
       <br><sub>独立研究 · 真机正反手与跳跃回球</sub> · <a href="https://sunlight02.github.io/humanoid-badminton/">观看视频</a>
     </td>
-  </tr>
-  <tr>
     <td width="33%" valign="top" align="center">
       <a href="https://supermimic.github.io/media/real/real_bay-wide.mp4"><img src="https://raw.githubusercontent.com/miao-org/awesome-supermimic/2467d16a13a7898d6ae01998b0c654fdfae5b2eb/assets/official/real-g1-wide.gif" width="100%" alt="SuperMimic 官方 G1 真机动作视频预览"></a>
       <br><strong><a href="./07-机器人操作、运动控制/Locomotion/08-UniSuperMimic世界模型全身动作跟踪/README.md">SuperMimic 全身动作跟踪</a></strong>
@@ -245,29 +252,12 @@
 
   <tr>
     <td width="33%" valign="top" align="center">
-      <a href="./16-专题组队学习/07-Jumper螃蟹机器人专题/assets/tripod-fresh999.mp4"><img src="./16-专题组队学习/07-Jumper螃蟹机器人专题/assets/posters/walk.gif" width="100%" alt="Jumper 螃蟹机器人三足步态行走仿真预览"></a>
-      <br>
-      <strong><a href="./16-专题组队学习/07-Jumper螃蟹机器人专题/03-Notebook/03_动作训练与评估.ipynb">Jumper 螃蟹机器人：三足步态行走</a></strong>
-      <br>
-      <sub>训练策略 · MuJoCo 仿真</sub> · <a href="./16-专题组队学习/07-Jumper螃蟹机器人专题/assets/tripod-fresh999.mp4">完整视频</a>
-    </td>
-    <td width="33%" valign="top" align="center">
-      <a href="./16-专题组队学习/07-Jumper螃蟹机器人专题/assets/jump-trained.mp4"><img src="./16-专题组队学习/07-Jumper螃蟹机器人专题/assets/posters/jump.gif" width="100%" alt="Jumper 螃蟹机器人参考动作跳跃仿真预览"></a>
-      <br>
-      <strong><a href="./16-专题组队学习/07-Jumper螃蟹机器人专题/03-Notebook/06_跳跃_参考动作训练与评估.ipynb">Jumper 螃蟹机器人：参考动作跳跃</a></strong>
-      <br>
-      <sub>训练策略 · MuJoCo 仿真</sub> · <a href="./16-专题组队学习/07-Jumper螃蟹机器人专题/assets/jump-trained.mp4">完整视频</a>
-    </td>
-    <td width="33%" valign="top" align="center">
       <a href="./16-专题组队学习/07-Jumper螃蟹机器人专题/assets/dance-final.mp4"><img src="./16-专题组队学习/07-Jumper螃蟹机器人专题/assets/posters/dance.gif" width="100%" alt="Jumper 螃蟹机器人参考动作舞蹈仿真预览"></a>
       <br>
       <strong><a href="./16-专题组队学习/07-Jumper螃蟹机器人专题/03-Notebook/07_舞蹈_参考动作训练与评估.ipynb">Jumper 螃蟹机器人：参考动作舞蹈</a></strong>
       <br>
       <sub>训练策略 · MuJoCo 仿真</sub> · <a href="./16-专题组队学习/07-Jumper螃蟹机器人专题/assets/dance-final.mp4">完整视频</a>
     </td>
-  </tr>
-
-  <tr>
     <td width="33%" valign="top" align="center">
       <a href="./10-具身智能其他仿真工具及仿真前沿/15-MuJoCo-Roadster特技仿真/README.md"><img src="https://raw.githubusercontent.com/xkhainguyen/roadster-stunt/a726d1a23ee1954d7376e6e48cc7c4460fd3ac4f/docs/kickflip.gif" width="100%" alt="Roadster 汽车空中翻转 MuJoCo 仿真预览"></a>
       <br>
@@ -276,6 +266,8 @@
       <sub>社区开源演示：喷气推力与空中翻转</sub>
     </td>
   </tr>
+
+
 
 </table>
 
