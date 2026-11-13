@@ -1,0 +1,147 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>果蝇连接组与机器人控制</title><style>body{background:#eff5f7;color:#203a48;margin:0;font:16px/1.8 system-ui,"Noto Sans CJK SC",sans-serif}main{max-width:1080px;margin:32px auto;padding:42px 52px;background:#fff;border-radius:18px;box-shadow:0 10px 40px #153d5018}h1{font-size:2.2rem;line-height:1.3;color:#12445b}h2{margin-top:2em;border-bottom:1px solid #dce9eb;padding-bottom:.3em;color:#14556c}h3{color:#17637b}a{color:#08799a}img,video{max-width:100%;height:auto;border-radius:8px}table{border-collapse:collapse;width:100%;display:block;overflow:auto}td,th{padding:10px;border:1px solid #d8e7eb;text-align:left;vertical-align:top}th{background:#eaf5f7}pre{padding:18px;background:#122b38;color:#e3f5f5;border-radius:8px;overflow:auto}@media(max-width:700px){main{margin:0;padding:22px 18px;border-radius:0}h1{font-size:1.7rem}}</style></head><body><main><h1 id="_1">果蝇神经连接组：从数字果蝇到机械臂控制</h1>
+<p>这篇把果蝇神经图谱、脑网络仿真与机器人身体控制放在一条学习线上：先理解 <strong>FlyWire 的神经连接数据</strong>，再看 Eon 如何将脑模型与虚拟果蝇身体连接，最后对照本机已有源码的 <strong>FlyArm 机械臂仿真实验</strong>。这些项目使用不同连接组和神经元模型，适合并列学习。</p>
+<video controls preload="metadata" src="./assets/flyarm-robot-brain.mp4" poster="./assets/flyarm-preview.gif" aria-label="FlyArm 作者演示：机械臂动作与神经活动"></video>
+<p><em>视频：FlyArm 作者提供的仿真回放，左侧为机械臂执行任务，右侧为选取的 3,200 个神经元活动；点击播放<a href="./assets/flyarm-robot-brain.mp4">完整视频</a>。来源：<a href="https://github.com/yusenthebot/FlyArm">FlyArm 项目</a>，此视频是作者演示，不是本教程新增实验。</em></p>
+<h2 id="1">1. 图片中的说法对应什么</h2>
+<p>截图提到 <strong>FlyWire</strong>、约 <strong>13.9 万神经元</strong>和 <strong>5,000 万个突触</strong>。FlyWire 论文确实报告：对一只成年雌性果蝇大脑的重建包含 <strong>139,255 个神经元和约 5,450 万个化学突触</strong>。这是通过图像重建得到的神经元及其连接资料；神经活动如何随时间演化，还需要建立计算模型。<a href="https://www.nature.com/articles/s41586-024-07558-y">FlyWire 原论文</a></p>
+<p>截图未标出机甲视频的作者、项目名称或代码地址，因此暂时无法确认画面的具体出处。下面列出的是与其描述<strong>相关且有来源的开源项目</strong>，并单独标明各自的演示和模型。</p>
+<table>
+<thead>
+<tr>
+<th>资料或项目</th>
+<th>使用什么</th>
+<th>输出或展示</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FlyWire</td>
+<td>成年雌性果蝇脑连接图及神经元标注</td>
+<td>连接、细胞类别等数据</td>
+<td><a href="https://www.nature.com/articles/s41586-024-07558-y">论文</a> · <a href="https://github.com/flyconnectome/flywire_annotations">标注代码</a></td>
+</tr>
+<tr>
+<td>Eon fly-brain</td>
+<td>基于 FlyWire 的简化脉冲神经元模型</td>
+<td>受刺激或抑制后的神经活动模拟；仓库提供多个计算后端</td>
+<td><a href="https://github.com/eonsystemspbc/fly-brain">代码仓库</a> · <a href="https://eon.systems/updates/embodied-brain-emulation">身体连接说明</a></td>
+</tr>
+<tr>
+<td>NeuroMechFly / FlyGym</td>
+<td>果蝇身体、关节、接触和感官的物理仿真</td>
+<td>可供控制器使用的虚拟果蝇身体</td>
+<td><a href="https://github.com/NeLy-EPFL/flygym">FlyGym 代码</a> · <a href="https://neuromechfly.org/">项目文档</a></td>
+</tr>
+<tr>
+<td>FlyArm</td>
+<td>雄性果蝇全中枢神经系统连接组 MaleCNS，外加训练过的输入和输出接口</td>
+<td>控制 MuJoCo［物理仿真引擎］中的 Franka 机械臂</td>
+<td><a href="https://github.com/yusenthebot/FlyArm">项目与结果</a> · <a href="https://yusenthebot.github.io/FlyArm/">交互演示</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>数量口径：</strong>FlyWire 论文的 5,450 万是重建出的化学突触数量；程序经筛选、聚合同一对神经元之间的多个突触后，会得到不同数量的神经元连接或边。Eon 仓库简介写约 500 万个“synapses”；比较这一数字与论文突触总数前，需要核对数据版本、筛选和统计单位。<a href="https://github.com/eonsystemspbc/fly-brain">Eon 代码说明</a></p>
+<h3 id="_2">原始论文和作者资料</h3>
+<table>
+<thead>
+<tr>
+<th>来源</th>
+<th>回答什么问题</th>
+<th>阅读入口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dorkenwald 等，2024 年《自然》</td>
+<td>13.9 万神经元的大脑连接图从何而来</td>
+<td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11446842/">论文全文</a> · <a href="https://doi.org/10.5281/zenodo.10676866">连接数据</a></td>
+</tr>
+<tr>
+<td>Shiu 等，2024 年《自然》</td>
+<td>如何根据连接图构建脉冲神经元模型，以及模型预测与生物实验如何比较</td>
+<td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11446845/">论文全文</a> · <a href="https://github.com/philshiu/Drosophila_brain_model">论文作者代码</a></td>
+</tr>
+<tr>
+<td>Wang-Chen 等，2024 年《自然·方法》</td>
+<td>虚拟果蝇的身体、感官和物理交互如何建立</td>
+<td><a href="https://www.nature.com/articles/s41592-024-02497-y">论文</a> · <a href="https://zenodo.org/records/12973000">论文代码快照</a></td>
+</tr>
+<tr>
+<td>Eon 团队，2026 年技术说明</td>
+<td>脑模型怎样与虚拟果蝇身体连接</td>
+<td><a href="https://eon.systems/updates/embodied-brain-emulation">作者方法说明</a> · <a href="https://eon.systems/updates/first-multi-behavior-brain-upload">原始演示说明</a> · <a href="https://github.com/eonsystemspbc/fly-brain">开源脑模型</a></td>
+</tr>
+</tbody>
+</table>
+<p>Shiu 等人的论文报告，在 <strong>164 项可以用实验核对的模型预测中，91% 与实验一致</strong>；这是论文所述的神经回路预测检验。Eon 后续把相关脑模型与身体仿真及控制接口结合，不能把这个百分比直接当作机械臂任务成功率。<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11446845/">论文结果</a></p>
+<h2 id="2">2. 从神经图谱到可行动的身体</h2>
+<pre><code class="language-text">环境刺激 / 机器人状态
+       ↓  设计或学习输入映射
+感觉通路 → 神经元模型与连接组 → 选取的下行神经元活动
+                                      ↓  设计或学习输出映射
+                             控制器 → 仿真身体 / 机械臂
+                                      ↓
+                            身体运动产生新的观测
+</code></pre>
+<p>连接图描述的是神经元之间的线路。要让它参与控制，还要确定神经元更新规则、外界刺激如何输入、哪些神经活动被读出，以及读出结果如何转换为身体动作。</p>
+<p>Eon 的<a href="https://eon.systems/updates/embodied-brain-emulation">技术说明</a>描述了虚拟果蝇的闭环：将刺激映射到相关神经通路，更新脑网络，读取部分下行信号，再由身体控制器转换为动作并反馈感官变化。身体使用 NeuroMechFly，物理演化使用 MuJoCo［物理仿真引擎］。其说明同时指出，输入和脑到身体的映射有人工设计，展示中采用既有身体控制器；该说明所述的视觉活动当时尚未显著影响行为输出。</p>
+<p>Eon 的 <a href="https://github.com/eonsystemspbc/fly-brain"><code>fly-brain</code> 仓库</a>目前主要提供脑网络仿真与后端比较入口；<a href="https://github.com/NeLy-EPFL/flygym">FlyGym</a>另行提供果蝇身体仿真。阅读时应分别检查代码、数据及身体接口，按各上游项目说明准备环境。</p>
+<h2 id="3-flyarm">3. FlyArm：把连接组接到机械臂</h2>
+<p>FlyArm 适合作为本专题的机器人操作案例。本机已有一份项目工作副本：<code>/data/Data14TB/01Proj/FlyArm-20261018</code>；可公开查阅<a href="https://github.com/yusenthebot/FlyArm">作者仓库</a>和<a href="https://yusenthebot.github.io/FlyArm/">交互展示</a>。仓库中的代码与实验记录保留在原项目中。</p>
+<p><img alt="FlyArm 输入、连接组、输出与物理仿真流程" src="./assets/flyarm-pipeline.png" /></p>
+<p><em>图：FlyArm 作者的流程图。来源：<a href="https://github.com/yusenthebot/FlyArm/blob/main/docs/figures/pipeline-caption.md">流程图及说明</a>。</em></p>
+<ol>
+<li><strong>输入</strong>：仿真器提供机械臂、物体、场景状态以及当前任务提示；输入编码器将这些信息写入上行神经元。</li>
+<li><strong>连接组</strong>：使用 MaleCNS v1.0 雄性果蝇中枢神经系统资料；作者报告网络有 166,700 个神经元，图中约 1,050 万条连接经过所述突触阈值筛选。连接权重在策略学习中固定。</li>
+<li><strong>输出</strong>：从下行及运动神经元读出活动，经训练的线性解码器映射成机械臂动作，仿真器执行并产生下一次状态。</li>
+<li><strong>训练</strong>：项目先用示教和 DAgger［数据集聚合模仿学习］，再用带示教项的 PPO［近端策略优化］训练接口；机械臂实验中还会通过固定的连接组更新输入编码器。</li>
+</ol>
+<p>这个实验使用的是<strong>神经元活动率模型</strong>，输入是仿真器状态，任务顺序由任务计划提供；项目当前展示的是机械臂仿真。它与截图中的 FlyWire 雌性脑图谱、脉冲神经元模型及未知机甲视频不是同一个已确认的实现。<a href="https://github.com/yusenthebot/FlyArm#scope-and-limits">作者方法和范围</a></p>
+<h3 id="_3">作者报告的结果</h3>
+<p>FlyArm 对多步操作任务报告了以下完整任务成功率，分别比较训练与测试条件；这是作者报告的<strong>单个训练种子</strong>结果：</p>
+<table>
+<thead>
+<tr>
+<th>测试条件</th>
+<th style="text-align: right;">模仿学习</th>
+<th style="text-align: right;">加入强化学习后</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>同分布</td>
+<td style="text-align: right;">63.4%</td>
+<td style="text-align: right;">76.3%</td>
+</tr>
+<tr>
+<td>未见物体</td>
+<td style="text-align: right;">64.7%</td>
+<td style="text-align: right;">82.6%</td>
+</tr>
+<tr>
+<td>未见家具</td>
+<td style="text-align: right;">28.1%</td>
+<td style="text-align: right;">36.6%</td>
+</tr>
+<tr>
+<td>未见任务组合</td>
+<td style="text-align: right;">17.2%</td>
+<td style="text-align: right;">26.6%</td>
+</tr>
+</tbody>
+</table>
+<p>作者也在 FrankaKitchen 仿真中展示多任务结果，并给出神经元消融和连接打乱对照的研究记录；连接组布线相对其他网络的优势仍在研究中。更详细的任务、分母和检查点见<a href="https://github.com/yusenthebot/FlyArm#results">项目结果</a>和<a href="https://github.com/yusenthebot/FlyArm/blob/main/docs/RESEARCH_LOG.md">实验记录</a>。</p>
+<h2 id="4">4. 还有哪些可以一起看</h2>
+<ul>
+<li><a href="https://github.com/SpikeCalls/FlyDrones">FlyDrones</a>：探索将摄像头和手势信息映射到神经模型，再转为无人机高层指令。作者明确标注网页演示使用 850 个手工搭建的神经元；完整 MaleCNS 数据需要另行准备，浏览器演示不能当成全连接组实测。</li>
+<li><a href="https://lnsgroup.cc/research/FlyGM/">FlyGM 论文与项目页</a>：把果蝇连接图作为图模型结构，用强化学习控制仿真果蝇行走与飞行；项目页当前将代码标为待发布。</li>
+<li><a href="https://github.com/flyconnectome/flywire_annotations">FlyWire 标注与数据入口</a>：查找细胞类别和连接图数据；数据、模型与代码应分别查看对应许可。</li>
+</ul>
+<h2 id="5">5. 从哪里开始</h2>
+<ol>
+<li>先看 <a href="https://eon.systems/updates/embodied-brain-emulation">Eon 的身体连接说明</a>，理解感觉输入、神经活动和身体控制如何接起来。</li>
+<li>打开 <a href="https://yusenthebot.github.io/FlyArm/">FlyArm 交互展示</a>，观察机械臂动作、部分神经元活动和消融结果。</li>
+<li>按研究目标选择 <a href="https://github.com/eonsystemspbc/fly-brain">脑网络代码</a>、<a href="https://github.com/NeLy-EPFL/flygym">果蝇身体仿真</a>或 <a href="https://github.com/yusenthebot/FlyArm">机械臂实验代码</a>。本专题尚未在当前机器启动新的训练或复现。</li>
+</ol>
+<p>本机 FlyArm 工作副本的上游说明以 Apple Silicon［苹果芯片］和 MLX［苹果机器学习框架］为主要运行配置；本机 NVIDIA［英伟达显卡］环境需先核对对应后端与依赖，不能直接套用苹果平台耗时。代码许可证及连接组、机器人模型等数据许可分别见各项目说明；例如 FlyArm 代码为 Apache-2.0，而上游数据保留各自许可。</p></main></body></html>
