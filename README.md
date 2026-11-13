@@ -319,6 +319,8 @@
 
   ## 🔥 News & Highlights
 
+  - **[2026-11-13]** 更新 [SuperMimic、InstantTrack 与 BlinkMimic 训练加速专题](./07-机器人操作、运动控制/Locomotion/08-UniSuperMimic世界模型全身动作跟踪/04-SuperMimic与InstantTrack-BlinkMimic训练加速.md)：补充三者技术演进、同机实测与 v1.4 版本对照。
+
   - **[2026-11-11]** 新增 [FloodDiffusion 2 流式人体动作生成](./07-机器人操作、运动控制/Locomotion/11-FloodDiffusion2流式人体动作生成/README.md)：介绍文字与路径控制、多窗口共享历史、几何损失和官方复现流程。
 
   - **[2026-11-11]** 新增 [RoboAPI 云端动作模型与 RoboLab 仿真实测](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/22-RoboAPI云端动作模型与RoboLab仿真实测/README.md)：覆盖腕部相机适配、三个桌面操作场景、本机视频、调用额度与逐轮推理延迟。

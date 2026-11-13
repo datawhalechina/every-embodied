@@ -115,7 +115,7 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 </tr>
 <tr>
 <td valign="top" nowrap="nowrap"><strong><a href="#instanttrack">InstantTrack</a></strong>&nbsp;<a href="https://github.com/Huy-Quang-Dao/instantTrack/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Huy-Quang-Dao/instantTrack.svg?style=social"></a><br>作者：Huy-Quang-Dao</td>
-<td valign="top"><strong>Update · v1.2：约 7 分钟达到 0/40 失败。</strong> 单张 RTX 5090，5 个种子平均，回报 ≥ 0.82 且连续三个检查点达标；加入 Muon、CUDA Graph 和更小策略。下方保留原 15 分钟结果。</td>
+<td valign="top"><strong>Update · v1.4：2.74 分钟达到连续三个检查点 0/40 失败。</strong> 单张 RTX 5090，15 个种子的开发版结果；v1.3 已吸收 BlinkMimic 改进，v1.4 进一步优化并行执行。详见<a href="./04-SuperMimic与InstantTrack-BlinkMimic训练加速.md">训练加速专题</a>。</td>
 </tr>
 <tr>
 <td valign="top" nowrap="nowrap"><strong><a href="#blinkmimic">BlinkMimic</a></strong>&nbsp;<a href="https://github.com/fuyichen0725/blinkmimic/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/fuyichen0725/blinkmimic.svg?style=social"></a><br>作者：Fuyi Chen</td>
@@ -279,6 +279,8 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 <a name="-instanttrack"></a>
 
 ### ⭐ InstantTrack [![GitHub stars](https://img.shields.io/github/stars/Huy-Quang-Dao/instantTrack.svg?style=social)](https://github.com/Huy-Quang-Dao/instantTrack/stargazers)
+
+**版本更新（2026-11-13 核查）：**[v1.4.0](https://github.com/Huy-Quang-Dao/instantTrack/blob/b9512a96d4e82e6ddea9a6de3b03276888bbcb2c/README.md#whats-new-in-v14) 在一张 RTX 5090 上，15 个种子的开发代码平均 2.74 分钟达到回报 ≥ 0.82、40 条动作零失败且连续三个检查点达标；发布代码另有三个种子平均 2.77 分钟。v1.3 吸收 BlinkMimic 改动，v1.4 增加目标批量编码和并行训练执行。v1.3 对 v1.4 的达标时间差异在该样本中尚未达到作者的显著性判断。三者详细比较与复现入口见[训练加速专题](./04-SuperMimic与InstantTrack-BlinkMimic训练加速.md)。以下 v1.2 数据是历史版本。
 
 [仓库](https://github.com/Huy-Quang-Dao/instantTrack) · [安装](https://github.com/Huy-Quang-Dao/instantTrack/blob/019ae20a83c443a057736789b891a77dcc95505e/README.md#setup) · [结果与消融](https://github.com/Huy-Quang-Dao/instantTrack/blob/019ae20a83c443a057736789b891a77dcc95505e/README.md#results) · [训练预设](https://github.com/Huy-Quang-Dao/instantTrack/blob/019ae20a83c443a057736789b891a77dcc95505e/scripts/presets.sh) · [版本记录](https://github.com/Huy-Quang-Dao/instantTrack/blob/019ae20a83c443a057736789b891a77dcc95505e/CHANGELOG.md)
 

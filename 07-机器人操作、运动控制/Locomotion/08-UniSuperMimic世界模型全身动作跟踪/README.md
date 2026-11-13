@@ -2,7 +2,7 @@
 
 本章介绍 [Motphys 的 Uni-SuperMimic](https://github.com/Motphys/Uni-SuperMimic)：它是在 UniLab 上对 [SuperMimic](https://supermimic.github.io/) 的独立复现，目标是让 Unitree G1 跟踪多种参考动作。项目提供 LAFAN1 与 BONES-SEED 数据处理、训练、评测和视频导出，支持 mjwarp、MuJoCo 和 Motrix 后端。
 
-**学习路线：**本页介绍方法与基础训练；[视频动作与社区复现实战](./02-视频动作与社区复现.md)介绍视频到参考动作、训练加速和灵巧手任务；[SuperMimic 社区项目完整合集](./03-SuperMimic社区项目完整合集.md)保留 41 个项目的中文分类、演示与原始来源。
+**学习路线：**本页介绍方法与基础训练；[视频动作与社区复现实战](./02-视频动作与社区复现.md)介绍视频到参考动作、训练加速和灵巧手任务；[SuperMimic 社区项目完整合集](./03-SuperMimic社区项目完整合集.md)保留 41 个项目的中文分类、演示与原始来源；[SuperMimic、InstantTrack 与 BlinkMimic 加速专题](./04-SuperMimic与InstantTrack-BlinkMimic训练加速.md)对照三者的方法、版本和训练效率。
 
 ![UniSuperMimic 策略与参考动作对比](https://raw.githubusercontent.com/Motphys/Uni-SuperMimic/main/docs/assets/supermimic_comparison.gif)
 
@@ -20,7 +20,7 @@ SuperMimic 先从物理仿真采集状态和动作转换，训练可微的动力
                        想象轨迹 → 梯度更新策略
 ```
 
-论文的研究结果、Motphys 的独立实现及本章教程应分别理解。截图显示的是社区演示；仓库将其实现标注为独立复现，不能直接视为论文作者原始代码。本章尚未运行训练或评测。
+论文的研究结果、Motphys 的独立实现及本章教程分别对应不同来源。截图显示社区演示，Motphys 将其实现标注为独立复现；[SuperMimic 论文作者的正式代码](https://github.com/HybridRobotics/supermimic)已公开。本章尚未运行训练或评测。
 
 ## 从羽毛球比赛视频到全身动作跟踪
 
@@ -108,6 +108,7 @@ CUDA_VISIBLE_DEVICES=0 uv run unisupermimic-eval \
 
 ## 继续阅读
 
-- 原论文：[SuperMimic: Scaling Humanoid Whole-Body Control with One Differentiable World Model](https://arxiv.org/abs/2610.28480)
+- 原论文：[SuperMimic: Scaling Humanoid Whole-Body Control with One Differentiable World Model](https://arxiv.org/abs/2610.28480)；[论文作者代码](https://github.com/HybridRobotics/supermimic)
+- [SuperMimic、InstantTrack 与 BlinkMimic 加速专题](./04-SuperMimic与InstantTrack-BlinkMimic训练加速.md)：方法传承、源代码机制、同机实测对照和 v1.4 版本更新
 - 项目与安装、训练、评测：[Motphys/Uni-SuperMimic](https://github.com/Motphys/Uni-SuperMimic)
 - 仓库已有内容：[UniLab + MotrixSim 异构机器人强化学习](../../../10-具身智能其他仿真工具及仿真前沿/11UniLab-MotrixSim异构RL训练/README.md)
