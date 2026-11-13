@@ -127,6 +127,11 @@
       <br><strong><a href="./07-机器人操作、运动控制/Locomotion/08-UniSuperMimic世界模型全身动作跟踪/README.md">SuperMimic 全身动作跟踪</a></strong>
       <br><sub>论文作者真机演示 · 翻滚与起身</sub> · <a href="https://supermimic.github.io/media/real/real_bay-wide.mp4">观看视频</a>
     </td>
+    <td width="33%" valign="top" align="center">
+      <a href="https://www-ye.github.io/ego2robot_blog/assets/ego2robot_video.mp4"><img src="https://www-ye.github.io/ego2robot_blog/assets/fig_ego2r_realplay_gallery.png" width="100%" alt="Ego2Robot 官方演示：人手操作转成机器人合成视频"></a>
+      <br><strong><a href="./09-具身智能数据及评估基准benchmark/05-Ego2Robot第一视角人类视频转机器人数据/README.md">Ego2Robot：人手视频转机器人数据</a></strong>
+      <br><sub>作者演示 · 合成对照与真机实验</sub> · <a href="https://www-ye.github.io/ego2robot_blog/assets/ego2robot_video.mp4">观看视频</a>
+    </td>
   </tr>
   <tr>
     <td width="33%" valign="top" align="center">
@@ -319,6 +324,8 @@
 
   ## 🔥 News & Highlights
 
+  - **[2026-11-13]** 新增 [Ego2Robot 第一视角视频转机器人数据](./09-具身智能数据及评估基准benchmark/05-Ego2Robot第一视角人类视频转机器人数据/README.md)：结合官方视频讲解动作重定向、机械臂合成、质量筛选和真实机器人实验。
+
   - **[2026-11-13]** 新增 [hiRobot 与 hiWBC 机器人接口和全身控制部署](./07-机器人操作、运动控制/04-hiRobot与hiWBC统一部署/README.md)：整理项目开源状态、硬件支持、仿真与策略接入，并提供本机验证的无硬件接口示例。
 
   - **[2026-11-13]** 新增 [果蝇连接组与机器人控制](./07-机器人操作、运动控制/Manipulation/03-果蝇连接组与机器人控制/README.md)：串联 FlyWire、Eon 数字果蝇、FlyArm 机械臂和相关开源项目。
@@ -477,7 +484,7 @@
 
 | 章节                  | 关键内容                                    | 状态 |
 | :-------------------- | :------------------------------------------ | :--- |
-| **9. 具身智能benchmark和数据讲解** | [LIBERO](./09-具身智能数据及评估基准benchmark/01-libero.md)、[SimplerENV](./09-具身智能数据及评估基准benchmark/02-simplerenv.md)       | ✅    |
+| **9. 具身智能benchmark和数据讲解** | [LIBERO](./09-具身智能数据及评估基准benchmark/01-libero.md)、[SimplerENV](./09-具身智能数据及评估基准benchmark/02-simplerenv.md)、[Ego2Robot 第一视角视频转机器人数据](./09-具身智能数据及评估基准benchmark/05-Ego2Robot第一视角人类视频转机器人数据/README.md)       | ✅    |
 | **10. VLA 大模型**    | [RoboAPI 云端动作模型与仿真实测](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/22-RoboAPI云端动作模型与RoboLab仿真实测/README.md)、[SmolVLA 训练和部署](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/01SmolVLA-LIBERO/01SmolVLA-libero.md)、[OpenVLA部署](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/02OpenVLA复现/02openvla复现.md)、[DiT4DiT-LIBERO 训练与评估](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/05DiT4DiT-LIBERO/01DiT4DiT-LIBERO训练与评估.md)、[RT-1 / RT-2 / RT-X 论文解读与代码分析](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/03RT系列论文解读与代码分析/01RT系列论文解读与代码分析.md)、[EventVLA 视觉证据记忆](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/06EventVLA视觉证据记忆导读/README.md)、[WALL-OSS 开源 VLA 模型](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/07WALL-OSS开源VLA模型导读/README.md)、[WALL-X 工程框架导航](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/08WALL-X开源工程框架导航/README.md)、[3DVLA 三维空间实例增强 VLA](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/09-3DVLA三维空间实例增强VLA导读/README.md)、[PhysBrain 1.0 物理常识增强 VLA](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/10-PhysBrain物理常识增强VLA导读/README.md)、[PRTS 强化学习原生 VLA](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/11-PRTS强化学习原生VLA导读/README.md)、[Galaxea G0.5 自回归 VLA](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/12-Galaxea-G0.5自回归VLA导读/README.md)、[Dexora 高自由度双臂灵巧 VLA](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/13-Dexora高自由度双臂灵巧VLA导读/README.md)、[LWD 真机机群强化学习](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/14-LWD真机机群强化学习导读/README.md)、[VisualThink-VLA 视觉证据推理](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/15-VisualThink-VLA视觉证据推理导读/README.md)、[Agentic-VLA 在线适应](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/16-Agentic-VLA在线适应导读/README.md)、[Dexbotic-RLinf 工程化 VLA 后训练](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/17-Dexbotic-RLinf工程化VLA后训练导读/README.md)、[DM0.5 高性能推理与 OpenDM](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/18-DM0.5高性能推理与OpenDM导读/README.md)、[EVA-Client 真机部署与评测](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/19-EVA-Client真机部署与评测工程导航/README.md)、[TurboVLA 轻量 VLA 精读](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/21-TurboVLA轻量视觉语言动作模型精读/README.md) 、[SmolWAM 轻量世界动作模型](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/12SmolWAM轻量世界动作模型/README.md) | ✅    |
 | **11. 具身世界模型** | [LeWM 世界模型分析解读与实验复现](./17-具身世界模型/Leworldmodel分析解读与实验复现/Leworldmodel分析解读与实验复现.md)、[RAW-Dream 任务无关世界模型强化 VLA 导读](./17-具身世界模型/RAW-Dream任务无关世界模型强化VLA/README.md)、[WoG 条件空间世界模型导读](./17-具身世界模型/WoG条件空间世界模型导读/README.md)、[WALL-WM 事件级世界动作模型](./17-具身世界模型/WALL-WM事件级世界动作模型导读/README.md)、[RoboDream 可组合世界模型数据合成导读](./17-具身世界模型/RoboDream可组合世界模型数据合成导读/README.md)、[Gamma-World 多智能体世界模型](./17-具身世界模型/Gamma-World多智能体世界模型导读/README.md)、[BWM 动作条件世界模型](./17-具身世界模型/BWM动作条件世界模型导读/README.md)、[τ0-WM 统一视频-动作世界模型](./17-具身世界模型/tau0-WM统一视频动作世界模型导读/README.md)、[GE-Sim 2.0 闭环视频世界模拟器](./17-具身世界模型/GE-Sim-V2闭环视频世界模拟器导读/README.md)、[SmolWAM 轻量世界动作模型](./06-策略抓取或抓取VLA/大模型控制、VLA、VLM/12SmolWAM轻量世界动作模型/README.md) | ✅    |
 | **12. 导航与主动感知**    | [VLN概念基础](./08-具身导航及VLN/03前沿VLN复现/01VLNCE/02ETPNav代码复现.md)、[ETPNav](./08-具身导航及VLN/03前沿VLN复现/01VLNCE/02ETPNav代码复现.md)、[NBS 主动感知路径规划](./08-具身导航及VLN/03前沿VLN复现/03-主动感知NBS导读/README.md)  | ✅    |
