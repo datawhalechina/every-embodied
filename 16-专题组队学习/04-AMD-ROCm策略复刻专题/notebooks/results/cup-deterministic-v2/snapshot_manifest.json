@@ -1,0 +1,30 @@
+{
+  "source_run_root": "/home/aup/amd-notebook-work/cup-deterministic-20261028-v2",
+  "experiment": "reuse40 verified demonstrations, deterministic20000 updates,30 held-out policy rollouts",
+  "files_sha256": {
+    "training-metrics.json": "b163159e6b6847a05ad1a1c2004d3d12cc046f894974050695f6d7f7efc848c2",
+    "early-closedloop-comparison.json": "5137904849e048744868af4e1f8ea25a3d1ffa3df1269c66636cba4669e49b51",
+    "failure-seed2000.gif": "82aa305d2993d7ad01b3076042cfaba3dc4e2e82ed8426e4c79fe0a36ce5d144",
+    "collection-summary.json": "0e6c750a12f4f1af7636d55c24cadbc672ddf05cff60493558cdacdb8ee8e1a3",
+    "recipe.json": "22098436e764960ce778abae526c10f1df2a3e9b5a8eda2580bd2ff497d9d4a7",
+    "evaluation.jsonl": "8af4e36671d459933455dc3f7e37a45e1bf6526add58042b49b49da5d1222fbf",
+    "replay.jsonl": "5a1282b086fb335c4c79e656ba5031f4bbd18aecdd045406d41335d861e01a9d",
+    "evaluation-summary.json": "a758b7038d55ceb737a842441b7cfdc0b7daf9f3b4d32442751333142c3c6063",
+    "paired-scene-verification.json": "169a11930c9e3ad24bd213bc0b222862d3eae19bc4bf19217d22892242af3c16",
+    "runtime-profile.json": "0842e780cc4d15268690cdfbdf38bf70070e894f6927db8aade6df2c29d48bfa",
+    "failure-seed2000.mp4": "b8fdc20d800005d91a6dc4b7990ba37073fb20e97fa47e58fd6ad5182dede652",
+    "pipeline_state.json": "8b7fc5295c5f0b4c404947e37077aa49521fb2c2c131bd13e51a7c41b2eb5bda",
+    "collection-example.mp4": "577b9ac5185653f5ffa0c43e14461981e4b981203394285515a0efcff9e830f8",
+    "progress.json": "06b1e63b19de35f10886ea576aea6da9dbbc56ee9ae9c2fb497b429577295620",
+    "replay-summary.json": "e5ac5763f112744fa114708b3109bedbc2fe5db0f392624f0701cb219bf8dde0",
+    "success-seed2002.gif": "c7ed37b2b7d1d4103f23946755cb45da1261caa5f28887112611439ada213c84",
+    "expert-prediction-comparison.json": "22515d39e0b680f3b8abae4769a9e0b93bd552ac85aadf84362055cb14c02bb5",
+    "input-migration.json": "074058bd656bdcbcafdbaf48f55a1b52c7837991592a3d17cad4a76a76b30133",
+    "success-seed2002.mp4": "210085f07fee2495ace1abf8a7437481adcc4447baf2b0baa61bb0c7c0103fee",
+    "training-prediction-audit.json": "afc5c67c01a81ed97917389bcbfd49aa9c60843d7ca703e9320ff686deecc868",
+    "collection-example.gif": "a39d45f81ffdbeeb9ee0f832f354a49dd115d0416be0d99fd1d3c0d3df629fad",
+    "full-closedloop-review.json": "42a42e67f7394445e89e24039416f663c4081fca301c7255c78fdd071d1e439b",
+    "actual_full_execution.ipynb": "aa49cd4239acaf8c8e5eb4b2f36a2191c25ce40196bd1e70c9fe168d18244836",
+    "media.json": "3216dbdaeced9d178b7971f782cb1b4a519bb49270bb906ac9b54e6f4cd7511f"
+  }
+}

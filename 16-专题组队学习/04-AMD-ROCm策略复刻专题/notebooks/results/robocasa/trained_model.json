@@ -1,0 +1,17 @@
+{
+  "step": 3000,
+  "steps_start": 0,
+  "metrics_recovery": {
+    "retained_rows": 0,
+    "archived_rows": 0
+  },
+  "loss": 0.034190669655799866,
+  "checkpoint": "/home/aup/amd-notebook-work/runs/robocasa-formal-20261023-v1/checkpoint.pt",
+  "checkpoint_sha256": "9d64f32346807e6071261b150434cbcaa0765c3a4a0569617e5bf51f9ce000fe",
+  "parameter_digest_before": "44014008f7aa553609179d9030646de87dc73b1b2f916aecb03ece02b7b26bdd",
+  "parameter_digest_after": "145566726189ce4e7a9f86aa836ba65bb9d52973d06a847013127545d41bd559",
+  "trainable_parameters": 201437184,
+  "gpu_peak_bytes": 11531051008,
+  "duration_s": 1525.5604140758514,
+  "recipe": "GR00T vlln + vl_self_attention only; all other parameters frozen; no gradient accumulation"
+}

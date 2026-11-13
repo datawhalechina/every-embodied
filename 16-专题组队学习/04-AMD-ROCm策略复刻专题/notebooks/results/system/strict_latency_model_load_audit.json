@@ -1,0 +1,7 @@
+{
+  "adapter_tensor_count": 20,
+  "paligemma_variant": "gemma_2b_lora",
+  "action_expert_variant": "gemma_300m_lora",
+  "remove_extra_params": false,
+  "loader_contract": "strict-adapters-v2"
+}

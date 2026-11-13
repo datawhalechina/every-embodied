@@ -1,0 +1,23 @@
+{
+  "scope": "single forward contract probe; no optimizer updates; independent of formal collection/training/evaluation",
+  "features": {
+    "observation.image": [
+      3,
+      256,
+      256
+    ],
+    "observation.wrist_image": [
+      3,
+      256,
+      256
+    ],
+    "observation.state": [
+      6
+    ]
+  },
+  "loss": 66.2435302734375,
+  "trainable_parameters": 51557255,
+  "frozen_parameters": 52,
+  "peak_gib": 0.7554950714111328,
+  "hip": "7.13.26162"
+}

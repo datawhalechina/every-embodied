@@ -1,0 +1,25 @@
+{
+  "source_run_root": "/home/aup/amd-notebook-work/cup-full-20261027-v1",
+  "experiment": "real collection, replay, 5000 updates, 30 held-out policy rollouts",
+  "files_sha256": {
+    "training-metrics.json": "35f36e39f1e48491297d07332575e8a1ecb81d70f9cbdbc254c25bff84936b07",
+    "failure-seed2000.gif": "e5d792676b617d6fc93ad53f2b839a1f56195e1917291612e5958da6b7862beb",
+    "collection-summary.json": "0e6c750a12f4f1af7636d55c24cadbc672ddf05cff60493558cdacdb8ee8e1a3",
+    "recipe.json": "6bf39506ab355d795fe86388d0632010fe624c1dd043302f3d303128557b0002",
+    "evaluation.jsonl": "c2c95fa0ad84bea5391dcbae8c037a5f83b5a8344287ebedadf075d8fab5e621",
+    "replay.jsonl": "5a1282b086fb335c4c79e656ba5031f4bbd18aecdd045406d41335d861e01a9d",
+    "evaluation-summary.json": "06e710abc42221f17f9bf03abeb081c79cbf1952c0e8b02df61d24fd9cb3a9a9",
+    "runtime-profile.json": "9b9fa287f9dba1dba2641190277c09a60413be5de13ac2cfd9b3c5b7e1242e12",
+    "failure-seed2000.mp4": "8dfc450c3940da9796b4f8e230d2324c5dd8f5df81b4ff63ba713ab5ac965f9e",
+    "pipeline_state.json": "f48049805f511fe19a5f646788c2c82250fdc1a93d597791e7a96b270c4ed595",
+    "collection-example.mp4": "577b9ac5185653f5ffa0c43e14461981e4b981203394285515a0efcff9e830f8",
+    "progress.json": "289089ec9ec59b67f7abe16e5252e839cdeb99792007bb0ffba7e270f975a1ee",
+    "replay-summary.json": "e5ac5763f112744fa114708b3109bedbc2fe5db0f392624f0701cb219bf8dde0",
+    "success-seed2002.gif": "54862a8841fb984e5b517942ba507cdb640c3b6f8a6b65be63717c8a009b53ce",
+    "success-seed2002.mp4": "d5f397730dc5e88a1ef396853eebeece195a52d6424d57277f3272f0f3b98ab4",
+    "model-contract-probe.json": "219ca2cfd0817f1f7df85ee817524700ed5908cc724412726636f0c7addce5de",
+    "collection-example.gif": "a39d45f81ffdbeeb9ee0f832f354a49dd115d0416be0d99fd1d3c0d3df629fad",
+    "actual_full_execution.ipynb": "8facf5326c57f55bba3e653e0504b81c8e3d4b76e74f6befbccb3e64babade59",
+    "media.json": "f1953289007fbf94136f171d4b8b7f952a74fcf7bd50edc69c27afd8d496f911"
+  }
+}

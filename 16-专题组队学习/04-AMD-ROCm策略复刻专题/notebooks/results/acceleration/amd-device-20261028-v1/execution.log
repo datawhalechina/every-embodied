@@ -1,0 +1,16 @@
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+NOTEBOOK COMPLETE 00_加速实验入口与比赛材料.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+NOTEBOOK COMPLETE 01_推理计时与重复数据搬运.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+NOTEBOOK COMPLETE 02_固定形状计算图重放.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+NOTEBOOK COMPLETE 03_MuJoCo多步调用与状态一致性.ipynb
+Native benchmark native 0 2.1272161792730913
+Native benchmark eager 0 2.750669006840326
+Native benchmark eager 1 2.7171812439337373
+Native benchmark native 1 2.124600625014864
+Native benchmark native 2 2.1182326497510076
+Native benchmark eager 2 2.7130954019958153
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+NOTEBOOK COMPLETE 04_AMD原生条件图与历史结果复核.ipynb

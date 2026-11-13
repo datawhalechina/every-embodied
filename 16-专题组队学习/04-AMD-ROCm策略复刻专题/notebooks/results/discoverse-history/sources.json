@@ -1,0 +1,42 @@
+{
+  "expert-coverage.json": {
+    "source": "/home/aup/jiahang/discoverse-airbot-amd/local_runs/place_block_expert_coverage_500_20260717/summary.json",
+    "sha256": "09ded3f2c1bb1f60fd1b1471d30d3e05d8c7bb4cca41dd7dde3c10266f066ec9"
+  },
+  "hdf5-audit.json": {
+    "source": "/home/aup/jiahang/discoverse-airbot-amd/local_runs/place_block_hdf5_500_20260717/audit.json",
+    "sha256": "e3110e685f8ba38a7e258b5802463a89d019dc98597c363b067cc880754b6e6e"
+  },
+  "act-evaluation.json": {
+    "source": "/home/aup/jiahang/discoverse-airbot-amd/local_runs/act_place_block_data500_e1000_biasm1_20260717/eval_unseen10/summary.json",
+    "sha256": "48ece14b0f921f718c6d803ff4e1a9f6895eefe19d5eb5271cd00e7b378109d4"
+  },
+  "act-phases.json": {
+    "source": "/home/aup/jiahang/discoverse-airbot-amd/local_runs/act_place_block_data500_e1000_biasm1_20260717/eval_unseen10/phase_summary.json",
+    "sha256": "8a092d8c44bf3d5b663fb99c2d3e475c15b7fea18096b3c90d61ce236f031512"
+  },
+  "diffusion-evaluation.json": {
+    "source": "/home/aup/jiahang/discoverse-airbot-amd/local_runs/dp_place_block500_s5000_20260717/eval_fixed4/eval_0_summary.json",
+    "sha256": "06c2297bb0ba03be9862e8f8409d6208e16f74856672b4c7f06155f288432b0a"
+  },
+  "pi05-training.json": {
+    "source": "/home/aup/jiahang/discoverse-airbot-amd/local_runs/pi05_place_block500_expert_s500_20260717/training_summary.json",
+    "sha256": "879905689a4fb71e8b6b0386dc50ea84a6a8968a1e78f639a233a27ef101c53c"
+  },
+  "pi05-evaluation.json": {
+    "source": "/home/aup/jiahang/discoverse-airbot-amd/local_runs/pi05_place_block500_expert_s500_20260717/closedloop_fixed4/summary.json",
+    "sha256": "7fc4253de7ac645334709ced0a715d0c123fd6bfa4448c44326cbccb87f2b2ab"
+  },
+  "pi05-provenance.json": {
+    "source": "/home/aup/jiahang/discoverse-airbot-amd/local_runs/pi05_place_block500_expert_s500_20260717/checkpoint_provenance.json",
+    "sha256": "8ab94c5a79450f4b128ad99d733cf33de74f28f75df77c16c64ef1b9746fba0f"
+  },
+  "pi05-metrics.jsonl": {
+    "source": "/home/aup/jiahang/discoverse-airbot-amd/local_runs/pi05_place_block500_expert_s500_20260717.train.jsonl",
+    "sha256": "d37e97a1b378016420f7f6848a19073e6dc60cb4ef2a4de64c00f64c0c48eddf"
+  },
+  "act-training.log": {
+    "source": "/home/aup/jiahang/discoverse-airbot-amd/local_runs/act_place_block_data500_e1000_biasm1_20260717/train.log",
+    "sha256": "3cf9ec74d922311e686ac4ac58c208f9803e1eecd70eccae9d8f97cd8059a55d"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "state": "complete",
+  "started_unix": 1792717068.1487606,
+  "finished_unix": 1792717351.296376,
+  "stage": "prepare",
+  "result": {
+    "dataset_identity": "ce8c1eb1c67dc94e4acb8efa817e259284adf74119851eef84ccebc59f74c637",
+    "base_identity": "21640047e97354a64b658c00396bb2832b19f1c9775c2b7582ca4c9994f1f594",
+    "normalization_frames": null,
+    "normalization_frames_processed": 27745,
+    "normalization_batch_size": 5,
+    "normalization_workers": 2,
+    "normalization_sha256": "d247d8d633a6d2002f8501c1d312ea42f24a243d2f34363d202a1b94b9064c04",
+    "stats_path": "/home/aup/amd-notebook-work/runs/dexjoco-formal-20261023-v1/assets/water_plant/local_repo/norm_stats.json",
+    "model_config": "Pi0Config(action_dim=32, action_horizon=30, max_token_len=250, dtype='bfloat16', paligemma_variant='gemma_2b_lora', action_expert_variant='gemma_300m_lora', pi05=True, discrete_state_input=True, pytorch_compile_mode=None)",
+    "training_recipe": "upstream single-task or bimanual LoRA"
+  }
+}

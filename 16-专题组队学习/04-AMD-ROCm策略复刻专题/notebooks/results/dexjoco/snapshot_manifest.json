@@ -1,0 +1,99 @@
+{
+  "benchmark": "dexjoco",
+  "source_run_root": "/home/aup/amd-notebook-work/runs/dexjoco-formal-20261023-v1",
+  "formal_target_steps": 30000,
+  "selected_videos": [
+    {
+      "variant": "base",
+      "seed": 101,
+      "success": true,
+      "path": "videos/base_seed_101.mp4",
+      "checkpoint_sha256": "21640047e97354a64b658c00396bb2832b19f1c9775c2b7582ca4c9994f1f594"
+    },
+    {
+      "variant": "base",
+      "seed": 100,
+      "success": false,
+      "path": "videos/base_seed_100.mp4",
+      "checkpoint_sha256": "21640047e97354a64b658c00396bb2832b19f1c9775c2b7582ca4c9994f1f594"
+    },
+    {
+      "variant": "trained",
+      "seed": 104,
+      "success": true,
+      "path": "videos/trained_seed_104.mp4",
+      "checkpoint_sha256": "7cc8487f7609b05a255c6a942ff4f0f468302bf2bd6a08fafd3d4c7870115761"
+    },
+    {
+      "variant": "trained",
+      "seed": 100,
+      "success": false,
+      "path": "videos/trained_seed_100.mp4",
+      "checkpoint_sha256": "7cc8487f7609b05a255c6a942ff4f0f468302bf2bd6a08fafd3d4c7870115761"
+    }
+  ],
+  "files_sha256": {
+    "prepare_status.json": "dc75bd30a4fb54c81d7ed57bb73b9aeb8e810102cc0b4387dc2d8f863741d5b3",
+    "pipeline_train_config.json": "9ee5002ca902472cd49cddad53807aeb3f8007b1d70ea48ada975df1fcb37d31",
+    "metrics.jsonl": "7011e5d8f6f09d843c0a40e688a491cff4f9266243d43d52cc868429a42d4a91",
+    "evaluate_status.json": "c1eb10ae682dc703a8bab0824ceb96af1e656a9ae371fc952d14a2f53c4022a6",
+    "evaluation_config.json": "3b4b6299d15db4936cc51e931b8fd3d1c0cfd05887682eaa17118825eedfa140",
+    "training_measurements.json": "fb99e3e3aadcb1628797ea37a5345695f2ac4468a1e89ed7d24fc040dce9755c",
+    "pipeline_baseline_config.json": "af78c16530798dd576def3becb4e4979fef97d5a4fddca2ada1be8fb3fb59e12",
+    "preflight_status.json": "83d74129cc8b29ed04b5953191d772b1d0fb3253edb2d2df1794651696513c0e",
+    "trained_model.json": "f5b7a32768343a0158dd09cbe8a4634da6ef2382c36867b1c62f96e9d4dc5a52",
+    "cold_start_comparison.json": "e8109d9e97db22dcc8e9ec524c095ef04dd4c81804ac9f215f2b406e32d89554",
+    "prepared.json": "8ecd31e6461727db3687d2c6b8328f2a252a287a1302c409dc00e820014c936c",
+    "pipeline_evaluate_config.json": "af78c16530798dd576def3becb4e4979fef97d5a4fddca2ada1be8fb3fb59e12",
+    "train_status.json": "cd1a954d0865d41f69106b1582e7c6ed36a6abcf5504d15c53d05711ea127a6a",
+    "identity.json": "d6ade2ead0d94d9379378982197ce5a46fdd02e77ad25a805bbde7c752b9c395",
+    "dataset_info.json": "c30efbb0bf140cce007bf9e08494ce7ef630da0e24f9ef4d48671388fcfb954e",
+    "baseline_status.json": "97f4a5496ca95b7221c001c4db8d597be80c65cff7c138eb9fe0254c87aa86ba",
+    "formal_config.json": "af78c16530798dd576def3becb4e4979fef97d5a4fddca2ada1be8fb3fb59e12",
+    "formal_comparison.json": "6e4dfa0c5e7e94eacaab5938db77d8dfbf67b7f0cb37173fac1b87f7fe35a73e",
+    "official_async_comparison.json": "6e4dfa0c5e7e94eacaab5938db77d8dfbf67b7f0cb37173fac1b87f7fe35a73e",
+    "videos/base_seed_101.mp4": "488387a1f113db385cda8406d7e8a3deaa078924bb325f83e38a7c99cf865353",
+    "videos/trained_seed_100.mp4": "8374bffba4b0417e60f4ec77039d9064332cb0a5c51aaa58a489814826834d51",
+    "videos/base_seed_100.mp4": "6adbb52322ec115aa0c548297e1fbf9cb424e2050bb9954f5db098ee7b748368",
+    "videos/trained_seed_104.mp4": "f024b1d7c84118af70a7a631785547e3bd96a58e97da3504ea055988440c79de",
+    "videos/trained_seed_113.mp4": "683bdd2036b3973a1c244d52778f173fd7b076883b74938dcddd205b8669db06",
+    "eval_7cc8487f7609_94ddab9d/summary.json": "492bb77ba99021b0303a0232bc7009ec44c6c0713e43ab763aed8b22f7bb17f7",
+    "eval_7cc8487f7609_94ddab9d/results.jsonl": "36bcc3b68e5428f0f778f4baf319d36cb21e00bac30c3f1b856aa8ddb97310b6",
+    "eval_7cc8487f7609_94ddab9d/warmup.json": "f38843844e19b27e15c177bee0f7f8e5c63f3f91b800f16ddbee0a8544d2bf36",
+    "eval_7cc8487f7609_94ddab9d/model_load_audit.json": "b29a7b5387563dbb902bb73dc0f5f473d4c3efc1895d60ff0dc0fa4631442b3a",
+    "baseline_21640047e973_ee08c7bc/summary.json": "2428d04ae306c64be8af5065588885f65c52d12de634020697f0e0959c2bfa1f",
+    "baseline_21640047e973_ee08c7bc/results.jsonl": "dcb4d8840dce5662dd8359c348732d2e1374c26f4f24cadc78849a1cf88a0839",
+    "baseline_21640047e973_ee08c7bc/warmup.json": "ce3a564c6bd26f3b82aa4801d3d396e68a1e8265620006a0ababc69e9807f341",
+    "execution_validation/evaluate_status.json": "226d3e4ad91f6c6a5fe10a4f34ee3c13c8ca61b0509b8fabaa8639ecb2da84a5",
+    "execution_validation/trained_model.json": "ad91bdaef6da7c935fa2fbdebd3e3581bee84420b3b510b065eeb68c31b4d5da",
+    "execution_validation/front.mp4": "b84f3f55efe8493f53b0f6dd662fe5d4f94224436055a5d4232ca5733b70c89f",
+    "execution_validation/train_status.json": "5261498f09da55f4016db7cedc9a97eba66fcc42367d3d7733d420f15e472614",
+    "baseline_21640047e973_aa42e3d7/summary.json": "31ca1ed617989bf091dfebaf433a1ffb6173db8152632a32e7d75144fe905ea7",
+    "baseline_21640047e973_aa42e3d7/results.jsonl": "454294b6d865e544f86618fe60236b46b30583927013e364bab26973ed891ee6",
+    "baseline_21640047e973_3336cc47/summary.json": "3a7aadbc7a3ae0ceb7d3feeb30a7d07eaf37636c980ee6b69ad3a04c2bdbe67b",
+    "baseline_21640047e973_3336cc47/results.jsonl": "d791427516910aa267a3ca39e99a468cfe28ca2882d42ff71b12bed017f38bc5",
+    "baseline_21640047e973_3336cc47/warmup.json": "7a77db3483114aec777d7bc64667970fe8915dc60a830819f1e28e2d38b962f5",
+    "baseline_21640047e973_3336cc47/model_load_audit.json": "b29a7b5387563dbb902bb73dc0f5f473d4c3efc1895d60ff0dc0fa4631442b3a",
+    "historical_demos/official_seed0.mp4": "7c1144025d86dda7877e1f765c4b8fe48db6c9d85ee799786aa4b6ff250dc50b",
+    "eval_7cc8487f7609_e669ee8e/summary.json": "b31ae952ea05e6556b9a396c0c55d3ee08c17b67e567df274ee9e41ac4631d9a",
+    "eval_7cc8487f7609_e669ee8e/results.jsonl": "f7fca142135e5447e09ac351c70d7489a4fe3ceec53751cd2466f1c3c7f4141f",
+    "eval_7cc8487f7609_e669ee8e/warmup.json": "86d83015d6cebd9f1c0c75ebb024afe8b4130e6bbc64b201b6044117a191a9a8",
+    "eval_7cc8487f7609_091bdd82/summary.json": "a124ab1603eed18f47ab11ccd1c97a58ca8a90b721c704415d91ec5927531125",
+    "eval_7cc8487f7609_091bdd82/results.jsonl": "5c0f37a976931000ebcfc0ead34a0be4cc62629e3c44898648e5c15d08c5045c",
+    "cold_start_videos/trained_seed_100.mp4": "d1632557114c181889bc7b347ba1e695e07d7c37e41cf673a06d7a11007ed380",
+    "cold_start_videos/base_seed_100.mp4": "8049da88dc19fa8bd6f91a9c2318a41581baf7b6d479ed4e6be03e83eaf6ecf2",
+    "cold_start_videos/trained_seed_113.mp4": "683bdd2036b3973a1c244d52778f173fd7b076883b74938dcddd205b8669db06"
+  },
+  "snapshot_scope": "Recorded evidence; snapshot viewing never runs or resumes training.",
+  "refreshed_client_time": "2026-10-25T11:35:54.261873+08:00",
+  "historical_selected_videos": [
+    {
+      "variant": "base",
+      "seed": 0,
+      "success": true,
+      "path": "historical_demos/official_seed0.mp4",
+      "caption": "\u65e7\u65e5\u5fd7\u4e2d\u7684\u5b98\u65b9\u4efb\u52a1\u6743\u91cd\u6f14\u793a\uff1a\u79cd\u5b50 0 \u6210\u529f\uff1b\u4e0d\u8ba1\u5165\u672c\u8f6e 100\u2013119 \u7684\u6b63\u5f0f\u5206\u6bcd",
+      "scope": "Historical correctly loaded official task checkpoint demonstration only."
+    }
+  ]
+}

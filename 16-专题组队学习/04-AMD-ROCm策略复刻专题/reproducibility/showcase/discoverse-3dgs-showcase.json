@@ -1,0 +1,49 @@
+{
+  "project": "DISCOVERSE 3DGS",
+  "platform": "AMD Radeon / ROCm",
+  "renderer": "gaussian_renderer.gs_renderer_mujoco.GSRendererMuJoCo",
+  "protocol": {
+    "renderer_targets": 2,
+    "validation_frame_shape": [360, 640, 3],
+    "dynamic_videos": 2,
+    "dynamic_video_fps": 20,
+    "dynamic_video_duration_seconds": 4
+  },
+  "targets": [
+    {
+      "robot": "rm2",
+      "gaussian_enabled": true,
+      "gaussian_count": 1334537,
+      "frame": "assets/images/discoverse-3dgs/rm2-gaussian.png",
+      "frame_sha256": "7c3d178942c8e72366057aed788d4b400cf073f48c05315cd6964d60a1ea728a",
+      "frame_shape": [360, 640, 3]
+    },
+    {
+      "robot": "skyrover",
+      "gaussian_enabled": true,
+      "gaussian_count": 1026855,
+      "frame": "assets/images/discoverse-3dgs/skyrover-gaussian.png",
+      "frame_sha256": "88bc9db3246cbec37ed01892b0a8868d355d14ef38b6a37db098c680b0523472",
+      "frame_shape": [360, 640, 3]
+    }
+  ],
+  "videos": [
+    {
+      "robot": "franka",
+      "path": "assets/videos/discoverse-3dgs/franka-rocm-3dgs.mp4",
+      "sha256": "2f454f66d42db45e6d3bef5de28b3f2593eff0c5ed47cd50c93b9456c4552933",
+      "resolution": [400, 304],
+      "fps": 20,
+      "duration_seconds": 4
+    },
+    {
+      "robot": "ur5e",
+      "path": "assets/videos/discoverse-3dgs/ur5e-rocm-3dgs.mp4",
+      "sha256": "f924b47c7957632fd18de344ea1823f9b84f75dfc7c7fe708e287495ec08f5d2",
+      "resolution": [400, 304],
+      "fps": 20,
+      "duration_seconds": 4
+    }
+  ],
+  "provenance": "ROCm Gaussian renderer validation with dynamic Franka and UR5e playback evidence."
+}

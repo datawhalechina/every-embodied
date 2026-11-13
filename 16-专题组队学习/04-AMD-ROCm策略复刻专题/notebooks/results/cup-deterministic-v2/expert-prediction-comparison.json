@@ -1,0 +1,21 @@
+{
+  "scope": "Same 12 stored expert observations; separate from closed-loop evaluation",
+  "comparison": [
+    {
+      "recipe": "first_5000",
+      "strict_loading_passed": true,
+      "observations": 12,
+      "gripper_matches": 12,
+      "mean_joint_mae_rad": 0.021804891630179353,
+      "weights_sha256": "e332621cc67f5462990f21316847ec082d45fc911ef70264e6d0ed54124e39fc"
+    },
+    {
+      "recipe": "deterministic_20000",
+      "strict_loading_passed": true,
+      "observations": 12,
+      "gripper_matches": 12,
+      "mean_joint_mae_rad": 0.011733849274201525,
+      "weights_sha256": "b0e1b0e740f1669ebfd1e709bd34f146ed8ae6475e9c1b6637098bf62a14537e"
+    }
+  ]
+}

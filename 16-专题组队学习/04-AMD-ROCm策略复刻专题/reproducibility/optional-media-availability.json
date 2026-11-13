@@ -1,0 +1,5 @@
+{
+  "scope": "Archived cup figures and videos restored from original device tutorial; video hashes and decode checks in cup-restored-media.json.",
+  "missing_files": [],
+  "download_lane_failure": "Required lab-download route returned SSL error for raw host and HTTP 403 for API; no alternate resource route used."
+}

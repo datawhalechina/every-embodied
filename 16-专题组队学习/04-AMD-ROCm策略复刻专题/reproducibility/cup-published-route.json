@@ -1,0 +1,24 @@
+{
+  "public_repository": "https://github.com/datawhalechina/every-embodied",
+  "public_model_repository": "https://huggingface.co/Datawhale/every-embodied-smolvla-mujoco-pnp",
+  "public_weight_sha256": "abc335dbd4d4fdbfca8b188b22588b3d768747c9b4ee3051593a4a506c893e0d",
+  "public_weight_bytes": 1197790032,
+  "matches_verified_archive_weight": true,
+  "archive_commit": "48ae75d5772942b4f3e53be1c4906d435fb7953a",
+  "results": {
+    "red": "27/30",
+    "blue": "30/30",
+    "combined": "57/60"
+  },
+  "local_summary": "assets/smolvla_protected_summary.json",
+  "local_media": [
+    "assets/smolvla_weighted500_red_success_seed0.mp4",
+    "assets/smolvla_weighted500_red_failure_seed8.mp4",
+    "assets/smolvla_weighted500_blue_success_seed0.mp4"
+  ],
+  "public_documents": {
+    "README_04_SmolVLA_ROCm迁移与采样加权.md": "7899e8e1bd5582bd1099fa1775ea9600fb8bf738",
+    "README_08_预训练权重与零训练体验.md": "6401ae01b1cb3094ae1738220f054defe11bb923"
+  },
+  "verification_scope": "Public model tree metadata compared with prior server-verified archive; no model download, retraining or new evaluation"
+}

@@ -1,0 +1,8 @@
+{
+  "time_unix": 1792716497.510573,
+  "removed_rebuildable_bytes": 55597783543,
+  "cache_directories": 7,
+  "verified_retained_source_files": 904,
+  "free_gib_after": 54.693267822265625,
+  "selection_manifest": "cache_cleanup_selection.json"
+}

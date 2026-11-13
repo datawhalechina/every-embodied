@@ -1,0 +1,102 @@
+{
+  "checked_at": "2026-11-13T06:05:44-08:00",
+  "notebooks": [
+    {
+      "notebook": "03-DexJoCo灵巧手/03-Notebook/05_异步动作时序与物理时钟排障.ipynb",
+      "passed": true,
+      "code_cells": 12,
+      "seconds": 1.27,
+      "live_model_loaded": false,
+      "new_training": false
+    },
+    {
+      "notebook": "02-RoboCasa厨房操作/03-Notebook/02_历史多任务对照与结果复算.ipynb",
+      "passed": true,
+      "code_cells": 5,
+      "seconds": 1.11,
+      "live_model_loaded": false,
+      "new_training": false
+    },
+    {
+      "notebook": "00-设备与环境/03-Notebook/07_优化器归档与恢复内容校验.ipynb",
+      "passed": true,
+      "code_cells": 5,
+      "seconds": 0.9,
+      "live_model_loaded": false,
+      "new_training": false
+    },
+    {
+      "notebook": "03-DexJoCo灵巧手/03-Notebook/03_归一化与动作接口逐步排障.ipynb",
+      "passed": true,
+      "code_cells": 10,
+      "seconds": 1.11,
+      "live_model_loaded": false,
+      "new_training": false
+    },
+    {
+      "notebook": "03-DexJoCo灵巧手/03-Notebook/04_首次编译预热与随机状态恢复.ipynb",
+      "passed": true,
+      "code_cells": 10,
+      "seconds": 1.17,
+      "live_model_loaded": false,
+      "new_training": false
+    },
+    {
+      "notebook": "03-DexJoCo灵巧手/03-Notebook/02_加载故障复现与严格权重校验.ipynb",
+      "passed": true,
+      "code_cells": 11,
+      "seconds": 0.92,
+      "live_model_loaded": false,
+      "new_training": false
+    }
+  ],
+  "code_cells": 53,
+  "code_lines": 960,
+  "embedded_players": 6,
+  "unique_videos": 4,
+  "embedded_bytes_match_source": true,
+  "codec": "h264",
+  "raw_events_match_saved_summary": true,
+  "official_client_matches_original_diagnostic_manifest": true,
+  "browser_playback_checked": false,
+  "new_training_executed": false,
+  "new_full_evaluation_executed": false,
+  "players": [
+    {
+      "notebook": "03-DexJoCo灵巧手/03-Notebook/05_异步动作时序与物理时钟排障.ipynb",
+      "cell": 21,
+      "video": "notebooks/results/dexjoco/videos/base_seed_100.mp4",
+      "sha256": "6adbb52322ec115aa0c548297e1fbf9cb424e2050bb9954f5db098ee7b748368"
+    },
+    {
+      "notebook": "03-DexJoCo灵巧手/03-Notebook/05_异步动作时序与物理时钟排障.ipynb",
+      "cell": 23,
+      "video": "notebooks/results/dexjoco_clock/videos/base_seed_100.mp4",
+      "sha256": "2e95f8ee0062b3f38f9ab59daca59177ecdb90e9b178c11781ae043c38b0f6af"
+    },
+    {
+      "notebook": "03-DexJoCo灵巧手/03-Notebook/05_异步动作时序与物理时钟排障.ipynb",
+      "cell": 25,
+      "video": "notebooks/results/dexjoco_clock/videos/trained_seed_100.mp4",
+      "sha256": "12ed282916184a5f1d0344202634e88d259a62ae0677aeeb7ecff8e738520857"
+    },
+    {
+      "notebook": "03-DexJoCo灵巧手/03-Notebook/04_首次编译预热与随机状态恢复.ipynb",
+      "cell": 17,
+      "video": "notebooks/results/dexjoco/cold_start_videos/base_seed_100.mp4",
+      "sha256": "8049da88dc19fa8bd6f91a9c2318a41581baf7b6d479ed4e6be03e83eaf6ecf2"
+    },
+    {
+      "notebook": "03-DexJoCo灵巧手/03-Notebook/04_首次编译预热与随机状态恢复.ipynb",
+      "cell": 19,
+      "video": "notebooks/results/dexjoco/videos/base_seed_100.mp4",
+      "sha256": "6adbb52322ec115aa0c548297e1fbf9cb424e2050bb9954f5db098ee7b748368"
+    },
+    {
+      "notebook": "03-DexJoCo灵巧手/03-Notebook/02_加载故障复现与严格权重校验.ipynb",
+      "cell": 20,
+      "video": "notebooks/results/dexjoco/videos/base_seed_100.mp4",
+      "sha256": "6adbb52322ec115aa0c548297e1fbf9cb424e2050bb9954f5db098ee7b748368"
+    }
+  ]
+}

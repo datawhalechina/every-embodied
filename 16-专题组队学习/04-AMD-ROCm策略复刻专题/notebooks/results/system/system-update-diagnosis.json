@@ -1,0 +1,11 @@
+{
+  "apt_daily_active_state": "failed",
+  "apt_daily_result": "oom-kill",
+  "current_update_processes": 0,
+  "latest_service_peak_memory_gib": 37.8,
+  "package_audit": "dpkg --audit returned no findings",
+  "training_interrupted": false,
+  "training_process_pid": 1986530,
+  "observed_training_step": 23023,
+  "note": "Updater exited after an out-of-memory kill; this does not confirm successful system updates."
+}

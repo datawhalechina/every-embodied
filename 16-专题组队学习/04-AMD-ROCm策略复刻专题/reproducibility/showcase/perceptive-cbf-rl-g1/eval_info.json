@@ -1,0 +1,63 @@
+{
+  "schema": "perceptive-cbf-rl/upstream-freebase-sim2sim/v1",
+  "status": "complete",
+  "task": "Unitree-G1-AMP-Dodge-Depth-Single-BallOnly-Flat",
+  "upstream_repository": "https://github.com/lzyang2000/perceptive_cbf_rl",
+  "upstream_commit": "2d4266978805e8272daa7f029a8bca91cf45e1ba",
+  "checkpoint": "deploy/ckpts/dodge_link_cbf.onnx",
+  "checkpoint_sha256": "164f9ea7ce80709942905e4f5436c58c87680f086004176368d3593380f62f9a",
+  "observation_dim": 960,
+  "action_dim": 29,
+  "frame_offsets": [
+    0,
+    3,
+    8,
+    18
+  ],
+  "control_hz": 50,
+  "video_fps": 25,
+  "zero_velocity_command": true,
+  "free_base": true,
+  "modes": [
+    {
+      "mode": "duck",
+      "high_throw": true,
+      "aim_offset_y_m": 0.0,
+      "steps": 220,
+      "resets": 0,
+      "root_y_min_m": -0.03503887355327606,
+      "root_y_max_m": 0.014612914063036442,
+      "root_y_range_m": 0.049651787616312504,
+      "head_z_baseline_m": 1.2520763874053955,
+      "head_z_min_m": 1.0635910034179688,
+      "head_drop_m": 0.18848538398742676
+    },
+    {
+      "mode": "sidestep_right",
+      "high_throw": false,
+      "aim_offset_y_m": 0.22,
+      "steps": 220,
+      "resets": 0,
+      "root_y_min_m": -0.0006491916137747467,
+      "root_y_max_m": 0.2547639012336731,
+      "root_y_range_m": 0.25541309284744784,
+      "head_z_baseline_m": 1.2520852088928223,
+      "head_z_min_m": 1.2158937454223633,
+      "head_drop_m": 0.036191463470458984
+    },
+    {
+      "mode": "sidestep_left",
+      "high_throw": false,
+      "aim_offset_y_m": -0.22,
+      "steps": 220,
+      "resets": 0,
+      "root_y_min_m": -0.29861220717430115,
+      "root_y_max_m": 0.011010782793164253,
+      "root_y_range_m": 0.3096229899674654,
+      "head_z_baseline_m": 1.2520649433135986,
+      "head_z_min_m": 1.1709380149841309,
+      "head_drop_m": 0.08112692832946777
+    }
+  ],
+  "video": "pacman-g1-freebase-dodge-modes-1080p.mp4"
+}

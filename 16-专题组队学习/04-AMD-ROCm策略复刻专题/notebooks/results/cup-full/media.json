@@ -1,0 +1,17 @@
+[
+  {
+    "label": "\u672c\u6b21\u811a\u672c\u4e13\u5bb6\u91c7\u96c6\u6f14\u793a\uff0c\u79cd\u5b501000\uff1b\u72ec\u7acb\u4e8e\u5b66\u4e60\u7b56\u7565\u8bc4\u4f30",
+    "video": "collection-example.mp4",
+    "preview": "collection-example.gif"
+  },
+  {
+    "label": "\u672c\u6b21\u6b63\u5f0f\u8bc4\u4f30\u6210\u529f\uff0c\u79cd\u5b502002",
+    "video": "success-seed2002.mp4",
+    "preview": "success-seed2002.gif"
+  },
+  {
+    "label": "\u672c\u6b21\u6b63\u5f0f\u8bc4\u4f30\u5931\u8d25\uff0c\u79cd\u5b502000",
+    "video": "failure-seed2000.mp4",
+    "preview": "failure-seed2000.gif"
+  }
+]

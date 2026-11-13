@@ -1,0 +1,115 @@
+{
+  "task": "water_plant",
+  "steps": 30000,
+  "metrics_rows": 30000,
+  "baseline": {
+    "episodes": 20,
+    "successes": 5,
+    "success_rate": 0.25,
+    "seeds": [
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119
+    ],
+    "protocol": "official task termination and success predicate",
+    "checkpoint_sha256": "21640047e97354a64b658c00396bb2832b19f1c9775c2b7582ca4c9994f1f594",
+    "directory": "/home/aup/amd-notebook-work/runs/dexjoco-formal-20261023-v1/baseline_21640047e973_3336cc47",
+    "policy_variant": "base",
+    "warmup_policy": true,
+    "loader_contract": "strict-adapters-v2",
+    "model_load_audit": {
+      "adapter_tensor_count": 20,
+      "paligemma_variant": "gemma_2b_lora",
+      "action_expert_variant": "gemma_300m_lora",
+      "remove_extra_params": false,
+      "loader_contract": "strict-adapters-v2"
+    },
+    "warmup": {
+      "seconds": 19.355242121004267,
+      "rng_restored": true,
+      "action_shape": [
+        30,
+        22
+      ],
+      "scope": "Real reset observation; compile before any evaluated episode starts."
+    },
+    "validation_only": false
+  },
+  "trained": {
+    "episodes": 20,
+    "successes": 3,
+    "success_rate": 0.15,
+    "seeds": [
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119
+    ],
+    "protocol": "official task termination and success predicate",
+    "checkpoint_sha256": "7cc8487f7609b05a255c6a942ff4f0f468302bf2bd6a08fafd3d4c7870115761",
+    "directory": "/home/aup/amd-notebook-work/runs/dexjoco-formal-20261023-v1/eval_7cc8487f7609_94ddab9d",
+    "policy_variant": "trained",
+    "warmup_policy": true,
+    "loader_contract": "strict-adapters-v2",
+    "model_load_audit": {
+      "adapter_tensor_count": 20,
+      "paligemma_variant": "gemma_2b_lora",
+      "action_expert_variant": "gemma_300m_lora",
+      "remove_extra_params": false,
+      "loader_contract": "strict-adapters-v2"
+    },
+    "warmup": {
+      "seconds": 18.448507535998942,
+      "rng_restored": true,
+      "action_shape": [
+        30,
+        22
+      ],
+      "scope": "Real reset observation; compile before any evaluated episode starts."
+    },
+    "validation_only": false
+  },
+  "improved_seeds": [
+    111,
+    116
+  ],
+  "regressed_seeds": [
+    101,
+    102,
+    105,
+    113
+  ]
+}

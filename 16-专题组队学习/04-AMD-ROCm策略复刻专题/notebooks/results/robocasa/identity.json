@@ -1,0 +1,56 @@
+{
+  "benchmark": "robocasa",
+  "task": "PickPlaceCounterToCabinet",
+  "batch_size": 1,
+  "learning_rate": 1e-05,
+  "seed": 42,
+  "source_root": "/home/aup/robocasa365-policy/Isaac-GR00T",
+  "dataset_root": "/home/aup/robocasa-amd/datasets/robocasa365_mobile_hf/PickPlaceCounterToCabinet",
+  "base_model": "/home/aup/robocasa365-checkpoints/gr00t_n1-5_multitask_120000",
+  "dataset": {
+    "sha256": "12fe30f272a53dfab3f7716e777186f9d42edd09b8012e4ead7dac7f5b1fb6e0",
+    "files": [
+      {
+        "path": "meta/episodes/chunk-000/file-000.parquet",
+        "bytes": 935336,
+        "sha256": "5deb5003b97ccfc55bef41eb89a0e1f1550be4d4188af459eead7830a1120e0d"
+      },
+      {
+        "path": "meta/info.json",
+        "bytes": 4917,
+        "sha256": "a81da28d5ed15abf6bb886babd38a332bed38d35f866dcf74e5faa9e11bad376"
+      },
+      {
+        "path": "meta/tasks.parquet",
+        "bytes": 4327,
+        "sha256": "8eadc6bc1740aca8087d5c0e6b1cbab1d9af8d5174609a670972c8dc540df8f2"
+      }
+    ]
+  },
+  "base_model_identity": {
+    "sha256": "181b64f0bf07e46bacd13b3350e6be7d876c4081277cbacf91e941dd04f7907b",
+    "files": [
+      {
+        "path": "config.json",
+        "bytes": 1706,
+        "sha256": "6713ae6e9ee07ebf30f18a231bedcf9c06f8c64595d62529b6eb175498ef0526"
+      },
+      {
+        "path": "experiment_cfg/metadata.json",
+        "bytes": 14140,
+        "sha256": "8be0fc606c9220356bad497feefc4ae4daaa05670acccc31caecaa7ae5590b69"
+      },
+      {
+        "path": "model-00001-of-00002.safetensors",
+        "bytes": 4999367032,
+        "sha256": "08f1891947973e2e5ec2422201cd90261806f77f2634f9ec0477c27aa5a4fe42"
+      },
+      {
+        "path": "model-00002-of-00002.safetensors",
+        "bytes": 2586705312,
+        "sha256": "deb9c9cf40cd8983a7779af85341f6344db15f65bf3307073a0e3c3085450435"
+      }
+    ]
+  },
+  "training_recipe": "gr00t_vl_projector_only"
+}

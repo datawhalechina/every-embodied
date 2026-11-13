@@ -1,0 +1,83 @@
+{
+  "task": "PickPlaceCounterToCabinet",
+  "steps": 3000,
+  "metrics_rows": 3000,
+  "baseline": {
+    "episodes": 20,
+    "successes": 14,
+    "success_rate": 0.7,
+    "horizon": 750,
+    "official_horizon": 750,
+    "seeds": [
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119
+    ],
+    "split": "target",
+    "protocol": "official simulator stepping and success; fresh environment per explicit constructor seed",
+    "policy_variant": "base",
+    "validation_only": false,
+    "checkpoint_sha256": "181b64f0bf07e46bacd13b3350e6be7d876c4081277cbacf91e941dd04f7907b",
+    "directory": "/home/aup/amd-notebook-work/runs/robocasa-formal-20261023-v1/baseline_181b64f0bf07_ad82a04d"
+  },
+  "trained": {
+    "episodes": 20,
+    "successes": 14,
+    "success_rate": 0.7,
+    "horizon": 750,
+    "official_horizon": 750,
+    "seeds": [
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119
+    ],
+    "split": "target",
+    "protocol": "official simulator stepping and success; fresh environment per explicit constructor seed",
+    "policy_variant": "trained",
+    "validation_only": false,
+    "checkpoint_sha256": "9d64f32346807e6071261b150434cbcaa0765c3a4a0569617e5bf51f9ce000fe",
+    "directory": "/home/aup/amd-notebook-work/runs/robocasa-formal-20261023-v1/eval_9d64f3234680_4267a62d"
+  },
+  "improved_seeds": [
+    105,
+    116
+  ],
+  "regressed_seeds": [
+    101,
+    118
+  ]
+}

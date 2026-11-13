@@ -1,0 +1,206 @@
+[
+  {
+    "notebook": "00-\u8bbe\u5907\u4e0e\u73af\u5883/03-Notebook/00_\u4efb\u52a1\u5165\u53e3\u4e0e\u5df2\u8bb0\u5f55\u7ed3\u679c.ipynb",
+    "reading_code_cells": 2,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "00-\u8bbe\u5907\u4e0e\u73af\u5883/03-Notebook/01_device_env_check.ipynb",
+    "reading_code_cells": 5,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "00-\u8bbe\u5907\u4e0e\u73af\u5883/03-Notebook/05_pi0_smoke_gate.ipynb",
+    "reading_code_cells": 8,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "00-\u8bbe\u5907\u4e0e\u73af\u5883/03-Notebook/06_rocm_debug_playbook.ipynb",
+    "reading_code_cells": 7,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "01-\u6293\u676f\u5b50/03-Notebook/00_\u4efb\u52a1\u5165\u53e3\u4e0e\u5df2\u8bb0\u5f55\u7ed3\u679c.ipynb",
+    "reading_code_cells": 3,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "01-\u6293\u676f\u5b50/03-Notebook/02_physical_success_review.ipynb",
+    "reading_code_cells": 6,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "01-\u6293\u676f\u5b50/03-Notebook/03_act_dagger_diagnostics.ipynb",
+    "reading_code_cells": 6,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "01-\u6293\u676f\u5b50/03-Notebook/04_smolvla_weighted_sampling.ipynb",
+    "reading_code_cells": 6,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "01-\u6293\u676f\u5b50/03-Notebook/07_data_collection_and_audit.ipynb",
+    "reading_code_cells": 11,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "01-\u6293\u676f\u5b50/03-Notebook/08_act_training_rocm.ipynb",
+    "reading_code_cells": 11,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "01-\u6293\u676f\u5b50/03-Notebook/09_smolvla_training_rocm.ipynb",
+    "reading_code_cells": 11,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "01-\u6293\u676f\u5b50/03-Notebook/10_pi0_training_rocm.ipynb",
+    "reading_code_cells": 12,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "01-\u6293\u676f\u5b50/03-Notebook/11_mujoco_closed_loop_deploy.ipynb",
+    "reading_code_cells": 10,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "01-\u6293\u676f\u5b50/03-Notebook/12_pi0_strict_input_end_to_end.ipynb",
+    "reading_code_cells": 10,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "01-\u6293\u676f\u5b50/03-Notebook/13_pi05_random_position_eef_delta.ipynb",
+    "reading_code_cells": 13,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "01-\u6293\u676f\u5b50/03-Notebook/14_smolvla_end_to_end.ipynb",
+    "reading_code_cells": 12,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "01-\u6293\u676f\u5b50/03-Notebook/15_pi0_end_to_end.ipynb",
+    "reading_code_cells": 11,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "01-\u6293\u676f\u5b50/03-Notebook/16_act_end_to_end.ipynb",
+    "reading_code_cells": 11,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "01-\u6293\u676f\u5b50/03-Notebook/workflows/ordinary/14_smolvla_end_to_end.ipynb",
+    "reading_code_cells": 8,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "01-\u6293\u676f\u5b50/03-Notebook/workflows/ordinary/15_pi0_end_to_end.ipynb",
+    "reading_code_cells": 9,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "01-\u6293\u676f\u5b50/03-Notebook/workflows/ordinary/16_act_end_to_end.ipynb",
+    "reading_code_cells": 8,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "01-\u6293\u676f\u5b50/03-Notebook/workflows/protected/14_smolvla_end_to_end.ipynb",
+    "reading_code_cells": 8,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "01-\u6293\u676f\u5b50/03-Notebook/workflows/protected/15_pi0_end_to_end.ipynb",
+    "reading_code_cells": 9,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "01-\u6293\u676f\u5b50/03-Notebook/workflows/protected/16_act_end_to_end.ipynb",
+    "reading_code_cells": 9,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "02-RoboCasa\u53a8\u623f\u64cd\u4f5c/03-Notebook/00_\u4efb\u52a1\u5165\u53e3\u4e0e\u5df2\u8bb0\u5f55\u7ed3\u679c.ipynb",
+    "reading_code_cells": 3,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "02-RoboCasa\u53a8\u623f\u64cd\u4f5c/03-Notebook/17_robocasa365_amd_train_eval.ipynb",
+    "reading_code_cells": 15,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "03-DexJoCo\u7075\u5de7\u624b/03-Notebook/00_\u4efb\u52a1\u5165\u53e3\u4e0e\u5df2\u8bb0\u5f55\u7ed3\u679c.ipynb",
+    "reading_code_cells": 3,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "03-DexJoCo\u7075\u5de7\u624b/03-Notebook/18_dexjoco_amd_train_eval.ipynb",
+    "reading_code_cells": 18,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "04-DISCOVERSE\u4eff\u771f\u4e0e\u6e32\u67d3/03-Notebook/00_\u4efb\u52a1\u5165\u53e3\u4e0e\u5df2\u8bb0\u5f55\u7ed3\u679c.ipynb",
+    "reading_code_cells": 4,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "04-DISCOVERSE\u4eff\u771f\u4e0e\u6e32\u67d3/03-Notebook/01_\u6570\u636e\u751f\u6210\u8bad\u7ec3\u4e0e\u591a\u89c6\u89d2\u89c6\u9891.ipynb",
+    "reading_code_cells": 15,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "05-RoboWits\u5f02\u5e38\u6761\u4ef6\u64cd\u4f5c/03-Notebook/00_\u4efb\u52a1\u5165\u53e3\u4e0e\u5df2\u8bb0\u5f55\u7ed3\u679c.ipynb",
+    "reading_code_cells": 3,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "05-RoboWits\u5f02\u5e38\u6761\u4ef6\u64cd\u4f5c/03-Notebook/01_\u5b8c\u6574\u8bad\u7ec3\u4e0e\u5f02\u5e38\u6761\u4ef6\u8bc4\u4f30.ipynb",
+    "reading_code_cells": 15,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "06-\u5b87\u6811G1\u5b89\u5168\u63a7\u5236/03-Notebook/00_\u4efb\u52a1\u5165\u53e3\u4e0e\u5df2\u8bb0\u5f55\u7ed3\u679c.ipynb",
+    "reading_code_cells": 3,
+    "state": "passed",
+    "new_experiment_run": false
+  },
+  {
+    "notebook": "06-\u5b87\u6811G1\u5b89\u5168\u63a7\u5236/03-Notebook/01_\u63a7\u5236\u68c0\u67e5\u4e0e\u8bad\u7ec3\u8fc1\u79fb.ipynb",
+    "reading_code_cells": 14,
+    "state": "passed",
+    "new_experiment_run": false
+  }
+]

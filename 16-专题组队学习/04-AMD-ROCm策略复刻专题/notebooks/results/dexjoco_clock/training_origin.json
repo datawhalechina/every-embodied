@@ -1,0 +1,6 @@
+{
+  "origin": "/home/aup/amd-notebook-work/runs/dexjoco-formal-20261023-v1",
+  "reused_checkpoint": "/home/aup/amd-notebook-work/runs/dexjoco-formal-20261023-v1/checkpoints/water_plant/course/29999",
+  "training_repeated": false,
+  "scope": "Additional clock-controlled deployment comparison, separate from official asynchronous scores."
+}

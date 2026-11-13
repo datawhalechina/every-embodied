@@ -1,0 +1,26 @@
+[
+  {
+    "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-training-seeds-20261028-v1/seed1000/videos/act_full14_success_seed1000.mp4",
+    "bytes": 5450092,
+    "sha256": "832d7efc8107d9710067e4d53bae7e84a7aa3e11ae9fd3c6ea16d8fbcca1ee28",
+    "decoded": true
+  },
+  {
+    "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-training-seeds-20261028-v1/seed1019/videos/act_full14_failure_seed1019.mp4",
+    "bytes": 15991965,
+    "sha256": "d9c182584cb072614b10079f130ee4ba22c7900bdead9665e9647ec69e306082",
+    "decoded": true
+  },
+  {
+    "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-replan1-diagnostic-20261028-v1/seed2000/videos/act_full14_failure_seed2000.mp4",
+    "bytes": 12692486,
+    "sha256": "7574abd2ee41ea6bcc2dbedd936d36bdd6e33f88d0735101a8efc7cd9afffac3",
+    "decoded": true
+  },
+  {
+    "file": "/data/Data14TB/01Proj/every-embodied-amd/cup-replan1-diagnostic-20261028-v1/seed2001/videos/act_full14_failure_seed2001.mp4",
+    "bytes": 4409608,
+    "sha256": "4089c4412292c30f83020ef833ff16227912f3e8238c458901934e3aefcd34e0",
+    "decoded": true
+  }
+]

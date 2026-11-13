@@ -1,0 +1,209 @@
+{
+  "source_run": "/home/aup/amd-notebook-work/cup-full-20261027-v1",
+  "source_contract_hash": "393ffcd2d3683bd3e18f0f02c917d532bcc1c00f971b66fa7e201e884e2eaf0f",
+  "destination_run": "/home/aup/amd-notebook-work/cup-deterministic-20261028-v2",
+  "new_contract_hash": "e925c866a9967bb54841892a2ae41b4d44b973717a6f9b6eb732c74d3ffb8c71",
+  "scope": "Reuse40 verified input episodes and replay evidence; no training/evaluation results reused",
+  "input_parquet": [
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000000.parquet",
+      "bytes": 50639644,
+      "sha256": "f13ee6de670192eeaffca1183218237bab61bf78918ca9559a3cf3884b62d026"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000001.parquet",
+      "bytes": 47105946,
+      "sha256": "3b1ba2172db8cbbd4ca42790b63548cd0fbc5ed75c22f927247959d658d5a519"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000002.parquet",
+      "bytes": 48274157,
+      "sha256": "c05fab8ff671d351ba5a9fb1e33a5faa8c0877538ce02170951c5505a69b2dbe"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000003.parquet",
+      "bytes": 47998491,
+      "sha256": "2e698c204d53bad97a28ae248755f444c6bba60ae29771895edc625b0a57b3a8"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000004.parquet",
+      "bytes": 59826855,
+      "sha256": "6960ab859e0c4f9b4c2b4098d100ae04ef2d67d7d7ddc8bf8849302effef7fd9"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000005.parquet",
+      "bytes": 51437572,
+      "sha256": "1ba1669932145d7fd7d04a97cea3b125e187fee44dcdaee46fb20425892524fc"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000006.parquet",
+      "bytes": 47046402,
+      "sha256": "8ab2e079ae005b445187486883ee9fdb92ee41efe5b61cb14ce69ef94ceedbaf"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000007.parquet",
+      "bytes": 59200943,
+      "sha256": "e489881cbfd9b20f826f5c73bef14da5f1315081aa917fc7c39141c646335d7a"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000008.parquet",
+      "bytes": 60381961,
+      "sha256": "4a1c022a9dd5d7eee55241229df76063dfba90e826ede30fff6ec2bc49c81542"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000009.parquet",
+      "bytes": 49247713,
+      "sha256": "f1707ef863868624d38676336b48e12e08b6e5283cf30588829d24b7f2f9f2c1"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000010.parquet",
+      "bytes": 48864496,
+      "sha256": "e24e8d25c9e68fbbec313e3b92d34695b867d625ef55d1a883a5fe3fb5e7b5be"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000011.parquet",
+      "bytes": 48317406,
+      "sha256": "d9cce5ec1f0a4feab95c58708820fa8f409a034e4fdda26e638c436a514a4f1e"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000012.parquet",
+      "bytes": 57291210,
+      "sha256": "f3630380710cef8e5e59ebe7aaaf2f1c4073760922f0ded26ba58e6e03773ef4"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000013.parquet",
+      "bytes": 54406968,
+      "sha256": "12f2cbad78c3fad082353038561f26f8e31f7a9fb09d196fbe0d30b920b0d8a1"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000014.parquet",
+      "bytes": 58062499,
+      "sha256": "7de10e1ea8ddcc21b3fd7adec68781679a6fa86b37ec245d50bec60cc54165d2"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000015.parquet",
+      "bytes": 49882203,
+      "sha256": "65be39d4f25ab6b2aca725fabdc98ca3c1b5497ea4808dde9045468e43c903d2"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000016.parquet",
+      "bytes": 55998874,
+      "sha256": "5a1f93db49c7e5d2126241437847ff19f27e7e035bd06a9de97f0c22ad655364"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000017.parquet",
+      "bytes": 59544868,
+      "sha256": "cbbf232b1837f689957a872ce96e8611b1acfa03a0b7f5c15f1f60ca3dbc575b"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000018.parquet",
+      "bytes": 63618415,
+      "sha256": "ecf7c5374a0be183e6f8a8fd1e65738c29ba61301317a49dfcb795d20e4cad0a"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000019.parquet",
+      "bytes": 49859009,
+      "sha256": "22e1590d990a21da2754e135d8a6aaa5a341dc9190a5401a7d9541b0461fafd3"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000020.parquet",
+      "bytes": 50860555,
+      "sha256": "990092d9f89821a9a9a3529fae6e48a8dc9c688ec3fdaf47175a9f827e7f158d"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000021.parquet",
+      "bytes": 61787495,
+      "sha256": "e6d4b4887c9eb438580add197455f524a41637a63330186755fb42d2be37adeb"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000022.parquet",
+      "bytes": 66899647,
+      "sha256": "23590584fa0473f506ad0919a2172cff1335a958cea94a4438d072ceb73743e8"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000023.parquet",
+      "bytes": 56199475,
+      "sha256": "d6cbdb4ea55eb4ee667f2e2d84bfbc7189cf22e693b099b9855737705f9b3cce"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000024.parquet",
+      "bytes": 67195310,
+      "sha256": "b8caa2e82f3a8310d356cad1f9a00910d17a3be4063a2d2abc22817c4fa997df"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000025.parquet",
+      "bytes": 54355282,
+      "sha256": "fe068b669cc3dcbf0eeaf9aca3d331fd6c9a723bddc5e71c43fb2992be34b367"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000026.parquet",
+      "bytes": 62141456,
+      "sha256": "7206c25287de47904da0f4417bf13321e04bc0c0e015dc7a88635a29f7f75ebf"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000027.parquet",
+      "bytes": 49933451,
+      "sha256": "383ad4d9aaae7a8caacc9c75399be2ec15f11f6f0c57a76e6f4d53221b7938cb"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000028.parquet",
+      "bytes": 53060472,
+      "sha256": "dae76a59b2c7665e2fa8611df567bfc82869bb47d24534efddfe786bf2a08101"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000029.parquet",
+      "bytes": 47196366,
+      "sha256": "20dcadae5651c629c4febb2098d387a42cd77ca7cfab52a31ea43177eee8bb11"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000030.parquet",
+      "bytes": 47585420,
+      "sha256": "aa2e820e7f88d40b1c043a0f6fc7e0dcd2ecb637b9234d3d97e739e1ed42b1c8"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000031.parquet",
+      "bytes": 46847666,
+      "sha256": "1cdcbe7423ff8bbad8228452c5909d8703781ac02f02174896a88f64f3629fcd"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000032.parquet",
+      "bytes": 54242806,
+      "sha256": "5ddf0f175b7549da919435420ac0ca91a836575797c5c86e3d1f6b82c484d782"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000033.parquet",
+      "bytes": 54589352,
+      "sha256": "b47f414160c258671a3603e954b5f7646b4a1ff868d7996dcc3182c186aa00d0"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000034.parquet",
+      "bytes": 48059603,
+      "sha256": "a66bc40efc28b3f06e8b07e2e4805e7dcecbe8b4661ec624fd8e8e9b6630abc1"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000035.parquet",
+      "bytes": 60575313,
+      "sha256": "7cd27c91c0d0d6f72c7a51b23d407f14b85ace19ef394b67f7ae9adbc6f536e4"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000036.parquet",
+      "bytes": 46274223,
+      "sha256": "f019b85ab5631a9318cb8b68e71d5c066788b37e5cd8ddc21cc25ad2bfd511fd"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000037.parquet",
+      "bytes": 58290650,
+      "sha256": "470ae6358ba0ab01d70f4d1dd06e8d424c365074555d55258ea0567c74e640fc"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000038.parquet",
+      "bytes": 62303934,
+      "sha256": "adef4eeb43802600b541294f0be61bd3d5dd660a1f96e28fec60fb0a0d023e92"
+    },
+    {
+      "file": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset/data/chunk-000/episode_000039.parquet",
+      "bytes": 59231181,
+      "sha256": "58357a6c3fea5f94b2e22e5833a9379d3f2033cdb2cfb7d7184f0d228b4ed56a"
+    }
+  ]
+}

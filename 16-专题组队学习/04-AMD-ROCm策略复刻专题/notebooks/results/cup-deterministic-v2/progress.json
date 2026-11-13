@@ -1,0 +1,246 @@
+{
+  "state": {
+    "completed": {
+      "collect": {
+        "attempts": 40,
+        "saved_episodes": 40,
+        "frames": 15195
+      },
+      "audit": {
+        "repo_id": "amd_cup_red_v1",
+        "root": "/home/aup/amd-notebook-work/cup-full-20261027-v1/dataset",
+        "episodes": 40,
+        "legacy_success_count": 40,
+        "physical_success_count": 40,
+        "legacy_success_rate": 1.0,
+        "physical_success_rate": 1.0,
+        "episode_indexes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39
+        ],
+        "physical_min_lift": 0.06,
+        "physical_min_lift_steps": 3,
+        "physical_final_upright_cos": 0.85
+      },
+      "train": {
+        "updates": 20000,
+        "last_loss": 0.064675,
+        "elapsed_s": 2179.8,
+        "weights_sha256": "b0e1b0e740f1669ebfd1e709bd34f146ed8ae6475e9c1b6637098bf62a14537e"
+      },
+      "evaluate": {
+        "episodes": 30,
+        "physical_successes": 3,
+        "seeds": [
+          2000,
+          2001,
+          2002,
+          2003,
+          2004,
+          2005,
+          2006,
+          2007,
+          2008,
+          2009,
+          2010,
+          2011,
+          2012,
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025,
+          2026,
+          2027,
+          2028,
+          2029
+        ],
+        "horizon": 1200,
+        "weights_sha256": "b0e1b0e740f1669ebfd1e709bd34f146ed8ae6475e9c1b6637098bf62a14537e"
+      }
+    },
+    "contract_hash": "e925c866a9967bb54841892a2ae41b4d44b973717a6f9b6eb732c74d3ffb8c71",
+    "status": "complete",
+    "stage": "evaluate",
+    "input_migration": "/home/aup/amd-notebook-work/cup-deterministic-20261028-v2/input-migration.json",
+    "pid": 4108530,
+    "started_utc": "2026-10-28T05:31:33.373848+00:00",
+    "error": null
+  },
+  "collection_attempts": 40,
+  "saved_demonstrations": 40,
+  "latest_collection": {
+    "seed": 1039,
+    "success": true,
+    "physical_success": true,
+    "action_steps": 410,
+    "sim_steps": 10250,
+    "video_frames": 205,
+    "first_physical_success_step": 303,
+    "obj_init": [
+      0.3127,
+      0.1138,
+      0.82,
+      0.3859,
+      -0.1434,
+      0.82
+    ],
+    "targets": {
+      "mug": [
+        0.3132,
+        0.1133,
+        0.8441
+      ],
+      "plate": [
+        0.3859,
+        -0.1434,
+        0.8079
+      ],
+      "pregrasp": [
+        0.3192,
+        0.1993,
+        0.9791
+      ],
+      "grasp": [
+        0.3192,
+        0.1993,
+        0.8701
+      ],
+      "lift": [
+        0.3192,
+        0.1993,
+        0.9891
+      ],
+      "preplace": [
+        0.3939,
+        -0.1174,
+        0.9529
+      ],
+      "release": [
+        0.3939,
+        -0.1174,
+        0.9029
+      ],
+      "retreat": [
+        0.3939,
+        -0.1174,
+        0.9529
+      ]
+    },
+    "policy_prefix": {
+      "enabled": false,
+      "steps": 0
+    },
+    "debug": {
+      "xy_dist": 0.011860922221869115,
+      "z_dist": 0.04489637363437882,
+      "ee_z": 0.9511258978461715,
+      "gripper_open_norm": 0.9999370408327372,
+      "object_placed": true,
+      "ee_height_ok": true,
+      "gripper_open": true,
+      "released": true,
+      "strict_success": true,
+      "configured_success": true,
+      "success_xy_threshold": 0.1,
+      "success_z_threshold": 0.12,
+      "success_ee_height_threshold": 0.9,
+      "success_gripper_open_norm_threshold": 0.3,
+      "success_require_gripper_open": true,
+      "success_require_ee_height": false,
+      "success": true,
+      "physical_success": true,
+      "physical_lifted_enough": true,
+      "physical_final_upright": true,
+      "physical_min_lift": 0.06,
+      "physical_min_lift_steps": 3,
+      "physical_final_upright_cos_threshold": 0.85,
+      "initial_mug_pos": [
+        0.3132,
+        0.1133,
+        0.8441
+      ],
+      "initial_plate_pos": [
+        0.3859,
+        -0.1434,
+        0.8079
+      ],
+      "final_mug_pos": [
+        0.3938,
+        -0.1522,
+        0.8528
+      ],
+      "max_mug_z": 0.9565579358598348,
+      "max_mug_lift": 0.11243238436414704,
+      "lifted_steps": 2409,
+      "finger_mug_contact_steps": 0,
+      "closed_finger_mug_contact_steps": 0,
+      "final_mug_upright_cos": 0.9997967469819423
+    },
+    "video": "/home/aup/amd-notebook-work/cup-full-20261027-v1/collection-videos/scripted_oracle_seed1039.mp4",
+    "actions_npz": "/home/aup/amd-notebook-work/cup-full-20261027-v1/collection-videos/scripted_oracle_seed1039_actions.npz",
+    "record_action_source": "commanded",
+    "elapsed_s": 176.253,
+    "dataset_saved": true,
+    "episode_index": 39
+  },
+  "training_last": {
+    "event": "train",
+    "step": 20000,
+    "loss": 0.064675,
+    "elapsed_s": 2179.8,
+    "peak_allocated_gib": 1.043,
+    "l1_loss": 0.064675
+  },
+  "evaluation_episodes": 30,
+  "evaluation_successes": 3,
+  "notebook_complete": true,
+  "disk_free_gib": 36.13,
+  "client_time": "2026-10-28T09:43:35.341099+08:00"
+}

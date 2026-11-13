@@ -1,0 +1,129 @@
+{
+  "checkpoint": "/home/aup/jiahang/discoverse-airbot-amd/policies/act/my_ckpt/place_block/20260717-090959/place_block/20260717-090959/policy_best.ckpt",
+  "temporal_agg": true,
+  "successes": 0,
+  "episodes": 10,
+  "success_rate": 0.0,
+  "results": [
+    {
+      "seed": 1000,
+      "success": false,
+      "steps": 300,
+      "sim_time": 14.999999999999469,
+      "control_fps": 20.0,
+      "physics_steps_per_action": 3,
+      "videos": [
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/act_place_block_data500_e1000_biasm1_20260717/eval_unseen10/seed_1000/cam_0.mp4",
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/act_place_block_data500_e1000_biasm1_20260717/eval_unseen10/seed_1000/cam_1.mp4"
+      ]
+    },
+    {
+      "seed": 1001,
+      "success": false,
+      "steps": 300,
+      "sim_time": 14.999999999999469,
+      "control_fps": 20.0,
+      "physics_steps_per_action": 3,
+      "videos": [
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/act_place_block_data500_e1000_biasm1_20260717/eval_unseen10/seed_1001/cam_0.mp4",
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/act_place_block_data500_e1000_biasm1_20260717/eval_unseen10/seed_1001/cam_1.mp4"
+      ]
+    },
+    {
+      "seed": 1002,
+      "success": false,
+      "steps": 300,
+      "sim_time": 14.999999999999469,
+      "control_fps": 20.0,
+      "physics_steps_per_action": 3,
+      "videos": [
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/act_place_block_data500_e1000_biasm1_20260717/eval_unseen10/seed_1002/cam_0.mp4",
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/act_place_block_data500_e1000_biasm1_20260717/eval_unseen10/seed_1002/cam_1.mp4"
+      ]
+    },
+    {
+      "seed": 1003,
+      "success": false,
+      "steps": 300,
+      "sim_time": 14.999999999999469,
+      "control_fps": 20.0,
+      "physics_steps_per_action": 3,
+      "videos": [
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/act_place_block_data500_e1000_biasm1_20260717/eval_unseen10/seed_1003/cam_0.mp4",
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/act_place_block_data500_e1000_biasm1_20260717/eval_unseen10/seed_1003/cam_1.mp4"
+      ]
+    },
+    {
+      "seed": 1004,
+      "success": false,
+      "steps": 300,
+      "sim_time": 14.999999999999469,
+      "control_fps": 20.0,
+      "physics_steps_per_action": 3,
+      "videos": [
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/act_place_block_data500_e1000_biasm1_20260717/eval_unseen10/seed_1004/cam_0.mp4",
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/act_place_block_data500_e1000_biasm1_20260717/eval_unseen10/seed_1004/cam_1.mp4"
+      ]
+    },
+    {
+      "seed": 1005,
+      "success": false,
+      "steps": 300,
+      "sim_time": 14.999999999999469,
+      "control_fps": 20.0,
+      "physics_steps_per_action": 3,
+      "videos": [
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/act_place_block_data500_e1000_biasm1_20260717/eval_unseen10/seed_1005/cam_0.mp4",
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/act_place_block_data500_e1000_biasm1_20260717/eval_unseen10/seed_1005/cam_1.mp4"
+      ]
+    },
+    {
+      "seed": 1006,
+      "success": false,
+      "steps": 300,
+      "sim_time": 14.999999999999469,
+      "control_fps": 20.0,
+      "physics_steps_per_action": 3,
+      "videos": [
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/act_place_block_data500_e1000_biasm1_20260717/eval_unseen10/seed_1006/cam_0.mp4",
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/act_place_block_data500_e1000_biasm1_20260717/eval_unseen10/seed_1006/cam_1.mp4"
+      ]
+    },
+    {
+      "seed": 1007,
+      "success": false,
+      "steps": 300,
+      "sim_time": 14.999999999999469,
+      "control_fps": 20.0,
+      "physics_steps_per_action": 3,
+      "videos": [
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/act_place_block_data500_e1000_biasm1_20260717/eval_unseen10/seed_1007/cam_0.mp4",
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/act_place_block_data500_e1000_biasm1_20260717/eval_unseen10/seed_1007/cam_1.mp4"
+      ]
+    },
+    {
+      "seed": 1008,
+      "success": false,
+      "steps": 300,
+      "sim_time": 14.999999999999469,
+      "control_fps": 20.0,
+      "physics_steps_per_action": 3,
+      "videos": [
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/act_place_block_data500_e1000_biasm1_20260717/eval_unseen10/seed_1008/cam_0.mp4",
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/act_place_block_data500_e1000_biasm1_20260717/eval_unseen10/seed_1008/cam_1.mp4"
+      ]
+    },
+    {
+      "seed": 1009,
+      "success": false,
+      "steps": 300,
+      "sim_time": 14.999999999999469,
+      "control_fps": 20.0,
+      "physics_steps_per_action": 3,
+      "videos": [
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/act_place_block_data500_e1000_biasm1_20260717/eval_unseen10/seed_1009/cam_0.mp4",
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/act_place_block_data500_e1000_biasm1_20260717/eval_unseen10/seed_1009/cam_1.mp4"
+      ]
+    }
+  ]
+}
