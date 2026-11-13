@@ -1,0 +1,72 @@
+{
+  "client_time": "2026-10-24T10:26:00.288229+08:00",
+  "state": "strict_loader_fixed_full_evaluation_waiting_for_memory",
+  "defect": {
+    "location": "amd_benchmarks.dexjoco.serve",
+    "old_behavior": "Removed _lora suffix for official task checkpoint; upstream model.load intersect_trees silently dropped task adapter tensors",
+    "checkpoint_adapter_tensors": 20,
+    "fix": "Select model from checkpoint metadata, preserve task adapters, force remove_extra_params=False",
+    "runtime_confirmation": "pending"
+  },
+  "old_runs": {
+    "native_single_task_water_plant": {
+      "directory": "/home/aup/dexjoco-runs/amd_openpi_jax010_native_20260731",
+      "successful_seeds": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "official_multitask_inference": {
+      "directory": "/home/aup/dexjoco-runs/amd_openpi_jax010_multitask_20260801",
+      "tasks": 11,
+      "episodes_each": 1,
+      "total_successes": 5
+    },
+    "multitask_recovery": {
+      "directory": "/home/aup/dexjoco-runs/amd_openpi_jax010_multitask_recover_20260801",
+      "water_plant_first_success_seed": 2,
+      "selection_bias": "Searched seeds for first success; not a fixed-seed success-rate estimate"
+    }
+  },
+  "normalization_check": {
+    "official_state_dimensions": 23,
+    "official_action_dimensions": 22,
+    "new_same_dimensions": true,
+    "maximum_absolute_quantile_difference": 0.00317661,
+    "conclusion": "No gross normalization dimension/scale mismatch found; runtime interface audit remains."
+  },
+  "full_evaluation": {
+    "job_root": "/home/aup/amd-notebook-work/rootcause-20261024-v1",
+    "supervisor_pid": 3975321,
+    "seeds": [
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119
+    ],
+    "variants": [
+      "official_task_checkpoint_with_adapters",
+      "existing_30000_step_checkpoint"
+    ],
+    "minimum_available_ram_gib": 24
+  },
+  "tests_passed": 9
+}

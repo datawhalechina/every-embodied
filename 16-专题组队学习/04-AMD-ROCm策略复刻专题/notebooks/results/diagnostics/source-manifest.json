@@ -1,0 +1,82 @@
+[
+  {
+    "file": "notebooks/results/diagnostics/official_norm_stats.json",
+    "original": "/home/ubuntu/Documents/具身教程编写/work/amd_rootcause_20261024/official_norm_stats.json",
+    "sha256": "82b6a71f7ad170c9aa8e3d90e525f09304fb0c9dc7cb9d4467718a82c31e6111"
+  },
+  {
+    "file": "notebooks/results/diagnostics/training_norm_stats.json",
+    "original": "/home/ubuntu/Documents/具身教程编写/work/amd_rootcause_20261024/training_norm_stats.json",
+    "sha256": "d247d8d633a6d2002f8501c1d312ea42f24a243d2f34363d202a1b94b9064c04"
+  },
+  {
+    "file": "notebooks/results/diagnostics/strict-events.jsonl",
+    "original": "/home/ubuntu/Documents/具身教程编写/work/amd_diagnostics_tutorial_20261113/strict-events.jsonl",
+    "sha256": "43087f7495060465b7695f1a6cd2b55980dc70885f29d1b0d1c57e1ed1439e3c"
+  },
+  {
+    "file": "notebooks/results/diagnostics/strict-manifest.json",
+    "original": "/home/ubuntu/Documents/具身教程编写/work/amd_diagnostics_tutorial_20261113/strict-manifest.json",
+    "sha256": "f4f52bddedce2190dd2d8268bf077a7ce1e719d4788a11394bebf110e8af48d0"
+  },
+  {
+    "file": "code/diagnostics_sources/dexjoco_openpi_env.py",
+    "original": "/home/ubuntu/Documents/具身教程编写/work/amd_rootcause_20261024/dexjoco_openpi_env.py",
+    "sha256": "f1ddf4b5bf98c3c4d1be3c809208d4e0e820311e520bfddd33b3fbcd46f71745"
+  },
+  {
+    "file": "code/diagnostics_sources/eval_dexjoco_openpi.py",
+    "original": "/home/ubuntu/Documents/具身教程编写/work/amd_diagnostics_tutorial_20261113/eval_dexjoco_openpi.py",
+    "sha256": "8433f5ab10f5dc79ac249b1483b06e2ea46ed20d182eb3a6a845224376e82d12"
+  },
+  {
+    "file": "code/diagnostics_sources/openpi_transforms.py",
+    "original": "/home/ubuntu/Documents/具身教程编写/work/amd_validation/upstream-dexjoco/openpi/src/openpi/transforms.py",
+    "sha256": "20e143e2185dda6a37b6284b12a893cbb9b5099f4edadc08534f02ca79a85e40"
+  },
+  {
+    "file": "code/diagnostics_sources/openpi_model.py",
+    "original": "/home/ubuntu/Documents/具身教程编写/work/amd_validation/upstream-dexjoco/openpi/src/openpi/models/model.py",
+    "sha256": "84ef70667458cf216848ac659705de2af5c7cb09f53f1c051b3cdff17a584753"
+  },
+  {
+    "file": "code/diagnostics_sources/openpi_policy.py",
+    "original": "/home/ubuntu/Documents/具身教程编写/work/amd_validation/upstream-dexjoco/openpi/src/openpi/policies/policy.py",
+    "sha256": "285b931119532554d8ae250ba64549db203630776a2c76d867a559e8459afa75"
+  },
+  {
+    "file": "code/diagnostics_sources/openpi_policy_config.py",
+    "original": "/home/ubuntu/Documents/具身教程编写/work/amd_validation/upstream-dexjoco/openpi/src/openpi/policies/policy_config.py",
+    "sha256": "aaf42ab04a33b6c91d2447926211646c33ebd8ebfa427f026d7b6c4f7c45ec52"
+  },
+  {
+    "file": "code/diagnostics_sources/OPENPI_LICENSE",
+    "original": "/home/ubuntu/Documents/具身教程编写/work/amd_validation/upstream-dexjoco/openpi/LICENSE",
+    "sha256": "43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1"
+  },
+  {
+    "file": "code/diagnostics_sources/strict_latency_instrumentation.py",
+    "original": "/home/ubuntu/Documents/具身教程编写/work/amd_rootcause_20261024/run_strict_latency_audit.py",
+    "sha256": "5fedfff0b59fe9fea263e2d376af1dd8b0d6f42e971bbddff6eb14220f29972c"
+  },
+  {
+    "file": "notebooks/results/diagnostics/initial_investigation.json",
+    "original": "/home/ubuntu/Documents/具身教程编写/work/amd_rootcause_20261024/investigation.json",
+    "sha256": "b330e5e65e20c7e8b5eecc6f0d0f6e78e9826775552297c8ccbd7070dc7268ff"
+  },
+  {
+    "file": "notebooks/results/diagnostics/optimizer-archive-state.json",
+    "original": "completed optimizer archive metadata snapshot",
+    "sha256": "5f0dab15b0eda436a3a67495df827967e75461cdb2f3fd297782c9743435c408"
+  },
+  {
+    "file": "notebooks/results/diagnostics/optimizer-cleanup-verification.json",
+    "original": "completed optimizer archive metadata snapshot",
+    "sha256": "8c8f0a90596be81c685b7f4570ec33030bfb6e07c5402b341e60878e9f681b60"
+  },
+  {
+    "file": "notebooks/results/diagnostics/optimizer-archive-manifest.json",
+    "original": "completed optimizer archive metadata snapshot",
+    "sha256": "2dfe4f897b7cb4952c14876804e012da5e9b4731efcd4f21b23455c8aefda0ad"
+  }
+]

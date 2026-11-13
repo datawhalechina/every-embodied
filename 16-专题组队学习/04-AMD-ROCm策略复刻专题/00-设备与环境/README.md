@@ -6,3 +6,7 @@
 - [01_device_env_check.ipynb](03-Notebook/01_device_env_check.ipynb)
 - [05_pi0_smoke_gate.ipynb](03-Notebook/05_pi0_smoke_gate.ipynb)
 - [06_rocm_debug_playbook.ipynb](03-Notebook/06_rocm_debug_playbook.ipynb)
+
+## 已有实验排障与结果核对
+
+- [07_优化器归档与恢复内容校验](03-Notebook/07_优化器归档与恢复内容校验.ipynb)

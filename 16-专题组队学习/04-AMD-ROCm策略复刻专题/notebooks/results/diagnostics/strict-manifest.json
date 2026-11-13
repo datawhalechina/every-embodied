@@ -1,0 +1,7 @@
+{
+  "official_client_sha256": "8433f5ab10f5dc79ac249b1483b06e2ea46ed20d182eb3a6a845224376e82d12",
+  "instrumented_client_sha256": "0b1103d584b651dd581e2883b6b02a645c79fc0ff7d5b5206abbec3fb8a6920e",
+  "scope": "one correctly loaded prewarmed baseline diagnostic; official scheduling and termination unchanged; excluded from formal denominators",
+  "seed": 100,
+  "checkpoint": "/home/aup/dexjoco-amd/checkpoints/dexjoco-pi05/pi05_dexjoco_ckpt/water_plant"
+}

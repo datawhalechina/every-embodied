@@ -4,3 +4,7 @@
 
 - [00_任务入口与已记录结果.ipynb](03-Notebook/00_任务入口与已记录结果.ipynb)
 - [17_robocasa365_amd_train_eval.ipynb](03-Notebook/17_robocasa365_amd_train_eval.ipynb)
+
+## 已有实验排障与结果核对
+
+- [02_历史多任务对照与结果复算](03-Notebook/02_历史多任务对照与结果复算.ipynb)
