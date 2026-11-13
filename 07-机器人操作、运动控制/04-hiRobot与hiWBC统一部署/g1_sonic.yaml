@@ -1,0 +1,16 @@
+# Unitree G1 MuJoCo model with the SONIC whole-body controller.
+defaults: [robots/unitree_g1_mujoco_standing]
+assembly:
+  parts:
+    body:
+      overrides:
+        model:
+          home: [-0.312, 0, 0, 0.669, -0.363, 0, -0.312, 0, 0.669, -0.363, 0,
+                 0, 0, 0, 0.2, 0.2, 0, 0.6, 0, 0, 0, 0.2, -0.2, 0, 0.6, 0, 0, 0]
+sim:
+  realtime: false
+  ramp_seconds: 0.0
+layers:
+  - type: wbc
+    profile: sonic/unitree_g1
+    start_seconds: 0.0

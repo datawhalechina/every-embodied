@@ -4,6 +4,8 @@
 
 **学习路线：**本页介绍方法与基础训练；[视频动作与社区复现实战](./02-视频动作与社区复现.md)介绍视频到参考动作、训练加速和灵巧手任务；[SuperMimic 社区项目完整合集](./03-SuperMimic社区项目完整合集.md)保留 41 个项目的中文分类、演示与原始来源；[SuperMimic、InstantTrack 与 BlinkMimic 加速专题](./04-SuperMimic与InstantTrack-BlinkMimic训练加速.md)对照三者的方法、版本和训练效率。
 
+**策略部署：**[hiRobot 与 hiWBC 机器人接口和全身控制](../../04-hiRobot与hiWBC统一部署/README.md)介绍如何把已有的 SuperMimic 社区部署模型接入统一的控制器接口，并从无硬件示例开始检查数据流。
+
 ![UniSuperMimic 策略与参考动作对比](https://raw.githubusercontent.com/Motphys/Uni-SuperMimic/main/docs/assets/supermimic_comparison.gif)
 
 *图 1：上游仿真演示，实体机器人是策略输出，蓝色虚影是参考动作。来源：[Uni-SuperMimic](https://github.com/Motphys/Uni-SuperMimic)。*
