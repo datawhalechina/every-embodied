@@ -1,0 +1,256 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NimCritic 与机器人过程奖励</title><style>:root{--ink:#203044;--line:#dce9e8;--teal:#008971;--muted:#526b75}*{box-sizing:border-box}body{margin:0;background:linear-gradient(140deg,#e0f8ef,#f4f8fc 480px);font:16px/1.8 system-ui,-apple-system,"Microsoft YaHei",sans-serif;color:var(--ink)}header{max-width:1160px;margin:auto;padding:30px 24px 0;font-weight:750;letter-spacing:.06em;color:#227d70}main{max-width:1160px;margin:22px auto 50px;padding:44px 58px;border:1px solid #e3efec;background:white;border-radius:22px;box-shadow:0 22px 55px #2e65641a}h1{font-size:2.2rem;line-height:1.25}h2{line-height:1.3;margin:2em 0 .8em;padding-bottom:.35em;border-bottom:1px solid var(--line)}h3{line-height:1.3;margin-top:1.6em}a{color:#087f79;text-decoration:none}a:hover{text-decoration:underline}img{max-width:100%;height:auto}table{display:block;overflow:auto;border-collapse:collapse;margin:1.2em 0;width:100%}td,th{padding:11px;border:1px solid var(--line);vertical-align:top}th{background:#eff8f6;text-align:left}pre{overflow:auto;background:#142c37;color:#e9f9f3;border-radius:12px;padding:18px;line-height:1.5}code{font:0.9em ui-monospace,monospace}p code,td code{background:#eef5f4;padding:.1em .28em;border-radius:4px}.lab{background:#eaf9f2;border:1px solid #c2e9d9;border-radius:16px;padding:24px;margin:32px 0}.lab h2{border:0;margin:.2em 0}.badge{font-size:.76rem;font-weight:800;letter-spacing:.08em;color:#078267}.events{display:flex;flex-wrap:wrap;gap:9px}.events button{border:1px solid #85c9b6;background:white;color:#087d69;padding:9px 18px;border-radius:999px;cursor:pointer;font-size:.95rem}.events button.active{background:#07886f;border-color:#07886f;color:white}.scores{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}.scores div{background:white;border-radius:10px;padding:12px 16px}.scores small{display:block;color:#55776d}.scores strong{font-size:1.35rem}.lab svg{width:100%;max-height:230px;font-size:13px;overflow:visible}.hint{font-size:.88rem;color:#496d62}.media .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.grid>div{background:#f4f8f8;padding:13px;border-radius:13px}.grid video{display:block;width:100%;background:#182a31;border-radius:8px;aspect-ratio:16/9;object-fit:contain}.grid p{font-size:.85rem;color:var(--muted);margin:5px 0}.media{margin:2em 0}.media h2{margin-top:1em}@media(max-width:700px){header{padding-top:18px}main{margin:12px 8px;padding:24px 18px}h1{font-size:1.7rem}.scores{grid-template-columns:1fr 1fr}.media .grid{grid-template-columns:1fr}body{font-size:15px}}</style></head><body><header>EVERY EMBODIED · 强化学习与奖励</header><main><h1>机器人过程奖励：NimCritic 与视频进度模型</h1><section class="lab" id="progress-lab"><div class="badge">动手体验 · 教学示意</div><h2>抓住、滑落，再抓一次</h2><p>点击事件，观察任务进度与进度变化。数值为便于理解的示例，并非任何模型的预测。</p><div class="events"><button data-step="0">开始</button><button data-step="1">抓住</button><button data-step="2">滑落</button><button data-step="3">重抓</button><button data-step="4">放好</button></div><div class="scores"><div><small>当前进度</small><strong id="progress">0%</strong></div><div><small>相对前一阶段</small><strong id="delta">—</strong></div><div><small>任务状态</small><strong id="state">尚未开始</strong></div></div><svg id="chart" viewBox="0 0 720 220" role="img" aria-label="示意进度曲线"><path d="M40 25V180H690 M40 100H690" stroke="#b8d4d0" fill="none" stroke-dasharray="3 4"/><text x="4" y="30">100%</text><text x="8" y="105">50%</text><text x="16" y="185">0%</text><polyline id="curve" points="" fill="none" stroke="#12a985" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></polyline><g id="points"></g><text x="40" y="209">开始</text><text x="194" y="209">抓住</text><text x="353" y="209">滑落</text><text x="511" y="209">重抓</text><text x="661" y="209">放好</text></svg><p class="hint">过程进度和训练奖励是不同量；示例的变化量仅为相邻进度之差。</p></section><section class="media"><h2>看真实视频和进度曲线</h2><div class="grid"><div><video controls preload="metadata" playsinline poster="https://rimbot.com/image/research/nimcritic/power-strip-in-box.webp" src="https://rimbot.com/image/research/nimcritic/power-strip-in-box.mp4"></video><b>NimCritic：插座放入盒中</b><p>官方原视频 · <a href="https://rimbot.com/research/nimcritic/">进度曲线与更多任务</a></p></div><div><video controls preload="metadata" playsinline poster="https://rimbot.com/image/research/nimcritic/stack-cubes_source.webp" src="https://rimbot.com/image/research/nimcritic/stack-cubes_source.mp4"></video><b>NimCritic：堆叠三色方块</b><p>多任务原视频 · <a href="https://rimbot.com/research/nimcritic/">进度曲线与更多任务</a></p></div><div><video controls preload="metadata" playsinline src="https://robo-dopamine.github.io/assets/videos/grm_demo_1.mp4"></video><b>Robo-Dopamine：折裤子</b><p>动作和过程曲线 · <a href="https://robo-dopamine.github.io/">作者项目页</a></p></div><div><video controls preload="metadata" playsinline src="https://robometer.github.io/assets/failure_detection/failure_detection_1.mp4"></video><b>Robometer：倾倒时发生洒落</b><p>曲线观察失败 · <a href="https://robometer.github.io/">作者项目页</a></p></div><div><video controls preload="none" playsinline src="https://robometer.github.io/assets/failure_detection/failure_detection_2.mp4"></video><b>Robometer：勺子掉落</b><p>失败检测 · <a href="https://robometer.github.io/">作者项目页</a></p></div><div><video controls preload="none" playsinline src="https://robometer.github.io/assets/online_rl/robometer_auto_online_rl_small.mp4"></video><b>Robometer：真机在线训练</b><p>作者视频为 100 倍速 · <a href="https://robometer.github.io/">作者项目页</a></p></div></div><p>视频来自各自作者；NimCritic 原视频的同步进度曲线可在官方项目页查看。<a href="https://rimbot.com/research/nimcritic/">NimCritic 作者项目页与演示</a> · <a href="https://critic.rimbot.com/">在线体验</a></p></section>
+<p><strong>抓住、滑落、重新抓取、放好：怎样给每一步提供有意义的反馈？</strong> 本章从过程奖励的基本概念出发，介绍 NimCritic 的标注、训练与评测，并对照 Robo-Dopamine、Robometer、RoboReward 等相关工作。文末有官方演示、代码和学习入口。</p>
+<p><a href="./index.html">打开互动学习网页</a> · <a href="https://arxiv.org/abs/2610.32776">NimCritic 论文</a> · <a href="https://huggingface.co/RimbotAI/NimCritic">NimCritic 模型与推理代码</a> · <a href="https://rimbot.com/research/nimcritic/">作者项目页</a> · <a href="https://critic.rimbot.com/">在线体验</a></p>
+<h2>1. 先看视频：机器人动作与进度曲线</h2>
+<p>下面的视频由各自论文作者发布。观看时注意：曲线是否随完成上升，在物体掉落、动作失败时能否下降。</p>
+<table>
+<thead>
+<tr>
+<th>官方演示</th>
+<th>画面与观察重点</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://rimbot.com/image/research/nimcritic/power-strip-in-box.mp4">观看插座放入盒中</a></td>
+<td>NimCritic 单任务原始视频；到作者页面可同步查看进度曲线</td>
+<td><a href="https://rimbot.com/research/nimcritic/">NimCritic 交互演示</a></td>
+</tr>
+<tr>
+<td><a href="https://rimbot.com/image/research/nimcritic/stack-cubes_source.mp4">观看堆叠三色方块</a></td>
+<td>NimCritic 多任务原始视频；作者页面还可切换袜子收纳、路由器接线等任务</td>
+<td><a href="https://rimbot.com/research/nimcritic/">NimCritic 交互演示</a></td>
+</tr>
+<tr>
+<td><a href="https://robo-dopamine.github.io/assets/videos/grm_demo_1.mp4">观看折裤子进度预测</a></td>
+<td>Robo-Dopamine 在动作过程中估计进度，观察视频与曲线的对应关系</td>
+<td><a href="https://robo-dopamine.github.io/">Robo-Dopamine 项目页</a></td>
+</tr>
+<tr>
+<td><a href="https://robometer.github.io/assets/failure_detection/failure_detection_1.mp4">观看倾倒失败检测</a></td>
+<td>Robometer 检测倾倒过程中的颗粒洒落，画面右侧给出进度曲线</td>
+<td><a href="https://robometer.github.io/">Robometer 项目页</a></td>
+</tr>
+<tr>
+<td><a href="https://robometer.github.io/assets/failure_detection/failure_detection_2.mp4">观看勺子掉落检测</a></td>
+<td>观察操作失败时曲线的响应</td>
+<td><a href="https://robometer.github.io/">Robometer 项目页</a></td>
+</tr>
+<tr>
+<td><a href="https://robometer.github.io/assets/online_rl/robometer_auto_online_rl_small.mp4">观看真机在线训练</a></td>
+<td>作者的 Robometer 在线强化学习演示，原视频标注 <strong>100 倍速</strong></td>
+<td><a href="https://robometer.github.io/">Robometer 训练实验</a></td>
+</tr>
+<tr>
+<td><a href="https://rimbot.com/research/nimcritic/">查看 NimCritic 官方演示与在线体验</a></td>
+<td>任务进度与完成预测；<a href="https://critic.rimbot.com/">在线体验入口</a></td>
+<td><a href="https://rimbot.com/research/">日冕开物</a></td>
+</tr>
+</tbody>
+</table>
+<p>上面不同项目的视频展示的是各自的方法，不能当作 NimCritic 在同一任务上的对照实验。NimCritic 原视频与进度曲线由作者网页同步展示：点击<a href="https://rimbot.com/research/nimcritic/">官方项目页</a>的单任务或多任务卡片即可切换；直接打开的视频文件只显示画面。</p>
+<p align="center"><img src="https://robometer.github.io/assets/example_trajs/example_1.gif" width="220" alt="Robometer 官方机器人操作轨迹示例一"> <img src="https://robometer.github.io/assets/example_trajs/example_4.gif" width="220" alt="Robometer 官方机器人操作轨迹示例二"> <img src="https://robometer.github.io/assets/example_trajs/example_6.gif" width="220" alt="Robometer 官方机器人操作轨迹示例三"></p>
+
+<p><em>Robometer 作者展示的不同操作轨迹样例；来源：<a href="https://robometer.github.io/">官方项目页</a>。</em></p>
+<h2>2. 什么是过程奖励？</h2>
+<p>终局奖励只问「最后有没有完成」，例如放进盒子才给 1 分。过程反馈还关注「是否靠近目标」：完成抓取、靠近盒子、滑落、重抓、放稳，都可以在过程中留下不同信号。这能帮助分析失败片段、筛选示范，或给训练提供更密集的信息。</p>
+<pre><code class="language-text">任务指令 + 机器人画面 → 过程模型 → 进度 / 完成预测
+                                         ├─ 轨迹筛选与故障分析
+                                         ├─ 候选动作或轨迹比较
+                                         └─ 设计奖励接口 → 强化学习更新策略
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>输出或用途</th>
+<th>它回答的问题</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>终局成功</td>
+<td>最后是否达到目标？</td>
+<td>积木是否最终在盒中</td>
+</tr>
+<tr>
+<td>进度 <code>p(t)</code></td>
+<td>当前任务大概完成多少？</td>
+<td><code>0 → 0.4 → 0 → 0.4 → 1</code></td>
+</tr>
+<tr>
+<td>进度变化 <code>Δp</code></td>
+<td>这一步让进度增加还是减少？</td>
+<td><code>+0.4、−0.4、+0.4、+0.6</code></td>
+</tr>
+<tr>
+<td>训练奖励 <code>r</code></td>
+<td>策略优化实际使用什么反馈？</td>
+<td>终局奖励与经过设计的过程反馈共同构成</td>
+</tr>
+<tr>
+<td>动作价值 <code>Q</code> / 状态价值 <code>V</code></td>
+<td>对未来累计回报的估计</td>
+<td>与当前进度相关，但定义和训练目标不同</td>
+</tr>
+</tbody>
+</table>
+<p>上面数字只用于说明，不是任何模型的实测预测。<strong>进度、进度差和强化学习奖励是不同的量</strong>：高进度反复计为每一步奖励，可能鼓励策略停留在高分状态；把进度变化转换为奖励时，还需要考虑折扣、成功判定、终止处理与模型误判。</p>
+<p>一种常见的势函数奖励塑形是 <code>r′(s,a,s′) = r(s,a,s′) + γΦ(s′) − Φ(s)</code>：<code>Φ</code> 表示对状态的势函数估计，<code>γ</code> 为折扣因子。在理论条件满足、终止状态处理一致时，该形式可保持最优策略；真实系统里的学习模型会有误差、观测和历史依赖，需要按实际任务验证。<a href="https://robo-dopamine.github.io/">Robo-Dopamine 方法说明</a>讨论了如何将过程评估用于奖励塑形。</p>
+<h2>3. NimCritic：从动作效果计算进度</h2>
+<p><img alt="NimCritic 论文架构图" src="https://arxiv.org/html/2610.32776v1/fig2_revision4_20261023.png" /></p>
+<p><em>架构与进度标注以<a href="https://arxiv.org/html/2610.32776">论文原文</a>为准；图像来自作者在论文中的公开图示。</em></p>
+<h3>3.1 标签怎样得到</h3>
+<p>作者把同一物体的连续操作看作一个子任务。视觉语言模型根据任务与视频识别子任务、动作边界、结果、撤销关系，以及未完成时还需哪些动作；人工核验时间边界和部分尝试、撤销的时点，再由规则计算进度。训练集抽样核验，LOOM 测试集的每条轨迹均进行时间校验。<a href="https://arxiv.org/html/2610.32776">论文第 3.2 节与附录 A</a>。</p>
+<table>
+<thead>
+<tr>
+<th>动作效果</th>
+<th>标注规则的直观含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>有效推进</td>
+<td>获得该动作类别的完整权重</td>
+</tr>
+<tr>
+<td>有接触但未完成</td>
+<td>暂记一半权重，后续可撤销</td>
+</tr>
+<tr>
+<td>无效动作</td>
+<td>不增加进度</td>
+</tr>
+<tr>
+<td>破坏先前成果</td>
+<td>撤销对应的历史贡献；重新完成后再取得贡献</td>
+</tr>
+</tbody>
+</table>
+<p>动作类别权重来自数据集内该类别的归一化持续时间。子任务预算综合已观察动作的净贡献及任务尚缺的必要动作，单个动作在其起止区间内线性分配贡献，局部进度由累计保留贡献除以该固定预算；跨子任务的撤销会更新原来所属子任务的贡献。</p>
+<p>例如仅为理解规则，设抓取与放置权重各为 1：抓取完成约 50%，物体滑落撤销抓取贡献后回到 0%，重新抓住回到 50%，放好达到 100%。真实标签取决于动作类别、分段及完整预算；这组数值不是论文给出的动作权重。可在<a href="./index.html#progress-lab">互动网页</a>逐步点击观察。</p>
+<h3>3.2 模型怎样学习和推理</h3>
+<p>训练时，NimCritic 将 Wan2.2 视频专家与进度专家组成双流模型，通过联合视频预测与进度 / 完成预测学习视觉变化和任务进展；历史进度扰动帮助模型处理上一窗口的预测偏差，视频与进度的对比对齐让中间视觉特征关联进度轨迹。进度和是否完成分别有输出。该架构借鉴 WVM；动作感知标注和上述训练设计共同组成这项工作。</p>
+<p>论文的长程评测先用视觉语言模型将<strong>完整视频</strong>切分为物体级子任务，再对子任务评分并按时长及子任务出口进度合成全局曲线。模型以 2 Hz 采样、五帧窗口、20 步去噪进行评分，推理时重用视觉特征，无须生成未来视频。模型仓库提供的是<strong>单视频评分脚本</strong>，不等于论文中完整的长视频切分、合成与评测程序。<a href="https://arxiv.org/html/2610.32776">论文第 3 节</a> · <a href="https://huggingface.co/RimbotAI/NimCritic">模型仓库说明</a>。</p>
+<h2>4. 数字怎么读</h2>
+<table>
+<thead>
+<tr>
+<th>结果</th>
+<th>作者报告</th>
+<th>正确理解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LOOM 整体 / 多子任务 <code>PRC-F1</code></td>
+<td><code>0.86 / 0.95</code></td>
+<td>正向和反向进度排序相关性的组合指标，不是二分类的精确率 / 召回率</td>
+</tr>
+<tr>
+<td>VPB 整体 <code>PRC-F1</code> / 终局成功准确率</td>
+<td><code>0.77 / 0.82</code></td>
+<td>分别衡量过程排序与终局完成判定</td>
+</tr>
+<tr>
+<td>RoboArena 成功轨迹召回率</td>
+<td><code>96.72%</code></td>
+<td>人工选出的成功轨迹被找回的比例，不是机器人成功率</td>
+</tr>
+<tr>
+<td>移除子任务切分</td>
+<td>多子任务 <code>PRC-F1</code> 从 <code>0.95</code> 降到 <code>0.55</code></td>
+<td>同一模型的消融，长任务分解对结果很重要</td>
+</tr>
+<tr>
+<td>相同子任务切分</td>
+<td>NimCritic <code>0.95</code>，GPT-6-Sol <code>0.96</code></td>
+<td>两者在该进度指标接近；完成准确率分别为 <code>0.93 / 0.65</code></td>
+</tr>
+</tbody>
+</table>
+<p>RoboArena 包含 3,872 个评测场次和 10,750 条轨迹，论文给出 1,220 条人工选出的成功轨迹；根据分组召回率可还原约 1,180 条被找回，<code>1,180 / 1,220 ≈ 96.72%</code>。这项结果单独没有提供成功候选的精确率，不能由召回率推出误选了多少失败轨迹。论文原始结果和统计方法见<a href="https://arxiv.org/html/2610.32776">第 4 节与附录 B</a>。</p>
+<h2>5. 相关工作：同样评分，侧重点不同</h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>输入与输出</th>
+<th>独到做法</th>
+<th>演示 / 资源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>NimCritic</strong></td>
+<td>视频、任务 → 进度曲线和完成预测</td>
+<td>动作效果积分、历史撤销与恢复；视频预测和进度联合学习；长程任务按物体分解</td>
+<td><a href="https://arxiv.org/abs/2610.32776">论文</a> · <a href="https://huggingface.co/RimbotAI/NimCritic">代码和权重</a></td>
+</tr>
+<tr>
+<td><strong>Robo-Dopamine</strong></td>
+<td>多视角的初始、目标、前后状态 → 相对推进 / 倒退</td>
+<td>离散化相对进度并融合多种参考；结合奖励塑形用于在线强化学习</td>
+<td><a href="https://robo-dopamine.github.io/">项目与视频</a> · <a href="https://github.com/FlagOpen/Robo-Dopamine">代码</a></td>
+</tr>
+<tr>
+<td><strong>Robometer</strong></td>
+<td>视频、任务 → 逐帧进度 / 成功；还能比较两条轨迹</td>
+<td>同时用专家进度监督和轨迹偏好监督，利用次优和失败数据；探索筛选、规划与强化学习</td>
+<td><a href="https://robometer.github.io/">项目与视频</a> · <a href="https://github.com/robometer/robometer">代码</a></td>
+</tr>
+<tr>
+<td><strong>RoboReward</strong></td>
+<td>视频、任务 → 1–5 档轨迹评价</td>
+<td>基于机器人视频构造不同质量的样本；用语言目标重标和截断生成失败或未完成样本</td>
+<td><a href="https://arxiv.org/abs/2601.00675">论文</a> · <a href="https://huggingface.co/teetone/RoboReward-8B">模型</a></td>
+</tr>
+<tr>
+<td><strong>RynnValue</strong></td>
+<td>视频、任务 → 距离任务完成的剩余时间等信息</td>
+<td>利用时间距离构造监督，可用于进度估计、轨迹排序和离线数据筛选</td>
+<td><a href="https://github.com/alibaba-damo-academy/RynnValue">代码和模型入口</a></td>
+</tr>
+</tbody>
+</table>
+<p>这些方法输出的数值、输入画面、训练数据和评测协议不同，跨论文的指标不能直接拼成统一排行榜。Robo-Dopamine 作者报告其单示范适配后的一个真机训练例子在约 150 条在线轨迹后达到 95% 成功率；Robometer 作者展示了在线与离线训练、失败检测等应用。它们说明过程模型可以进入策略训练，而 NimCritic 论文的主要直接证据集中在进度预测与轨迹筛选评测。<a href="https://robo-dopamine.github.io/">Robo-Dopamine 项目页</a> · <a href="https://robometer.github.io/">Robometer 项目页</a>。</p>
+<h2>6. 上手 NimCritic：单视频评分</h2>
+<p><a href="https://huggingface.co/RimbotAI/NimCritic">官方模型仓库</a>提供推理代码、权重、视觉自编码器及文本编码器；模型仓库文件合计约 <strong>24.84 GB</strong>。该版本的模型卡标注 Apache-2.0，建议至少 24 GB 显存；实际资源消耗随环境变化。以下以官方仓库内容为准，先准备足够磁盘空间和隔离环境：</p>
+<pre><code class="language-bash"># 需要已安装 Hugging Face 命令行工具 hf 和 uv
+export NIM_DIR=/path/to/data/nimcritic
+export UV_PROJECT_ENVIRONMENT=/path/to/envs/nimcritic
+hf download RimbotAI/NimCritic \
+  --revision e2bcfdaef1826a2bbdf4be467d8420b8e241c789 \
+  --local-dir &quot;$NIM_DIR&quot;
+cd &quot;$NIM_DIR&quot;
+uv sync
+
+# 无需加载权重的抽帧、缩放与参数自检
+uv run python infer_nimcritic.py --self-check
+
+# 对一个视频计算逐帧进度和完成输出
+uv run python infer_nimcritic.py \
+  --video /path/to/clip.mp4 \
+  --task &quot;pick up the cup&quot; \
+  --output result.json \
+  --rollout-stride 2
+</code></pre>
+<p><code>--video</code> 默认按 2 Hz 抽帧，<code>--frames</code> 则接收已抽样帧；默认 <code>--rollout-stride</code> 是 1，上面的 2 对应论文短任务表设置。输出 JSON 中 <code>progress</code>、<code>success</code> 是 0–1 的逐帧值，<code>sampling</code> 记录抽帧；具体完成阈值应在目标验证集校准，不应把任意阈值直接当成通用成功标准。</p>
+<p><strong>本机核验范围：</strong>已获取固定版本的论文与 <code>infer_nimcritic.py</code>、<code>nimcritic_model.py</code>、<code>pyproject.toml</code> 和模型卡，在现有环境运行 <code>--self-check</code>，结果为 <code>self-check ok</code>。没有下载模型权重，没有做模型推理或实时速度测试。模型仓库未提供本论文的完整训练和子任务分解流水线；截至本次核查，<a href="https://huggingface.co/datasets/RimbotAI/LOOM">LOOM 数据集仓库</a>仅列出说明文件和仓库配置，未列出评测数据文件。</p>
+<h2>7. 怎样在自己的任务中使用</h2>
+<ol>
+<li><strong>先定义终局标准。</strong> 例如「物体稳定位于盒内」；记录成功、失败、滑落、重试和接近但未完成的例子。</li>
+<li><strong>用已有视频离线查看曲线。</strong> 对照事件时点检查进度是否上升、失败时是否下降、任务未完成时是否误报完成；保留与人工标签的逐条对比。</li>
+<li><strong>选阈值并同时看查全与查准。</strong> 召回率检查成功轨迹漏掉多少；精确率检查选出的轨迹里混入多少失败。失败少时要特别关注误报。</li>
+<li><strong>再接入下游应用。</strong> 可先用于数据排序和失败检索，再考虑候选选择或训练奖励；接入在线训练前测量实际延迟、掉帧和任务成功率，并设定超时行为。</li>
+</ol>
+<p>相关教程：<a href="../08-HIL-SERL人机协同强化学习与MuJoCo插孔/README.md">HIL-SERL 人机协同强化学习</a> · <a href="../04-Robots-That-Know-What-to-Ask奖励对齐导读/README.md">奖励对齐与人类纠正示范</a> · <a href="../../09-具身智能数据及评估基准benchmark/05-Ego2Robot第一视角人类视频转机器人数据/README.md">Ego2Robot 人类视频数据合成</a>。</p>
+<h2>8. 论文与官方材料</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/2610.32776">NimCritic 论文、附录及实验表</a> · <a href="https://huggingface.co/RimbotAI/NimCritic">模型及推理代码</a></li>
+<li><a href="https://arxiv.org/abs/2512.23703">Robo-Dopamine 论文</a> · <a href="https://robo-dopamine.github.io/">官方项目和视频</a></li>
+<li><a href="https://arxiv.org/abs/2603.02115">Robometer 论文</a> · <a href="https://robometer.github.io/">官方项目和视频</a></li>
+<li><a href="https://arxiv.org/abs/2601.00675">RoboReward 论文</a> · <a href="https://crfm.stanford.edu/helm/robo-reward-bench/">RoboRewardBench</a></li>
+</ul></main><script>const vals=[0,.5,0,.5,1],states=['尚未开始','已抓住','成果撤销','重新抓住','任务完成'],xs=[40,200,360,520,680];function update(k){document.getElementById('progress').textContent=Math.round(vals[k]*100)+'%';document.getElementById('delta').textContent=k===0?'—':(vals[k]-vals[k-1]>0?'+':'')+Math.round((vals[k]-vals[k-1])*100)+' 个百分点';document.getElementById('state').textContent=states[k];document.querySelectorAll('[data-step]').forEach(b=>b.classList.toggle('active',Number(b.dataset.step)===k));let points=vals.slice(0,k+1).map((v,i)=>xs[i]+','+(180-v*155));document.getElementById('curve').setAttribute('points',points.join(' '));document.getElementById('points').innerHTML=points.map(p=>{let [x,y]=p.split(',');return `<circle cx="${x}" cy="${y}" r="6" fill="#07886f"/>`}).join('')}document.querySelectorAll('[data-step]').forEach(b=>b.addEventListener('click',()=>update(Number(b.dataset.step))));update(0);</script></body></html>
