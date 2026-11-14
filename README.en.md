@@ -1,6 +1,6 @@
 # 🤖 AI Hardware and Robotics Tutorial 🛠️
 
-[中文](./README.md) | English
+[中文](./README.md) | English | [日本語](./README.ja.md)
 
 <div align="center">
   <img src="./assets/main1.png" alt="AI Hardware and Robotics Technology" width="800"/>
