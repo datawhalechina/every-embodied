@@ -1,0 +1,11 @@
+{
+  "scope": "Source-level CPU action layout check; not policy inference, simulation or success evaluation",
+  "local_scipy_compatibility": "Local SciPy lacks scalar_first; audit shim explicitly reorders scalar-last quaternions. Remote deployed source and libraries unchanged.",
+  "source_sha256": "f1ddf4b5bf98c3c4d1be3c809208d4e0e820311e520bfddd33b3fbcd46f71745",
+  "cases": 3,
+  "input_dimensions": 22,
+  "simulator_action_dimensions": 23,
+  "hand16_preserved": true,
+  "position3_preserved": true,
+  "rotation_equivalence_max_abs_error": 3.3306690738754696e-16
+}

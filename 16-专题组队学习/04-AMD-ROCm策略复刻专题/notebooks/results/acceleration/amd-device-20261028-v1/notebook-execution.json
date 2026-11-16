@@ -1,0 +1,168 @@
+[
+  {
+    "file": "00_\u52a0\u901f\u5b9e\u9a8c\u5165\u53e3\u4e0e\u6bd4\u8d5b\u6750\u6599.ipynb",
+    "executed_code_cells": 2,
+    "measurements": [],
+    "notebook_sha256": "c8c9ea2580693850aadda3afa222b1a1ace8635db0e02323e42b434e856b77ca"
+  },
+  {
+    "file": "01_\u63a8\u7406\u8ba1\u65f6\u4e0e\u91cd\u590d\u6570\u636e\u642c\u8fd0.ipynb",
+    "executed_code_cells": 3,
+    "measurements": [
+      {
+        "median_ms": {
+          "Repeated preparation": 0.06507864920422435,
+          "Reused buffers": 0.04629313014447689
+        },
+        "raw_round_ms": {
+          "Repeated preparation": [
+            0.06568804965354502,
+            0.06549604004248977,
+            0.06503293989226222,
+            0.06507864920422435,
+            0.06501654046587646
+          ],
+          "Reused buffers": [
+            0.046466230414807796,
+            0.04629313014447689,
+            0.046171030262485147,
+            0.04629822913557291,
+            0.04591722972691059
+          ]
+        },
+        "speed_ratio": 1.4057949635533278,
+        "max_abs_output_error": 0.0,
+        "device": {
+          "torch": "2.11.0+rocm7.13.0a20260425",
+          "hip": "7.13.26162",
+          "device": "cuda",
+          "name": "Radeon 8060S Graphics",
+          "scope": "small fixed random action-head exercise; no robot policy or task score"
+        }
+      }
+    ],
+    "notebook_sha256": "d7117f3fa6f812c41c666e434d1346b2e540595007f036f38997902344375081"
+  },
+  {
+    "file": "02_\u56fa\u5b9a\u5f62\u72b6\u8ba1\u7b97\u56fe\u91cd\u653e.ipynb",
+    "executed_code_cells": 3,
+    "measurements": [
+      {
+        "executed": true,
+        "device": {
+          "torch": "2.11.0+rocm7.13.0a20260425",
+          "hip": "7.13.26162",
+          "device": "cuda",
+          "name": "Radeon 8060S Graphics",
+          "scope": "small fixed random action-head exercise; no robot policy or task score"
+        },
+        "setup_ms": 66.74419401679188,
+        "median_ms": {
+          "Eager dispatch": 0.040528030367568135,
+          "Graph replay": 0.039372630417346954
+        },
+        "raw_round_ms": {
+          "Eager dispatch": [
+            0.039873430505394936,
+            0.040528030367568135,
+            0.04078791942447424,
+            0.04037191974930465,
+            0.04085842985659838
+          ],
+          "Graph replay": [
+            0.03932981984689832,
+            0.03932642983272672,
+            0.03959263092838228,
+            0.039372630417346954,
+            0.03963272087275982
+          ]
+        },
+        "two_input_max_abs_errors": [
+          0.0,
+          0.0
+        ],
+        "speed_ratio": 1.0293452567932095,
+        "break_even_calls": 57768
+      }
+    ],
+    "notebook_sha256": "023c8f890750e3c0c1f7f29bb4069064b3e535bec1354e26e89ed7a71dd43f96"
+  },
+  {
+    "file": "03_MuJoCo\u591a\u6b65\u8c03\u7528\u4e0e\u72b6\u6001\u4e00\u81f4\u6027.ipynb",
+    "executed_code_cells": 3,
+    "measurements": [
+      {
+        "rollout_median_ms": {
+          "Python step loop": 7.746794959530234,
+          "Native nstep": 6.92281499505043
+        },
+        "raw_round_ms": {
+          "Python step loop": [
+            7.841745973564684,
+            7.5384549563750625,
+            8.121464983560145,
+            7.624975056387484,
+            7.678435067646205,
+            7.746794959530234,
+            7.757195038720965
+          ],
+          "Native nstep": [
+            7.524924003519118,
+            6.8311350187286735,
+            6.852325052022934,
+            6.791683961637318,
+            6.92281499505043,
+            6.947423913516104,
+            6.9778249599039555
+          ]
+        },
+        "speed_ratio": 1.1190238313560192,
+        "max_abs_state_error": 0.0,
+        "control_boundary_contact_samples": 87,
+        "scope": "4000 physics steps, 200 unchanged control updates, 7 timing rounds"
+      }
+    ],
+    "notebook_sha256": "3b518dc890b2eb98e1116a860ed71ab2767c7ffbb3890e2e7040b6d2c3cce833"
+  },
+  {
+    "file": "04_AMD\u539f\u751f\u6761\u4ef6\u56fe\u4e0e\u5386\u53f2\u7ed3\u679c\u590d\u6838.ipynb",
+    "executed_code_cells": 7,
+    "measurements": [
+      {
+        "executed": true,
+        "device": {
+          "hostname": "aup-NucBox-EVO-X2",
+          "python": "3.10.19 (main, Oct 21 2025, 16:43:05) [GCC 11.2.0]",
+          "torch": "2.11.0+rocm7.13.0a20260425",
+          "hip": "7.13.26162",
+          "gpu": "Radeon 8060S Graphics",
+          "client_time": "2026-10-29T03:40:02.777923+08:00",
+          "work_mount": "/dev/shm",
+          "work_free_bytes": 18131025920,
+          "scope": "shared AMD device; other services left running; no training or robot task evaluation"
+        },
+        "performance_worlds": 1024,
+        "performance_steps": 1000,
+        "timing_repeats_each": 3,
+        "paired_state_worlds": 256,
+        "paired_state_steps": 100,
+        "median_run_s": {
+          "eager": 2.7171812439337373,
+          "native": 2.124600625014864
+        },
+        "speed_ratio": 1.2789138871286587,
+        "max_abs_state_errors": {
+          "qpos": 5.632638931274414e-06,
+          "qvel": 3.123283386230469e-05,
+          "time": 0.0
+        },
+        "correctness_tolerance": 1e-05,
+        "correctness_passed": false,
+        "runtime_file": "/home/aup/tmp/rocm-hip-conditional-node-20260821/clr-build/hipamd/lib/libamdhip64.so.7.2.53211-b2451a4",
+        "runtime_sha256": "cd114df05a73ac27f539a027ed5cf9c4d6b972d3d197abd58cdbb930216435dd",
+        "model_sha256": "0a85cb5b1d86bbae5fab9ed8a5a5657c697600674f421293a15aea6754928adf"
+      }
+    ],
+    "notebook_sha256": "64a59fd843da3001b8e0ba00d43e4c911cab99f7aa4210292c3b52d8473bd757"
+  }
+]

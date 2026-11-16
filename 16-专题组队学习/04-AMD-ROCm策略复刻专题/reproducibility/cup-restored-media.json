@@ -1,0 +1,54 @@
+{
+  "source": "ryzen-ai-halo original tutorial assets; preserved original device bytes",
+  "videos": [
+    {
+      "file": "pi05_canonical_s800_seed1003.mp4",
+      "bytes": 3040671,
+      "sha256": "9ae968f6cedfbafe932b5e9f1d0978862c2252b9e37c74586ea7a1757bf3c154",
+      "decoded": true,
+      "error": ""
+    },
+    {
+      "file": "pi05_eefdelta_h5_seed2133.mp4",
+      "bytes": 3328665,
+      "sha256": "fe73c35a29d25a7286c6db739e340328d7c714ee96499aa7ea0e4d0e6938f9df",
+      "decoded": true,
+      "error": ""
+    },
+    {
+      "file": "pi0_ep2_raw_vs_finisher_side_by_side.mp4",
+      "bytes": 581490,
+      "sha256": "158c7173f32b0d1ae71406670eb3f8644866e7dc350dbe997f7e3933e1a3efe2",
+      "decoded": true,
+      "error": ""
+    },
+    {
+      "file": "pnp_four_view_strict_success.mp4",
+      "bytes": 2049187,
+      "sha256": "166d6361729320fce833f485f5884490c3a2881ca54f223877c5a05163bbccca",
+      "decoded": true,
+      "error": ""
+    },
+    {
+      "file": "smolvla_weighted500_blue_success_seed0.mp4",
+      "bytes": 1987655,
+      "sha256": "d870786c6fee675d70817d2c862bc166de3c0912a0df190a3dfdd48ec7d461af",
+      "decoded": true,
+      "error": ""
+    },
+    {
+      "file": "smolvla_weighted500_red_failure_seed8.mp4",
+      "bytes": 1302140,
+      "sha256": "50e77e384be69c7b85fb8959ec836b5f74bf7e5a12789f5e2521d3f4b5ecc18e",
+      "decoded": true,
+      "error": ""
+    },
+    {
+      "file": "smolvla_weighted500_red_success_seed0.mp4",
+      "bytes": 1343521,
+      "sha256": "ac94a26c56c37695299739e1cb61aa2c14d1d9f654121a9202cdacbd1d7c8794",
+      "decoded": true,
+      "error": ""
+    }
+  ]
+}

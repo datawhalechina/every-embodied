@@ -1,0 +1,8 @@
+{
+  "state": "complete",
+  "cold_start_baseline": 0,
+  "cold_start_trained": 2,
+  "episodes_each": 20,
+  "reason": "Compile first inference before evaluated simulation starts; preserve model RNG and official async scheduling",
+  "supervisor_pid": 3953543
+}

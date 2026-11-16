@@ -1,0 +1,16 @@
+{
+  "client_time": "2026-10-25T11:10:50.327486+08:00",
+  "automatic_update_triggers_stopped": [
+    "apt-daily.timer",
+    "apt-daily-upgrade.timer"
+  ],
+  "update_services_not_running": [
+    "apt-daily.service",
+    "apt-daily-upgrade.service"
+  ],
+  "previous_service_result": "oom-kill; not successful system maintenance",
+  "boot_enablement_changed": false,
+  "restore_triggers_command": "sudo systemctl start apt-daily.timer apt-daily-upgrade.timer",
+  "unit_state_output": "Result=success\nId=apt-daily.timer\nActiveState=inactive\nSubState=dead\nUnitFileState=enabled\n\nResult=success\nId=apt-daily-upgrade.timer\nActiveState=inactive\nSubState=dead\nUnitFileState=enabled\n\nResult=oom-kill\nId=apt-daily.service\nActiveState=failed\nSubState=failed\nUnitFileState=static\n\nResult=oom-kill\nId=apt-daily-upgrade.service\nActiveState=failed\nSubState=failed\nUnitFileState=static\n",
+  "credentials_saved": false
+}

@@ -1,0 +1,45 @@
+{
+  "gradient_step": 0,
+  "successes": 0,
+  "episodes": 4,
+  "success_rate": 0.0,
+  "mean_steps": 304.0,
+  "results": [
+    {
+      "seed": 0,
+      "success": false,
+      "steps": 304,
+      "videos": [
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/dp_place_block500_s5000_20260717/eval_fixed4/videos/0_seed_0_cam_0.mp4",
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/dp_place_block500_s5000_20260717/eval_fixed4/videos/0_seed_0_cam_1.mp4"
+      ]
+    },
+    {
+      "seed": 1,
+      "success": false,
+      "steps": 304,
+      "videos": [
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/dp_place_block500_s5000_20260717/eval_fixed4/videos/0_seed_1_cam_0.mp4",
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/dp_place_block500_s5000_20260717/eval_fixed4/videos/0_seed_1_cam_1.mp4"
+      ]
+    },
+    {
+      "seed": 1000,
+      "success": false,
+      "steps": 304,
+      "videos": [
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/dp_place_block500_s5000_20260717/eval_fixed4/videos/0_seed_1000_cam_0.mp4",
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/dp_place_block500_s5000_20260717/eval_fixed4/videos/0_seed_1000_cam_1.mp4"
+      ]
+    },
+    {
+      "seed": 1001,
+      "success": false,
+      "steps": 304,
+      "videos": [
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/dp_place_block500_s5000_20260717/eval_fixed4/videos/0_seed_1001_cam_0.mp4",
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/dp_place_block500_s5000_20260717/eval_fixed4/videos/0_seed_1001_cam_1.mp4"
+      ]
+    }
+  ]
+}

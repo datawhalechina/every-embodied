@@ -1,0 +1,18 @@
+{
+  "state": "complete",
+  "started_unix": 1792716682.8761718,
+  "finished_unix": 1792716746.5056665,
+  "stage": "evaluate",
+  "result": {
+    "episodes": 1,
+    "successes": 0,
+    "success_rate": 0.0,
+    "seeds": [
+      0
+    ],
+    "protocol": "official task termination and success predicate",
+    "checkpoint_sha256": "a297dcaaf751bd2676165f46bbea515ea1bf4139abdc2cf278dfe316c39252d7",
+    "directory": "/home/aup/amd-notebook-work/runs/dexjoco-notebook-e2e-20261023/eval_a297dcaaf751_7bde6f9f",
+    "validation_only": true
+  }
+}

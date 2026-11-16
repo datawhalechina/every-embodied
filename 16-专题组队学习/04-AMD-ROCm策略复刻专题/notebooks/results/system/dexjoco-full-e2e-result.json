@@ -1,0 +1,18 @@
+{
+  "state": "complete",
+  "code_cells": 10,
+  "execution_counts": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "scope": "single fresh kernel, all workload stages enabled, no resumed cells",
+  "notebook": "/home/aup/amd-notebook-work/course/notebooks/executed_18_full_e2e_20261023.ipynb"
+}

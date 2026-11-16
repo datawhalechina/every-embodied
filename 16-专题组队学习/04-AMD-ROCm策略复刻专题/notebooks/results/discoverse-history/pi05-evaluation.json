@@ -1,0 +1,193 @@
+{
+  "policy_path": "/home/aup/jiahang/discoverse-airbot-amd/local_runs/pi05_place_block500_expert_s500_20260717",
+  "dataset_root": "/home/aup/jiahang/datasets/discoverse/place_block_lerobot500_biasm1_v1",
+  "instruction": "Place the green block in the pink bowl",
+  "dataset_stats_snapshot": "/home/aup/jiahang/discoverse-airbot-amd/local_runs/pi05_place_block500_expert_s500_20260717/dataset_stats.json",
+  "seeds": [
+    0,
+    1,
+    1000,
+    1001
+  ],
+  "successes": 0,
+  "episodes": 4,
+  "success_rate": 0.0,
+  "results": [
+    {
+      "seed": 0,
+      "success": false,
+      "steps": 300,
+      "sim_time": 14.999999999999469,
+      "control_fps": 20.0,
+      "physics_steps_per_action": 3,
+      "n_action_steps": 50,
+      "initial_block_pos": [
+        0.01171524094255794,
+        0.8844302986195871,
+        0.7145
+      ],
+      "initial_bowl_pos": [
+        0.020552675214328776,
+        1.0344883182996898,
+        0.6988
+      ],
+      "final_block_pos": [
+        0.011749427465330442,
+        0.8843961120968002,
+        0.7144999887002732
+      ],
+      "final_bowl_pos": [
+        0.02055267526407225,
+        1.0344883111530068,
+        0.6988253841198597
+      ],
+      "block_displacement": 4.834704548589534e-05,
+      "block_to_bowl_xy": 0.15035014263157176,
+      "phase_diagnostics": {
+        "gripper_closed": true,
+        "gripper_reopened_after_close": false,
+        "block_moved": false,
+        "max_block_lift": 0.0,
+        "block_lifted": false,
+        "min_block_to_bowl_xy": 0.1503180207302207,
+        "reached_place_xy": false
+      },
+      "videos": [
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/pi05_place_block500_expert_s500_20260717/closedloop_fixed4/seed_0/cam_0.mp4",
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/pi05_place_block500_expert_s500_20260717/closedloop_fixed4/seed_0/cam_1.mp4"
+      ]
+    },
+    {
+      "seed": 1,
+      "success": false,
+      "steps": 300,
+      "sim_time": 14.999999999999469,
+      "control_fps": 20.0,
+      "physics_steps_per_action": 3,
+      "n_action_steps": 50,
+      "initial_block_pos": [
+        -0.01991471887138224,
+        0.8852519189507453,
+        0.7145
+      ],
+      "initial_bowl_pos": [
+        -0.09997712503653103,
+        1.010233257263184,
+        0.6988
+      ],
+      "final_block_pos": [
+        -0.019384827711968228,
+        0.8847220277913369,
+        0.7144999887002726
+      ],
+      "final_bowl_pos": [
+        -0.09997712498678771,
+        1.0102332501165014,
+        0.6988253841198597
+      ],
+      "block_displacement": 0.0007493792643061093,
+      "block_to_bowl_xy": 0.14915825592165444,
+      "phase_diagnostics": {
+        "gripper_closed": true,
+        "gripper_reopened_after_close": true,
+        "block_moved": false,
+        "max_block_lift": 0.0,
+        "block_lifted": false,
+        "min_block_to_bowl_xy": 0.1484261499863467,
+        "reached_place_xy": false
+      },
+      "videos": [
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/pi05_place_block500_expert_s500_20260717/closedloop_fixed4/seed_1/cam_0.mp4",
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/pi05_place_block500_expert_s500_20260717/closedloop_fixed4/seed_1/cam_1.mp4"
+      ]
+    },
+    {
+      "seed": 1000,
+      "success": false,
+      "steps": 300,
+      "sim_time": 14.999999999999469,
+      "control_fps": 20.0,
+      "physics_steps_per_action": 3,
+      "n_action_steps": 50,
+      "initial_block_pos": [
+        0.03686150051150629,
+        0.7884011108999049,
+        0.7145
+      ],
+      "initial_bowl_pos": [
+        0.09005657286980491,
+        1.0282191401427998,
+        0.6988
+      ],
+      "final_block_pos": [
+        0.03687858174321714,
+        0.7883840296681913,
+        0.7144999887002731
+      ],
+      "final_bowl_pos": [
+        0.0900565729195484,
+        1.0282191329961172,
+        0.6988253841198597
+      ],
+      "block_displacement": 2.415651219232986e-05,
+      "block_to_bowl_xy": 0.24565987774536333,
+      "phase_diagnostics": {
+        "gripper_closed": true,
+        "gripper_reopened_after_close": true,
+        "block_moved": false,
+        "max_block_lift": 0.0,
+        "block_lifted": false,
+        "min_block_to_bowl_xy": 0.24563640163929276,
+        "reached_place_xy": false
+      },
+      "videos": [
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/pi05_place_block500_expert_s500_20260717/closedloop_fixed4/seed_1000/cam_0.mp4",
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/pi05_place_block500_expert_s500_20260717/closedloop_fixed4/seed_1000/cam_1.mp4"
+      ]
+    },
+    {
+      "seed": 1001,
+      "success": false,
+      "steps": 300,
+      "sim_time": 14.999999999999469,
+      "control_fps": 20.0,
+      "physics_steps_per_action": 3,
+      "n_action_steps": 50,
+      "initial_block_pos": [
+        -0.04650427690828669,
+        0.8124101704972009,
+        0.7145
+      ],
+      "initial_bowl_pos": [
+        -0.060787987369769717,
+        1.0230521476567047,
+        0.6988
+      ],
+      "final_block_pos": [
+        -0.046213691444532065,
+        0.8121195850334494,
+        0.7144999887002732
+      ],
+      "final_bowl_pos": [
+        -0.0607879873200262,
+        1.0230521405100224,
+        0.6988253841198597
+      ],
+      "block_displacement": 0.00041094990402340456,
+      "block_to_bowl_xy": 0.21143545837948746,
+      "phase_diagnostics": {
+        "gripper_closed": true,
+        "gripper_reopened_after_close": false,
+        "block_moved": false,
+        "max_block_lift": 0.0,
+        "block_lifted": false,
+        "min_block_to_bowl_xy": 0.21111098231821712,
+        "reached_place_xy": false
+      },
+      "videos": [
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/pi05_place_block500_expert_s500_20260717/closedloop_fixed4/seed_1001/cam_0.mp4",
+        "/home/aup/jiahang/discoverse-airbot-amd/local_runs/pi05_place_block500_expert_s500_20260717/closedloop_fixed4/seed_1001/cam_1.mp4"
+      ]
+    }
+  ]
+}

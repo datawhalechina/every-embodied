@@ -1,0 +1,164 @@
+{
+  "schema": "amd-pacman-cbf-control-validation/v1",
+  "status": "control_path_validated",
+  "upstream_repository": "https://github.com/lzyang2000/perceptive_cbf_rl",
+  "upstream_commit": "2d4266978805e8272daa7f029a8bca91cf45e1ba",
+  "task": "PAC-MAN predictive perpendicular CBF on a MuJoCo projectile proxy",
+  "evaluation_scope": {
+    "controller": "predictive_perpendicular_cbf",
+    "scene": "portable_mujoco_projectile",
+    "is_rocm_policy_tensor_path": true,
+    "evidence": "fixed_seed_clearance_and_video"
+  },
+  "runtime": {
+    "hostname": "u-7791-9e82d515",
+    "python": "3.12.3",
+    "platform": "Linux-6.8.0-79-generic-x86_64-with-glibc2.39",
+    "torch": "2.9.1+gitff65f5b",
+    "torch_hip": "7.2.53211-e1a6bc5663",
+    "torch_device": "cuda",
+    "torch_cuda_available": true,
+    "torch_device_name": "AMD Radeon Graphics",
+    "mujoco": "3.11.0",
+    "generated_at_utc": "2026-08-03T11:53:11.659091+00:00"
+  },
+  "protocol": {
+    "episodes": 12,
+    "seed_policy": "seed 0..N-1",
+    "physics_timestep_s": 0.02,
+    "camera_views": [
+      "overview",
+      "top"
+    ],
+    "safe_radius_m": 0.55,
+    "video_fps": 25
+  },
+  "summary": {
+    "successes": 12,
+    "episodes": 12,
+    "success_rate": 1.0,
+    "all_proxy_episodes_safe": true
+  },
+  "episodes": [
+    {
+      "seed": 0,
+      "success": true,
+      "collision": false,
+      "min_clearance_m": 0.18965,
+      "max_filtered_speed_mps": 1.12939,
+      "threat_steps": 50,
+      "escape_side": 1,
+      "evaluation_type": "predictive_cbf_control_path_proxy"
+    },
+    {
+      "seed": 1,
+      "success": true,
+      "collision": false,
+      "min_clearance_m": 0.18967,
+      "max_filtered_speed_mps": 1.07641,
+      "threat_steps": 50,
+      "escape_side": -1,
+      "evaluation_type": "predictive_cbf_control_path_proxy"
+    },
+    {
+      "seed": 2,
+      "success": true,
+      "collision": false,
+      "min_clearance_m": 0.18966,
+      "max_filtered_speed_mps": 1.08915,
+      "threat_steps": 50,
+      "escape_side": 1,
+      "evaluation_type": "predictive_cbf_control_path_proxy"
+    },
+    {
+      "seed": 3,
+      "success": true,
+      "collision": false,
+      "min_clearance_m": 0.18969,
+      "max_filtered_speed_mps": 1.02205,
+      "threat_steps": 50,
+      "escape_side": -1,
+      "evaluation_type": "predictive_cbf_control_path_proxy"
+    },
+    {
+      "seed": 4,
+      "success": true,
+      "collision": false,
+      "min_clearance_m": 0.18965,
+      "max_filtered_speed_mps": 1.14699,
+      "threat_steps": 50,
+      "escape_side": 1,
+      "evaluation_type": "predictive_cbf_control_path_proxy"
+    },
+    {
+      "seed": 5,
+      "success": true,
+      "collision": false,
+      "min_clearance_m": 0.18965,
+      "max_filtered_speed_mps": 1.13399,
+      "threat_steps": 50,
+      "escape_side": -1,
+      "evaluation_type": "predictive_cbf_control_path_proxy"
+    },
+    {
+      "seed": 6,
+      "success": true,
+      "collision": false,
+      "min_clearance_m": 0.18968,
+      "max_filtered_speed_mps": 1.02947,
+      "threat_steps": 50,
+      "escape_side": 1,
+      "evaluation_type": "predictive_cbf_control_path_proxy"
+    },
+    {
+      "seed": 7,
+      "success": true,
+      "collision": false,
+      "min_clearance_m": 0.18966,
+      "max_filtered_speed_mps": 1.11093,
+      "threat_steps": 50,
+      "escape_side": -1,
+      "evaluation_type": "predictive_cbf_control_path_proxy"
+    },
+    {
+      "seed": 8,
+      "success": true,
+      "collision": false,
+      "min_clearance_m": 0.18969,
+      "max_filtered_speed_mps": 0.99341,
+      "threat_steps": 50,
+      "escape_side": 1,
+      "evaluation_type": "predictive_cbf_control_path_proxy"
+    },
+    {
+      "seed": 9,
+      "success": true,
+      "collision": false,
+      "min_clearance_m": 0.18963,
+      "max_filtered_speed_mps": 1.19034,
+      "threat_steps": 50,
+      "escape_side": -1,
+      "evaluation_type": "predictive_cbf_control_path_proxy"
+    },
+    {
+      "seed": 10,
+      "success": true,
+      "collision": false,
+      "min_clearance_m": 0.18968,
+      "max_filtered_speed_mps": 1.03563,
+      "threat_steps": 50,
+      "escape_side": 1,
+      "evaluation_type": "predictive_cbf_control_path_proxy"
+    },
+    {
+      "seed": 11,
+      "success": true,
+      "collision": false,
+      "min_clearance_m": 0.18968,
+      "max_filtered_speed_mps": 1.04999,
+      "threat_steps": 50,
+      "escape_side": -1,
+      "evaluation_type": "predictive_cbf_control_path_proxy"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "project": "DexJoCo Pi0.5",
+  "platform": "AMD Radeon 395 / ROCm JAX 0.10",
+  "checkpoint": "DexJoCo/DexJoCo-Pi05 pi05_dexjoco_multi_task",
+  "protocol": {
+    "official_config": "configs/multi_task",
+    "tasks": 11,
+    "episodes_per_task": 1,
+    "official_seed": 0,
+    "official_successes": 5,
+    "official_success_rate": "5/11",
+    "success_seed_archive": "Fixed seeds 1-10 provide one deterministic success trace for each additional task when available.",
+    "success_seed_tasks": 10,
+    "success_seed_coverage": "10/11",
+    "summary_sha256": "e449b54e70eb1a3bbdc9434ea1bbe7108e7eebf6fa133c6da77c49bca999428e",
+    "checkpoint_manifest_sha256": "670400c9f467cecaf481dc14fc8de744d4a1935ddbed6dfde9fe39a3d13a2843"
+  },
+  "tasks": [
+    {"task": "bimanual_assembly", "official_seed_0": "0/1", "success_seed": 3, "website_video": "assets/videos/dexjoco/recovery/bimanual-assembly.mp4", "website_video_status": "published_success_seed_video", "website_video_sha256": "71de50ddc81253aaf3bf1f908af0069fec685b910b847270393b153340531c74"},
+    {"task": "bimanual_hanoi", "official_seed_0": "0/1", "success_seed": 4, "website_video": "assets/videos/dexjoco/recovery/bimanual-hanoi.mp4", "website_video_status": "published_success_seed_video", "website_video_sha256": "f87caadd9cec2ec4478423cc168a2f90ab41dea5d8dea1ada74d5f56eb00f8ae"},
+    {"task": "bimanual_microwave_cook", "official_seed_0": "0/1", "success_seed": 1, "website_video": "assets/videos/dexjoco/recovery/bimanual-microwave-cook.mp4", "website_video_status": "published_success_seed_video", "website_video_sha256": "91ac91946bf8318c55e0fcc97e1a4fe8a6e46e11a5fb5386c76da1df44308d84"},
+    {"task": "bimanual_photograph", "official_seed_0": "0/1", "success_seed": 3, "website_video": "assets/videos/dexjoco/recovery/bimanual-photograph.mp4", "website_video_status": "published_success_seed_video", "website_video_sha256": "1aa21981959ba32fd4653cac6051c6f9d8e40ae24a09babaf5520c754264e023"},
+    {"task": "click_mouse", "official_seed_0": "1/1", "success_seed": 0, "website_video": "assets/videos/dexjoco/official/click-mouse.mp4", "website_video_status": "published_official_success_video", "website_video_sha256": "e22d788879f823fd9d4bcaa6c8664218441b1138c63e4ce8ac92b6d3293da482"},
+    {"task": "fold_glasses", "official_seed_0": "1/1", "success_seed": 0, "website_video": "assets/videos/dexjoco/official/fold-glasses.mp4", "website_video_status": "published_official_success_video", "website_video_sha256": "a78545e71e68c1ac154649c389ba97d3453dde8cdb7ddc2b350cd4faf5fb832"},
+    {"task": "hammer_nail", "official_seed_0": "1/1", "success_seed": 0, "website_video": "assets/videos/dexjoco/official/hammer-nail.mp4", "website_video_status": "published_official_success_video", "website_video_sha256": "8632b9d2a20a896160ba87e92d3a8b39f4ec01297c4f6b58821259fb1a8347b2"},
+    {"task": "pick_bucket", "official_seed_0": "1/1", "success_seed": 0, "website_video": "assets/videos/dexjoco/official/pick-bucket.mp4", "website_video_status": "published_official_success_video", "website_video_sha256": "b061068496ac896f5ec40bf01f5ca9038562d495eee23cb3c8461e908ceab896"},
+    {"task": "pinch_tongs", "official_seed_0": "1/1", "success_seed": 0, "website_video": "assets/videos/dexjoco/official/pinch-tongs.mp4", "website_video_status": "published_official_success_video", "website_video_sha256": "f5e207aa0a1f740b7077c1783efcd158f14bd060d3dd228c958007cfcbb7841c"},
+    {"task": "water_plant", "official_seed_0": "0/1", "success_seed": 2, "website_video": "assets/videos/dexjoco/recovery/water-plant-seed2.mp4", "website_video_status": "published_success_seed_video", "website_video_sha256": "c856e5cf16cc87a655622a27a74b7216cb16c85e8c9df1cd1dc51ae9a79276e5"}
+  ]
+}

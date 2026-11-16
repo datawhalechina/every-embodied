@@ -1,0 +1,30 @@
+{
+  "schema": "mujoco-warp-native-sleeping-islands-collision-summary-v1",
+  "scope": "collision-pipeline",
+  "worlds": 512,
+  "constraint_islands_per_world": 8,
+  "steps_per_repeat": 128,
+  "trials": 5,
+  "static_world_steps_per_second_samples": [
+    431677.1284804304,
+    461532.50906369486,
+    455276.4776495481,
+    442911.17507994483,
+    440129.6391825525
+  ],
+  "native_world_steps_per_second_samples": [
+    511711.41874517564,
+    539684.757105054,
+    508698.17921348166,
+    510232.1651303343,
+    512693.4820216345
+  ],
+  "static_world_steps_per_second": 442911.17507994483,
+  "native_world_steps_per_second": 511711.41874517564,
+  "speedup_vs_static": 1.1553364365954697,
+  "runtime_reduction_fraction": 0.13445125737851138,
+  "native_sleeping_island_fraction": 1.0,
+  "native_all_trees_sleeping": true,
+  "native_final_wake_predicate": 0,
+  "valid": true
+}

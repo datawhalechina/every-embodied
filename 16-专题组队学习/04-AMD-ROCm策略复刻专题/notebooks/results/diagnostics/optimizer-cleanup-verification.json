@@ -1,0 +1,12 @@
+{
+  "optimizer_absent_after_verified_prune": true,
+  "pruned_bytes": 10896059452,
+  "commit": "d9a0339cbf2d19f67809c1e8c575f942a99718d5",
+  "retained_model_weights": [
+    {
+      "file": "/home/aup/course_model_rebuild_20260724/notebook_protected_split/runs/pi0_protected_recipe/clean40_s7500/checkpoints/007500/pretrained_model/model.safetensors",
+      "bytes": 7536023136
+    }
+  ],
+  "scope": "Old optimizer only; original model weights retained"
+}

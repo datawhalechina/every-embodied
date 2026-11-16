@@ -1,0 +1,79 @@
+{
+  "status": "passed",
+  "data_dir": "/home/aup/jiahang/discoverse-airbot-amd/data/place_block",
+  "episodes_found": 500,
+  "episodes_with_complete_gripper_phases": 500,
+  "failures": [],
+  "round_decimals": 3,
+  "unique_grasp_targets": 500,
+  "unique_place_targets": 500,
+  "unique_grasp_place_pairs": 500,
+  "episode_frames": {
+    "min": 73,
+    "max": 127,
+    "mean": 88.878
+  },
+  "closed_frames": {
+    "min": 33,
+    "max": 57,
+    "mean": 44.014
+  },
+  "grasp_joint_targets": {
+    "min": [
+      0.17923120891551053,
+      -1.960273005496695,
+      0.533776285813063,
+      1.5707999999999998,
+      -1.429061290895288,
+      -1.3915651178793862
+    ],
+    "max": [
+      0.8724017952346068,
+      -0.9183733094900672,
+      1.8185379695970867,
+      1.5708,
+      -1.150689539094127,
+      -0.6983945315602897
+    ],
+    "std": [
+      0.1552799633531239,
+      0.24190838512534413,
+      0.3034682556070985,
+      7.470340861540217e-15,
+      0.06666233116168246,
+      0.15527996335312394
+    ],
+    "span_l2": 1.9428405277672767
+  },
+  "place_joint_targets": {
+    "min": [
+      -0.3550587268483278,
+      -1.6294551107618973,
+      0.6702013111348757,
+      1.5707999999999998,
+      -1.4127381875790366,
+      -1.9258550536432244
+    ],
+    "max": [
+      0.09565608674012761,
+      -0.8760212346621814,
+      1.4713969715460375,
+      1.5708,
+      -1.3199768437748651,
+      -1.475140240054769
+    ],
+    "std": [
+      0.0963747575385792,
+      0.21120303894297404,
+      0.22704476318688246,
+      7.455291036896933e-15,
+      0.024945712633826944,
+      0.09637475753857914
+    ],
+    "span_l2": 1.274546760694494
+  },
+  "limitations": [
+    "The source dataset does not store initial object poses or collection seeds.",
+    "Joint-target diversity is a proxy for spatial coverage, not an exact pose audit."
+  ]
+}

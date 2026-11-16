@@ -1,0 +1,10 @@
+{
+  "source": "/home/aup/course_model_rebuild_20260724/notebook_protected_split/runs/pi0_protected_recipe/clean40_s7500/checkpoints/007500",
+  "files": [
+    {
+      "file": "training_state/optimizer_state.safetensors",
+      "bytes": 10896059452,
+      "sha256": "ec3c485298a9cb5d1a2d09b80520db9320361b02758f2c8b2ccd5da892bbbf72"
+    }
+  ]
+}

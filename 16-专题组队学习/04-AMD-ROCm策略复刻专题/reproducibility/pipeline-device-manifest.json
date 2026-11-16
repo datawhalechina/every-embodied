@@ -1,0 +1,24 @@
+{
+  "job_root": "/home/aup/amd-notebook-work/course-formal-v2",
+  "code_root": "/home/aup/amd-notebook-work/course/code",
+  "runs": [
+    {
+      "name": "robocasa",
+      "config": "/home/aup/amd-notebook-work/course/reproducibility/robocasa-device-profile.json",
+      "python": "/home/aup/envs/robocasa365-rocm-py312/bin/python"
+    },
+    {
+      "name": "dexjoco",
+      "config": "/home/aup/amd-notebook-work/course/reproducibility/dexjoco-device-profile.json",
+      "python": "/home/aup/envs/openpi-amd-jax010/bin/python"
+    }
+  ],
+  "stages": [
+    "preflight",
+    "prepare",
+    "train",
+    "baseline",
+    "evaluate"
+  ],
+  "client_timezone": "Asia/Shanghai"
+}

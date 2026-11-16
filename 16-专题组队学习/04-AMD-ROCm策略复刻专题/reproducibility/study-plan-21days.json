@@ -1,0 +1,405 @@
+{
+  "version": 1,
+  "duration_days": 21,
+  "shared_days": 14,
+  "project_days": 7,
+  "task_count": 8,
+  "active_study_hours_estimate": [
+    40,
+    50
+  ],
+  "calendar_dates_set": false,
+  "days": [
+    {
+      "day": 1,
+      "title": "申请资源与认识课程",
+      "notebooks": [
+        "01-抓杯子/03-Notebook/14_smolvla_end_to_end.ipynb"
+      ],
+      "references": [
+        "README_00_AMD_AUP免费云平台使用指南.md",
+        "01-抓杯子/03-Notebook/14_smolvla_end_to_end.ipynb"
+      ],
+      "practice": "按申请结果选择环境，观看已有完整回合，记录目标与资源情况。",
+      "output": "申请／环境清单；一个感兴趣的任务。"
+    },
+    {
+      "day": 2,
+      "title": "核对设备、依赖和持久化目录",
+      "notebooks": [
+        "00-设备与环境/03-Notebook/01_device_env_check.ipynb"
+      ],
+      "references": [
+        "00-设备与环境/03-Notebook/01_device_env_check.ipynb"
+      ],
+      "practice": "执行设备或本地基础检查，分清源码、数据、模型与输出目录。",
+      "output": "设备检查输出和目录说明。"
+    },
+    {
+      "day": 3,
+      "title": "观测、动作与演示数据",
+      "notebooks": [
+        "01-抓杯子/03-Notebook/07_data_collection_and_audit.ipynb",
+        "01-抓杯子/03-Notebook/19_cup_collect_train_evaluate.ipynb"
+      ],
+      "references": [
+        "01-抓杯子/03-Notebook/07_data_collection_and_audit.ipynb",
+        "01-抓杯子/03-Notebook/19_cup_collect_train_evaluate.ipynb"
+      ],
+      "practice": "检查图像、状态、动作、回合边界；选择一条轨迹回放。",
+      "output": "一张数据字段表和回放说明。"
+    },
+    {
+      "day": 4,
+      "title": "逐格读懂训练循环",
+      "notebooks": [
+        "01-抓杯子/03-Notebook/08_act_training_rocm.ipynb",
+        "01-抓杯子/03-Notebook/19_cup_collect_train_evaluate.ipynb"
+      ],
+      "references": [
+        "01-抓杯子/03-Notebook/08_act_training_rocm.ipynb",
+        "01-抓杯子/03-Notebook/19_cup_collect_train_evaluate.ipynb"
+      ],
+      "practice": "运行形状、归一化、掩码、损失与梯度算例，定位保存与加载代码。",
+      "output": "数值算例输出；采样到更新的流程图。"
+    },
+    {
+      "day": 5,
+      "title": "让训练产物回到环境",
+      "notebooks": [
+        "01-抓杯子/03-Notebook/14_smolvla_end_to_end.ipynb",
+        "01-抓杯子/03-Notebook/19_cup_collect_train_evaluate.ipynb",
+        "01-抓杯子/03-Notebook/20_cup_deterministic_train_evaluate.ipynb"
+      ],
+      "references": [
+        "01-抓杯子/03-Notebook/14_smolvla_end_to_end.ipynb",
+        "01-抓杯子/03-Notebook/19_cup_collect_train_evaluate.ipynb",
+        "01-抓杯子/03-Notebook/20_cup_deterministic_train_evaluate.ipynb"
+      ],
+      "practice": "有匹配算力时做短训练和少量种子评估；其他学员执行算例并复算已完成实验。",
+      "output": "真实执行范围、训练日志或复算表；视频标注来源。"
+    },
+    {
+      "day": 6,
+      "title": "厨房操作的任务与接口",
+      "notebooks": [
+        "02-RoboCasa厨房操作/03-Notebook/17_robocasa365_amd_train_eval.ipynb"
+      ],
+      "references": [
+        "02-RoboCasa厨房操作/03-Notebook/17_robocasa365_amd_train_eval.ipynb"
+      ],
+      "practice": "检查多相机、状态与动作；拆解装餐等多阶段任务。",
+      "output": "任务阶段图和输入输出说明。"
+    },
+    {
+      "day": 7,
+      "title": "从任务明细复算多任务成绩",
+      "notebooks": [
+        "02-RoboCasa厨房操作/03-Notebook/02_历史多任务对照与结果复算.ipynb"
+      ],
+      "references": [
+        "02-RoboCasa厨房操作/03-Notebook/02_历史多任务对照与结果复算.ipynb"
+      ],
+      "practice": "运行重复任务故障与分母守卫，重新计算16任务对照。",
+      "output": "逐任务对照表，说明汇总口径。"
+    },
+    {
+      "day": 8,
+      "title": "厨房适配训练与长程视频",
+      "notebooks": [
+        "02-RoboCasa厨房操作/03-Notebook/17_robocasa365_amd_train_eval.ipynb"
+      ],
+      "references": [
+        "02-RoboCasa厨房操作/03-Notebook/17_robocasa365_amd_train_eval.ipynb"
+      ],
+      "practice": "阅读实际更新、冻结和恢复代码，查看完整回合；安排训练组选题。",
+      "output": "训练配置解读与一段完整回合分析。"
+    },
+    {
+      "day": 9,
+      "title": "灵巧手与单／双臂动作",
+      "notebooks": [
+        "03-DexJoCo灵巧手/03-Notebook/18_dexjoco_amd_train_eval.ipynb",
+        "03-DexJoCo灵巧手/03-Notebook/03_归一化与动作接口逐步排障.ipynb"
+      ],
+      "references": [
+        "03-DexJoCo灵巧手/03-Notebook/18_dexjoco_amd_train_eval.ipynb",
+        "03-DexJoCo灵巧手/03-Notebook/03_归一化与动作接口逐步排障.ipynb"
+      ],
+      "practice": "认识浇水、双臂河内塔等任务；检查旋转和手部动作表示。",
+      "output": "动作布局表与旋转等价检查。"
+    },
+    {
+      "day": 10,
+      "title": "长训练、续训与权重身份",
+      "notebooks": [
+        "03-DexJoCo灵巧手/03-Notebook/18_dexjoco_amd_train_eval.ipynb",
+        "00-设备与环境/03-Notebook/07_优化器归档与恢复内容校验.ipynb"
+      ],
+      "references": [
+        "03-DexJoCo灵巧手/03-Notebook/18_dexjoco_amd_train_eval.ipynb",
+        "00-设备与环境/03-Notebook/07_优化器归档与恢复内容校验.ipynb"
+      ],
+      "practice": "读懂已有30000次更新记录、模型保存、优化器和恢复条件。",
+      "output": "长训练日志解读、产物身份清单。"
+    },
+    {
+      "day": 11,
+      "title": "复现静默丢参与统计错配",
+      "notebooks": [
+        "03-DexJoCo灵巧手/03-Notebook/02_加载故障复现与严格权重校验.ipynb",
+        "03-DexJoCo灵巧手/03-Notebook/03_归一化与动作接口逐步排障.ipynb"
+      ],
+      "references": [
+        "03-DexJoCo灵巧手/03-Notebook/02_加载故障复现与严格权重校验.ipynb",
+        "03-DexJoCo灵巧手/03-Notebook/03_归一化与动作接口逐步排障.ipynb"
+      ],
+      "practice": "运行故障夹具，跟随实际源码定位问题，完成严格加载和归一化守卫。",
+      "output": "一份故障→定位→修复→验证记录。"
+    },
+    {
+      "day": 12,
+      "title": "预热与异步时序排障",
+      "notebooks": [
+        "03-DexJoCo灵巧手/03-Notebook/04_首次编译预热与随机状态恢复.ipynb",
+        "03-DexJoCo灵巧手/03-Notebook/05_异步动作时序与物理时钟排障.ipynb"
+      ],
+      "references": [
+        "03-DexJoCo灵巧手/03-Notebook/04_首次编译预热与随机状态恢复.ipynb",
+        "03-DexJoCo灵巧手/03-Notebook/05_异步动作时序与物理时钟排障.ipynb"
+      ],
+      "practice": "复算原始推理事件，验证随机状态恢复与迟到／过期动作。",
+      "output": "延迟表、动作时间线和评估条件说明。"
+    },
+    {
+      "day": 13,
+      "title": "算子计时与固定图重放",
+      "notebooks": [
+        "07-推理与仿真加速/03-Notebook/01_推理计时与重复数据搬运.ipynb",
+        "07-推理与仿真加速/03-Notebook/02_固定形状计算图重放.ipynb"
+      ],
+      "references": [
+        "07-推理与仿真加速/03-Notebook/01_推理计时与重复数据搬运.ipynb",
+        "07-推理与仿真加速/03-Notebook/02_固定形状计算图重放.ipynb"
+      ],
+      "practice": "对比数据准备复用与固定形状图重放，记录准备成本与稳态耗时。",
+      "output": "至少一组同条件计时及数值检查；设备不支持时完成源码分析和已有数据复算。"
+    },
+    {
+      "day": 14,
+      "title": "仿真执行与原生条件图",
+      "notebooks": [
+        "07-推理与仿真加速/03-Notebook/03_MuJoCo多步调用与状态一致性.ipynb",
+        "07-推理与仿真加速/03-Notebook/04_AMD原生条件图与历史结果复核.ipynb"
+      ],
+      "references": [
+        "07-推理与仿真加速/03-Notebook/03_MuJoCo多步调用与状态一致性.ipynb",
+        "07-推理与仿真加速/03-Notebook/04_AMD原生条件图与历史结果复核.ipynb"
+      ],
+      "practice": "运行仿真多步等价检查，阅读条件图求解器；检查快了以后状态是否一致。",
+      "output": "状态误差表和项目选题单。"
+    },
+    {
+      "day": 15,
+      "title": "项目基线与资源排期",
+      "notebooks": [
+        "01-抓杯子/03-Notebook/14_smolvla_end_to_end.ipynb",
+        "02-RoboCasa厨房操作/03-Notebook/17_robocasa365_amd_train_eval.ipynb",
+        "03-DexJoCo灵巧手/03-Notebook/18_dexjoco_amd_train_eval.ipynb",
+        "07-推理与仿真加速/03-Notebook/00_加速实验入口与比赛材料.ipynb"
+      ],
+      "references": [
+        "01-抓杯子/03-Notebook/14_smolvla_end_to_end.ipynb",
+        "02-RoboCasa厨房操作/03-Notebook/17_robocasa365_amd_train_eval.ipynb",
+        "03-DexJoCo灵巧手/03-Notebook/18_dexjoco_amd_train_eval.ipynb",
+        "07-推理与仿真加速/03-Notebook/00_加速实验入口与比赛材料.ipynb"
+      ],
+      "practice": "小组选择一条路线，固定权重、任务、种子、指标与预算。",
+      "output": "基线记录、配置与资源计划。"
+    },
+    {
+      "day": 16,
+      "title": "实现与运行",
+      "notebooks": [
+        "01-抓杯子/03-Notebook/19_cup_collect_train_evaluate.ipynb",
+        "02-RoboCasa厨房操作/03-Notebook/17_robocasa365_amd_train_eval.ipynb",
+        "03-DexJoCo灵巧手/03-Notebook/18_dexjoco_amd_train_eval.ipynb",
+        "07-推理与仿真加速/03-Notebook/00_加速实验入口与比赛材料.ipynb"
+      ],
+      "references": [
+        "01-抓杯子/03-Notebook/19_cup_collect_train_evaluate.ipynb",
+        "02-RoboCasa厨房操作/03-Notebook/17_robocasa365_amd_train_eval.ipynb",
+        "03-DexJoCo灵巧手/03-Notebook/18_dexjoco_amd_train_eval.ipynb",
+        "07-推理与仿真加速/03-Notebook/00_加速实验入口与比赛材料.ipynb"
+      ],
+      "practice": "训练组按配置启动训练；任务组追踪闭环阶段；优化组修改一项执行开销。",
+      "output": "本次代码版本与阶段日志。"
+    },
+    {
+      "day": 17,
+      "title": "阶段验证与故障处理",
+      "notebooks": [
+        "03-DexJoCo灵巧手/03-Notebook/02_加载故障复现与严格权重校验.ipynb",
+        "03-DexJoCo灵巧手/03-Notebook/04_首次编译预热与随机状态恢复.ipynb",
+        "03-DexJoCo灵巧手/03-Notebook/05_异步动作时序与物理时钟排障.ipynb",
+        "07-推理与仿真加速/03-Notebook/00_加速实验入口与比赛材料.ipynb"
+      ],
+      "references": [
+        "03-DexJoCo灵巧手/03-Notebook/02_加载故障复现与严格权重校验.ipynb",
+        "03-DexJoCo灵巧手/03-Notebook/04_首次编译预热与随机状态恢复.ipynb",
+        "03-DexJoCo灵巧手/03-Notebook/05_异步动作时序与物理时钟排障.ipynb",
+        "07-推理与仿真加速/03-Notebook/00_加速实验入口与比赛材料.ipynb"
+      ],
+      "practice": "检查训练是否完成、权重是否一致、计时是否同步以及输出是否有限。",
+      "output": "完成状态、故障修复或优化效果记录。"
+    },
+    {
+      "day": 18,
+      "title": "固定条件评估",
+      "notebooks": [
+        "02-RoboCasa厨房操作/03-Notebook/17_robocasa365_amd_train_eval.ipynb",
+        "03-DexJoCo灵巧手/03-Notebook/18_dexjoco_amd_train_eval.ipynb",
+        "03-DexJoCo灵巧手/03-Notebook/05_异步动作时序与物理时钟排障.ipynb",
+        "02-RoboCasa厨房操作/03-Notebook/02_历史多任务对照与结果复算.ipynb"
+      ],
+      "references": [
+        "02-RoboCasa厨房操作/03-Notebook/17_robocasa365_amd_train_eval.ipynb",
+        "03-DexJoCo灵巧手/03-Notebook/18_dexjoco_amd_train_eval.ipynb",
+        "03-DexJoCo灵巧手/03-Notebook/05_异步动作时序与物理时钟排障.ipynb",
+        "02-RoboCasa厨房操作/03-Notebook/02_历史多任务对照与结果复算.ipynb"
+      ],
+      "practice": "按选题记录全部已执行种子和失败；优化项使用相同输入、精度与工作量。",
+      "output": "原始结果、成功／失败视频或诊断图。"
+    },
+    {
+      "day": 19,
+      "title": "同伴复核",
+      "notebooks": [
+        "03-DexJoCo灵巧手/03-Notebook/02_加载故障复现与严格权重校验.ipynb",
+        "03-DexJoCo灵巧手/03-Notebook/03_归一化与动作接口逐步排障.ipynb",
+        "00-设备与环境/03-Notebook/07_优化器归档与恢复内容校验.ipynb"
+      ],
+      "references": [
+        "03-DexJoCo灵巧手/03-Notebook/02_加载故障复现与严格权重校验.ipynb",
+        "03-DexJoCo灵巧手/03-Notebook/03_归一化与动作接口逐步排障.ipynb",
+        "00-设备与环境/03-Notebook/07_优化器归档与恢复内容校验.ipynb"
+      ],
+      "practice": "交换复现步骤，核对模型、数据统计、回合分母与文件指纹。",
+      "output": "一份复核反馈与修改记录。"
+    },
+    {
+      "day": 20,
+      "title": "整理教程笔记本",
+      "notebooks": [
+        "01-抓杯子/03-Notebook/19_cup_collect_train_evaluate.ipynb",
+        "02-RoboCasa厨房操作/03-Notebook/17_robocasa365_amd_train_eval.ipynb",
+        "03-DexJoCo灵巧手/03-Notebook/18_dexjoco_amd_train_eval.ipynb",
+        "07-推理与仿真加速/03-Notebook/00_加速实验入口与比赛材料.ipynb"
+      ],
+      "references": [
+        "01-抓杯子/03-Notebook/19_cup_collect_train_evaluate.ipynb",
+        "02-RoboCasa厨房操作/03-Notebook/17_robocasa365_amd_train_eval.ipynb",
+        "03-DexJoCo灵巧手/03-Notebook/18_dexjoco_amd_train_eval.ipynb",
+        "07-推理与仿真加速/03-Notebook/00_加速实验入口与比赛材料.ipynb"
+      ],
+      "practice": "整理环境、输入、关键源码、运行输出和视频，标明本次运行与历史引用。",
+      "output": "可阅读的结业笔记本。"
+    },
+    {
+      "day": 21,
+      "title": "成果分享与共创",
+      "notebooks": [
+        "02-RoboCasa厨房操作/03-Notebook/02_历史多任务对照与结果复算.ipynb"
+      ],
+      "references": [
+        "02-RoboCasa厨房操作/03-Notebook/02_历史多任务对照与结果复算.ipynb"
+      ],
+      "practice": "每组用5分钟讲清任务、改动、对照和下一步，整理可复现贡献。",
+      "output": "成果展示及最终提交。"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "start_day": 1,
+      "end_day": 2,
+      "duration": 2,
+      "title": "申请算力，打开机器人学习环境",
+      "scope": "云端申请、软件栈与存储、阅读已有完整回合。",
+      "output": "环境检查与个人学习目标。"
+    },
+    {
+      "id": 2,
+      "start_day": 3,
+      "end_day": 5,
+      "duration": 3,
+      "title": "从抓杯子走进策略训练",
+      "scope": "观测与动作、数据回放、损失和参数更新、短训练与视频。",
+      "output": "一份训练流程图、小实验输出和抓杯回放说明。"
+    },
+    {
+      "id": 3,
+      "start_day": 6,
+      "end_day": 8,
+      "duration": 3,
+      "title": "厨房基准与多任务、长程任务",
+      "scope": "厨房观测、单任务适配训练、16任务对照、完整装餐回合。",
+      "output": "逐任务结果表和一次长程任务阶段分析。"
+    },
+    {
+      "id": 4,
+      "start_day": 9,
+      "end_day": 11,
+      "duration": 3,
+      "title": "灵巧手、长训练与真实排障",
+      "scope": "单／双臂动作、任务适配、续训、严格加载与归一化。",
+      "output": "一个可复现的加载或动作接口故障及修复验证。"
+    },
+    {
+      "id": 5,
+      "start_day": 12,
+      "end_day": 14,
+      "duration": 3,
+      "title": "预热、算子与执行链路优化",
+      "scope": "随机状态、异步动作块、数据搬运、图重放和仿真多步调用。",
+      "output": "同条件计时表、数值检查和一个优化／排障实验。"
+    },
+    {
+      "id": 6,
+      "start_day": 15,
+      "end_day": 17,
+      "duration": 3,
+      "title": "分组完成一个实战项目",
+      "scope": "策略训练、灵巧长程任务或性能优化三条路线择一。",
+      "output": "可运行代码、阶段日志、模型或诊断结果。"
+    },
+    {
+      "id": 7,
+      "start_day": 18,
+      "end_day": 19,
+      "duration": 2,
+      "title": "做对照，写清结果",
+      "scope": "固定条件、核对分母、权重与统计，交叉复核。",
+      "output": "对照表、带来源的视频或可视化、复现步骤。"
+    },
+    {
+      "id": 8,
+      "start_day": 20,
+      "end_day": 21,
+      "duration": 2,
+      "title": "把实验讲成教程",
+      "scope": "整理完整代码、失败分析、成果交流与共创。",
+      "output": "结业笔记本和5分钟成果展示。"
+    }
+  ],
+  "cloud_sources": [
+    "https://www.amd.com/en/developer/resources/cloud-access/amd-developer-cloud.html",
+    "https://www.amd.com/en/developer/resources/technical-articles/2026/how-to-claim-amd-cloud-credits.html",
+    "https://www.amd.com/en/corporate/university-program/learning-cloud.html"
+  ],
+  "repository_templates": [
+    "https://github.com/datawhalechina/every-embodied/blob/main/16-专题组队学习/05-MicroDuck运动策略与任务开发专题/月度组队学习招募文案.md",
+    "https://github.com/datawhalechina/every-embodied/blob/main/16-专题组队学习/05-MicroDuck运动策略与任务开发专题/组队学习安排.md",
+    "https://github.com/datawhalechina/every-embodied/blob/main/16-专题组队学习/07-Jumper螃蟹机器人专题/招募文案.md"
+  ]
+}

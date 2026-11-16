@@ -1,0 +1,34 @@
+{
+  "model": "GR00T N1.5 multitask 120k",
+  "device": "AMD Ryzen AI MAX+ 395",
+  "protocol": {
+    "episodes_per_task": 10,
+    "views": [
+      "robot0_agentview_center",
+      "robot0_agentview_left",
+      "robot0_agentview_right",
+      "robot0_eye_in_hand"
+    ],
+    "raw_output_resolution": "1920x1080",
+    "fps": 20,
+    "formal_eval": "RoboCasa365 16 tasks x 50 episodes"
+  },
+  "tasks": [
+    {
+      "task": "RestockBowls",
+      "successes": 2,
+      "episodes": 10,
+      "result_sha256": "3493cb194691226625fc4364aeec076a51c5bffdf38b180700abae8b5094bc26",
+      "preview_video": "assets/videos/robocasa-recovery/restock-success.mp4",
+      "preview_video_sha256": "2e10afb19009a290a78980e4151e10593009df3b2e20724ca2af6d69ca2797c0"
+    },
+    {
+      "task": "PackIdenticalLunches",
+      "successes": 3,
+      "episodes": 10,
+      "result_sha256": "47868c3a7a46a86c2a2633cd0f770e19a208c36a195a966c4558640a16891dc1",
+      "preview_video": "assets/videos/robocasa-recovery/pack-success.mp4",
+      "preview_video_sha256": "a48d0de67629d101530054750824cdd2a2d05b9560396aafa830c6d523411248"
+    }
+  ]
+}

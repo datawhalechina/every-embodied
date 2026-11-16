@@ -1,0 +1,63 @@
+{
+  "project": "DISCOVERSE",
+  "platform": "AMD Radeon 395 / ROCm",
+  "system": "MMK2",
+  "protocol": {
+    "source": "Official DISCOVERSE MMK2 example state machines",
+    "camera_count": 3,
+    "camera_names": ["cam_0", "cam_1", "cam_2"],
+    "native_resolution": "1920x1080",
+    "composite_resolution": "1920x1080",
+    "provenance": "Isolated high-definition showcase runs. The composite is presentation-only; training data, policy evaluation and formal denominators are unchanged."
+  },
+  "tasks": [
+    {
+      "task": "mmk2_pick_box",
+      "label": "Box pick",
+      "episodes": 1,
+      "successes": 1,
+      "success_rate": "1/1",
+      "fps": 20,
+      "native_camera_videos": 3,
+      "preview": "assets/videos/discoverse-showcase/mmk2-box-pick-3view.mp4",
+      "poster": "assets/posters/discoverse-showcase/mmk2-box-pick-3view.jpg",
+      "preview_sha256": "a257ee0d50a532ce7ed1842a48237f2a0bc10261750efaa5608eb0b11b29d05d"
+    },
+    {
+      "task": "mmk2_drawer_open",
+      "label": "Drawer open",
+      "episodes": 1,
+      "successes": 1,
+      "success_rate": "1/1",
+      "fps": 25,
+      "native_camera_videos": 3,
+      "preview": "assets/videos/discoverse-showcase/mmk2-drawer-open-3view.mp4",
+      "poster": "assets/posters/discoverse-showcase/mmk2-drawer-open-3view.jpg",
+      "preview_sha256": "db0b17cdb8cc2350972cb3c1c810f0b0e9d2fe0ca317c68aba0cbd6f29e353db"
+    },
+    {
+      "task": "mmk2_cabinet_door_open",
+      "label": "Cabinet door open",
+      "episodes": 1,
+      "successes": 1,
+      "success_rate": "1/1",
+      "fps": 25,
+      "native_camera_videos": 3,
+      "preview": "assets/videos/discoverse-showcase/cabinet-door-open-3view.mp4",
+      "poster": "assets/posters/discoverse-showcase/cabinet-door-open-3view.jpg",
+      "preview_sha256": "7d79dc6e29ff14a02cedf43342fd59fdb7f7f41311d98b1d3b6f656a9fa0c2af"
+    },
+    {
+      "task": "mmk2_coffeecup_plate",
+      "label": "Cup to plate",
+      "episodes": 1,
+      "successes": 1,
+      "success_rate": "1/1",
+      "fps": 25,
+      "native_camera_videos": 3,
+      "preview": "assets/videos/discoverse-showcase/coffeecup-plate-3view.mp4",
+      "poster": "assets/posters/discoverse-showcase/coffeecup-plate-3view.jpg",
+      "preview_sha256": "bbfa3293bde49e4e1cffa5c4fdd3b82c6443425593170129c042371a2557ac88"
+    }
+  ]
+}

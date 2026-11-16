@@ -1,0 +1,73 @@
+{
+  "files": 500,
+  "valid": 500,
+  "bad": [],
+  "step_min": 73,
+  "step_max": 127,
+  "total_steps": 44439,
+  "sample": [
+    {
+      "file": "episode_0.hdf5",
+      "steps": 86,
+      "qpos": [
+        86,
+        7
+      ],
+      "action": [
+        86,
+        7
+      ],
+      "image0": [
+        86,
+        30319
+      ],
+      "image1": [
+        86,
+        30319
+      ],
+      "valid": true
+    },
+    {
+      "file": "episode_1.hdf5",
+      "steps": 80,
+      "qpos": [
+        80,
+        7
+      ],
+      "action": [
+        80,
+        7
+      ],
+      "image0": [
+        80,
+        31347
+      ],
+      "image1": [
+        80,
+        31347
+      ],
+      "valid": true
+    },
+    {
+      "file": "episode_10.hdf5",
+      "steps": 97,
+      "qpos": [
+        97,
+        7
+      ],
+      "action": [
+        97,
+        7
+      ],
+      "image0": [
+        97,
+        30319
+      ],
+      "image1": [
+        97,
+        30319
+      ],
+      "valid": true
+    }
+  ]
+}

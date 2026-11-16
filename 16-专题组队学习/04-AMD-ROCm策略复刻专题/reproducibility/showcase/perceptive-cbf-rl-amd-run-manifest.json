@@ -1,0 +1,7 @@
+{
+  "command": "/tmp/amd_pacman_cbf_smoke.py --output-dir /tmp/perceptive_cbf_rl_amd --episodes 12 --device rocm",
+  "script": "amd_pacman_cbf_smoke.py",
+  "upstream_commit": "2d4266978805e8272daa7f029a8bca91cf45e1ba",
+  "output": "eval_info.json",
+  "video": "pacman-cbf-amd-proxy.mp4"
+}

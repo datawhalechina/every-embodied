@@ -1,0 +1,115 @@
+{
+  "checkpoint": "/home/aup/amd-notebook-work/runs/dexjoco-formal-20261023-v1/checkpoints/water_plant/course/29999",
+  "checkpoint_sha256": "7cc8487f7609b05a255c6a942ff4f0f468302bf2bd6a08fafd3d4c7870115761",
+  "checkpoint_index": 29999,
+  "trained_steps_target": 30000,
+  "duration_s": 65452.773903131485,
+  "batch_size": 1,
+  "gradient_accumulation": 1,
+  "effective_batch": 1,
+  "learning_rate": 1e-05,
+  "freeze_scope": "All(PathRegex(pattern=re.compile('.*llm.*'), sep='/'), Not(PathRegex(pattern=re.compile('.*lora.*'), sep='/')))",
+  "identity_files": [
+    {
+      "path": "assets/local_repo/norm_stats.json",
+      "bytes": 5371,
+      "sha256": "d247d8d633a6d2002f8501c1d312ea42f24a243d2f34363d202a1b94b9064c04"
+    },
+    {
+      "path": "params/_METADATA",
+      "bytes": 33071,
+      "sha256": "2cb332dd1d2d706dd51ac967f24d617e264c716542cb43a33839bc75485458db"
+    },
+    {
+      "path": "params/_sharding",
+      "bytes": 21749,
+      "sha256": "23bb45158be9267393931bcf7d5518d049bc069f97c1194d0e79cfa9a7283aec"
+    },
+    {
+      "path": "params/array_metadatas/process_0",
+      "bytes": 12891,
+      "sha256": "da5f8952b77ab352fa92e3e58d742bfe0db5b9c1b956212f8279895b9df03721"
+    },
+    {
+      "path": "params/d/a725096b3e55369386871e0f9839b3b2",
+      "bytes": 2560,
+      "sha256": "9ec9690644bce2d5bf04b23630102a6aca07fd87e9e29bd8b801da6361868b20"
+    },
+    {
+      "path": "params/manifest.ocdbt",
+      "bytes": 118,
+      "sha256": "714e8dab160bfce7df3a294f00f3b7915baf91f351444abcbecdd208ba81a56c"
+    },
+    {
+      "path": "params/ocdbt.process_0/d/048a258226ae3b2fa02c7fd958203056",
+      "bytes": 179625984,
+      "sha256": "01e50d4e2c7ae164d9a84b7ee3138e5f7059833a40f4e2dc82dcbe0d1a65ad62"
+    },
+    {
+      "path": "params/ocdbt.process_0/d/1f527aba8681f5f292a02177af8b107a",
+      "bytes": 213,
+      "sha256": "fff2f8b328c86ab34912c01d5758210df1805bcd73e3709be401d1989b9b18c3"
+    },
+    {
+      "path": "params/ocdbt.process_0/d/27881e10f792d808ca88adf3492a8378",
+      "bytes": 828932096,
+      "sha256": "9a3e83c0329caa4ccccb65abd1fe232cc3c4ec4f367c98fe6d37a323e1172c44"
+    },
+    {
+      "path": "params/ocdbt.process_0/d/38bccaf789514906a5e7a4e6ca825d45",
+      "bytes": 8613888,
+      "sha256": "ea1846cccd6f622be89d2a2ae9635d589dd00c8345e8c0c2b9715552564c75e8"
+    },
+    {
+      "path": "params/ocdbt.process_0/d/4285a339ae00549ee0d0c84b82cd3bf0",
+      "bytes": 945627136,
+      "sha256": "5b796000639b769af0f24a0d9d0e5051df9654cc71320f4acc6be2490605f331"
+    },
+    {
+      "path": "params/ocdbt.process_0/d/7a68ca784949e9bfd8adb8079255e252",
+      "bytes": 1229668352,
+      "sha256": "ff6ab7d6f86e70659993d1912d0773481f13b758a82e6e31ff93ff767dfcb912"
+    },
+    {
+      "path": "params/ocdbt.process_0/d/b43f77c6f1f6ace4a14942bef1784727",
+      "bytes": 1251512320,
+      "sha256": "7b893e3ac3dabe639f5f60a32f2784eabb7b3c78adc436e8d8727e84bfe209de"
+    },
+    {
+      "path": "params/ocdbt.process_0/d/b74c13ffe01afdc08d85d4f7a74ba4a9",
+      "bytes": 1376,
+      "sha256": "e43163c6c67941f90156dcc5ae501720f0e0ea0dabfe8651c50b5c3aca84ff33"
+    },
+    {
+      "path": "params/ocdbt.process_0/d/d2ec189eb81ad519fccc9cb8fac3d273",
+      "bytes": 1891500032,
+      "sha256": "5ee23c27773443e85a22f6a9c25ce4ac3788d5464de9d071dc57b4c9b3cbf2f6"
+    },
+    {
+      "path": "params/ocdbt.process_0/manifest.ocdbt",
+      "bytes": 501,
+      "sha256": "742a37fc7b6e5cdef733083c7ecd6ae0e840302bf4ec23cb23b98551a6fdf385"
+    }
+  ],
+  "resume_replayed_batches": 0,
+  "metrics_recovery": {
+    "retained_rows": 0,
+    "archived_rows": 0
+  },
+  "parameter_digest_before": "217a529c40708fbbddc636423b271f98b30bf1d43dfbfbf78ef47cb80fa28f5f",
+  "trainable_parameters": 466957072,
+  "steps_start": 0,
+  "parameter_digest_after": "4c81718d79c151f32679b24476c716dc038f0b26ea64de37e5aaa32e588abc3a",
+  "device_memory_stats": {
+    "num_allocs": 1260218,
+    "bytes_in_use": 0,
+    "peak_bytes_in_use": 17324256512,
+    "largest_alloc_size": 5671166208,
+    "bytes_limit": 51539607552,
+    "bytes_reserved": 0,
+    "peak_bytes_reserved": 0,
+    "largest_free_block_bytes": 0,
+    "pool_bytes": 34366029824,
+    "peak_pool_bytes": 34366029824
+  }
+}

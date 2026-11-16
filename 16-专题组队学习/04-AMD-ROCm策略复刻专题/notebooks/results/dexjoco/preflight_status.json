@@ -1,0 +1,17 @@
+{
+  "state": "complete",
+  "started_unix": 1792717066.4740376,
+  "finished_unix": 1792717067.915679,
+  "stage": "preflight",
+  "result": {
+    "jax": "0.10.0",
+    "backend": "gpu",
+    "devices": [
+      "rocm:0"
+    ],
+    "matmul_sum": 262144.0,
+    "tokenizer_sha256": "8986bb4f423f07f8c7f70d0dbe3526fb2316056c17bae71b1ea975e77a168fc6",
+    "free_disk_gib": 45.95957565307617,
+    "note": "Backend and data preflight only, not task success."
+  }
+}
