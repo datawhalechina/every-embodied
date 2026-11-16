@@ -8,6 +8,8 @@
 - [地瓜机器人新版教程桌宠](./03-地瓜机器人新版教程桌宠/README.md)
 - [AMD ROCm 策略复刻专题](./04-AMD-ROCm策略复刻专题/README.md)
 
+- [MicroDuck 与 Jumper 联合组队学习：21 天方案](./08-MicroDuck与Jumper联合组队学习/学习指南.md) · [招募文案](./08-MicroDuck与Jumper联合组队学习/招募文案.md)
+
 ## 专题关系
 
 地瓜机器人新版教程桌宠侧重硬件入口、MagicBox 控制、语音、按钮、灯效和舵机交互。OpenClaw 家庭物资助手在这个基础上继续扩展到家庭物资管理、飞书通知、多维表格同步和前端展示。
