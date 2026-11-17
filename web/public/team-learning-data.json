@@ -44,7 +44,7 @@
       "doc": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/README.md",
       "plan": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/学习计划.md",
       "heroCase": "duck-ladder",
-      "accent": "#0c9f6d",
+      "accent": "#b46245",
       "tags": [
         "运动策略",
         "GPU / X5 BPU",
@@ -78,7 +78,7 @@
       "doc": "16-专题组队学习/07-Jumper螃蟹机器人专题/README.md",
       "plan": "16-专题组队学习/07-Jumper螃蟹机器人专题/README.md",
       "heroCase": "jumper-dance",
-      "accent": "#0b9189",
+      "accent": "#b46245",
       "tags": [
         "六足步态",
         "MuJoCo",
@@ -112,7 +112,7 @@
       "doc": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/README.md",
       "plan": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/学习计划.md",
       "heroCase": "aura-household",
-      "accent": "#0b9b84",
+      "accent": "#b46245",
       "tags": [
         "摄像头闭环",
         "多视角全过程",
@@ -146,7 +146,7 @@
       "doc": "16-专题组队学习/04-AMD-ROCm策略复刻专题/README.md",
       "plan": "16-专题组队学习/04-AMD-ROCm策略复刻专题/README.md",
       "heroCase": "amd-PackIdenticalLunches",
-      "accent": "#cf5047",
+      "accent": "#b46245",
       "tags": [
         "RoboCasa365",
         "DexJoCo",

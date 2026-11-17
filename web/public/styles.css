@@ -1,16 +1,16 @@
 :root {
-  --paper: #f6f8f7;
-  --surface: #ffffff;
-  --surface-soft: #eef8f5;
-  --ink: #151715;
-  --muted: #626b66;
-  --line: #dce5e1;
-  --line-strong: #c5d5cf;
-  --green: #0c9f6d;
-  --teal: #079b92;
+  --paper: #faf9f5;
+  --surface: #fffefa;
+  --surface-soft: #f1ede5;
+  --ink: #262624;
+  --muted: #716d66;
+  --line: #e4ded4;
+  --line-strong: #d2c5b7;
+  --green: #b46245;
+  --teal: #a85a3f;
   --red: #df4d43;
   --yellow: #f0c742;
-  --shadow: 0 18px 45px rgba(20, 28, 24, 0.09);
+  --shadow: 0 18px 45px rgba(45, 38, 30, 0.09);
   --topbar-height: 64px;
 }
 
@@ -288,7 +288,7 @@ input {
 
 .search-box input:focus {
   border-color: var(--teal);
-  box-shadow: 0 0 0 3px rgba(7, 155, 146, 0.14);
+  box-shadow: 0 0 0 3px rgba(180, 98, 69, 0.16);
 }
 
 .catalog-status {
@@ -375,7 +375,7 @@ input {
 }
 
 .nav-doc.active {
-  background: #e8f6ef;
+  background: #f1e3d9;
   box-shadow: inset 3px 0 0 var(--green);
 }
 
@@ -561,11 +561,11 @@ input {
 
 .article p,
 .article li {
-  color: #242824;
+  color: #262624;
 }
 
 .article a {
-  color: #087c72;
+  color: #a85a3f;
   font-weight: 700;
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -593,14 +593,14 @@ input {
   max-width: 100%;
   overflow: auto;
   padding: 16px;
-  color: #f8fbf7;
-  background: #181c19;
+  color: #f5f2eb;
+  background: #242321;
   border-radius: 8px;
 }
 
 .article code {
   padding: 2px 5px;
-  background: #eef3ef;
+  background: #efebe3;
   border-radius: 6px;
   font-family:
     "JetBrains Mono",
