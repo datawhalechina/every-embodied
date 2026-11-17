@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv*/
+code/artifacts/
+code/digital_twin/outputs/
+code/config/runtime.json
+code/external/
+code/vendor/
+*.session.json
+.env

@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "three_cans": {
+    "passed": true,
+    "scope": "three_cans",
+    "episode_id": "dc771991987e42f2a6700be18794a1b1",
+    "native_tick": 3405,
+    "released": true,
+    "inside": [
+      "can_of_soda_113",
+      "can_of_soda_114",
+      "can_of_soda_115"
+    ],
+    "stable_native_observer_samples": 3,
+    "official_task_complete": true,
+    "official_progress": {
+      "items": [
+        {
+          "index": 0,
+          "label": "全部 can of soda: can of soda 在 ashcan 1 内",
+          "full": "全部 can of soda: can of soda 在 ashcan 1 内",
+          "satisfied": true
+        }
+      ],
+      "satisfied": 1,
+      "total": 1,
+      "complete": true,
+      "ok": true,
+      "source": "evaluator-ui-only"
+    },
+    "source": "native Inside, released assisted grasp, low object speed across consecutive samples; official predicate complete"
+  },
+  "return": {
+    "passed": true,
+    "distance_to_aura_m": 2.1599507268476814,
+    "distance_to_visitor_m": 1.2438737152903734,
+    "stationary_last_0_4s_travel_m": 9.5367431640625e-07,
+    "native_tick": 3875,
+    "source": "post-policy evaluator only; coordinates not policy input",
+    "same_episode": "dc771991987e42f2a6700be18794a1b1"
+  },
+  "return_proof_file": "<WORKSTATION_ARTIFACT>",
+  "inherited_verified_interaction": "<WORKSTATION_ARTIFACT>",
+  "new_greeting_replayed": false,
+  "voice_report": "三个罐子都已经放进垃圾桶了，清理完成。",
+  "new_episode": "dc771991987e42f2a6700be18794a1b1"
+}

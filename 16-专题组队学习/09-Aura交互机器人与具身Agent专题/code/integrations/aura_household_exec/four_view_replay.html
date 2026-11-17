@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aura × R1 · 同家庭有声闭环</title>
+<style>
+:root{color-scheme:light}*{box-sizing:border-box}body{margin:0;background:#edf3f4;color:#193d49;font:16px/1.7 system-ui,-apple-system,"Microsoft YaHei",sans-serif}main{max-width:1560px;margin:auto;padding:28px}h1{font-size:30px;line-height:1.4;margin:8px 0}h2{font-size:20px;margin:0 0 12px}p{margin:8px 0}.kicker{color:#327a7c;font-size:14px}section,article{background:#fff;border:1px solid #d8e5e7;border-radius:20px;padding:20px;margin:18px 0}.views{display:grid;grid-template-columns:1.15fr 1fr;gap:20px}.views article{margin:0;min-width:0}video{display:block;width:100%;border-radius:16px;background:#10212c}button,select{font:inherit;border:1px solid #a8c4c9;border-radius:12px;padding:8px 14px;background:white;color:#164451;cursor:pointer}button.primary{background:#175f69;color:white;border-color:#175f69}.controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:14px 0}.badge{padding:3px 10px;border-radius:20px;background:#e6f3ef;color:#23634c;font-size:14px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:#f3f7f8;border-radius:14px;padding:16px;min-width:0;min-height:155px;border-top:4px solid #408e96}.card h3{font-size:16px;margin:0 0 10px}.card p{overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 ui-monospace,Consolas,monospace;max-height:260px;overflow:auto;margin:8px 0}a{color:#08778a}.muted{color:#55717c;font-size:14px}#events{max-height:380px;overflow:auto}#events button{display:block;width:100%;text-align:left;margin:7px 0;padding:11px 14px;background:#f4f8f9}#events button.active{background:#e1f0ef;border-color:#398b8e}.speech{min-height:48px;background:#edf5f5;border-radius:12px;padding:12px 16px}summary{cursor:pointer}@media(max-width:900px){.views,.grid{grid-template-columns:1fr}main{padding:16px}h1{font-size:25px}}
+</style>
+<main>
+<div class="kicker">AURA HOUSEHOLD · GPT‑6.1 Sol / xhigh · Codex CLI exec</div>
+<h1>人来招呼，Aura 找人，R1 收拾垃圾</h1>
+<p>人物、Aura 与 R1 Pro 位于同一个原生家庭场景。语音经过实际 ASR 解码，Aura 根据自身相机检测转向，再将任务交给 R1。</p>
+<section><h2>本次核验结果</h2><p id="result">读取实际结果…</p><p class="muted" id="measurements"></p></section>
+<div class="controls"><button id="play" class="primary">同步播放</button><button id="restart">从头播放</button><span id="clock" class="badge">0.0 s</span><label>右侧相机 <select id="camera"><option value="robot">Aura → R1 自动切换</option><option value="r1_head">完整 R1 头部相机</option><option value="aura_head">完整 Aura 相机</option><option value="global">全屋俯视</option></select></label></div>
+<div class="views"><article><h2>完整第三视角</h2><video id="observer" controls preload="metadata" src="observer-full.mp4"></video></article><article><h2 id="camera-title">机器人视角 · Aura → R1</h2><video id="robot" controls muted preload="metadata" src="robot-full.mp4"></video><p class="muted">声音由左侧视频播放；右侧默认静音，避免重复。</p></article></div>
+<section><h2>语音与执行现场</h2><div id="speech" class="speech">等待播放…</div><div class="controls"><button id="prev">上一条记录</button><button id="next">下一条记录</button><span class="muted">同一仿真时刻可有多条模型记录，可逐条查看。</span></div><div class="grid"><div class="card"><h3>Decision · 公开决策摘要</h3><p id="decision">—</p><p class="muted" id="expected"></p></div><div class="card"><h3>Action · 工具调用</h3><pre id="action">—</pre></div><div class="card"><h3>Result · 测量与回执</h3><pre id="receipt">—</pre></div></div><p class="muted" id="event-meta"></p><details><summary>完整公开事件时间线</summary><div id="events"></div></details></section>
+<section><h2>完整视频与证据</h2><p><a href="observer-full.mp4">完整第三视角</a> · <a href="robot-full.mp4">完整机器人视角</a> · <a href="aura_head-full.mp4">独立 Aura 相机</a> · <a href="r1_head-full.mp4">独立 R1 相机</a> · <a href="global-full.mp4">完整全屋俯视</a></p><p><a href="manifest.json">帧数、时间线、音轨、文件哈希与执行记录</a> · <a href="status.json">实时 / 最终状态</a></p><p class="muted">10fps 连续相机采样，物理频率 30Hz；模型与 CPU 感知计算期间物理暂停，视频时长为仿真时间。人物使用写实角色及编排骨骼步态，语音为自然合成输入；Aura 通过相机闭环控制运动学转向适配器，R1 通过原生 PhysX 与 SDK 操作。视频保留全部动作、失败与恢复。网页普通字体，片内文字为手写字体。此处只显示公开摘要、动作和结果。</p></section>
+</main>
+<script>
+const $=s=>document.querySelector(s),left=$('#observer'),right=$('#robot');let events=[],cursor=-1,manual=false,manifest;
+const mediaBase=location.port==='8798'?'http://127.0.0.1:8799/':'';
+if(mediaBase){left.src=mediaBase+'observer-full.mp4';right.src=mediaBase+'robot-full.mp4';document.querySelectorAll('a[href$=".mp4"]').forEach(a=>a.href=mediaBase+a.getAttribute('href'))}
+const titles={robot:'机器人视角 · Aura → R1',r1_head:'R1 Pro · 完整头部相机',aura_head:'Aura · 完整自身相机',global:'全屋俯视 · 同一场景'};
+function sync(){if(Math.abs(right.currentTime-left.currentTime)>.18)right.currentTime=left.currentTime;right.playbackRate=left.playbackRate}
+function play(){sync();return Promise.allSettled([left.play(),right.play()])}
+$('#play').onclick=()=>left.paused?play():(left.pause(),right.pause());
+$('#restart').onclick=()=>{manual=false;left.currentTime=0;right.currentTime=0;play()};
+left.onplay=()=>{$('#play').textContent='同步暂停';sync();right.play().catch(()=>{})};left.onpause=()=>{$('#play').textContent='同步播放';right.pause()};left.onseeking=()=>{manual=false;sync()};left.onratechange=sync;left.onended=()=>right.pause();
+$('#camera').onchange=()=>{const value=$('#camera').value,t=left.currentTime,paused=left.paused;right.src=mediaBase+value+'-full.mp4';$('#camera-title').textContent=titles[value];right.addEventListener('loadedmetadata',()=>{right.currentTime=t;if(!paused)right.play().catch(()=>{})},{once:true})};
+function show(index){cursor=index;const e=events[index];if(!e)return;const earlier=events.slice(0,index+1),trial=e.controller_trial;
+ const think=[...earlier].reverse().find(r=>r.kind==='think'&&r.controller_trial===trial),action=[...earlier].reverse().find(r=>r.kind==='action'&&r.controller_trial===trial);
+ const result=action?[...earlier].reverse().find(r=>r.kind==='result'&&r.controller_trial===trial&&r.call_id===action.call_id):null;
+ $('#decision').textContent=think?think.summary:(e.text||e.summary||e.kind);$('#expected').textContent=think?think.expected_check:'';
+ $('#action').textContent=action?action.tool+'\n'+JSON.stringify(action.arguments,null,2):'—';$('#receipt').textContent=result?JSON.stringify(result.receipt,null,2):'工具尚未返回，或当前是语音 / 感知事件。';
+ $('#event-meta').textContent=(index+1)+' / '+events.length+' · 仿真 '+e.video_s.toFixed(2)+' s · '+(e.at||'')+' · '+(trial||e.source||e.kind);
+ document.querySelectorAll('#events button').forEach((b,i)=>b.classList.toggle('active',i===index));
+}
+function step(delta){if(!events.length)return;const target=Math.max(0,Math.min(events.length-1,cursor+delta));left.pause();right.pause();left.currentTime=Math.max(0,events[target].video_s);right.currentTime=left.currentTime;setTimeout(()=>{manual=true;show(target)},0)}
+$('#prev').onclick=()=>step(-1);$('#next').onclick=()=>step(1);
+left.ontimeupdate=()=>{sync();const t=left.currentTime;$('#clock').textContent=t.toFixed(1)+' / '+(manifest?.duration_s||0).toFixed(1)+' s';if(!manual){let i=-1;events.forEach((e,n)=>{if(e.video_s<=t)i=n});if(i!==cursor)show(i)}const speech=events.filter(e=>e.kind==='asr_result'&&e.video_s<=t).at(-1);$('#speech').textContent=speech?'ASR 实际识别：'+speech.text:'人物走近 Aura，等待语音招呼。'};
+fetch('manifest.json').then(r=>{if(!r.ok)throw Error('manifest unavailable');return r.json()}).then(m=>{manifest=m;events=m.events;const ok=m.result.native_success_verified;$('#result').textContent=ok?'单罐流程已核验：抓取 → 运送 → 释放入桶 → 稳定停留 → Aura 语音报告。':'当前记录未取得完整单罐成功核验。';$('#measurements').textContent=m.frames+' 帧 / 每路 · '+m.duration_s.toFixed(1)+' 秒 · 五路完整有声视频 · 三罐任务 '+(m.result.full_three_can_task_success?'已完成':'尚未验收');events.forEach((e,i)=>{const button=document.createElement('button');button.textContent=e.video_s.toFixed(2)+' s · '+(e.controller_trial||'HRI')+' · '+e.kind+' · '+(e.summary||e.text||e.tool||e.call_id||'');button.onclick=()=>{left.pause();right.pause();left.currentTime=Math.max(0,e.video_s);right.currentTime=left.currentTime;setTimeout(()=>{manual=true;show(i)},0)};$('#events').append(button)});show(0)}).catch(e=>$('#result').textContent='证据尚未生成：'+e.message);
+</script></html>

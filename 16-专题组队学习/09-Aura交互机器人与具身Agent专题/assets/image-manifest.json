@@ -1,0 +1,62 @@
+[
+  {
+    "file": "assets/images/bpu-classification.jpg",
+    "bytes": 20886,
+    "sha256": "e7f65a5de9a3e480408ad2778b5ee68a1d6e1c2972f6e59503afb351239b3886",
+    "source": "project-generated robot observation or diagnostic output; see chapter captions"
+  },
+  {
+    "file": "assets/images/bpu-semantic_segmentation.jpg",
+    "bytes": 622840,
+    "sha256": "602e923e5f337fdb268cb2ff8088f7a1b2ced734d843bd2eab8a09c2a52db31f",
+    "source": "project-generated robot observation or diagnostic output; see chapter captions"
+  },
+  {
+    "file": "assets/images/bpu-yolo.jpg",
+    "bytes": 133618,
+    "sha256": "6e18dc6f6a4ef9b3c77ffe2f6243598e641258f2854dd8a5a047bc895bda5cd7",
+    "source": "project-generated robot observation or diagnostic output; see chapter captions"
+  },
+  {
+    "file": "assets/images/camera-live.jpg",
+    "bytes": 75276,
+    "sha256": "68d3d5118259da298ebfc149df901720cb2e189154708249e9e3bc32622131b6",
+    "source": "project-generated robot observation or diagnostic output; see chapter captions"
+  },
+  {
+    "file": "assets/images/fixture-ocr.jpg",
+    "bytes": 81259,
+    "sha256": "83ca2d0ce4b97337950f0dcc3623f3d31c8ad5c28347be6b080ba5d94f22f511",
+    "source": "project-generated robot observation or diagnostic output; see chapter captions"
+  },
+  {
+    "file": "assets/images/lab-data-flow.svg",
+    "bytes": 1539,
+    "sha256": "29ca5547e8ea44da7f7feb6b528ec12df2d66ca40d448cd05bfef1158b3026f8",
+    "source": "project-generated robot observation or diagnostic output; see chapter captions"
+  },
+  {
+    "file": "assets/images/returned-global.png",
+    "bytes": 474148,
+    "sha256": "d7e7072e96f7e8874d502ef67fb24d23f16e32d57b2657570218b4e68e940b8b",
+    "source": "project-generated robot observation or diagnostic output; see chapter captions"
+  },
+  {
+    "file": "assets/images/returned-observer.png",
+    "bytes": 767136,
+    "sha256": "88a7bd1763e653a050605d9f3eb0b052da685a4275b3851259872116e905f595",
+    "source": "project-generated robot observation or diagnostic output; see chapter captions"
+  },
+  {
+    "file": "assets/images/third-can-inside-observer.png",
+    "bytes": 727053,
+    "sha256": "965efd09dbf287f8cd2ddc954865cf626aea1138d45aafe61ab754783393f40a",
+    "source": "project-generated robot observation or diagnostic output; see chapter captions"
+  },
+  {
+    "file": "assets/images/third-can-inside-r1.png",
+    "bytes": 480023,
+    "sha256": "95610495c8dbe3333429fd4ad277286ec9c3069e1d4dd53825078eaf270211ed",
+    "source": "project-generated robot observation or diagnostic output; see chapter captions"
+  }
+]

@@ -10,6 +10,8 @@
 
 - [MicroDuck 与 Jumper 联合组队学习：21 天方案](./08-MicroDuck与Jumper联合组队学习/学习指南.md) · [招募文案](./08-MicroDuck与Jumper联合组队学习/招募文案.md)
 
+- [Aura 交互机器人与具身 Agent：14 天组队学习](./09-Aura交互机器人与具身Agent专题/README.md) · [学习计划](./09-Aura交互机器人与具身Agent专题/学习计划.md) · [完整视频](./09-Aura交互机器人与具身Agent专题/视频目录.md)
+
 ## 专题关系
 
 地瓜机器人新版教程桌宠侧重硬件入口、MagicBox 控制、语音、按钮、灯效和舵机交互。OpenClaw 家庭物资助手在这个基础上继续扩展到家庭物资管理、飞书通知、多维表格同步和前端展示。

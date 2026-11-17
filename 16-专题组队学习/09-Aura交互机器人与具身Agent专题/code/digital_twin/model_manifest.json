@@ -1,0 +1,2743 @@
+{
+  "parameters": {
+    "values_mm_unless_suffixed": {
+      "body_rx": 120.0,
+      "body_ry": 85.0,
+      "body_rz": 94.0,
+      "body_z": 105.0,
+      "face_cut": 47.0,
+      "face_radius": 82.0,
+      "face_tilt_deg": 25.0,
+      "screen_radius": 58.0,
+      "screen_v": -13.0,
+      "camera_spacing": 78.0,
+      "camera_v": 49.0,
+      "wheel_radius": 72.0,
+      "wheel_width": 20.0,
+      "wheel_y": 95.0,
+      "wheel_x": -5.0,
+      "caster_x": -78.0,
+      "caster_radius": 12.0,
+      "chassis_mass_kg": 1.2,
+      "wheel_mass_kg": 0.12
+    },
+    "fidelity": "photo_based_provisional_not_metrology_1_to_1",
+    "confirmed": {
+      "official_overall_approx_cm": [
+        21,
+        20,
+        20
+      ]
+    },
+    "unmeasured": [
+      "all_part_dimensions",
+      "mass",
+      "inertia",
+      "friction",
+      "camera_intrinsics",
+      "display_active_diameter",
+      "face_tilt"
+    ],
+    "official_source": "https://frontierx.online/"
+  },
+  "mesh_units": "m",
+  "cad_units": "mm",
+  "bbox_mm": [
+    204.0315657638834,
+    210.0,
+    200.4481516240403
+  ],
+  "solids": 72,
+  "components": [
+    {
+      "name": "white_shell",
+      "material": "shell",
+      "position_mm": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/white_shell.obj",
+      "rgba": [
+        0.9,
+        0.91,
+        0.9,
+        1
+      ],
+      "volume_mm3": 3162363.3463129853,
+      "cad_valid": true,
+      "vertices": 948
+    },
+    {
+      "name": "face_silver_rim",
+      "material": "silver",
+      "position_mm": [
+        43.95592767127752,
+        0.0,
+        125.49698569442393
+      ],
+      "rotation": [
+        [
+          0.0,
+          -0.42261826174069944,
+          0.9063077870366499
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9063077870366499,
+          0.42261826174069944
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/face_silver_rim.obj",
+      "rgba": [
+        0.55,
+        0.59,
+        0.62,
+        1
+      ],
+      "volume_mm3": 4849.613747493502,
+      "cad_valid": true,
+      "vertices": 844
+    },
+    {
+      "name": "dark_faceplate",
+      "material": "panel",
+      "position_mm": [
+        44.13718922868485,
+        0.0,
+        125.58150934677207
+      ],
+      "rotation": [
+        [
+          0.0,
+          -0.42261826174069944,
+          0.9063077870366499
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9063077870366499,
+          0.42261826174069944
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/dark_faceplate.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 39015.0621738132,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "screen_rim",
+      "material": "lens",
+      "position_mm": [
+        50.99068831186892,
+        0.0,
+        114.43343550790667
+      ],
+      "rotation": [
+        [
+          0.0,
+          -0.42261826174069944,
+          0.9063077870366499
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9063077870366499,
+          0.42261826174069944
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/screen_rim.obj",
+      "rgba": [
+        0.012,
+        0.018,
+        0.025,
+        1
+      ],
+      "volume_mm3": 1037.9822127460648,
+      "cad_valid": true,
+      "vertices": 844
+    },
+    {
+      "name": "screen_glass",
+      "material": "glass",
+      "position_mm": [
+        51.08131909057258,
+        0.0,
+        114.47569733408073
+      ],
+      "rotation": [
+        [
+          0.0,
+          -0.42261826174069944,
+          0.9063077870366499
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9063077870366499,
+          0.42261826174069944
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/screen_glass.obj",
+      "rgba": [
+        0.018,
+        0.027,
+        0.034,
+        1
+      ],
+      "volume_mm3": 7397.822380673244,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "camera_left_bezel",
+      "material": "lens",
+      "position_mm": [
+        24.969617641352883,
+        -39.0,
+        170.7090419565271
+      ],
+      "rotation": [
+        [
+          0.0,
+          -0.42261826174069944,
+          0.9063077870366499
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9063077870366499,
+          0.42261826174069944
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/camera_left_bezel.obj",
+      "rgba": [
+        0.012,
+        0.018,
+        0.025,
+        1
+      ],
+      "volume_mm3": 425.44704351974406,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "camera_left_glass",
+      "material": "glass",
+      "position_mm": [
+        25.87592542838953,
+        -39.0,
+        171.1316602182678
+      ],
+      "rotation": [
+        [
+          0.0,
+          -0.42261826174069944,
+          0.9063077870366499
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9063077870366499,
+          0.42261826174069944
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/camera_left_glass.obj",
+      "rgba": [
+        0.018,
+        0.027,
+        0.034,
+        1
+      ],
+      "volume_mm3": 84.61565653178751,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "camera_left_pupil",
+      "material": "lens",
+      "position_mm": [
+        26.329079321907855,
+        -39.0,
+        171.34296934913814
+      ],
+      "rotation": [
+        [
+          0.0,
+          -0.42261826174069944,
+          0.9063077870366499
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9063077870366499,
+          0.42261826174069944
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/camera_left_pupil.obj",
+      "rgba": [
+        0.012,
+        0.018,
+        0.025,
+        1
+      ],
+      "volume_mm3": 44.53207586463531,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "camera_left_glint",
+      "material": "blue",
+      "position_mm": [
+        26.015413217937393,
+        -40.4,
+        172.96210911309308
+      ],
+      "rotation": [
+        [
+          0.0,
+          -0.42261826174069944,
+          0.9063077870366499
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9063077870366499,
+          0.42261826174069944
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/camera_left_glint.obj",
+      "rgba": [
+        0.06,
+        0.35,
+        0.65,
+        1
+      ],
+      "volume_mm3": 0.6927211801165496,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "camera_right_bezel",
+      "material": "lens",
+      "position_mm": [
+        24.969617641352883,
+        39.0,
+        170.7090419565271
+      ],
+      "rotation": [
+        [
+          0.0,
+          -0.42261826174069944,
+          0.9063077870366499
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9063077870366499,
+          0.42261826174069944
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/camera_right_bezel.obj",
+      "rgba": [
+        0.012,
+        0.018,
+        0.025,
+        1
+      ],
+      "volume_mm3": 425.44704351974406,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "camera_right_glass",
+      "material": "glass",
+      "position_mm": [
+        25.87592542838953,
+        39.0,
+        171.1316602182678
+      ],
+      "rotation": [
+        [
+          0.0,
+          -0.42261826174069944,
+          0.9063077870366499
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9063077870366499,
+          0.42261826174069944
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/camera_right_glass.obj",
+      "rgba": [
+        0.018,
+        0.027,
+        0.034,
+        1
+      ],
+      "volume_mm3": 84.61565653178751,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "camera_right_pupil",
+      "material": "lens",
+      "position_mm": [
+        26.329079321907855,
+        39.0,
+        171.34296934913814
+      ],
+      "rotation": [
+        [
+          0.0,
+          -0.42261826174069944,
+          0.9063077870366499
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9063077870366499,
+          0.42261826174069944
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/camera_right_pupil.obj",
+      "rgba": [
+        0.012,
+        0.018,
+        0.025,
+        1
+      ],
+      "volume_mm3": 44.53207586463531,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "camera_right_glint",
+      "material": "blue",
+      "position_mm": [
+        26.015413217937393,
+        37.6,
+        172.96210911309308
+      ],
+      "rotation": [
+        [
+          0.0,
+          -0.42261826174069944,
+          0.9063077870366499
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9063077870366499,
+          0.42261826174069944
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/camera_right_glint.obj",
+      "rgba": [
+        0.06,
+        0.35,
+        0.65,
+        1
+      ],
+      "volume_mm3": 0.6927211801165496,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "wheel_left_tire",
+      "material": "rubber",
+      "position_mm": [
+        -5.0,
+        95.0,
+        72.0
+      ],
+      "rotation": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          0
+        ]
+      ],
+      "moving": "wheel_left",
+      "mesh": "assets/meshes/wheel_left_tire.obj",
+      "rgba": [
+        0.73,
+        0.7,
+        0.61,
+        1
+      ],
+      "volume_mm3": 43668.13788489805,
+      "cad_valid": true,
+      "vertices": 844
+    },
+    {
+      "name": "wheel_left_hub",
+      "material": "hub",
+      "position_mm": [
+        -5.0,
+        95.0,
+        72.0
+      ],
+      "rotation": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          0
+        ]
+      ],
+      "moving": "wheel_left",
+      "mesh": "assets/meshes/wheel_left_hub.obj",
+      "rgba": [
+        0.92,
+        0.92,
+        0.89,
+        1
+      ],
+      "volume_mm3": 239744.36017339793,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "wheel_left_cap",
+      "material": "shell",
+      "position_mm": [
+        -5.0,
+        104.0,
+        72.0
+      ],
+      "rotation": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          0
+        ]
+      ],
+      "moving": "wheel_left",
+      "mesh": "assets/meshes/wheel_left_cap.obj",
+      "rgba": [
+        0.9,
+        0.91,
+        0.9,
+        1
+      ],
+      "volume_mm3": 3879.2386086526767,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "wheel_right_tire",
+      "material": "rubber",
+      "position_mm": [
+        -5.0,
+        -95.0,
+        72.0
+      ],
+      "rotation": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          -1,
+          0
+        ]
+      ],
+      "moving": "wheel_right",
+      "mesh": "assets/meshes/wheel_right_tire.obj",
+      "rgba": [
+        0.73,
+        0.7,
+        0.61,
+        1
+      ],
+      "volume_mm3": 43668.13788489805,
+      "cad_valid": true,
+      "vertices": 844
+    },
+    {
+      "name": "wheel_right_hub",
+      "material": "hub",
+      "position_mm": [
+        -5.0,
+        -95.0,
+        72.0
+      ],
+      "rotation": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          -1,
+          0
+        ]
+      ],
+      "moving": "wheel_right",
+      "mesh": "assets/meshes/wheel_right_hub.obj",
+      "rgba": [
+        0.92,
+        0.92,
+        0.89,
+        1
+      ],
+      "volume_mm3": 239744.36017339793,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "wheel_right_cap",
+      "material": "shell",
+      "position_mm": [
+        -5.0,
+        -104.0,
+        72.0
+      ],
+      "rotation": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          -1,
+          0
+        ]
+      ],
+      "moving": "wheel_right",
+      "mesh": "assets/meshes/wheel_right_cap.obj",
+      "rgba": [
+        0.9,
+        0.91,
+        0.9,
+        1
+      ],
+      "volume_mm3": 3879.2386086526767,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "caster_tire",
+      "material": "rubber",
+      "position_mm": [
+        -78.0,
+        0,
+        12.0
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "caster",
+      "mesh": "assets/meshes/caster_tire.obj",
+      "rgba": [
+        0.73,
+        0.7,
+        0.61,
+        1
+      ],
+      "volume_mm3": 7238.2294738708815,
+      "cad_valid": true,
+      "vertices": 2865
+    },
+    {
+      "name": "caster_fork",
+      "material": "shell",
+      "position_mm": [
+        -78.0,
+        0,
+        27
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/caster_fork.obj",
+      "rgba": [
+        0.9,
+        0.91,
+        0.9,
+        1
+      ],
+      "volume_mm3": 5040.0,
+      "cad_valid": true,
+      "vertices": 24
+    },
+    {
+      "name": "speaker_0_4",
+      "material": "panel",
+      "position_mm": [
+        -31.6,
+        0.0,
+        195.68226115888868
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_0_4.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_1_2",
+      "material": "panel",
+      "position_mm": [
+        -29.2,
+        -4.8,
+        196.01996077940544
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_1_2.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_1_3",
+      "material": "panel",
+      "position_mm": [
+        -29.2,
+        -2.4,
+        196.13597687926426
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_1_3.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_1_4",
+      "material": "panel",
+      "position_mm": [
+        -29.2,
+        0.0,
+        196.17461610679928
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_1_4.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_1_5",
+      "material": "panel",
+      "position_mm": [
+        -29.2,
+        2.4,
+        196.13597687926426
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_1_5.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_1_6",
+      "material": "panel",
+      "position_mm": [
+        -29.2,
+        4.8,
+        196.01996077940544
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_1_6.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_2_1",
+      "material": "panel",
+      "position_mm": [
+        -26.8,
+        -7.199999999999999,
+        196.27913721763423
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_2_1.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_2_2",
+      "material": "panel",
+      "position_mm": [
+        -26.8,
+        -4.8,
+        196.47186777156045
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_2_2.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_2_3",
+      "material": "panel",
+      "position_mm": [
+        -26.8,
+        -2.4,
+        196.58731143052037
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_2_3.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_2_4",
+      "material": "panel",
+      "position_mm": [
+        -26.8,
+        0.0,
+        196.62576032729856
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_2_4.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_2_5",
+      "material": "panel",
+      "position_mm": [
+        -26.8,
+        2.4,
+        196.58731143052037
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_2_5.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_2_6",
+      "material": "panel",
+      "position_mm": [
+        -26.8,
+        4.8,
+        196.47186777156045
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_2_6.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_2_7",
+      "material": "panel",
+      "position_mm": [
+        -26.8,
+        7.199999999999999,
+        196.27913721763423
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_2_7.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_3_1",
+      "material": "panel",
+      "position_mm": [
+        -24.4,
+        -7.199999999999999,
+        196.691228721885
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_3_1.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_3_2",
+      "material": "panel",
+      "position_mm": [
+        -24.4,
+        -4.8,
+        196.88309489210283
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_3_2.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_3_3",
+      "material": "panel",
+      "position_mm": [
+        -24.4,
+        -2.4,
+        196.9980225244242
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_3_3.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_3_4",
+      "material": "panel",
+      "position_mm": [
+        -24.4,
+        0.0,
+        197.03629984353398
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_3_4.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_3_5",
+      "material": "panel",
+      "position_mm": [
+        -24.4,
+        2.4,
+        196.9980225244242
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_3_5.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_3_6",
+      "material": "panel",
+      "position_mm": [
+        -24.4,
+        4.8,
+        196.88309489210283
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_3_6.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_3_7",
+      "material": "panel",
+      "position_mm": [
+        -24.4,
+        7.199999999999999,
+        196.691228721885
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_3_7.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_4_0",
+      "material": "panel",
+      "position_mm": [
+        -22.0,
+        -9.6,
+        196.79489514385511
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_4_0.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_4_1",
+      "material": "panel",
+      "position_mm": [
+        -22.0,
+        -7.199999999999999,
+        197.06309335375582
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_4_1.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_4_2",
+      "material": "panel",
+      "position_mm": [
+        -22.0,
+        -4.8,
+        197.2541861396246
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_4_2.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_4_3",
+      "material": "panel",
+      "position_mm": [
+        -22.0,
+        -2.4,
+        197.3686520511033
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_4_3.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_4_4",
+      "material": "panel",
+      "position_mm": [
+        -22.0,
+        0.0,
+        197.40677584583406
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_4_4.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_4_5",
+      "material": "panel",
+      "position_mm": [
+        -22.0,
+        2.4,
+        197.3686520511033
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_4_5.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_4_6",
+      "material": "panel",
+      "position_mm": [
+        -22.0,
+        4.8,
+        197.2541861396246
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_4_6.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_4_7",
+      "material": "panel",
+      "position_mm": [
+        -22.0,
+        7.199999999999999,
+        197.06309335375582
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_4_7.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_4_8",
+      "material": "panel",
+      "position_mm": [
+        -22.0,
+        9.6,
+        196.79489514385511
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_4_8.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_5_1",
+      "material": "panel",
+      "position_mm": [
+        -19.6,
+        -7.199999999999999,
+        197.39521681989655
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_5_1.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_5_2",
+      "material": "panel",
+      "position_mm": [
+        -19.6,
+        -4.8,
+        197.5856241196107
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_5_2.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_5_3",
+      "material": "panel",
+      "position_mm": [
+        -19.6,
+        -2.4,
+        197.69968077113924
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_5_3.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_5_4",
+      "material": "panel",
+      "position_mm": [
+        -19.6,
+        0.0,
+        197.73766848242173
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_5_4.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_5_5",
+      "material": "panel",
+      "position_mm": [
+        -19.6,
+        2.4,
+        197.69968077113924
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_5_5.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_5_6",
+      "material": "panel",
+      "position_mm": [
+        -19.6,
+        4.8,
+        197.5856241196107
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_5_6.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_5_7",
+      "material": "panel",
+      "position_mm": [
+        -19.6,
+        7.199999999999999,
+        197.39521681989655
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_5_7.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_6_1",
+      "material": "panel",
+      "position_mm": [
+        -17.2,
+        -7.199999999999999,
+        197.6880263277249
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_6_1.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_6_2",
+      "material": "panel",
+      "position_mm": [
+        -17.2,
+        -4.8,
+        197.87783334548226
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_6_2.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_6_3",
+      "material": "panel",
+      "position_mm": [
+        -17.2,
+        -2.4,
+        197.99153159511064
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_6_3.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_6_4",
+      "material": "panel",
+      "position_mm": [
+        -17.2,
+        0.0,
+        198.02940013183405
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_6_4.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_6_5",
+      "material": "panel",
+      "position_mm": [
+        -17.2,
+        2.4,
+        197.99153159511064
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_6_5.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_6_6",
+      "material": "panel",
+      "position_mm": [
+        -17.2,
+        4.8,
+        197.87783334548226
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_6_6.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_6_7",
+      "material": "panel",
+      "position_mm": [
+        -17.2,
+        7.199999999999999,
+        197.6880263277249
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_6_7.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_7_2",
+      "material": "panel",
+      "position_mm": [
+        -14.8,
+        -4.8,
+        198.1311830714316
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_7_2.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_7_3",
+      "material": "panel",
+      "position_mm": [
+        -14.8,
+        -2.4,
+        198.24457239827848
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_7_3.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_7_4",
+      "material": "panel",
+      "position_mm": [
+        -14.8,
+        0.0,
+        198.28233821159407
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_7_4.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_7_5",
+      "material": "panel",
+      "position_mm": [
+        -14.8,
+        2.4,
+        198.24457239827848
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_7_5.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_7_6",
+      "material": "panel",
+      "position_mm": [
+        -14.8,
+        4.8,
+        198.1311830714316
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_7_6.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "speaker_8_4",
+      "material": "panel",
+      "position_mm": [
+        -12.4,
+        0.0,
+        198.49679756844913
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/speaker_8_4.obj",
+      "rgba": [
+        0.055,
+        0.065,
+        0.075,
+        1
+      ],
+      "volume_mm3": 0.3801327110843651,
+      "cad_valid": true,
+      "vertices": 422
+    },
+    {
+      "name": "usb_c_surround",
+      "material": "silver",
+      "position_mm": [
+        -119.0,
+        0,
+        104.0
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/usb_c_surround.obj",
+      "rgba": [
+        0.55,
+        0.59,
+        0.62,
+        1
+      ],
+      "volume_mm3": 67.5,
+      "cad_valid": true,
+      "vertices": 24
+    },
+    {
+      "name": "usb_c_opening",
+      "material": "lens",
+      "position_mm": [
+        -119.8,
+        0,
+        104.0
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "moving": "chassis",
+      "mesh": "assets/meshes/usb_c_opening.obj",
+      "rgba": [
+        0.012,
+        0.018,
+        0.025,
+        1
+      ],
+      "volume_mm3": 33.15,
+      "cad_valid": true,
+      "vertices": 24
+    }
+  ],
+  "screen": {
+    "position_mm": [
+      51.489157594739076,
+      0.0,
+      114.66587555186405
+    ],
+    "rotation": [
+      [
+        0.0,
+        -0.42261826174069944,
+        0.9063077870366499
+      ],
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.9063077870366499,
+        0.42261826174069944
+      ]
+    ],
+    "radius_mm": 58.0
+  },
+  "physical_robot_access": false
+}

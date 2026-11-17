@@ -1,0 +1,61 @@
+{
+  "version": "course-placement-example-not-final-native-run",
+  "simulator": "OmniGibson 3.9.1 / Isaac Sim 5.1.0",
+  "task_id": "task01",
+  "task_name": "picking_up_trash",
+  "scene": "house_double_floor_lower",
+  "instance_id": 301,
+  "execution_enabled": false,
+  "max_model_turns": 180,
+  "native_step_budget": 10535,
+  "physical_robot_access": false,
+  "ports": {
+    "policy": 29074,
+    "dashboard": 8798
+  },
+  "remote_root": "./artifacts/household",
+  "assets": {
+    "aura_home": "/path/to/your/aura.usdc",
+    "aura_prim": "/root/Aura_HOME_offset",
+    "omnipbr_mdl": "/path/to/isaacsim/kit/mdl/core/Base/OmniPBR.mdl",
+    "visitor": "/path/to/People/Characters/F_Business_02/F_Business_02.usd",
+    "idle_animation": "/path/to/People/Animations/stand_idle_loop.skelanim.usd",
+    "wave_animation": "/path/to/People/Animations/stand_idle_wave_loop.skelanim.usd"
+  },
+  "placement": {
+    "frame": "initial_R1_base_xy_yaw_with_world_Z_up",
+    "aura_offset_m": [
+      -0.15,
+      -1.05,
+      0.0
+    ],
+    "visitor_offset_m": [
+      0.8,
+      -1.65,
+      0.0
+    ],
+    "observer_offset_m": [
+      -2.2,
+      -3.2,
+      2.0
+    ],
+    "human_radius_m": 0.28,
+    "human_height_m": 1.72,
+    "aura_radius_m": 0.115,
+    "clearance_verified": false
+  },
+  "capture": {
+    "native_hz": 30,
+    "video_hz": 10,
+    "views": [
+      "observer",
+      "r1_head",
+      "aura_head"
+    ],
+    "third_person_resolution": [
+      960,
+      720
+    ]
+  },
+  "purpose": "Reader placement/configuration example; tune and validate against your loaded native scene."
+}

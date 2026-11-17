@@ -1,0 +1,6 @@
+{
+  "workspace": "/path/to/your/bound-r1-workspace",
+  "sim_python": "/path/to/existing-simulation-env/bin/python",
+  "data": "/path/to/authorized/behavior-data",
+  "repo": "/path/to/RoboHarness"
+}

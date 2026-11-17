@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "scope": "three_cans",
+  "episode_id": "dc771991987e42f2a6700be18794a1b1",
+  "native_tick": 3405,
+  "released": true,
+  "inside": [
+    "can_of_soda_113",
+    "can_of_soda_114",
+    "can_of_soda_115"
+  ],
+  "stable_native_observer_samples": 3,
+  "official_task_complete": true,
+  "official_progress": {
+    "items": [
+      {
+        "index": 0,
+        "label": "全部 can of soda: can of soda 在 ashcan 1 内",
+        "full": "全部 can of soda: can of soda 在 ashcan 1 内",
+        "satisfied": true
+      }
+    ],
+    "satisfied": 1,
+    "total": 1,
+    "complete": true,
+    "ok": true,
+    "source": "evaluator-ui-only"
+  },
+  "source": "native Inside, released assisted grasp, low object speed across consecutive samples; official predicate complete"
+}

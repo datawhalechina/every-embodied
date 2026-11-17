@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aura 实验控制台</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,"Microsoft YaHei",sans-serif;background:#0d1420;color:#e2ebf6}
+body{max-width:1400px;margin:auto;padding:28px}h1{font-size:28px;margin:0}h2{font-size:18px}p{line-height:1.6}.muted{color:#aabbd0}.badge{color:#93efcc;font-size:13px;letter-spacing:1px}
+.layout{display:grid;grid-template-columns:310px 1fr;gap:22px;margin-top:24px}.panel{background:#162234;border:1px solid #2b3c53;border-radius:14px;padding:20px;margin-bottom:18px}
+label{display:block;margin:14px 0 7px}select,input,button{font:inherit;border-radius:7px;border:1px solid #4a627e;padding:10px;background:#101b2b;color:inherit;box-sizing:border-box}select{width:100%}input{width:95px}button{cursor:pointer}button:disabled{opacity:.45;cursor:default}.primary{background:#256755;border-color:#3db68f}.danger{border-color:#c5847f}a{color:#9bddff}.actions{display:flex;gap:8px;margin-top:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}.card{background:#0e1929;padding:12px;border-radius:8px}.card img{width:100%;border-radius:6px}.card h3{font-size:15px;margin:4px 0 10px}pre{font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere;max-height:350px;overflow:auto}.notice{padding:12px;border-left:3px solid #f6c575;background:#332d20}.history button{display:block;width:100%;text-align:left;margin:8px 0;font-size:13px}.error{color:#ffb1ab;white-space:pre-wrap}#summary{display:flex;gap:18px;flex-wrap:wrap}.metric{background:#0e1929;padding:12px;border-radius:8px}.metric strong{display:block;font-size:23px}.links{display:flex;gap:18px;margin:15px 0}#connection{margin-top:8px} @media(max-width:850px){.layout{grid-template-columns:1fr}body{padding:16px}}
+</style></head><body>
+<div class="badge">FRONTIERX AURA · LOCAL PERCEPTION LAB</div><h1>实验控制台</h1>
+<div id="connection" class="muted">连接本机服务中…</div>
+<p class="notice">本页仅运行视觉感知（实机或离线样例）。停止按钮只结束本次推理进程，<strong>不是机器人急停</strong>。未开放车轮、录音、云服务或电池控制。</p>
+<div class="layout"><aside>
+<section class="panel"><h2>新建限时测试</h2>
+<label for="source">图像来源</label><select id="source"><option value="robot">实机相机（需在线）</option><option value="sample_person">离线人物样例（非实机）</option><option value="sample_text">离线文字/路标样例（非实机）</option></select><p id="sourceHelp" class="muted"></p>
+<label for="profile">功能预设</label><select id="profile"><option value="inspection">标签与画质检查</option><option value="interaction">来人 / 举手观察</option><option value="spatial">空间感知预览</option><option value="all">全部视觉任务</option></select>
+<p id="profileHelp" class="muted"></p>
+<label for="frames">采集帧数（1–60）</label><input id="frames" type="number" min="1" max="60" value="10">
+<label for="fps">频率上限（0.5–5 Hz）</label><input id="fps" type="number" min=".5" max="5" step=".5" value="2">
+<div class="actions"><button id="start" class="primary">开始测试</button><button id="stop" class="danger" disabled>停止测试</button></div>
+<p class="muted">单任务运行，最长 180 秒。首次模型加载较慢；频率上限不保证实际帧率。</p><p id="error" class="error" role="alert"></p></section>
+<section class="panel"><h2>最近测试</h2><div id="history" class="history"></div></section>
+<section class="panel"><h2>通信与功能准备</h2><button id="checkSdk">检查 SDK 通信</button><pre id="sdkHealth">尚未检查；点击后仅访问状态接口。</pre><button id="checkLocal">检查本机依赖/文件</button><pre id="readiness">尚未检查；不会加载模型或下载文件。</pre></section>
+<section class="panel"><h2>尚未验收</h2><p class="muted">真实距离标定、导航安全闭环、电量百分比/充电状态、有效人声及云 ASR。算法成功不代表这些问题已解决。</p></section>
+<section class="panel"><h2>历史硬件检查 · 非实时</h2><button id="hardwareHistory">读取本地历史检查</button><pre id="hardwareData">没有自动读取实时温度。上次高温是否解除需要新采样确认。</pre></section>
+</aside><main>
+<section class="panel"><h2 id="runTitle">等待开始或选择历史记录</h2><div id="summary"></div><div id="links" class="links"></div><p id="freshness" class="muted"></p></section>
+<div id="images" class="grid"></div>
+<section class="panel"><h2>有效结果与处理建议</h2><div id="assessment">等待完整结果。调用成功与实际检出分开显示。</div></section>
+<section class="panel"><h2>观测事件 / 结果详情</h2><pre id="events">尚无记录</pre></section>
+<section class="panel"><h2>运行日志</h2><pre id="log">尚无日志</pre></section>
+</main></div>
+<script>
+const token='__TOKEN__';let selected=null,busy=false,lastImageKey='';
+const $=id=>document.getElementById(id);
+const descriptions={inspection:'画质、二维码、ArUco、OCR；不加载 YOLO 和深度模型。',interaction:'画质、人体检测、姿态与多帧事件；不驱动机器人。',spatial:'画质、路标、单目相对深度；不输出可靠米制距离，不导航。',all:'九项视觉算法联合运行；较慢，适合功能回归。'};
+const labels={starting:'启动中',running:'运行中',completed:'执行完成',failed:'执行失败',stopped:'已停止（可能仅有部分结果）',timed_out:'超时终止',unknown_after_restart:'服务重启，任务状态未知'};
+$('profile').onchange=()=>$('profileHelp').textContent=descriptions[$('profile').value];$('profile').onchange();
+$('source').onchange=()=>{const offline=$('source').value!=='robot';$('frames').disabled=offline;$('fps').disabled=offline;$('frames').value=offline?'1':'10';$('sourceHelp').textContent=offline?'仅使用本机固定样例，不访问机器人。静态单帧不能确认多帧事件，不能作为实机验收。':'请求机器人相机；请先确认散热和连接状态。';};$('source').onchange();
+async function api(path,body){const options=body===undefined?{}:{method:'POST',headers:{'Content-Type':'application/json','X-Aura-Token':token},body:JSON.stringify(body)};const r=await fetch(path,options);const data=await r.json();if(!r.ok)throw Error(data.error||r.status);return data;}
+async function action(path,body){$('error').textContent='';try{const r=await api(path,body);if(r.id){selected=r.id;lastImageKey='';}}catch(e){$('error').textContent=e.message;}await refresh();}
+$('start').onclick=()=>action('/api/start',{profile:$('profile').value,frames:Number($('frames').value),fps:Number($('fps').value),source:$('source').value});
+$('stop').onclick=()=>action('/api/stop',{});
+$('checkSdk').onclick=async()=>{const b=$('checkSdk');b.disabled=true;$('sdkHealth').textContent='检查中…';try{$('sdkHealth').textContent=JSON.stringify(await api('/api/check-sdk',{}),null,2);}catch(e){$('sdkHealth').textContent=e.message;}finally{b.disabled=false;}};
+$('checkLocal').onclick=async()=>{try{const data=await api('/api/readiness');$('readiness').textContent=Object.entries(data.tasks).map(([name,r])=>name+'：'+(r.status==='missing'?'缺失 '+[...r.missing_modules,...r.missing_files].join(', '):'文件/依赖可见，尚未加载验收')).join('\n')+'\n\n'+data.note;}catch(e){$('readiness').textContent=e.message;}};
+$('hardwareHistory').onclick=async()=>{try{$('hardwareData').textContent=JSON.stringify(await api('/api/hardware-history'),null,2);}catch(e){$('hardwareData').textContent=e.message;}};
+function metric(label,value){const d=document.createElement('div');d.className='metric';const s=document.createElement('strong');s.textContent=value;d.append(s,document.createTextNode(label));$('summary').append(d);}
+function fileURL(id,name){return '/files/'+encodeURIComponent(id)+'/'+encodeURIComponent(name);}
+function link(id,name,label){const a=document.createElement('a');a.href=fileURL(id,name);a.target='_blank';a.rel='noopener';a.textContent=label;$('links').append(a);}
+async function refresh(){if(busy)return;busy=true;try{
+ const state=await api('/api/state');$('connection').textContent='本机服务已连接 · 机器人地址 '+state.host+' · 推理设备 '+state.device+'（并非机器人在线证明）';
+ $('start').disabled=!!state.active;$('stop').disabled=!state.active;
+ if(!selected&&state.sessions.length)selected=state.active||state.sessions[0].id;
+ $('history').replaceChildren();for(const session of state.sessions){const b=document.createElement('button');b.textContent=session.created_at.slice(0,19)+' · '+(session.source_label||'旧记录，来源未标注')+' · '+session.profile+' · '+(labels[session.status]||session.status);b.onclick=()=>{selected=session.id;lastImageKey='';refresh();};$('history').append(b);}
+ const session=state.sessions.find(s=>s.id===selected);if(!session)return;
+ const id=selected;const data=await api('/api/run/'+id);if(selected!==id)return;
+ $('runTitle').textContent=(session.source_label||'旧记录，来源未标注')+' · '+session.profile+' · '+(labels[session.status]||session.status);
+ $('runTitle').dataset.runId=id;$('runTitle').dataset.status=session.status;$('runTitle').dataset.hasResult=String(!!data.row&&!!data.summary);
+ $('summary').replaceChildren();metric('已处理记录 / 请求帧',((data.row?.frame??-1)+1)+' / '+session.frames);
+ if(data.row?.capture_error)metric('取图失败',data.row.capture_error);
+ if(data.summary){metric('事件数',data.summary.events.length);metric(data.row?.source_kind==='offline_image'?'样例读取中位耗时':'取图中位耗时',Math.round(data.summary.capture_timing.p50_ms||0)+' ms');}
+ $('links').replaceChildren();if(session.report){link(id,'report.html','图像报告');link(id,'events.html','事件与性能');link(id,'results.json','原始 JSON');}
+ const exportLink=document.createElement('a');exportLink.href='/api/diagnostic/'+encodeURIComponent(id);exportLink.download='aura-diagnostic.json';exportLink.textContent='下载脱敏诊断（非原始 JSON）';$('links').append(exportLink);
+ $('assessment').replaceChildren();for(const [name,result] of Object.entries(data.assessment||{})){const p=document.createElement('p');p.textContent=name+' · '+result.state+'：'+result.message;if(['failed','warning'].includes(result.state))p.className='notice';$('assessment').append(p);}
+ const row=data.row;const warnings=row?.tasks?.quality?.result?.warnings||[];$('freshness').textContent=row?'显示第 '+row.frame+' 帧 · 采样时间 '+row.created_at+' · 历史采样，不是实时视频；完成/停止后图片保留。'+(warnings.length?' 画质警告：'+warnings.join(', ')+'。':''):'等待首帧。模型加载中或取图失败时请查看日志。';
+ const key=id+':'+(row?.frame??'none');if(key!==lastImageKey){$('images').replaceChildren();lastImageKey=key;if(row){const items=[];if(!row.capture_error)items.push(['原始相机',String(row.frame).padStart(4,'0')+'-camera.jpg']);for(const [task,result] of Object.entries(row.tasks||{})){items.push([task+' · '+result.status,result.image,result.error]);}for(const [title,name,error] of items){const card=document.createElement('article');card.className='card';const heading=document.createElement('h3');heading.textContent=title;card.append(heading);if(name){const img=document.createElement('img');img.src=fileURL(id,name);img.alt=title;card.append(img);}if(error){const p=document.createElement('p');p.textContent=error;card.append(p);}$('images').append(card);}}}
+ if(row?.source_kind==='offline_image'){const h=$('images').querySelector('h3');if(h&&h.textContent==='原始相机')h.textContent='原始离线样例';}
+ $('events').textContent=JSON.stringify(data.summary||row||{},null,2);$('log').textContent=data.log||'暂无日志';
+ }catch(e){$('connection').textContent='本机控制台连接失败；显示内容可能已陈旧。';$('error').textContent=e.message;$('start').disabled=true;$('stop').disabled=true;}finally{busy=false;}}
+refresh();setInterval(refresh,1500);
+</script></body></html>

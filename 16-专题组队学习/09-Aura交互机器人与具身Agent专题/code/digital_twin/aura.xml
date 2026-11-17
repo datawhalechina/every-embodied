@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="Aura_photo_based_twin">
+  <compiler angle="radian" autolimits="true" inertiafromgeom="false" />
+  <option timestep="0.002" gravity="0 0 -9.81" integrator="implicitfast" />
+  <visual>
+    <global offwidth="1280" offheight="960" />
+    <quality shadowsize="2048" />
+  </visual>
+  <default>
+    <geom solref=".008 1" solimp=".95 .99 .001" friction=".9 .005 .0001" />
+  </default>
+  <asset>
+    <material name="white" rgba="0.9 0.91 0.9 1" />
+    <material name="floor" rgba="0.18 0.22 0.27 1" />
+    <texture name="screen_texture" type="2d" file="assets/screen/screen.png" />
+    <material name="screen_material" texture="screen_texture" texuniform="false" emission="1" specular="0" reflectance="0" texrepeat="1 1" />
+    <mesh name="screen_uv" file="assets/meshes/screen_uv.obj" />
+    <mesh name="white_shell" file="assets/meshes/white_shell.obj" />
+    <mesh name="face_silver_rim" file="assets/meshes/face_silver_rim.obj" />
+    <mesh name="dark_faceplate" file="assets/meshes/dark_faceplate.obj" />
+    <mesh name="screen_rim" file="assets/meshes/screen_rim.obj" />
+    <mesh name="screen_glass" file="assets/meshes/screen_glass.obj" />
+    <mesh name="camera_left_bezel" file="assets/meshes/camera_left_bezel.obj" />
+    <mesh name="camera_left_glass" file="assets/meshes/camera_left_glass.obj" />
+    <mesh name="camera_left_pupil" file="assets/meshes/camera_left_pupil.obj" />
+    <mesh name="camera_left_glint" file="assets/meshes/camera_left_glint.obj" />
+    <mesh name="camera_right_bezel" file="assets/meshes/camera_right_bezel.obj" />
+    <mesh name="camera_right_glass" file="assets/meshes/camera_right_glass.obj" />
+    <mesh name="camera_right_pupil" file="assets/meshes/camera_right_pupil.obj" />
+    <mesh name="camera_right_glint" file="assets/meshes/camera_right_glint.obj" />
+    <mesh name="wheel_left_tire" file="assets/meshes/wheel_left_tire.obj" />
+    <mesh name="wheel_left_hub" file="assets/meshes/wheel_left_hub.obj" />
+    <mesh name="wheel_left_cap" file="assets/meshes/wheel_left_cap.obj" />
+    <mesh name="wheel_right_tire" file="assets/meshes/wheel_right_tire.obj" />
+    <mesh name="wheel_right_hub" file="assets/meshes/wheel_right_hub.obj" />
+    <mesh name="wheel_right_cap" file="assets/meshes/wheel_right_cap.obj" />
+    <mesh name="caster_tire" file="assets/meshes/caster_tire.obj" />
+    <mesh name="caster_fork" file="assets/meshes/caster_fork.obj" />
+    <mesh name="speaker_0_4" file="assets/meshes/speaker_0_4.obj" />
+    <mesh name="speaker_1_2" file="assets/meshes/speaker_1_2.obj" />
+    <mesh name="speaker_1_3" file="assets/meshes/speaker_1_3.obj" />
+    <mesh name="speaker_1_4" file="assets/meshes/speaker_1_4.obj" />
+    <mesh name="speaker_1_5" file="assets/meshes/speaker_1_5.obj" />
+    <mesh name="speaker_1_6" file="assets/meshes/speaker_1_6.obj" />
+    <mesh name="speaker_2_1" file="assets/meshes/speaker_2_1.obj" />
+    <mesh name="speaker_2_2" file="assets/meshes/speaker_2_2.obj" />
+    <mesh name="speaker_2_3" file="assets/meshes/speaker_2_3.obj" />
+    <mesh name="speaker_2_4" file="assets/meshes/speaker_2_4.obj" />
+    <mesh name="speaker_2_5" file="assets/meshes/speaker_2_5.obj" />
+    <mesh name="speaker_2_6" file="assets/meshes/speaker_2_6.obj" />
+    <mesh name="speaker_2_7" file="assets/meshes/speaker_2_7.obj" />
+    <mesh name="speaker_3_1" file="assets/meshes/speaker_3_1.obj" />
+    <mesh name="speaker_3_2" file="assets/meshes/speaker_3_2.obj" />
+    <mesh name="speaker_3_3" file="assets/meshes/speaker_3_3.obj" />
+    <mesh name="speaker_3_4" file="assets/meshes/speaker_3_4.obj" />
+    <mesh name="speaker_3_5" file="assets/meshes/speaker_3_5.obj" />
+    <mesh name="speaker_3_6" file="assets/meshes/speaker_3_6.obj" />
+    <mesh name="speaker_3_7" file="assets/meshes/speaker_3_7.obj" />
+    <mesh name="speaker_4_0" file="assets/meshes/speaker_4_0.obj" />
+    <mesh name="speaker_4_1" file="assets/meshes/speaker_4_1.obj" />
+    <mesh name="speaker_4_2" file="assets/meshes/speaker_4_2.obj" />
+    <mesh name="speaker_4_3" file="assets/meshes/speaker_4_3.obj" />
+    <mesh name="speaker_4_4" file="assets/meshes/speaker_4_4.obj" />
+    <mesh name="speaker_4_5" file="assets/meshes/speaker_4_5.obj" />
+    <mesh name="speaker_4_6" file="assets/meshes/speaker_4_6.obj" />
+    <mesh name="speaker_4_7" file="assets/meshes/speaker_4_7.obj" />
+    <mesh name="speaker_4_8" file="assets/meshes/speaker_4_8.obj" />
+    <mesh name="speaker_5_1" file="assets/meshes/speaker_5_1.obj" />
+    <mesh name="speaker_5_2" file="assets/meshes/speaker_5_2.obj" />
+    <mesh name="speaker_5_3" file="assets/meshes/speaker_5_3.obj" />
+    <mesh name="speaker_5_4" file="assets/meshes/speaker_5_4.obj" />
+    <mesh name="speaker_5_5" file="assets/meshes/speaker_5_5.obj" />
+    <mesh name="speaker_5_6" file="assets/meshes/speaker_5_6.obj" />
+    <mesh name="speaker_5_7" file="assets/meshes/speaker_5_7.obj" />
+    <mesh name="speaker_6_1" file="assets/meshes/speaker_6_1.obj" />
+    <mesh name="speaker_6_2" file="assets/meshes/speaker_6_2.obj" />
+    <mesh name="speaker_6_3" file="assets/meshes/speaker_6_3.obj" />
+    <mesh name="speaker_6_4" file="assets/meshes/speaker_6_4.obj" />
+    <mesh name="speaker_6_5" file="assets/meshes/speaker_6_5.obj" />
+    <mesh name="speaker_6_6" file="assets/meshes/speaker_6_6.obj" />
+    <mesh name="speaker_6_7" file="assets/meshes/speaker_6_7.obj" />
+    <mesh name="speaker_7_2" file="assets/meshes/speaker_7_2.obj" />
+    <mesh name="speaker_7_3" file="assets/meshes/speaker_7_3.obj" />
+    <mesh name="speaker_7_4" file="assets/meshes/speaker_7_4.obj" />
+    <mesh name="speaker_7_5" file="assets/meshes/speaker_7_5.obj" />
+    <mesh name="speaker_7_6" file="assets/meshes/speaker_7_6.obj" />
+    <mesh name="speaker_8_4" file="assets/meshes/speaker_8_4.obj" />
+    <mesh name="usb_c_surround" file="assets/meshes/usb_c_surround.obj" />
+    <mesh name="usb_c_opening" file="assets/meshes/usb_c_opening.obj" />
+  </asset>
+  <worldbody>
+    <light pos=".4 -.5 1.4" dir="-.3 .3 -1" diffuse=".8 .8 .8" castshadow="true" />
+    <light pos="-.5 .7 .8" dir=".3 -.3 -1" diffuse=".5 .55 .65" />
+    <geom name="ground" type="plane" size="3 3 .05" material="floor" />
+    <geom name="exhibit_block" type="box" pos=".65 .35 .06" size=".06 .06 .06" rgba=".12 .5 .6 1" />
+    <camera name="hero" pos="0.53 -0.55 0.38" xyaxes="0.720077892 0.693893241 -0 -0.235057659 0.243927759 0.940875733" fovy="34" />
+    <camera name="front" pos="0.63 0 0.37" xyaxes="0 1 0 -0.381901995 0 0.924202827" fovy="34" />
+    <camera name="side" pos="0.05 -0.62 0.28" xyaxes="0.996763955 0.0803841899 -0 -0.021770452 0.269953605 0.962627186" fovy="34" />
+    <body name="aura" pos="0 0 .003">
+      <freejoint name="root" />
+      <inertial pos="-.012 0 .082" mass="1.2" diaginertia=".005 .006 .004" />
+      <geom name="chassis_collision" type="ellipsoid" pos="-.015 0 .112" size=".073 .066 .078" rgba="0 0 0 0" group="3" />
+      <body name="wheel_left" pos="-0.005 0.095 0.072">
+        <joint name="wheel_left" type="hinge" axis="0 1 0" damping=".015" armature=".00005" />
+        <inertial pos="0 0 0" mass="0.12" diaginertia=".00016 .00031 .00016" />
+        <geom name="wheel_left_collision" type="cylinder" size="0.072 0.01" quat=".707106781 .707106781 0 0" rgba="0 0 0 0" group="3" friction="1.0 .005 .0001" condim="4" />
+        <geom name="wheel_left_tire" type="mesh" mesh="wheel_left_tire" pos="0 0 0" quat="0.707106781 0.707106781 0 0" rgba="0.73 0.7 0.61 1" contype="0" conaffinity="0" group="1" mass="0" />
+        <geom name="wheel_left_hub" type="mesh" mesh="wheel_left_hub" pos="0 0 0" quat="0.707106781 0.707106781 0 0" rgba="0.92 0.92 0.89 1" contype="0" conaffinity="0" group="1" mass="0" />
+        <geom name="wheel_left_cap" type="mesh" mesh="wheel_left_cap" pos="0 0.009 0" quat="0.707106781 0.707106781 0 0" rgba="0.9 0.91 0.9 1" contype="0" conaffinity="0" group="1" mass="0" />
+      </body>
+      <body name="wheel_right" pos="-0.005 -0.095 0.072">
+        <joint name="wheel_right" type="hinge" axis="0 1 0" damping=".015" armature=".00005" />
+        <inertial pos="0 0 0" mass="0.12" diaginertia=".00016 .00031 .00016" />
+        <geom name="wheel_right_collision" type="cylinder" size="0.072 0.01" quat=".707106781 .707106781 0 0" rgba="0 0 0 0" group="3" friction="1.0 .005 .0001" condim="4" />
+        <geom name="wheel_right_tire" type="mesh" mesh="wheel_right_tire" pos="0 0 0" quat="-0.707106781 0.707106781 0 0" rgba="0.73 0.7 0.61 1" contype="0" conaffinity="0" group="1" mass="0" />
+        <geom name="wheel_right_hub" type="mesh" mesh="wheel_right_hub" pos="0 0 0" quat="-0.707106781 0.707106781 0 0" rgba="0.92 0.92 0.89 1" contype="0" conaffinity="0" group="1" mass="0" />
+        <geom name="wheel_right_cap" type="mesh" mesh="wheel_right_cap" pos="0 -0.009 0" quat="-0.707106781 0.707106781 0 0" rgba="0.9 0.91 0.9 1" contype="0" conaffinity="0" group="1" mass="0" />
+      </body>
+      <body name="caster" pos="-0.078 0 0.012">
+        <joint name="caster_ball" type="ball" damping=".00001" />
+        <inertial pos="0 0 0" mass=".025" diaginertia=".00000144 .00000144 .00000144" />
+        <geom name="caster_collision" type="sphere" size="0.012" rgba="0 0 0 0" group="3" friction=".7 .0001 .00001" />
+        <geom name="caster_tire" type="mesh" mesh="caster_tire" pos="0 0 0" quat="1 0 0 0" rgba="0.73 0.7 0.61 1" contype="0" conaffinity="0" group="1" mass="0" />
+      </body>
+      <geom name="white_shell" type="mesh" mesh="white_shell" pos="0 0 0" quat="1 0 0 0" rgba="0.9 0.91 0.9 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="face_silver_rim" type="mesh" mesh="face_silver_rim" pos="0.0439559277 0 0.125496986" quat="0.596367811 0.379928197 0.379928197 0.596367811" rgba="0.55 0.59 0.62 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="dark_faceplate" type="mesh" mesh="dark_faceplate" pos="0.0441371892 0 0.125581509" quat="0.596367811 0.379928197 0.379928197 0.596367811" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="screen_rim" type="mesh" mesh="screen_rim" pos="0.0509906883 0 0.114433436" quat="0.596367811 0.379928197 0.379928197 0.596367811" rgba="0.012 0.018 0.025 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="screen_glass" type="mesh" mesh="screen_glass" pos="0.0510813191 0 0.114475697" quat="0.596367811 0.379928197 0.379928197 0.596367811" rgba="0.018 0.027 0.034 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="camera_left_bezel" type="mesh" mesh="camera_left_bezel" pos="0.0249696176 -0.039 0.170709042" quat="0.596367811 0.379928197 0.379928197 0.596367811" rgba="0.012 0.018 0.025 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="camera_left_glass" type="mesh" mesh="camera_left_glass" pos="0.0258759254 -0.039 0.17113166" quat="0.596367811 0.379928197 0.379928197 0.596367811" rgba="0.018 0.027 0.034 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="camera_left_pupil" type="mesh" mesh="camera_left_pupil" pos="0.0263290793 -0.039 0.171342969" quat="0.596367811 0.379928197 0.379928197 0.596367811" rgba="0.012 0.018 0.025 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="camera_left_glint" type="mesh" mesh="camera_left_glint" pos="0.0260154132 -0.0404 0.172962109" quat="0.596367811 0.379928197 0.379928197 0.596367811" rgba="0.06 0.35 0.65 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="camera_right_bezel" type="mesh" mesh="camera_right_bezel" pos="0.0249696176 0.039 0.170709042" quat="0.596367811 0.379928197 0.379928197 0.596367811" rgba="0.012 0.018 0.025 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="camera_right_glass" type="mesh" mesh="camera_right_glass" pos="0.0258759254 0.039 0.17113166" quat="0.596367811 0.379928197 0.379928197 0.596367811" rgba="0.018 0.027 0.034 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="camera_right_pupil" type="mesh" mesh="camera_right_pupil" pos="0.0263290793 0.039 0.171342969" quat="0.596367811 0.379928197 0.379928197 0.596367811" rgba="0.012 0.018 0.025 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="camera_right_glint" type="mesh" mesh="camera_right_glint" pos="0.0260154132 0.0376 0.172962109" quat="0.596367811 0.379928197 0.379928197 0.596367811" rgba="0.06 0.35 0.65 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="caster_fork" type="mesh" mesh="caster_fork" pos="-0.078 0 0.027" quat="1 0 0 0" rgba="0.9 0.91 0.9 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_0_4" type="mesh" mesh="speaker_0_4" pos="-0.0316 0 0.195682261" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_1_2" type="mesh" mesh="speaker_1_2" pos="-0.0292 -0.0048 0.196019961" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_1_3" type="mesh" mesh="speaker_1_3" pos="-0.0292 -0.0024 0.196135977" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_1_4" type="mesh" mesh="speaker_1_4" pos="-0.0292 0 0.196174616" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_1_5" type="mesh" mesh="speaker_1_5" pos="-0.0292 0.0024 0.196135977" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_1_6" type="mesh" mesh="speaker_1_6" pos="-0.0292 0.0048 0.196019961" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_2_1" type="mesh" mesh="speaker_2_1" pos="-0.0268 -0.0072 0.196279137" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_2_2" type="mesh" mesh="speaker_2_2" pos="-0.0268 -0.0048 0.196471868" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_2_3" type="mesh" mesh="speaker_2_3" pos="-0.0268 -0.0024 0.196587311" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_2_4" type="mesh" mesh="speaker_2_4" pos="-0.0268 0 0.19662576" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_2_5" type="mesh" mesh="speaker_2_5" pos="-0.0268 0.0024 0.196587311" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_2_6" type="mesh" mesh="speaker_2_6" pos="-0.0268 0.0048 0.196471868" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_2_7" type="mesh" mesh="speaker_2_7" pos="-0.0268 0.0072 0.196279137" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_3_1" type="mesh" mesh="speaker_3_1" pos="-0.0244 -0.0072 0.196691229" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_3_2" type="mesh" mesh="speaker_3_2" pos="-0.0244 -0.0048 0.196883095" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_3_3" type="mesh" mesh="speaker_3_3" pos="-0.0244 -0.0024 0.196998023" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_3_4" type="mesh" mesh="speaker_3_4" pos="-0.0244 0 0.1970363" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_3_5" type="mesh" mesh="speaker_3_5" pos="-0.0244 0.0024 0.196998023" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_3_6" type="mesh" mesh="speaker_3_6" pos="-0.0244 0.0048 0.196883095" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_3_7" type="mesh" mesh="speaker_3_7" pos="-0.0244 0.0072 0.196691229" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_4_0" type="mesh" mesh="speaker_4_0" pos="-0.022 -0.0096 0.196794895" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_4_1" type="mesh" mesh="speaker_4_1" pos="-0.022 -0.0072 0.197063093" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_4_2" type="mesh" mesh="speaker_4_2" pos="-0.022 -0.0048 0.197254186" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_4_3" type="mesh" mesh="speaker_4_3" pos="-0.022 -0.0024 0.197368652" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_4_4" type="mesh" mesh="speaker_4_4" pos="-0.022 0 0.197406776" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_4_5" type="mesh" mesh="speaker_4_5" pos="-0.022 0.0024 0.197368652" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_4_6" type="mesh" mesh="speaker_4_6" pos="-0.022 0.0048 0.197254186" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_4_7" type="mesh" mesh="speaker_4_7" pos="-0.022 0.0072 0.197063093" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_4_8" type="mesh" mesh="speaker_4_8" pos="-0.022 0.0096 0.196794895" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_5_1" type="mesh" mesh="speaker_5_1" pos="-0.0196 -0.0072 0.197395217" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_5_2" type="mesh" mesh="speaker_5_2" pos="-0.0196 -0.0048 0.197585624" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_5_3" type="mesh" mesh="speaker_5_3" pos="-0.0196 -0.0024 0.197699681" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_5_4" type="mesh" mesh="speaker_5_4" pos="-0.0196 0 0.197737668" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_5_5" type="mesh" mesh="speaker_5_5" pos="-0.0196 0.0024 0.197699681" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_5_6" type="mesh" mesh="speaker_5_6" pos="-0.0196 0.0048 0.197585624" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_5_7" type="mesh" mesh="speaker_5_7" pos="-0.0196 0.0072 0.197395217" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_6_1" type="mesh" mesh="speaker_6_1" pos="-0.0172 -0.0072 0.197688026" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_6_2" type="mesh" mesh="speaker_6_2" pos="-0.0172 -0.0048 0.197877833" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_6_3" type="mesh" mesh="speaker_6_3" pos="-0.0172 -0.0024 0.197991532" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_6_4" type="mesh" mesh="speaker_6_4" pos="-0.0172 0 0.1980294" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_6_5" type="mesh" mesh="speaker_6_5" pos="-0.0172 0.0024 0.197991532" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_6_6" type="mesh" mesh="speaker_6_6" pos="-0.0172 0.0048 0.197877833" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_6_7" type="mesh" mesh="speaker_6_7" pos="-0.0172 0.0072 0.197688026" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_7_2" type="mesh" mesh="speaker_7_2" pos="-0.0148 -0.0048 0.198131183" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_7_3" type="mesh" mesh="speaker_7_3" pos="-0.0148 -0.0024 0.198244572" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_7_4" type="mesh" mesh="speaker_7_4" pos="-0.0148 0 0.198282338" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_7_5" type="mesh" mesh="speaker_7_5" pos="-0.0148 0.0024 0.198244572" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_7_6" type="mesh" mesh="speaker_7_6" pos="-0.0148 0.0048 0.198131183" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="speaker_8_4" type="mesh" mesh="speaker_8_4" pos="-0.0124 0 0.198496798" quat="1 0 0 0" rgba="0.055 0.065 0.075 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="usb_c_surround" type="mesh" mesh="usb_c_surround" pos="-0.119 0 0.104" quat="1 0 0 0" rgba="0.55 0.59 0.62 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="usb_c_opening" type="mesh" mesh="usb_c_opening" pos="-0.1198 0 0.104" quat="1 0 0 0" rgba="0.012 0.018 0.025 1" contype="0" conaffinity="0" group="1" mass="0" />
+      <geom name="display_pixels" type="mesh" mesh="screen_uv" pos="0.0514891576 0 0.114665876" quat="0.596367811 0.379928197 0.379928197 0.596367811" material="screen_material" contype="0" conaffinity="0" group="1" mass="0" />
+      <camera name="rgb_left" pos="0.0282323257 0.039 0.172230468" xyaxes="-0 -1 -0 -0.422618262 0 0.906307787" fovy="70" />
+      <camera name="rgb_right" pos="0.0282323257 -0.039 0.172230468" xyaxes="-0 -1 -0 -0.422618262 0 0.906307787" fovy="70" />
+      <site name="imu" pos="0 0 .1" size=".002" rgba="0 0 0 0" />
+    </body>
+  </worldbody>
+  <sensor>
+    <gyro name="gyro" site="imu" />
+    <accelerometer name="accelerometer" site="imu" />
+  </sensor>
+  <actuator>
+    <velocity name="drive_left" joint="wheel_left" kv=".12" ctrlrange="-6 6" forcerange="-.3 .3" />
+    <velocity name="drive_right" joint="wheel_right" kv=".12" ctrlrange="-6 6" forcerange="-.3 .3" />
+  </actuator>
+</mujoco>

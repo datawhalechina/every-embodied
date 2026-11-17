@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aura-robot-lab"
+version = "0.1.0"
+description = "SDK-neutral experiments for the robot currently labelled Aura"
+requires-python = ">=3.11"
+dependencies = ["websockets>=15,<16"]
+
+[project.optional-dependencies]
+vision = ["opencv-python>=4.13,<5", "numpy>=1.24,<3", "ultralytics>=8.3,<9"]
+depth = ["transformers>=4.42,<6", "torch>=2.6", "huggingface-hub>=0.24"]
+ocr = ["rapidocr-onnxruntime>=1.4.4,<2"]
+
+[project.scripts]
+aura-robot = "aura_robot.cli:main"
+aura-debug = "aura_robot.debug:main"
+aura-vision = "aura_robot.vision:main"
+aura-events = "aura_robot.vision_events:main"
+aura-console = "aura_robot.console:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+aura_robot = ["console.html"]

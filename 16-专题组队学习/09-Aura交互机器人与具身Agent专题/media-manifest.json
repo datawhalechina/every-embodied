@@ -1,0 +1,265 @@
+{
+  "release": "aura-course-20261116",
+  "household_full_frames": 2557,
+  "household_full_duration_s": 255.7,
+  "recovery_boundary": {
+    "prefix_frames": 1203,
+    "card_frames": 15,
+    "resumed_frames": 1339
+  },
+  "videos": [
+    {
+      "id": "household-observer",
+      "title": "完整第三视角",
+      "file": "household-observer-full.mp4",
+      "source": "native-household-20261116",
+      "sha256": "54f4884f1d8e128e43d400c766f15a21cbcb7b6a87b56b501430321f89e6bdc7",
+      "bytes": 23522646,
+      "duration_s": 255.7,
+      "url": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/household-observer-full.mp4",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 960,
+          "height": 796,
+          "nb_frames": "2557"
+        },
+        {
+          "codec_type": "audio",
+          "nb_frames": "11987"
+        }
+      ],
+      "preview": "assets/previews/household-observer.gif"
+    },
+    {
+      "id": "household-r1_head",
+      "title": "R1 机器人相机",
+      "file": "household-r1_head-full.mp4",
+      "source": "native-household-20261116",
+      "sha256": "741667a5ac59144852dc0525c58a82aa922c73987feea40966078deae1c41836",
+      "bytes": 24797709,
+      "duration_s": 255.7,
+      "url": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/household-r1_head-full.mp4",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 720,
+          "height": 796,
+          "nb_frames": "2557"
+        },
+        {
+          "codec_type": "audio",
+          "nb_frames": "11987"
+        }
+      ],
+      "preview": "assets/previews/household-r1_head.gif"
+    },
+    {
+      "id": "household-aura_head",
+      "title": "Aura 自身相机",
+      "file": "household-aura_head-full.mp4",
+      "source": "native-household-20261116",
+      "sha256": "826e4446aa8a272f0fc5290716a7824f6dad061f9a7fc617d6ed4abfe9b3c34d",
+      "bytes": 6278145,
+      "duration_s": 255.7,
+      "url": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/household-aura_head-full.mp4",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 640,
+          "height": 556,
+          "nb_frames": "2557"
+        },
+        {
+          "codec_type": "audio",
+          "nb_frames": "11987"
+        }
+      ],
+      "preview": "assets/previews/household-aura_head.gif"
+    },
+    {
+      "id": "household-global",
+      "title": "全屋俯视",
+      "file": "household-global-full.mp4",
+      "source": "native-household-20261116",
+      "sha256": "89c8e0d341706474b74b7f168517c5fd16d5e88fa1ebc2ecdb1270640a718cfa",
+      "bytes": 4485335,
+      "duration_s": 255.7,
+      "url": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/household-global-full.mp4",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 960,
+          "height": 796,
+          "nb_frames": "2557"
+        },
+        {
+          "codec_type": "audio",
+          "nb_frames": "11987"
+        }
+      ],
+      "preview": "assets/previews/household-global.gif"
+    },
+    {
+      "id": "household-robot",
+      "title": "机器人接力视角",
+      "file": "household-robot-full.mp4",
+      "source": "native-household-20261116",
+      "sha256": "3ed1ac90a328db4f79a77fb0ace24827519b0eb69655f56a3dd46a6cdc1b90bb",
+      "bytes": 21859087,
+      "duration_s": 255.7,
+      "url": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/household-robot-full.mp4",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 960,
+          "height": 720,
+          "nb_frames": "2557"
+        },
+        {
+          "codec_type": "audio",
+          "nb_frames": "11987"
+        }
+      ],
+      "preview": "assets/previews/household-robot.gif"
+    },
+    {
+      "id": "camera-visitors",
+      "title": "摄像头识人、举手与读卡",
+      "file": "camera-visitors-full.mp4",
+      "source": "kinematic-camera-closed-loop",
+      "sha256": "e38fde209397a6a7ef8aa840504c27d425aa7cd1696471d97a7777ab351ef060",
+      "bytes": 2783418,
+      "duration_s": 32.0,
+      "url": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/camera-visitors-full.mp4",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 960,
+          "height": 720,
+          "nb_frames": "320"
+        },
+        {
+          "codec_type": "audio",
+          "nb_frames": "1501"
+        }
+      ],
+      "preview": "assets/previews/camera-visitors.gif"
+    },
+    {
+      "id": "camera-visitors-pov",
+      "title": "识人读卡：Aura 相机",
+      "file": "camera-visitors-pov-full.mp4",
+      "source": "kinematic-camera-closed-loop",
+      "sha256": "cae0482bc38e18c1196ea05453407dd1d45d5e9aca3835ef0512579068858c6e",
+      "bytes": 2943744,
+      "duration_s": 32.0,
+      "url": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/camera-visitors-pov-full.mp4",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 960,
+          "height": 720,
+          "nb_frames": "320"
+        },
+        {
+          "codec_type": "audio",
+          "nb_frames": "1501"
+        }
+      ],
+      "preview": "assets/previews/camera-visitors-pov.gif"
+    },
+    {
+      "id": "aura-home-tour",
+      "title": "Aura 家庭导航：完整第三视角",
+      "file": "aura-home-tour-full.mp4",
+      "source": "native-physx-known-map",
+      "sha256": "2385c1816cae6bc208e202348794e0849bf163b3460cdf827ce58f6c24abc70d",
+      "bytes": 30424840,
+      "duration_s": 157.5,
+      "url": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/aura-home-tour-full.mp4",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 960,
+          "height": 720,
+          "nb_frames": "1575"
+        },
+        {
+          "codec_type": "audio",
+          "nb_frames": "7384"
+        }
+      ],
+      "preview": "assets/previews/aura-home-tour.gif"
+    },
+    {
+      "id": "aura-home-tour-pov",
+      "title": "Aura 家庭导航：完整相机视角",
+      "file": "aura-home-tour-pov-full.mp4",
+      "source": "native-physx-known-map",
+      "sha256": "4ba4627cfa622947a1609085360805cd0f9f9a0a1190851c777c74d7a251b9c5",
+      "bytes": 22043713,
+      "duration_s": 157.5,
+      "url": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/aura-home-tour-pov-full.mp4",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 960,
+          "height": 720,
+          "nb_frames": "1575"
+        },
+        {
+          "codec_type": "audio",
+          "nb_frames": "7384"
+        }
+      ],
+      "preview": "assets/previews/aura-home-tour-pov.gif"
+    },
+    {
+      "id": "aura-person-wait",
+      "title": "Aura 遇人停车、等待、继续",
+      "file": "aura-person-wait-full.mp4",
+      "source": "native-physx-stop-wait",
+      "sha256": "94c071ced92bd6fbf4bffc1b6a6c5222e4d9e98f38b05f814cf0376b6882da52",
+      "bytes": 15321415,
+      "duration_s": 102.3,
+      "url": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/aura-person-wait-full.mp4",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 960,
+          "height": 720,
+          "nb_frames": "1023"
+        },
+        {
+          "codec_type": "audio",
+          "nb_frames": "4797"
+        }
+      ],
+      "preview": "assets/previews/aura-person-wait.gif"
+    },
+    {
+      "id": "aura-person-wait-pov",
+      "title": "Aura 遇人等待：相机视角",
+      "file": "aura-person-wait-pov-full.mp4",
+      "source": "native-physx-stop-wait",
+      "sha256": "060ebc75e6a2acab4088b7cd9e1e112c75f48213df0a6d8a7adc26a11410cb41",
+      "bytes": 15707240,
+      "duration_s": 102.3,
+      "url": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/aura-person-wait-pov-full.mp4",
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 960,
+          "height": 720,
+          "nb_frames": "1023"
+        },
+        {
+          "codec_type": "audio",
+          "nb_frames": "4797"
+        }
+      ],
+      "preview": "assets/previews/aura-person-wait-pov.gif"
+    }
+  ]
+}

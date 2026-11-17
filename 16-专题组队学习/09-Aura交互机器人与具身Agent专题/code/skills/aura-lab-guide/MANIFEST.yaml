@@ -1,0 +1,17 @@
+id: aura-lab-guide
+name: Aura Lab Guide
+version: 0.1.0
+author: Aura Lab
+description: Explain the camera, label reading and person interaction demos without operating hardware.
+tags: [robotics, tutorial, demo]
+permissions:
+  tools: [say]
+  network:
+    domains: []
+  filesystem:
+    scope: skill
+  maxRuntimeSec: 10
+entry:
+  type: both
+  main: main.py
+  function: run

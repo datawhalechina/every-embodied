@@ -1,0 +1,9 @@
+# Tested Windows CPython 3.12; install binary wheels in the isolated twin venv.
+build123d==0.10.0
+ocp_gordon==0.1.17
+mujoco==3.7.0
+trimesh>=4.0
+numpy>=2,<3
+scipy>=1.14
+Pillow>=10
+opencv-python>=4.10

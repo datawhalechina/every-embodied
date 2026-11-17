@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360">
+<rect width="1200" height="360" rx="20" fill="#f3f6fb"/>
+<g font-family="Microsoft YaHei, sans-serif" fill="#172c43">
+<text x="48" y="54" font-size="26" font-weight="bold">Aura 实验链路：设备接入 → 感知 → 报告</text>
+<g fill="white" stroke="#b8cadc" stroke-width="2"><rect x="40" y="100" width="320" height="190" rx="14"/><rect x="435" y="100" width="330" height="190" rx="14"/><rect x="840" y="100" width="320" height="190" rx="14"/></g>
+<g font-size="23" font-weight="bold"><text x="66" y="139">机器人 · RDK X5</text><text x="460" y="139">电脑 · 视觉工作台</text><text x="866" y="139">工作站 · 可选模型</text></g>
+<g font-size="19"><text x="66" y="180">MIPI 图像 / 底盘遥测</text><text x="66" y="217">AuraOS · HTTP / WebSocket</text><text x="66" y="254">相机源、JPEG 桥按需运行</text><text x="460" y="180">九项视觉 / 多帧事件</text><text x="460" y="217">控制台 127.0.0.1:8788</text><text x="460" y="254">本地图片、JSON、HTML</text><text x="866" y="180">LightNav GPU 推理</text><text x="866" y="217">SSH 回环转发 → 模型服务</text><text x="866" y="254">航点与速度预览</text></g>
+<path d="M370 195 H422 M410 184 L422 195 L410 206 M775 195 H827 M815 184 L827 195 L815 206" fill="none" stroke="#2879bd" stroke-width="4"/>
+<text x="48" y="330" font-size="18">供电由主板规格决定；状态读取、媒体采集和运动验收分别完成。</text></g></svg>

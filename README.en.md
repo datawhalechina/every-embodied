@@ -217,3 +217,7 @@ If you have any questions or suggestions, please contact us through the followin
 
 -   💬 WeChat Official Account: datawhale
 -   🌐 Website: [https://datawhale.club/home]
+
+## Aura interaction robot and embodied Agent team learning
+
+[14-day course (Chinese)](./16-专题组队学习/09-Aura交互机器人与具身Agent专题/README.md): SDK, camera-triggered interaction, Aura navigation, MuJoCo/Blender, and a same-home R1 three-can task. Includes six CPU notebooks and eleven full videos, with complete third-person, robot-camera and overhead views.

@@ -1,0 +1,18 @@
+{
+  "source": "project-authored UI fixtures, no vendor stock video",
+  "sequence_source": "course_custom_states",
+  "fps": 10,
+  "frames": 20,
+  "native_size": [
+    480,
+    480
+  ],
+  "custom_states": [
+    "hello",
+    "listening",
+    "thinking",
+    "battery_unknown"
+  ],
+  "source_sha256": "599644e11b46c4fdc7002fc56a76a13187f32e92e934e50b654f254cd6106096",
+  "note": "Custom UI fixtures; replace with your authorized source if needed."
+}

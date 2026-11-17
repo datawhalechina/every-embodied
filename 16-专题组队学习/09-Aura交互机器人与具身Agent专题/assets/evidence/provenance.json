@@ -1,0 +1,12 @@
+{
+  "source": "executed native household recordings; public decision and receipt excerpts",
+  "published_events": 483,
+  "private_reasoning_included": false,
+  "personal_paths_redacted": true,
+  "frames": 2557,
+  "duration_s": 255.7,
+  "recovery_disclosure": "Two native episodes joined at the validated checkpoint; boundary card is presentation only.",
+  "human_source": "photoreal skinned avatar, authored101-joint kinematic walking and wave; synthetic speech with actual ASR",
+  "aura_turn_source": "actual camera YOLO feedback; kinematic yaw adapter",
+  "model_waits": "native physics pauses during model and CPU perception waits; video time is simulation time"
+}

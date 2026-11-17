@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "distance_to_aura_m": 2.1599507268476814,
+  "distance_to_visitor_m": 1.2438737152903734,
+  "stationary_last_0_4s_travel_m": 9.5367431640625e-07,
+  "native_tick": 3875,
+  "source": "post-policy evaluator only; coordinates not policy input",
+  "same_episode": "dc771991987e42f2a6700be18794a1b1"
+}
