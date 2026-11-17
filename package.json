@@ -5,6 +5,8 @@
   "scripts": {
     "start": "node web/server.js",
     "build:pages": "node scripts/build-pages.js",
+    "prebuild:pages": "npm run test:topics",
+    "test:topics": "node --test scripts/team-learning.test.js",
     "test:translation": "node --test scripts/translate-markdown.test.mjs",
     "translation:paths": "node scripts/build-translation-path-map.mjs"
   },

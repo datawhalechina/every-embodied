@@ -3,6 +3,7 @@
 const fs = require("fs/promises");
 const fsSync = require("fs");
 const path = require("path");
+const { createHash } = require("node:crypto");
 const {
   repoRoot,
   projectAssetMap,
@@ -16,6 +17,7 @@ const distRoot = path.join(repoRoot, "dist");
 const siteRoot = path.join(distRoot, "zh-cn");
 const publicRoot = path.join(repoRoot, "web", "public");
 const katexRoot = path.join(repoRoot, "node_modules", "katex", "dist");
+const { validateData, collectAssetRefs } = require("../web/public/team-learning");
 
 async function ensureDir(dirPath) {
   await fs.mkdir(dirPath, { recursive: true });
@@ -95,6 +97,12 @@ async function buildSite() {
   );
 
   const referencedRepoFiles = collectHomeAssetRefs();
+  const topicData = JSON.parse(await fs.readFile(path.join(publicRoot, "team-learning-data.json"), "utf8"));
+  validateData(topicData);
+  for (const relPath of collectAssetRefs(topicData)) {
+    if (!fsSync.existsSync(fullPathFromRel(relPath))) throw new Error(`Missing topic asset: ${relPath}`);
+    referencedRepoFiles.add(relPath);
+  }
   Object.values(projectAssetMap).forEach((relPath) => {
     if (relPath && fsSync.existsSync(fullPathFromRel(relPath))) {
       referencedRepoFiles.add(relPath);
@@ -143,7 +151,12 @@ async function buildSite() {
   await fs.writeFile(path.join(distRoot, "index.html"), rootRedirect, "utf8");
   await fs.writeFile(noJekyllPath, "", "utf8");
 
-  const siteIndex = await fs.readFile(path.join(siteRoot, "index.html"), "utf8");
+  let siteIndex = await fs.readFile(path.join(siteRoot, "index.html"), "utf8");
+  for (const asset of ["app.js", "styles.css", "team-learning.js", "team-learning.css"]) {
+    const version = createHash("sha256").update(await fs.readFile(path.join(siteRoot, asset))).digest("hex").slice(0, 12);
+    siteIndex = siteIndex.replaceAll(`./${asset}"`, `./${asset}?v=${version}"`);
+  }
+  await fs.writeFile(path.join(siteRoot, "index.html"), siteIndex, "utf8");
   await fs.writeFile(path.join(siteRoot, "404.html"), siteIndex, "utf8");
 }
 

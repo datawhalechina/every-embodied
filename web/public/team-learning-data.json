@@ -1,0 +1,844 @@
+{
+  "version": 1,
+  "groups": [
+    {
+      "id": "rdk",
+      "title": "地瓜机器人",
+      "subtitle": "MicroDuck × Jumper",
+      "description": "从双足小鸭子到六足螃蟹，学习运动、任务和端侧部署。",
+      "topics": [
+        "microduck",
+        "jumper"
+      ],
+      "heroCase": "duck-ladder"
+    },
+    {
+      "id": "aura",
+      "title": "Aura",
+      "subtitle": "人与机器人的交互入口",
+      "description": "识人、读卡、导航与家务 Agent，在同一个家庭中串成完整流程。",
+      "topics": [
+        "aura"
+      ],
+      "heroCase": "aura-household"
+    },
+    {
+      "id": "amd",
+      "title": "AMD Physical AI",
+      "subtitle": "异构算力上的具身实践",
+      "description": "RoboCasa365、DexJoCo 与 DISCOVERSE，先看结果，再进入复现。",
+      "topics": [
+        "amd"
+      ],
+      "heroCase": "amd-PackIdenticalLunches"
+    }
+  ],
+  "topics": [
+    {
+      "id": "microduck",
+      "group": "rdk",
+      "title": "MicroDuck",
+      "eyebrow": "双足机器人 · 从运动到任务",
+      "lead": "一只小鸭子，\n学会更多本领。",
+      "description": "从平地行走、球上平衡，到高跷、爬梯与跨缝跳跃，把策略、物理和端侧推理连成一条学习路线。",
+      "doc": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/README.md",
+      "plan": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/学习计划.md",
+      "heroCase": "duck-ladder",
+      "accent": "#0c9f6d",
+      "tags": [
+        "运动策略",
+        "GPU / X5 BPU",
+        "8 天路线"
+      ],
+      "learning": [
+        {
+          "title": "先让它走起来",
+          "text": "读懂模型、观测与动作，运行第一个控制实验。",
+          "doc": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/02-可运行代码/hello-world/README.md"
+        },
+        {
+          "title": "从一个动作到多个任务",
+          "text": "球平衡、高跷与爬梯，逐项理解训练和回放。",
+          "doc": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/README.md"
+        },
+        {
+          "title": "把策略交给 X5",
+          "text": "端侧推理与仿真分工，再扩展到语言导航。",
+          "doc": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/01-任务资料/07-RDK端侧与网页部署/README.md"
+        }
+      ]
+    },
+    {
+      "id": "jumper",
+      "group": "rdk",
+      "title": "Jumper 螃蟹机器人",
+      "eyebrow": "六足机器人 · 步态与创作",
+      "lead": "不只会走，\n还会跳、会跳舞。",
+      "description": "从 22 自由度模型和三足步态开始，训练行走、学习参考动作，再创作自己的动作与场景。",
+      "doc": "16-专题组队学习/07-Jumper螃蟹机器人专题/README.md",
+      "plan": "16-专题组队学习/07-Jumper螃蟹机器人专题/README.md",
+      "heroCase": "jumper-dance",
+      "accent": "#0b9189",
+      "tags": [
+        "六足步态",
+        "MuJoCo",
+        "训练与编舞"
+      ],
+      "learning": [
+        {
+          "title": "理解六足步态",
+          "text": "找到模型、关节与交替支撑的控制入口。",
+          "doc": "16-专题组队学习/07-Jumper螃蟹机器人专题/README.md"
+        },
+        {
+          "title": "训练第一个运动策略",
+          "text": "从短训到连续回放，用实际运动判断效果。",
+          "doc": "16-专题组队学习/07-Jumper螃蟹机器人专题/README.md"
+        },
+        {
+          "title": "编排跳跃和舞蹈",
+          "text": "结合开源参考动作，学习残差策略与作品制作。",
+          "doc": "16-专题组队学习/07-Jumper螃蟹机器人专题/README.md"
+        }
+      ]
+    },
+    {
+      "id": "aura",
+      "group": "aura",
+      "title": "Aura",
+      "eyebrow": "交互机器人 · 感知与家务 Agent",
+      "lead": "听你说，\n也看懂你的招呼。",
+      "description": "识别人、举手与卡片，找人转向、室内巡游，再把家务交给同一家庭中的 R1。",
+      "doc": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/README.md",
+      "plan": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/学习计划.md",
+      "heroCase": "aura-household",
+      "accent": "#0b9b84",
+      "tags": [
+        "摄像头闭环",
+        "多视角全过程",
+        "14 天路线"
+      ],
+      "learning": [
+        {
+          "title": "接上真实感知",
+          "text": "从稳定供电、SDK 到新鲜图像和识别事件。",
+          "doc": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/01-学习资料/02-SDK遥测相机与视觉工作台.md"
+        },
+        {
+          "title": "做一个会回应的 Aura",
+          "text": "举手、读卡、圆屏与语音，让交互有来有回。",
+          "doc": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/01-学习资料/03-识人举手与卡片触发.md"
+        },
+        {
+          "title": "把完整家务串起来",
+          "text": "同家庭交接、RGB-D 投放与检查点恢复。",
+          "doc": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/01-学习资料/07-同家庭人-Aura-R1-Agent.md"
+        }
+      ]
+    },
+    {
+      "id": "amd",
+      "group": "amd",
+      "title": "AMD Physical AI",
+      "eyebrow": "AMD Radeon · ROCm · 具身实践",
+      "lead": "把完整的具身任务，\n跑在 AMD 上。",
+      "description": "从家庭操作到双臂灵巧手和多视角仿真，集中浏览 ROCm 环境里的完整实践。",
+      "doc": "16-专题组队学习/04-AMD-ROCm策略复刻专题/README.md",
+      "plan": "16-专题组队学习/04-AMD-ROCm策略复刻专题/README.md",
+      "heroCase": "amd-PackIdenticalLunches",
+      "accent": "#cf5047",
+      "tags": [
+        "RoboCasa365",
+        "DexJoCo",
+        "DISCOVERSE"
+      ],
+      "external": "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/",
+      "learning": [
+        {
+          "title": "准备 ROCm 环境",
+          "text": "核对设备、框架与依赖，再运行已有策略。",
+          "doc": "16-专题组队学习/04-AMD-ROCm策略复刻专题/README.md"
+        },
+        {
+          "title": "进入操作与仿真任务",
+          "text": "按平台理解输入输出和成功条件。",
+          "doc": "16-专题组队学习/04-AMD-ROCm策略复刻专题/README_09_AMD_Physical_AI仿真基准与长程视频复现.md"
+        },
+        {
+          "title": "复核完整评测",
+          "text": "查看任务协议、正式分母和选定演示的对应关系。",
+          "doc": "16-专题组队学习/04-AMD-ROCm策略复刻专题/README_09_AMD_Physical_AI仿真基准与长程视频复现.md"
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "duck-basketball",
+      "topic": "microduck",
+      "title": "站在篮球上保持平衡",
+      "description": "接触、速度命令与平衡控制，在完整回放中观察双足和球的配合。",
+      "category": "平衡",
+      "kind": "video",
+      "media": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/03-Notebook/recordings/gpu_videos/basketball_gpu_latest.mp4",
+      "doc": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/01-任务资料/01-MicroDuck篮球平衡强化学习/README.md",
+      "badge": "GPU / X5 BPU",
+      "status": "verified",
+      "views": [
+        {
+          "label": "GPU 推理",
+          "media": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/03-Notebook/recordings/gpu_videos/basketball_gpu_latest.mp4"
+        },
+        {
+          "label": "X5 BPU 推理",
+          "media": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/03-Notebook/recordings/bpu_videos/basketball_bpu_latest.mp4"
+        }
+      ],
+      "poster": "topic-media/posters/duck-basketball.jpg",
+      "viewLabel": "推理端",
+      "viewsSynchronized": false,
+      "sourceNote": "GPU/BPU 分别为独立闭环运行；BPU 在 X5 推理，电脑负责物理与渲染。"
+    },
+    {
+      "id": "duck-ladder",
+      "topic": "microduck",
+      "title": "逐级爬梯，登桌站稳",
+      "description": "从横档接触到登上平台，展示攀爬与起身策略的切换。",
+      "category": "攀爬",
+      "kind": "video",
+      "media": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/03-Notebook/recordings/gpu_videos/ladder_gpu_latest.mp4",
+      "doc": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/01-任务资料/06-MicroDuck梯面攀爬强化学习导读/README.md",
+      "badge": "GPU / X5 BPU",
+      "status": "verified",
+      "views": [
+        {
+          "label": "GPU 推理",
+          "media": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/03-Notebook/recordings/gpu_videos/ladder_gpu_latest.mp4"
+        },
+        {
+          "label": "X5 BPU 推理",
+          "media": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/03-Notebook/recordings/bpu_videos/ladder_official_pair_bpu_latest.mp4"
+        }
+      ],
+      "poster": "topic-media/posters/duck-ladder.jpg",
+      "viewLabel": "推理端",
+      "viewsSynchronized": false,
+      "sourceNote": "GPU/BPU 分别为独立闭环运行；BPU 在 X5 推理，电脑负责物理与渲染。"
+    },
+    {
+      "id": "duck-stilt",
+      "topic": "microduck",
+      "title": "25 cm 高跷行走",
+      "description": "加长支撑腿后交替迈步，观察支撑转换与身体姿态。",
+      "category": "行走",
+      "kind": "video",
+      "media": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/03-Notebook/recordings/gpu_videos/stilt_gpu_latest.mp4",
+      "doc": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/01-任务资料/03-MicroDuck高跷行走强化学习复现/README.md",
+      "badge": "GPU / X5 BPU",
+      "status": "verified",
+      "views": [
+        {
+          "label": "GPU 推理",
+          "media": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/03-Notebook/recordings/gpu_videos/stilt_gpu_latest.mp4"
+        },
+        {
+          "label": "X5 BPU 推理",
+          "media": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/03-Notebook/recordings/bpu_videos/stilt_bpu_latest.mp4"
+        }
+      ],
+      "poster": "topic-media/posters/duck-stilt.jpg",
+      "viewLabel": "推理端",
+      "viewsSynchronized": false,
+      "sourceNote": "GPU/BPU 分别为独立闭环运行；BPU 在 X5 推理，电脑负责物理与渲染。"
+    },
+    {
+      "id": "duck-swing",
+      "topic": "microduck",
+      "title": "摆动与旋转",
+      "description": "在悬挂装置中连续摆动，观察动作节律与旋转。",
+      "category": "技巧",
+      "kind": "video",
+      "media": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/03-Notebook/recordings/gpu_videos/swing_gpu_latest.mp4",
+      "doc": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/01-任务资料/04-MicroDuck摆动旋转强化学习复现/README.md",
+      "badge": "GPU / X5 BPU",
+      "status": "verified",
+      "views": [
+        {
+          "label": "GPU 推理",
+          "media": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/03-Notebook/recordings/gpu_videos/swing_gpu_latest.mp4"
+        },
+        {
+          "label": "X5 BPU 推理",
+          "media": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/03-Notebook/recordings/bpu_videos/swing_bpu_latest.mp4"
+        }
+      ],
+      "poster": "topic-media/posters/duck-swing.jpg",
+      "viewLabel": "推理端",
+      "viewsSynchronized": false,
+      "sourceNote": "GPU/BPU 分别为独立闭环运行；BPU 在 X5 推理，电脑负责物理与渲染。"
+    },
+    {
+      "id": "duck-ball_balance",
+      "topic": "microduck",
+      "title": "球面平衡 · FastSAC",
+      "description": "从自由球面的连续接触中学习平衡，完整片保留原生运动。",
+      "category": "平衡",
+      "kind": "video",
+      "media": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/03-Notebook/recordings/gpu_videos/ball_balance_gpu_latest.mp4",
+      "doc": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/01-任务资料/05-MotrixLab-MicroDuck球平衡与FastSAC/README.md",
+      "badge": "GPU / X5 BPU",
+      "status": "verified",
+      "views": [
+        {
+          "label": "GPU 推理",
+          "media": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/03-Notebook/recordings/gpu_videos/ball_balance_gpu_latest.mp4"
+        },
+        {
+          "label": "X5 BPU 推理",
+          "media": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/03-Notebook/recordings/bpu_videos/ball_balance_bpu_latest.mp4"
+        }
+      ],
+      "poster": "topic-media/posters/duck-ball_balance.jpg",
+      "viewLabel": "推理端",
+      "viewsSynchronized": false,
+      "sourceNote": "GPU/BPU 分别为独立闭环运行；BPU 在 X5 推理，电脑负责物理与渲染。"
+    },
+    {
+      "id": "duck-walking",
+      "topic": "microduck",
+      "title": "平地行走与姿态控制",
+      "description": "从 ONNX 策略输出到关节动作，在物理仿真中连续行走。",
+      "category": "行走",
+      "kind": "video",
+      "media": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/03-Notebook/recordings/gpu_videos/walking_gpu_latest.mp4",
+      "doc": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/01-任务资料/07-RDK端侧与网页部署/README.md",
+      "badge": "GPU / X5 BPU",
+      "status": "verified",
+      "views": [
+        {
+          "label": "GPU 推理",
+          "media": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/03-Notebook/recordings/gpu_videos/walking_gpu_latest.mp4"
+        },
+        {
+          "label": "X5 BPU 推理",
+          "media": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/03-Notebook/recordings/bpu_videos/walking_bpu_latest.mp4"
+        }
+      ],
+      "poster": "topic-media/posters/duck-walking.jpg",
+      "viewLabel": "推理端",
+      "viewsSynchronized": false,
+      "sourceNote": "GPU/BPU 分别为独立闭环运行；BPU 在 X5 推理，电脑负责物理与渲染。"
+    },
+    {
+      "id": "duck-stilt-200",
+      "topic": "microduck",
+      "title": "200 cm 高跷行走",
+      "description": "与 25 cm 版本对照，查看加长形态中的步态与支撑转换。",
+      "category": "行走",
+      "kind": "image",
+      "media": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/01-任务资料/精选视频/assets/task-demos/stilts-200cm.gif",
+      "poster": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/01-任务资料/精选视频/assets/task-demos/stilts-200cm.gif",
+      "doc": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/01-任务资料/03-MicroDuck高跷行走强化学习复现/README.md",
+      "badge": "动态预览",
+      "status": "verified"
+    },
+    {
+      "id": "duck-long-jump",
+      "topic": "microduck",
+      "title": "跨过间隙，在低平台落地",
+      "description": "比较起跳、飞行和落地阶段，展示续训策略的完整动作。",
+      "category": "技巧",
+      "kind": "video",
+      "media": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/03-Notebook/recordings/long_jump/long_jump_continued_latest.mp4",
+      "doc": "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/01-任务资料/08-MicroDuck跨缝跳跃/README.md",
+      "badge": "仿真演示",
+      "status": "verified",
+      "poster": "topic-media/posters/duck-long-jump.jpg"
+    },
+    {
+      "id": "jumper-walk",
+      "topic": "jumper",
+      "title": "三足交替，向前行走",
+      "description": "从零训练的六足步态，在连续物理回放中向前移动。",
+      "category": "行走",
+      "kind": "video",
+      "media": "16-专题组队学习/07-Jumper螃蟹机器人专题/assets/tripod-fresh999.mp4",
+      "doc": "16-专题组队学习/07-Jumper螃蟹机器人专题/README.md",
+      "badge": "本地训练 · MuJoCo",
+      "status": "verified",
+      "poster": "topic-media/posters/jumper-walk.jpg"
+    },
+    {
+      "id": "jumper-jump",
+      "topic": "jumper",
+      "title": "蓄力，起跳，再落地",
+      "description": "参考动作残差策略的仿真跳跃回放。",
+      "category": "技巧",
+      "kind": "video",
+      "media": "16-专题组队学习/07-Jumper螃蟹机器人专题/assets/jump-trained.mp4",
+      "doc": "16-专题组队学习/07-Jumper螃蟹机器人专题/README.md",
+      "badge": "本地训练 · MuJoCo",
+      "status": "verified",
+      "poster": "topic-media/posters/jumper-jump.jpg"
+    },
+    {
+      "id": "jumper-dance",
+      "topic": "jumper",
+      "title": "跟着节奏，跳一段螃蟹舞",
+      "description": "工作站训练后的参考编舞片段，展示多足动作与身体协调。",
+      "category": "技巧",
+      "kind": "video",
+      "media": "16-专题组队学习/07-Jumper螃蟹机器人专题/assets/dance-final.mp4",
+      "doc": "16-专题组队学习/07-Jumper螃蟹机器人专题/README.md",
+      "badge": "本地训练 · MuJoCo",
+      "status": "verified",
+      "poster": "topic-media/posters/jumper-dance.jpg"
+    },
+    {
+      "id": "jumper-pack-walk",
+      "topic": "jumper",
+      "title": "开源动作包 · 行走",
+      "description": "使用上游预训练动作包的本地仿真，和自训策略对照学习。",
+      "category": "开源动作",
+      "kind": "video",
+      "media": "16-专题组队学习/07-Jumper螃蟹机器人专题/assets/official-walk-follow.mp4",
+      "doc": "16-专题组队学习/07-Jumper螃蟹机器人专题/README.md",
+      "badge": "开源模型 · 本地仿真",
+      "status": "verified",
+      "poster": "topic-media/posters/jumper-pack-walk.jpg"
+    },
+    {
+      "id": "jumper-pack-jump",
+      "topic": "jumper",
+      "title": "开源动作包 · 跳跃",
+      "description": "使用上游预训练动作包的本地仿真，和自训策略对照学习。",
+      "category": "开源动作",
+      "kind": "video",
+      "media": "16-专题组队学习/07-Jumper螃蟹机器人专题/assets/official-jump.mp4",
+      "doc": "16-专题组队学习/07-Jumper螃蟹机器人专题/README.md",
+      "badge": "开源模型 · 本地仿真",
+      "status": "verified",
+      "poster": "topic-media/posters/jumper-pack-jump.jpg"
+    },
+    {
+      "id": "jumper-pack-dance",
+      "topic": "jumper",
+      "title": "开源动作包 · 舞蹈",
+      "description": "使用上游预训练动作包的本地仿真，和自训策略对照学习。",
+      "category": "开源动作",
+      "kind": "video",
+      "media": "16-专题组队学习/07-Jumper螃蟹机器人专题/assets/official-dance.mp4",
+      "doc": "16-专题组队学习/07-Jumper螃蟹机器人专题/README.md",
+      "badge": "开源模型 · 本地仿真",
+      "status": "verified",
+      "poster": "topic-media/posters/jumper-pack-dance.jpg"
+    },
+    {
+      "id": "aura-household",
+      "topic": "aura",
+      "title": "一句话，交给 R1 收拾三个罐子",
+      "description": "人物走近 Aura 并招呼，R1 跨房间收集、投放，再返回汇报。完整片包含已标记的恢复接续。",
+      "category": "家务 Agent",
+      "kind": "video",
+      "media": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/household-observer-full.mp4",
+      "doc": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/01-学习资料/07-同家庭人-Aura-R1-Agent.md",
+      "badge": "相机闭环 · 仿真",
+      "status": "verified",
+      "views": [
+        {
+          "label": "第三视角",
+          "media": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/household-observer-full.mp4"
+        },
+        {
+          "label": "R1 相机",
+          "media": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/household-r1_head-full.mp4"
+        },
+        {
+          "label": "Aura 相机",
+          "media": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/household-aura_head-full.mp4"
+        },
+        {
+          "label": "全屋俯视",
+          "media": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/household-global-full.mp4"
+        },
+        {
+          "label": "接力视角",
+          "media": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/household-robot-full.mp4"
+        }
+      ],
+      "poster": "topic-media/posters/aura-household.jpg",
+      "viewsSynchronized": true,
+      "viewLabel": "相机视角"
+    },
+    {
+      "id": "aura-visitors",
+      "topic": "aura",
+      "title": "举手招呼，再读一张卡片",
+      "description": "机器人从当前图像识别人、举手和卡片，以识别结果触发交互。",
+      "category": "人机交互",
+      "kind": "video",
+      "media": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/camera-visitors-full.mp4",
+      "doc": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/01-学习资料/03-识人举手与卡片触发.md",
+      "badge": "相机闭环 · 仿真",
+      "status": "verified",
+      "views": [
+        {
+          "label": "第三视角",
+          "media": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/camera-visitors-full.mp4"
+        },
+        {
+          "label": "Aura 相机",
+          "media": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/camera-visitors-pov-full.mp4"
+        }
+      ],
+      "poster": "topic-media/posters/aura-visitors.jpg",
+      "viewsSynchronized": true,
+      "viewLabel": "相机视角"
+    },
+    {
+      "id": "aura-tour",
+      "topic": "aura",
+      "title": "Aura 在家庭里巡游",
+      "description": "经过不同站点与通道，在已知地图条件下完成静态障碍重规划。",
+      "category": "导航",
+      "kind": "video",
+      "media": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/aura-home-tour-full.mp4",
+      "doc": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/01-学习资料/05-Aura室内导航与避障.md",
+      "badge": "相机闭环 · 仿真",
+      "status": "verified",
+      "views": [
+        {
+          "label": "第三视角",
+          "media": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/aura-home-tour-full.mp4"
+        },
+        {
+          "label": "Aura 相机",
+          "media": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/aura-home-tour-pov-full.mp4"
+        }
+      ],
+      "poster": "topic-media/posters/aura-tour.jpg",
+      "viewsSynchronized": true,
+      "viewLabel": "相机视角"
+    },
+    {
+      "id": "aura-wait",
+      "topic": "aura",
+      "title": "有人挡路，停下等一等",
+      "description": "近人停车、等待通道清空，再继续到达目标。",
+      "category": "导航",
+      "kind": "video",
+      "media": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/aura-person-wait-full.mp4",
+      "doc": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/01-学习资料/05-Aura室内导航与避障.md",
+      "badge": "相机闭环 · 仿真",
+      "status": "verified",
+      "views": [
+        {
+          "label": "第三视角",
+          "media": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/aura-person-wait-full.mp4"
+        },
+        {
+          "label": "Aura 相机",
+          "media": "https://github.com/datawhalechina/every-embodied/releases/download/aura-course-20261116/aura-person-wait-pov-full.mp4"
+        }
+      ],
+      "poster": "topic-media/posters/aura-wait.jpg",
+      "viewsSynchronized": true,
+      "viewLabel": "相机视角"
+    },
+    {
+      "id": "aura-perception",
+      "topic": "aura",
+      "title": "看见人物、举手和卡片的识别过程",
+      "description": "把人物框、人体关键点与文字结果放在同一时间轴，观看真实执行的识别反馈。",
+      "category": "视觉感知",
+      "kind": "video",
+      "media": "topic-media/aura/perception-full.mp4",
+      "doc": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/01-学习资料/03-识人举手与卡片触发.md",
+      "badge": "渲染相机 · 识别反馈",
+      "status": "verified",
+      "poster": "topic-media/posters/aura-perception.jpg"
+    },
+    {
+      "id": "aura-ocr",
+      "topic": "aura",
+      "title": "卡片 OCR 文字识读",
+      "description": "标准打印卡片测试图上的 OCR 标注，文字结果与原图对应。",
+      "category": "视觉感知",
+      "kind": "image",
+      "media": "topic-media/aura/ocr.jpg",
+      "poster": "topic-media/aura/ocr.jpg",
+      "doc": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/01-学习资料/02-SDK遥测相机与视觉工作台.md",
+      "badge": "测试图识别",
+      "status": "verified"
+    },
+    {
+      "id": "aura-qr",
+      "topic": "aura",
+      "title": "二维码定位与解码",
+      "description": "标准卡片输入上的二维码检测与解码，定位框可逐项查看。",
+      "category": "视觉感知",
+      "kind": "image",
+      "media": "topic-media/aura/qr.jpg",
+      "poster": "topic-media/aura/qr.jpg",
+      "doc": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/01-学习资料/02-SDK遥测相机与视觉工作台.md",
+      "badge": "测试图识别",
+      "status": "verified"
+    },
+    {
+      "id": "aura-markers",
+      "topic": "aura",
+      "title": "ArUco 标记识别",
+      "description": "卡片上的标记 ID 与角点，便于后续建立空间约束。",
+      "category": "视觉感知",
+      "kind": "image",
+      "media": "topic-media/aura/markers.jpg",
+      "poster": "topic-media/aura/markers.jpg",
+      "doc": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/01-学习资料/02-SDK遥测相机与视觉工作台.md",
+      "badge": "测试图识别",
+      "status": "verified"
+    },
+    {
+      "id": "aura-pose",
+      "topic": "aura",
+      "title": "人体姿态关键点",
+      "description": "厂商样例图的电脑侧人体关键点推理。",
+      "category": "视觉感知",
+      "kind": "image",
+      "media": "topic-media/aura/pose.jpg",
+      "poster": "topic-media/aura/pose.jpg",
+      "doc": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/01-学习资料/02-SDK遥测相机与视觉工作台.md",
+      "badge": "测试图识别",
+      "status": "verified"
+    },
+    {
+      "id": "aura-gesture",
+      "topic": "aura",
+      "title": "手部关键点与手势",
+      "description": "X5 BPU 在随包人物图上的手势分类输出。",
+      "category": "视觉感知",
+      "kind": "image",
+      "media": "topic-media/aura/gesture.jpg",
+      "poster": "topic-media/aura/gesture.jpg",
+      "doc": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/01-学习资料/02-SDK遥测相机与视觉工作台.md",
+      "badge": "X5 BPU · 样例图",
+      "status": "verified"
+    },
+    {
+      "id": "aura-face",
+      "topic": "aura",
+      "title": "人脸关键点",
+      "description": "X5 BPU 的人脸关键点定位示例，展示定位而非身份识别。",
+      "category": "视觉感知",
+      "kind": "image",
+      "media": "topic-media/aura/face.jpg",
+      "poster": "topic-media/aura/face.jpg",
+      "doc": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/01-学习资料/02-SDK遥测相机与视觉工作台.md",
+      "badge": "X5 BPU · 样例图",
+      "status": "verified"
+    },
+    {
+      "id": "aura-depth",
+      "topic": "aura",
+      "title": "场景的相对深度",
+      "description": "样例图上的相对深度估计，颜色表示相对远近。",
+      "category": "视觉感知",
+      "kind": "image",
+      "media": "topic-media/aura/depth.jpg",
+      "poster": "topic-media/aura/depth.jpg",
+      "doc": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/01-学习资料/02-SDK遥测相机与视觉工作台.md",
+      "badge": "测试图识别",
+      "status": "verified"
+    },
+    {
+      "id": "aura-yolo",
+      "topic": "aura",
+      "title": "YOLOv8：同时检测多类目标",
+      "description": "Aura 内部 X5 在随包测试图上运行模型，保留板端实际标注结果。",
+      "category": "视觉感知",
+      "kind": "image",
+      "media": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/assets/images/bpu-yolo.jpg",
+      "poster": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/assets/images/bpu-yolo.jpg",
+      "doc": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/01-学习资料/11-X5板载BPU与深度扩展.md",
+      "badge": "X5 BPU · 固定图",
+      "status": "verified"
+    },
+    {
+      "id": "aura-segment",
+      "topic": "aura",
+      "title": "语义分割：给场景逐像素分类",
+      "description": "Aura 内部 X5 在随包测试图上运行模型，保留板端实际标注结果。",
+      "category": "视觉感知",
+      "kind": "image",
+      "media": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/assets/images/bpu-semantic_segmentation.jpg",
+      "poster": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/assets/images/bpu-semantic_segmentation.jpg",
+      "doc": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/01-学习资料/11-X5板载BPU与深度扩展.md",
+      "badge": "X5 BPU · 固定图",
+      "status": "verified"
+    },
+    {
+      "id": "aura-classify",
+      "topic": "aura",
+      "title": "MobileNet：识别图像类别",
+      "description": "Aura 内部 X5 在随包测试图上运行模型，保留板端实际标注结果。",
+      "category": "视觉感知",
+      "kind": "image",
+      "media": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/assets/images/bpu-classification.jpg",
+      "poster": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/assets/images/bpu-classification.jpg",
+      "doc": "16-专题组队学习/09-Aura交互机器人与具身Agent专题/01-学习资料/11-X5板载BPU与深度扩展.md",
+      "badge": "X5 BPU · 固定图",
+      "status": "verified"
+    },
+    {
+      "id": "amd-bimanual_assembly",
+      "topic": "amd",
+      "title": "双臂装配零件",
+      "description": "DexJoCo / Pi0.5 在 AMD ROCm 环境运行的完整选定成功回合。",
+      "category": "灵巧操作",
+      "kind": "video",
+      "media": "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/videos/dexjoco/recovery/bimanual-assembly.mp4",
+      "doc": "16-专题组队学习/04-AMD-ROCm策略复刻专题/README_09_AMD_Physical_AI仿真基准与长程视频复现.md",
+      "badge": "AMD ROCm · 成功回合",
+      "status": "verified",
+      "poster": "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/posters/dexjoco/recovery/bimanual-assembly.jpg"
+    },
+    {
+      "id": "amd-bimanual_hanoi",
+      "topic": "amd",
+      "title": "双臂完成河内塔",
+      "description": "DexJoCo / Pi0.5 在 AMD ROCm 环境运行的完整选定成功回合。",
+      "category": "灵巧操作",
+      "kind": "video",
+      "media": "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/videos/dexjoco/recovery/bimanual-hanoi.mp4",
+      "doc": "16-专题组队学习/04-AMD-ROCm策略复刻专题/README_09_AMD_Physical_AI仿真基准与长程视频复现.md",
+      "badge": "AMD ROCm · 成功回合",
+      "status": "verified",
+      "poster": "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/posters/dexjoco/recovery/bimanual-hanoi.jpg"
+    },
+    {
+      "id": "amd-bimanual_microwave_cook",
+      "topic": "amd",
+      "title": "把物体送进微波炉",
+      "description": "DexJoCo / Pi0.5 在 AMD ROCm 环境运行的完整选定成功回合。",
+      "category": "灵巧操作",
+      "kind": "video",
+      "media": "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/videos/dexjoco/recovery/bimanual-microwave-cook.mp4",
+      "doc": "16-专题组队学习/04-AMD-ROCm策略复刻专题/README_09_AMD_Physical_AI仿真基准与长程视频复现.md",
+      "badge": "AMD ROCm · 成功回合",
+      "status": "verified",
+      "poster": "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/posters/dexjoco/recovery/bimanual-microwave-cook.jpg"
+    },
+    {
+      "id": "amd-click_mouse",
+      "topic": "amd",
+      "title": "灵巧手点击鼠标",
+      "description": "DexJoCo / Pi0.5 在 AMD ROCm 环境运行的完整选定成功回合。",
+      "category": "灵巧操作",
+      "kind": "video",
+      "media": "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/videos/dexjoco/official/click-mouse.mp4",
+      "doc": "16-专题组队学习/04-AMD-ROCm策略复刻专题/README_09_AMD_Physical_AI仿真基准与长程视频复现.md",
+      "badge": "AMD ROCm · 成功回合",
+      "status": "verified",
+      "poster": "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/posters/dexjoco/official/click-mouse.jpg"
+    },
+    {
+      "id": "amd-fold_glasses",
+      "topic": "amd",
+      "title": "折叠眼镜",
+      "description": "DexJoCo / Pi0.5 在 AMD ROCm 环境运行的完整选定成功回合。",
+      "category": "灵巧操作",
+      "kind": "video",
+      "media": "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/videos/dexjoco/official/fold-glasses.mp4",
+      "doc": "16-专题组队学习/04-AMD-ROCm策略复刻专题/README_09_AMD_Physical_AI仿真基准与长程视频复现.md",
+      "badge": "AMD ROCm · 成功回合",
+      "status": "verified",
+      "poster": "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/posters/dexjoco/official/fold-glasses.jpg"
+    },
+    {
+      "id": "amd-mmk2_pick_box",
+      "topic": "amd",
+      "title": "抓起箱子并移动",
+      "description": "DISCOVERSE / MMK2 原生任务，多相机展示接近、接触与操作。",
+      "category": "移动操作",
+      "kind": "video",
+      "media": "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/videos/discoverse-showcase/mmk2-box-pick-3view.mp4",
+      "doc": "16-专题组队学习/04-AMD-ROCm策略复刻专题/README_09_AMD_Physical_AI仿真基准与长程视频复现.md",
+      "badge": "AMD · 三相机",
+      "status": "verified",
+      "poster": "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/posters/discoverse-showcase/mmk2-box-pick-3view.jpg"
+    },
+    {
+      "id": "amd-mmk2_drawer_open",
+      "topic": "amd",
+      "title": "拉开抽屉",
+      "description": "DISCOVERSE / MMK2 原生任务，多相机展示接近、接触与操作。",
+      "category": "移动操作",
+      "kind": "video",
+      "media": "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/videos/discoverse-showcase/mmk2-drawer-open-3view.mp4",
+      "doc": "16-专题组队学习/04-AMD-ROCm策略复刻专题/README_09_AMD_Physical_AI仿真基准与长程视频复现.md",
+      "badge": "AMD · 三相机",
+      "status": "verified",
+      "poster": "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/posters/discoverse-showcase/mmk2-drawer-open-3view.jpg"
+    },
+    {
+      "id": "amd-mmk2_cabinet_door_open",
+      "topic": "amd",
+      "title": "打开柜门",
+      "description": "DISCOVERSE / MMK2 原生任务，多相机展示接近、接触与操作。",
+      "category": "移动操作",
+      "kind": "video",
+      "media": "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/videos/discoverse-showcase/cabinet-door-open-3view.mp4",
+      "doc": "16-专题组队学习/04-AMD-ROCm策略复刻专题/README_09_AMD_Physical_AI仿真基准与长程视频复现.md",
+      "badge": "AMD · 三相机",
+      "status": "verified",
+      "poster": "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/posters/discoverse-showcase/cabinet-door-open-3view.jpg"
+    },
+    {
+      "id": "amd-mmk2_coffeecup_plate",
+      "topic": "amd",
+      "title": "把咖啡杯放上托盘",
+      "description": "DISCOVERSE / MMK2 原生任务，多相机展示接近、接触与操作。",
+      "category": "移动操作",
+      "kind": "video",
+      "media": "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/videos/discoverse-showcase/coffeecup-plate-3view.mp4",
+      "doc": "16-专题组队学习/04-AMD-ROCm策略复刻专题/README_09_AMD_Physical_AI仿真基准与长程视频复现.md",
+      "badge": "AMD · 三相机",
+      "status": "verified",
+      "poster": "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/posters/discoverse-showcase/coffeecup-plate-3view.jpg"
+    },
+    {
+      "id": "amd-RestockBowls",
+      "topic": "amd",
+      "title": "整理碗具",
+      "description": "RoboCasa365 家庭长程操作，展示选定成功回合的完整过程。",
+      "category": "家务操作",
+      "kind": "video",
+      "media": "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/videos/robocasa-recovery/restock-success.mp4",
+      "doc": "16-专题组队学习/04-AMD-ROCm策略复刻专题/README_09_AMD_Physical_AI仿真基准与长程视频复现.md",
+      "badge": "AMD · 家庭任务",
+      "status": "verified",
+      "poster": "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/posters/robocasa-recovery/restock-success.jpg"
+    },
+    {
+      "id": "amd-PackIdenticalLunches",
+      "topic": "amd",
+      "title": "准备两份相同的午餐",
+      "description": "RoboCasa365 家庭长程操作，展示选定成功回合的完整过程。",
+      "category": "家务操作",
+      "kind": "video",
+      "media": "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/videos/robocasa-recovery/pack-success.mp4",
+      "doc": "16-专题组队学习/04-AMD-ROCm策略复刻专题/README_09_AMD_Physical_AI仿真基准与长程视频复现.md",
+      "badge": "AMD · 家庭任务",
+      "status": "verified",
+      "poster": "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/posters/robocasa-recovery/pack-success.jpg"
+    }
+  ],
+  "featuredPerception": [
+    "aura-perception",
+    "aura-yolo",
+    "aura-ocr",
+    "aura-gesture",
+    "aura-segment",
+    "aura-depth"
+  ],
+  "selectionNote": "展示区收录已有验证结果；失败尝试、诊断细节与正式评测保留在各自教程。"
+}

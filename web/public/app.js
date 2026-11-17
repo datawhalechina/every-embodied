@@ -5,6 +5,8 @@ const state = {
   search: "",
   openGroups: new Set(),
   homeTypingTimer: null,
+  topicPromise: null,
+  topicView: null,
 };
 
 const els = {
@@ -30,6 +32,7 @@ const els = {
   brandLogo: document.getElementById("brandLogo"),
   homePage: document.getElementById("homePage"),
   showcasePage: document.getElementById("showcasePage"),
+  homeTopics: document.getElementById("homeTopics"),
   homeHeroImage: document.getElementById("homeHeroImage"),
   homeTitle: document.getElementById("homeTitle"),
   homeDemoGrid: document.getElementById("homeDemoGrid"),
@@ -51,6 +54,7 @@ const homeDemos = [
   },
   {
     title: "MicroDuck 篮球平衡",
+    href: "#/topics/microduck",
     subtitle: "机器人在自由滚动的篮球上保持平衡",
     type: "video",
     media: "16-专题组队学习/05-MicroDuck运动策略与任务开发专题/01-任务资料/01-MicroDuck篮球平衡强化学习/assets/basketball-balance.mp4",
@@ -68,7 +72,7 @@ const homeDemos = [
     subtitle: "家庭操作、灵巧手、仿真迁移与安全控制的完整 AMD 实践",
     mediaUrl:
       "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/posters/dexjoco/recovery/bimanual-assembly.jpg",
-    href: "#/amd-physical-ai",
+    href: "#/topics/amd",
   },
   {
     title: "项目快速入门",
@@ -469,6 +473,9 @@ function getRoute() {
     return { type: "home", anchor: hash.slice(1) };
   }
 
+  const topicRoute = window.TeamLearning?.getRoute(hash);
+  if (topicRoute) return topicRoute;
+
   const showcaseMatch = hash.match(/^#\/amd-physical-ai(?:\?(.*))?$/);
   if (showcaseMatch) {
     const query = parseQuery(showcaseMatch[1]);
@@ -500,6 +507,10 @@ function getRoute() {
 }
 
 function setMode(mode) {
+  if (mode !== "showcase") state.topicView?.dispose();
+  const topicNav = document.querySelector(".top-showcase-link");
+  if (mode === "showcase") topicNav?.setAttribute("aria-current", "page");
+  else topicNav?.removeAttribute("aria-current");
   if (mode !== "home") {
     els.homeDemoGrid.querySelectorAll("video").forEach((video) => video.pause());
   }
@@ -683,6 +694,9 @@ function typeHomeTitle() {
 }
 
 function renderHome() {
+  ensureTopics().then((view) => view.renderHomeEntries(els.homeTopics)).catch(() => {
+    els.homeTopics.innerHTML = '<a class="home-button" href="#/topics">进入专题组队学习 ↗</a>';
+  });
   const project = state.catalog.project || {};
   const heroImage = project.homepageHero || project.hero || project.cover;
   if (heroImage) {
@@ -826,21 +840,42 @@ function showHome(anchor = "") {
   });
 }
 
-function showShowcase(anchor = "") {
+async function ensureTopics() {
+  if (state.topicView) return state.topicView;
+  if (!state.topicPromise) state.topicPromise = fetchJson("team-learning-data.json");
+  const data = await state.topicPromise;
+  if (!state.topicView) state.topicView = window.TeamLearning.create({
+    container: els.showcasePage,
+    data,
+    fileHref,
+    docHref: (relPath) => {
+      const doc = state.flatDocs.find((item) => item.relPath === relPath);
+      return doc ? docHash(doc.id) : `${GITHUB_REPO_URL}/blob/main/${encodePathForUrl(relPath)}`;
+    },
+  });
+  return state.topicView;
+}
+
+async function showTopics(id = "", anchor = "") {
   state.currentDoc = null;
   stopHomeTitleTyping();
+  setHomeTitleText();
   setMode("showcase");
   closeSidebar();
   setCatalogOverview(false);
   renderNav();
-  document.title = "AMD Physical AI Evidence Lab · Every-Embodied";
-  requestAnimationFrame(() => {
-    if (anchor) {
-      document.getElementById(anchor)?.scrollIntoView({ block: "start", behavior: "smooth" });
-      return;
-    }
-    window.scrollTo({ top: 0, behavior: "auto" });
-  });
+  try {
+    const view = await ensureTopics();
+    const title = id ? view.renderTopic(id) : view.renderOverview();
+    document.title = `${title} · Every-Embodied 电子书`;
+    requestAnimationFrame(() => {
+      if (anchor) document.getElementById(anchor)?.scrollIntoView({ block: "start", behavior: "instant" });
+      else window.scrollTo({ top: 0, behavior: "instant" });
+    });
+  } catch (error) {
+    state.topicPromise = null;
+    els.showcasePage.innerHTML = `<div class="tl-wrap tl-empty"><h1>专题暂时没有加载完成。</h1><p>${escapeHtml(error.message)}</p><a class="home-button primary" href="#/book?catalog=1">先进入完整电子书</a></div>`;
+  }
 }
 
 async function loadDoc(id, anchor = "", options = {}) {
@@ -877,8 +912,10 @@ async function route() {
     showHome(routeInfo.anchor);
     return;
   }
-  if (routeInfo.type === "showcase") {
-    showShowcase(routeInfo.anchor);
+  if (routeInfo.type === "topics" || routeInfo.type === "showcase") {
+    const id = routeInfo.topic || (routeInfo.type === "showcase" ? "amd" : "");
+    if (routeInfo.legacy) history.replaceState(null, "", `#/topics/amd${routeInfo.anchor ? "?anchor=" + encodeURIComponent(routeInfo.anchor) : ""}`);
+    await showTopics(id, routeInfo.anchor);
     return;
   }
   await loadDoc(routeInfo.id, routeInfo.anchor, { openCatalog: routeInfo.openCatalog });

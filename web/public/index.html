@@ -8,6 +8,7 @@
     <link rel="apple-touch-icon" href="./favicon.png" />
     <link rel="stylesheet" href="./vendor/katex/katex.min.css" />
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./team-learning.css" />
   </head>
   <body class="app-booting">
     <header class="topbar">
@@ -31,10 +32,11 @@
         <a href="#/home/module-operation">操作模型</a>
         <a href="#/home/module-world">世界模型</a>
         <a href="#/home/module-practice">应用实践</a>
-        <a class="top-showcase-link" href="#/amd-physical-ai">AMD Physical AI</a>
+        <a class="top-showcase-link" href="#/topics">专题组队学习</a>
         <a href="#/book?catalog=1" id="catalogLink">电子书</a>
         <a href="https://github.com/datawhalechina/every-embodied" target="_blank" rel="noopener noreferrer">GitHub</a>
       </nav>
+      <a class="top-topic-shortcut" href="#/topics">专题</a>
       <div class="top-meta" id="topMeta">正在读取目录</div>
       <a
         class="star-pill"
@@ -86,6 +88,8 @@
             </div>
           </section>
 
+          <section class="home-topics-section" id="homeTopics" aria-label="专题组队学习入口"></section>
+
           <section class="home-demo-section" id="homeDemos">
             <div class="home-section-head">
               <p class="home-kicker">项目实践</p>
@@ -109,66 +113,7 @@
           </section>
         </section>
 
-        <section class="showcase-page" id="showcasePage" hidden>
-          <header class="showcase-intro">
-            <div class="showcase-intro-copy">
-              <p class="showcase-eyebrow">AMD Radeon · ROCm · Physical AI</p>
-              <h1>AMD Physical AI Evidence Lab</h1>
-              <p>
-                从 RoboCasa365 家庭操作、DexJoCo 灵巧手，到 DISCOVERSE 仿真与机器人安全控制，
-                集中浏览 AMD 设备上的训练、闭环评估、多视角视频和迁移实践。
-              </p>
-              <div class="showcase-actions">
-                <a class="home-button primary" href="#/amd-physical-ai?anchor=showcaseFrame">浏览完整成果</a>
-                <a
-                  class="home-button"
-                  href="https://ethan-chen-plus.github.io/amd-physical-ai-showcase/index.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >独立打开</a>
-                <a
-                  class="home-button"
-                  href="https://github.com/datawhalechina/every-embodied/tree/amd-rocm/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >进入 AMD ROCm 教程</a>
-              </div>
-            </div>
-            <dl class="showcase-facts" aria-label="AMD Physical AI 成果概览">
-              <div><dt>RoboCasa365</dt><dd>16 个家庭操作任务</dd></div>
-              <div><dt>DexJoCo</dt><dd>11 个灵巧操作任务</dd></div>
-              <div><dt>Video</dt><dd>高清多视角复现</dd></div>
-              <div><dt>Runtime</dt><dd>PyTorch + JAX on ROCm</dd></div>
-            </dl>
-          </header>
-
-          <section class="showcase-embed" id="showcaseFrame" aria-labelledby="showcaseFrameTitle">
-            <div class="showcase-embed-head">
-              <div>
-                <p class="showcase-eyebrow">Interactive showcase</p>
-                <h2 id="showcaseFrameTitle">完整成果主页</h2>
-              </div>
-              <a
-                href="https://github.com/Ethan-Chen-plus/radeon-physical-ai-evidence-suite"
-                target="_blank"
-                rel="noopener noreferrer"
-              >查看源码 ↗</a>
-            </div>
-            <div class="showcase-browser">
-              <div class="showcase-browser-bar" aria-hidden="true">
-                <span></span><span></span><span></span>
-                <strong>ethan-chen-plus.github.io/amd-physical-ai-showcase</strong>
-              </div>
-              <iframe
-                title="Datawhale-EAI AMD Physical AI Evidence Lab"
-                src="https://ethan-chen-plus.github.io/amd-physical-ai-showcase/index.html"
-                loading="eager"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allow="autoplay; fullscreen; picture-in-picture"
-              ></iframe>
-            </div>
-          </section>
-        </section>
+        <section class="showcase-page team-page" id="showcasePage" hidden aria-label="专题组队学习"></section>
 
         <section class="reader-head">
           <div class="reader-title">
@@ -207,6 +152,7 @@
     </div>
 
     <div class="scrim" id="scrim"></div>
+    <script src="./team-learning.js" defer></script>
     <script src="./app.js" defer></script>
   </body>
 </html>

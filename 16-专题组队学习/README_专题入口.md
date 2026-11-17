@@ -2,6 +2,14 @@
 
 本目录用于放置适合组队学习的完整实践专题。每个专题都应该包含清晰的学习目标、章节目录、可复现步骤和发布边界。
 
+## 在线专题展示
+
+[打开专题组队学习入口](https://datawhalechina.github.io/every-embodied/zh-cn/#/topics)，先看完整演示，再进入学习计划与复现教程。
+
+- [地瓜机器人](https://datawhalechina.github.io/every-embodied/zh-cn/#/topics/rdk)：[MicroDuck](https://datawhalechina.github.io/every-embodied/zh-cn/#/topics/microduck) 与 [Jumper 螃蟹机器人](https://datawhalechina.github.io/every-embodied/zh-cn/#/topics/jumper)。
+- [Aura 交互机器人与具身 Agent](https://datawhalechina.github.io/every-embodied/zh-cn/#/topics/aura)：多视角完整过程、视觉识别与家庭任务。
+- [AMD Physical AI](https://datawhalechina.github.io/every-embodied/zh-cn/#/topics/amd)：家庭操作、灵巧手与多相机仿真。
+
 ## 当前专题
 
 - [OpenClaw 家庭物资助手](./02-OpenClaw家庭物资助手/README.md)
