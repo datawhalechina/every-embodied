@@ -1,0 +1,344 @@
+diff --git a/hybrid_rollout/robodojo/method.py b/hybrid_rollout/robodojo/method.py
+index b7270ee..bec3c8b 100644
+--- a/hybrid_rollout/robodojo/method.py
++++ b/hybrid_rollout/robodojo/method.py
+@@ -1,7 +1,7 @@
+ """Explicit evaluation method identity; never infer it from an auth provider."""
+ import os
+
+-METHODS = ('pi05_plus_gpt', 'gpt_only')
++METHODS = ('pi05_plus_gpt', 'g05_plus_gpt', 'gpt_only')
+
+
+ def evaluation_method(value=None):
+diff --git a/hybrid_rollout/robodojo/robodojo_server/client.py b/hybrid_rollout/robodojo/robodojo_server/client.py
+index 709f689..306b1ac 100644
+--- a/hybrid_rollout/robodojo/robodojo_server/client.py
++++ b/hybrid_rollout/robodojo/robodojo_server/client.py
+@@ -13,6 +13,7 @@ from PIL import Image
+
+ from ..io import InputError, write_json
+ from ..settings import MODEL, EFFORT, PROVIDER
++from ..student_profile import INFER_TOOL
+ from .protocol import RPCClient
+ from .gate_assessment import GATE_INSTRUCTION, previous_observation, validate_assessment
+ from .validation import angles, validate_response
+@@ -101,7 +102,7 @@ class RoboDojoTools:
+             return dict(tool='robodojo_start', task=self.task,
+                         output_dir=str(self.output/'observations'/'000'))
+         if self.phase == 'infer':
+-            return dict(tool='pi05_infer', observation_path=str(self.observation_path),
++            return dict(tool=INFER_TOOL, observation_path=str(self.observation_path),
+                         output_dir=str(self.output/'proposals'/f'{index:03d}'))
+         if self.phase == 'execute':
+             return dict(tool='robodojo_execute', proposal_path=str(self.proposal_path),
+@@ -164,7 +165,8 @@ class RoboDojoTools:
+             raise RuntimeError('Launched RoboDojo task differs from requested task')
+         identity = self.student.metadata['checkpoint_sha256']
+         config = self.student.metadata['config']
+-        version = f'OpenPI-JAX/{config}/{identity[:16]}'
++        backend = self.student.metadata.get('backend', 'OpenPI/JAX')
++        version = f'{backend}/{config}/{identity[:16]}'
+         reset = self.sim.request('reset', seed=self.seed, source='student', policy_version=version)
+         if reset.get('instruction'):
+             self.meta['instruction'] = reset['instruction']
+@@ -187,7 +189,7 @@ class RoboDojoTools:
+             config=config, robot_profile=self.profile, checkpoint=self.student.metadata['checkpoint'],
+             action_horizon=self.student.metadata.get('action_horizon', 15),
+             action_dim=self.student.metadata.get('action_dim', 8),
+-            student_backend='OpenPI/JAX', student_identity_sha256=identity,
++            student_backend=backend, student_identity_sha256=identity,
+             student_server_metadata=self.student.metadata, teacher_off=False, split=None,
+             gate_policy='failure-or-intent', no_rollback=True,
+             gate_instruction_sha256=hashlib.sha256(GATE_INSTRUCTION.encode()).hexdigest(),
+@@ -202,7 +204,7 @@ class RoboDojoTools:
+         return self._observation(directory)
+
+     def infer(self, **arguments):
+-        directory = self._check('pi05_infer', arguments)
++        directory = self._check(INFER_TOOL, arguments)
+         directory.mkdir(parents=True)
+         decision = len(self.history)
+         self.proposal_path = directory/'actions.npz'
+diff --git a/hybrid_rollout/robodojo/robodojo_server/debug_recorder.py b/hybrid_rollout/robodojo/robodojo_server/debug_recorder.py
+index 4c4a879..5116303 100644
+--- a/hybrid_rollout/robodojo/robodojo_server/debug_recorder.py
++++ b/hybrid_rollout/robodojo/robodojo_server/debug_recorder.py
+@@ -161,7 +161,8 @@ class DecisionTimeline:
+             mode = record['response']['mode']
+             delta = np.empty((0, dim)) if direct else executed - proposed[:n]
+             request = read_json(self.controller/f'request_{decision:03d}.json', {})
+-            segment = dict(record, request=request, evaluation_method='gpt_only' if direct else 'pi05_plus_gpt',
++            segment = dict(record, request=request, evaluation_method='gpt_only' if direct else ('g05_plus_gpt' if self.run.get('student_backend') == 'G0.5/PyTorch' else 'pi05_plus_gpt'),
++                student_backend=self.run.get('student_backend'), legacy_array_field_names=True,
+                 raw_pi05_actions=raw.tolist(),
+                 pi05_actions=proposed.tolist(), executed_actions=executed.tolist(),
+                 measured_states=states.tolist(), delta_vs_pi05_prefix=delta.tolist(),
+diff --git a/hybrid_rollout/robodojo/robodojo_server/decision_log.py b/hybrid_rollout/robodojo/robodojo_server/decision_log.py
+index 66e6004..dc21db8 100644
+--- a/hybrid_rollout/robodojo/robodojo_server/decision_log.py
++++ b/hybrid_rollout/robodojo/robodojo_server/decision_log.py
+@@ -1,4 +1,5 @@
+ """Public structured decisions only; no model reasoning stream or physics calls."""
++from ..student_profile import HORIZON
+ import argparse
+ from datetime import datetime, timezone
+ import json
+@@ -19,7 +20,7 @@ def decision_event(*, episode_id, step_id, decision, prediction_id, response,
+         requested_steps=response['steps'],
+         evaluation_method=response.get('evaluation_method', 'pi05_plus_gpt'),
+         codex_override=mode in ('edit', 'eef') and response.get('evaluation_method') != 'gpt_only',
+-        prefix_only=mode == 'student' and response['steps'] < 50,
++        prefix_only=mode == 'student' and response['steps'] < HORIZON,
+         numeric_action_changed=None, response=response)
+
+
+diff --git a/hybrid_rollout/robodojo/robodojo_server/kinematics.py b/hybrid_rollout/robodojo/robodojo_server/kinematics.py
+index 9a5b71a..1696716 100644
+--- a/hybrid_rollout/robodojo/robodojo_server/kinematics.py
++++ b/hybrid_rollout/robodojo/robodojo_server/kinematics.py
+@@ -1,6 +1,7 @@
+ """Robot-only URDF FK and bounded local DLS; no planning or scene truth."""
+ import xml.etree.ElementTree as ET
+ import numpy as np
++from ..student_profile import HORIZON
+ from scipy.spatial.transform import Rotation
+ from ..robodojo_server.action_edit_kinematics import pose, transform
+
+@@ -95,8 +96,8 @@ class DualKinematics:
+
+     def preview(self, actions):
+         a = np.asarray(actions)
+-        if a.shape != (50, 14) or not np.isfinite(a).all():
+-            raise ValueError('Expected H50 x 14 proposal')
++        if a.shape != (HORIZON, 14) or not np.isfinite(a).all():
++            raise ValueError(f'Expected H{HORIZON} x 14 proposal')
+         checks = self.check()
+         roots = {arm: self.root(arm) for arm in ('left', 'right')}
+         trajectory = [dict(index=i, **{arm: dict(
+diff --git a/hybrid_rollout/robodojo/robodojo_server/session.py b/hybrid_rollout/robodojo/robodojo_server/session.py
+index c0351da..ea6805f 100644
+--- a/hybrid_rollout/robodojo/robodojo_server/session.py
++++ b/hybrid_rollout/robodojo/robodojo_server/session.py
+@@ -1,5 +1,6 @@
+ """One RoboDojo episode, native action stepping and success/timeout checks."""
+ import hashlib
++from ..student_profile import HORIZON
+ from pathlib import Path
+ import uuid
+ import numpy as np
+@@ -48,7 +49,7 @@ class RoboDojoSession:
+         self.finish_reason = None
+         self.metadata = dict(task=task, instruction=task, simulator='RoboDojo',
+             robot_adapter='dual_arx_x5', control_dt=1/env.obs_manager.collect_freq,
+-            max_episode_steps=int(env.step_lim), action_dim=14, action_horizon=50,
++            max_episode_steps=int(env.step_lim), action_dim=14, action_horizon=HORIZON,
+             frame='environment_origin', eef_link='link6', no_rollback=True,
+             supports_fk_preview=True, supports_codex_decision_recording=True,
+             cameras=list(CAMERAS), gripper_semantics='continuous_0_closed_1_open')
+diff --git a/hybrid_rollout/robodojo/robodojo_server/video_panel.py b/hybrid_rollout/robodojo/robodojo_server/video_panel.py
+index 547adf3..ddb4488 100644
+--- a/hybrid_rollout/robodojo/robodojo_server/video_panel.py
++++ b/hybrid_rollout/robodojo/robodojo_server/video_panel.py
+@@ -96,6 +96,8 @@ class VideoPanel:
+         self.cache = {}
+
+     def text(self, draw, xy, text, size=22, color=INK, width=None, lines=1):
++        if self.timeline.run.get('student_backend') == 'G0.5/PyTorch':
++            text = str(text).replace('π0.5', 'G0.5').replace('pi05', 'G0.5')
+         font = self.fonts[size]
+         for i, line in enumerate(fitted_lines(text, font, width or self.width-xy[0]-24, lines)):
+             draw.text((xy[0], xy[1]+i*(size+9)), line, font=font, fill=color)
+diff --git a/hybrid_rollout/robodojo/robodojo_server/video_panel_paper.py b/hybrid_rollout/robodojo/robodojo_server/video_panel_paper.py
+index bdf295c..7e01052 100644
+--- a/hybrid_rollout/robodojo/robodojo_server/video_panel_paper.py
++++ b/hybrid_rollout/robodojo/robodojo_server/video_panel_paper.py
+@@ -18,6 +18,8 @@ class PaperVideoPanel(VideoPanel):
+         self.line_cache = {}
+
+     def text(self, draw, xy, text, size=22, color=INK, width=None, lines=1):
++        if self.timeline.run.get('student_backend') == 'G0.5/PyTorch':
++            text = str(text).replace('π0.5', 'G0.5').replace('pi05', 'G0.5')
+         """Cache only deterministic wrapping; leave approved pixels unchanged."""
+         available=width or self.width-xy[0]-24
+         key=(str(text),size,available,lines)
+diff --git a/hybrid_rollout/robodojo/skill/run.py b/hybrid_rollout/robodojo/skill/run.py
+index 9efde67..e5c2480 100644
+--- a/hybrid_rollout/robodojo/skill/run.py
++++ b/hybrid_rollout/robodojo/skill/run.py
+@@ -16,6 +16,7 @@ from ..prompt_context import CONTEXT_VERSION
+ from ..settings import MODEL, EFFORT, PROVIDER, DEFAULT_CODEX_IMAGE_MAX_EDGE
+ from ..robodojo_server.client import RoboDojoTools
+ from ..method import evaluation_method
++from ..student_profile import STUDENT, INFER_TOOL, student_text, CONTEXT_EXTENSION
+ from .schema import _obj, response_schema, direct_response_schema
+ from .transport import StdioAppServer
+ from .workspace import prepare_workspace
+@@ -93,7 +94,7 @@ def agent_config(audit, agent):
+ def tool_specs(method='pi05_plus_gpt'):
+     string = {'type': 'string'}
+     def spec(name, description, **properties):
+-        return dict(type='function', name=name, description=description,
++        return dict(type='function', name=name, description=student_text(description),
+                     inputSchema=_obj(properties))
+     if method == 'gpt_only':
+         return [spec('robodojo_start', 'Blocking: start the requested episode and return RGB/proprio.',
+@@ -105,7 +106,7 @@ def tool_specs(method='pi05_plus_gpt'):
+     return [
+         spec('robodojo_start', 'Blocking: start the requested RoboDojo episode; save and return current RGB/proprio.',
+              task=string, output_dir=string),
+-        spec('pi05_infer', 'Blocking: infer pi05 once from the latest observation; save chunk and return full robot-only FK. '
++        spec(INFER_TOOL, 'Blocking: infer pi05 once from the latest observation; save chunk and return full robot-only FK. '
+              'action_diagnostics provides shape, finiteness, opening ranges and maximum successive joint step. '
+              'Use these for routine arithmetic; native tools remain available for independent or additional checks. '
+              'Diagnostics are not a safety or gate verdict: perform the unchanged visual and intent assessment.',
+@@ -147,9 +148,11 @@ class CodexPolicy:
+             action_replay_on_input_error=False))
+         self.agent_workspace = prepare_workspace(self.workspace, skill_root, method=self.method)
+         self.timeout = timeout
+-        skill = (skill_root/'SKILL.md').read_text()
+-        gate = '' if direct else (skill_root/'gate_prompt.md').read_text()
+-        context = (skill_root/'context/teacher_context.md').read_text()
++        skill = student_text((skill_root/'SKILL.md').read_text())
++        gate = '' if direct else student_text((skill_root/'gate_prompt.md').read_text())
++        context = student_text((skill_root/'context/teacher_context.md').read_text())
++        if os.environ.get('ROLLOUT_CONTEXT_REVISION') == 'structured_v1':
++            context += CONTEXT_EXTENSION
+         self.prompt = (skill + ('' if direct else '\n\n# Unchanged baseline gate prompt\n\n' + gate)
+                        + '\n\n' + context + '\n\nAgent working directory: '
+                        + str(self.agent_workspace)
+@@ -186,7 +189,8 @@ class CodexPolicy:
+             self.thread_id = response['thread']['id']
+             write_json(self.workspace/'worker.json', dict(model=MODEL, model_provider=PROVIDER,
+                 controller_version=CONTROLLER_VERSION,
+-                evaluation_method=self.method,
++                evaluation_method=self.method, student_policy=STUDENT,
++                context_revision=os.environ.get('ROLLOUT_CONTEXT_REVISION', 'original'),
+                 reasoning_effort=EFFORT, context_version=CONTEXT_VERSION,
+                 codex_version=version, thread_id=self.thread_id, pid=self.transport.process.pid,
+                 prompt_sha256=self.prompt_sha256, no_rollback=True, tools=[s['name'] for s in specs],
+@@ -289,7 +293,7 @@ class CodexPolicy:
+                 write_json(self.workspace/f'call_{call_index:04d}_request.json', audit)
+                 handlers = (dict(robodojo_start=rollout.start, robodojo_act=rollout.act)
+                     if self.method == 'gpt_only' else
+-                    dict(robodojo_start=rollout.start, pi05_infer=rollout.infer, robodojo_execute=rollout.execute))
++                    {'robodojo_start': rollout.start, INFER_TOOL: rollout.infer, 'robodojo_execute': rollout.execute})
+                 try:
+                     if isinstance(arguments, str):
+                         try:
+@@ -314,7 +318,7 @@ class CodexPolicy:
+                 # replying. A failed transport reply must not repeat a handler.
+                 write_json(self.workspace/f'call_{call_index:04d}_result.json', packet)
+                 self.transport.reply(event['id'], dict(success=success,
+-                    contentItems=content_items(packet, images=success and name != 'pi05_infer',
++                    contentItems=content_items(packet, images=success and name != INFER_TOOL,
+                                                max_image_edge=self.image_max_edge)))
+                 call_index += 1
+                 print(json.dumps(dict(event='tool_done', tool=name, step_id=rollout.tick,
+@@ -403,13 +407,16 @@ def main():
+     parser.add_argument('--output', type=Path, required=True)
+     parser.add_argument('--task', required=True)
+     parser.add_argument('--checkpoint', type=Path)
+-    parser.add_argument('--evaluation-method', default=evaluation_method(), choices=('pi05_plus_gpt','gpt_only'))
++    parser.add_argument('--evaluation-method', default=evaluation_method(), choices=('pi05_plus_gpt','g05_plus_gpt','gpt_only'))
+     parser.add_argument('--codex', required=True)
+     parser.add_argument('--sim-port', type=int, default=19113)
+     parser.add_argument('--student-port', type=int, default=18830)
+     parser.add_argument('--max-decisions', type=int, default=180, help='0 disables the decision-count limit')
+-    parser.add_argument('--seed', type=int, default=0)
++    parser.add_argument('--seed', type=int, default=None)
+     args = parser.parse_args()
++    if args.seed is None:
++        case_file = args.output.parent / "case.json"
++        args.seed = json.loads(case_file.read_text())["identity"]["reset_seed"] if case_file.exists() else 0
+     args.output = args.output.resolve()
+     args.output.mkdir(parents=True, exist_ok=False)
+     student = worker = rollout = None
+@@ -417,11 +424,15 @@ def main():
+         raise KeyboardInterrupt('Stopping only this owned rollout and Codex process')
+     signal.signal(signal.SIGTERM, terminate)
+     try:
+-        if args.evaluation_method == 'pi05_plus_gpt':
++        if args.evaluation_method != 'gpt_only':
+             if args.checkpoint is None:
+                 raise ValueError('Hybrid evaluation requires an explicit checkpoint')
+-            from ..pi05_server.client import Pi05Client
+-            student = Pi05Client(args.student_port, args.checkpoint)
++            if STUDENT == 'g05':
++                from g05_astra.student import G05Client
++                student = G05Client(args.student_port, args.checkpoint)
++            else:
++                from ..pi05_server.client import Pi05Client
++                student = Pi05Client(args.student_port, args.checkpoint)
+         worker = CodexPolicy(args.output/'codex_workspace', args.codex, method=args.evaluation_method)
+         if args.evaluation_method == 'gpt_only':
+             from ..robodojo_server.gpt_only_client import GPTOnlyTools
+diff --git a/hybrid_rollout/robodojo/skill/workspace.py b/hybrid_rollout/robodojo/skill/workspace.py
+index 8cf872d..d790c9f 100644
+--- a/hybrid_rollout/robodojo/skill/workspace.py
++++ b/hybrid_rollout/robodojo/skill/workspace.py
+@@ -5,6 +5,8 @@ import shutil
+ import sys
+
+ from ..io import write_json
++from ..student_profile import student_text, CONTEXT_EXTENSION
++import os
+
+
+ def prepare_workspace(audit, skill_root, *, method='pi05_plus_gpt'):
+@@ -63,4 +65,14 @@ def prepare_workspace(audit, skill_root, *, method='pi05_plus_gpt'):
+         'No observations yet. Maintain confirmed progress, current objective, geometry '
+         'estimates, tracking errors, and corrections as useful. Historical runs are '
+         'background knowledge, not observations of this episode.\n')
++    for path in agent.rglob('*.md'):
++        path.write_text(student_text(path.read_text()))
++    if os.environ.get('ROLLOUT_CONTEXT_REVISION') == 'structured_v1':
++        for path in (context/'teacher_context.md', skill/'context/teacher_context.md'):
++            path.write_text(path.read_text() + CONTEXT_EXTENSION)
++    workspace['context_files'] = {str(p.relative_to(agent)): hashlib.sha256(p.read_bytes()).hexdigest()
++        for p in context.rglob('*') if p.is_file()}
++    workspace['evaluation_method'] = method
++    workspace['context_revision'] = os.environ.get('ROLLOUT_CONTEXT_REVISION', 'original')
++    write_json(agent/'workspace.json', workspace)
+     return agent
+diff --git a/hybrid_rollout/robodojo/student_profile.py b/hybrid_rollout/robodojo/student_profile.py
+new file mode 100644
+index 0000000..dbf0b33
+--- /dev/null
++++ b/hybrid_rollout/robodojo/student_profile.py
+@@ -0,0 +1,35 @@
++"""Explicit inference backend contract for the local G0.5 extension."""
++import os
++
++STUDENT = os.environ.get('ROLLOUT_STUDENT', 'pi05')
++if STUDENT not in ('pi05', 'g05'):
++    raise ValueError('Unsupported student policy')
++INFER_TOOL = STUDENT + '_infer'
++HORIZON = 16 if STUDENT == 'g05' else 50
++
++
++def student_text(text):
++    if STUDENT != 'g05':
++        return text
++    return (text.replace('pi05_base_aloha_full_sim_arx-x5_seed_0', 'g05_robodojo_fm')
++        .replace('OpenPI/JAX', 'G0.5/PyTorch').replace('OpenPI-JAX', 'G0.5-PyTorch')
++        .replace('pi05_infer', 'g05_infer').replace('pi05', 'G0.5')
++        .replace('50×14', '16×14').replace('50x14', '16x14').replace('**50**', '**16**')
++        .replace('normalizer `arx_x5_sim`', 'normalizer from the released `dataset_stats.json`'))
++
++
++CONTEXT_EXTENSION = '''
++\n# Evidence ledger, context revision structured_v1
++Maintain a compact NOTES.md with: native goal and return requirement; currently
++confirmed completed subgoals; active subgoal; object/grasp hypotheses marked
++uncertain versus visually confirmed; last action and measured effect; remaining
++control steps; next observable test. Ground each update in this episode's images
++or measured robot state. A closed gripper is not evidence of a successful grasp.
++Compare the predicted robot motion with the actual post-execution observation.
++When progress stalls, name the observable cause before choosing a correction.
++Prefer a short observation interval near contact, placement or release, and a
++longer accepted prefix for unobstructed transit. Preserve the native task text
++sent to G0.5. Use only bounded recorded control tools, never reward queries,
++hidden object poses, simulator resets or alternate control connections.
++Do not assume an outcome based on historical success examples or benchmark rank.
++'''

@@ -1,0 +1,11 @@
+{
+  "case_id": "fold_clothes__random__g0__l0",
+  "model_calls": 0,
+  "expected_steps": 456,
+  "observed_steps": 456,
+  "terminal": true,
+  "max_absolute_state_difference": 0.0,
+  "native_score": 1.0,
+  "native_success": true,
+  "native_control_steps": 456
+}

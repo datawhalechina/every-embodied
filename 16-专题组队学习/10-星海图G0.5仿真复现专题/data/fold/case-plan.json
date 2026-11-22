@@ -1,0 +1,257 @@
+{
+  "panel_id": "robodojo_panel60_v1",
+  "panel_sha256": "9641fa252856c5ffc07b269c9fef4fed7f5bbc91b45ea0e93fe2a39fa73944b7",
+  "native_source_commit": "ee67a1468510da7624a089164402359f2afc72c8",
+  "model": "gpt-6-astra",
+  "reasoning_effort": "xhigh",
+  "context_revision": "structured_v1",
+  "native_step_limits": {
+    "organize_table": 1000,
+    "fold_clothes": 500
+  },
+  "known_checkpoint_sha256_from_prior_valid_runs": [
+    "a923ba1fbff409f0103f6e204e76eb0cedde60ad45615526e7c9fe59099019e1"
+  ],
+  "cases": [
+    {
+      "identity": {
+        "panel_id": "robodojo_panel60_v1",
+        "panel_sha256": "9641fa252856c5ffc07b269c9fef4fed7f5bbc91b45ea0e93fe2a39fa73944b7",
+        "case_id": "organize_table__standard__g0__l0",
+        "task": "organize_table",
+        "runtime_task": "organize_table",
+        "variant": "standard",
+        "eval_seed": 0,
+        "layout_id": 0,
+        "reset_seed": 0,
+        "simulator_initial_seed": 0,
+        "policy_rng_seed": 0,
+        "layout_sha256": "e55e5cffef73b1967ad26dc0c7c8933ce05e68f329450ae0ac933abf386fa5ba"
+      },
+      "layout_asset": {
+        "path": "Assets/Eval_Layout/RoboDojo/arx_x5/0/organize_table_0.json",
+        "sha256": "e55e5cffef73b1967ad26dc0c7c8933ce05e68f329450ae0ac933abf386fa5ba"
+      }
+    },
+    {
+      "identity": {
+        "panel_id": "robodojo_panel60_v1",
+        "panel_sha256": "9641fa252856c5ffc07b269c9fef4fed7f5bbc91b45ea0e93fe2a39fa73944b7",
+        "case_id": "organize_table__standard__g0__l1",
+        "task": "organize_table",
+        "runtime_task": "organize_table",
+        "variant": "standard",
+        "eval_seed": 0,
+        "layout_id": 1,
+        "reset_seed": 1,
+        "simulator_initial_seed": 0,
+        "policy_rng_seed": 0,
+        "layout_sha256": "cc44fde5d0d4461123b2ec469d6bb02f47a621ee2f6b2bc81269213b82b2342d"
+      },
+      "layout_asset": {
+        "path": "Assets/Eval_Layout/RoboDojo/arx_x5/0/organize_table_1.json",
+        "sha256": "cc44fde5d0d4461123b2ec469d6bb02f47a621ee2f6b2bc81269213b82b2342d"
+      }
+    },
+    {
+      "identity": {
+        "panel_id": "robodojo_panel60_v1",
+        "panel_sha256": "9641fa252856c5ffc07b269c9fef4fed7f5bbc91b45ea0e93fe2a39fa73944b7",
+        "case_id": "organize_table__standard__g0__l2",
+        "task": "organize_table",
+        "runtime_task": "organize_table",
+        "variant": "standard",
+        "eval_seed": 0,
+        "layout_id": 2,
+        "reset_seed": 2,
+        "simulator_initial_seed": 0,
+        "policy_rng_seed": 0,
+        "layout_sha256": "2b995768c4dfada0ac4c313fa20e467e645f6ff700e81fe05ef513d61ed0e343"
+      },
+      "layout_asset": {
+        "path": "Assets/Eval_Layout/RoboDojo/arx_x5/0/organize_table_2.json",
+        "sha256": "2b995768c4dfada0ac4c313fa20e467e645f6ff700e81fe05ef513d61ed0e343"
+      }
+    },
+    {
+      "identity": {
+        "panel_id": "robodojo_panel60_v1",
+        "panel_sha256": "9641fa252856c5ffc07b269c9fef4fed7f5bbc91b45ea0e93fe2a39fa73944b7",
+        "case_id": "organize_table__standard__g0__l3",
+        "task": "organize_table",
+        "runtime_task": "organize_table",
+        "variant": "standard",
+        "eval_seed": 0,
+        "layout_id": 3,
+        "reset_seed": 3,
+        "simulator_initial_seed": 0,
+        "policy_rng_seed": 0,
+        "layout_sha256": "12e2492a1f688b800774543f2e9805bc1e4b7a0950c1037f59e7dfe073e43711"
+      },
+      "layout_asset": {
+        "path": "Assets/Eval_Layout/RoboDojo/arx_x5/0/organize_table_3.json",
+        "sha256": "12e2492a1f688b800774543f2e9805bc1e4b7a0950c1037f59e7dfe073e43711"
+      }
+    },
+    {
+      "identity": {
+        "panel_id": "robodojo_panel60_v1",
+        "panel_sha256": "9641fa252856c5ffc07b269c9fef4fed7f5bbc91b45ea0e93fe2a39fa73944b7",
+        "case_id": "organize_table__standard__g0__l4",
+        "task": "organize_table",
+        "runtime_task": "organize_table",
+        "variant": "standard",
+        "eval_seed": 0,
+        "layout_id": 4,
+        "reset_seed": 4,
+        "simulator_initial_seed": 0,
+        "policy_rng_seed": 0,
+        "layout_sha256": "82764ab142f4748fe581b4993460743ae59ba08c7d6aea3770d4bf61844dc20a"
+      },
+      "layout_asset": {
+        "path": "Assets/Eval_Layout/RoboDojo/arx_x5/0/organize_table_4.json",
+        "sha256": "82764ab142f4748fe581b4993460743ae59ba08c7d6aea3770d4bf61844dc20a"
+      }
+    },
+    {
+      "identity": {
+        "panel_id": "robodojo_panel60_v1",
+        "panel_sha256": "9641fa252856c5ffc07b269c9fef4fed7f5bbc91b45ea0e93fe2a39fa73944b7",
+        "case_id": "fold_clothes__standard__g0__l0",
+        "task": "fold_clothes",
+        "runtime_task": "fold_clothes",
+        "variant": "standard",
+        "eval_seed": 0,
+        "layout_id": 0,
+        "reset_seed": 0,
+        "simulator_initial_seed": 0,
+        "policy_rng_seed": 0,
+        "layout_sha256": "53de16e28978c71cfaa0620712633a0e07ed9d4bb79cdb63c5a953fa26f1b5ba"
+      },
+      "layout_asset": {
+        "path": "Assets/Eval_Layout/RoboDojo/arx_x5/0/fold_clothes_0.json",
+        "sha256": "53de16e28978c71cfaa0620712633a0e07ed9d4bb79cdb63c5a953fa26f1b5ba"
+      }
+    },
+    {
+      "identity": {
+        "panel_id": "robodojo_panel60_v1",
+        "panel_sha256": "9641fa252856c5ffc07b269c9fef4fed7f5bbc91b45ea0e93fe2a39fa73944b7",
+        "case_id": "fold_clothes__standard__g0__l1",
+        "task": "fold_clothes",
+        "runtime_task": "fold_clothes",
+        "variant": "standard",
+        "eval_seed": 0,
+        "layout_id": 1,
+        "reset_seed": 1,
+        "simulator_initial_seed": 0,
+        "policy_rng_seed": 0,
+        "layout_sha256": "c43d694499bdb86c1ec3b8c6f2362893e0cfbbb5d00921378fc8c6fec2f79583"
+      },
+      "layout_asset": {
+        "path": "Assets/Eval_Layout/RoboDojo/arx_x5/0/fold_clothes_1.json",
+        "sha256": "c43d694499bdb86c1ec3b8c6f2362893e0cfbbb5d00921378fc8c6fec2f79583"
+      }
+    },
+    {
+      "identity": {
+        "panel_id": "robodojo_panel60_v1",
+        "panel_sha256": "9641fa252856c5ffc07b269c9fef4fed7f5bbc91b45ea0e93fe2a39fa73944b7",
+        "case_id": "fold_clothes__random__g0__l0",
+        "task": "fold_clothes",
+        "runtime_task": "fold_clothes_random",
+        "variant": "random",
+        "eval_seed": 0,
+        "layout_id": 0,
+        "reset_seed": 0,
+        "simulator_initial_seed": 0,
+        "policy_rng_seed": 0,
+        "layout_sha256": "91ca045a523167ea32cf84551db921862b49d107995586a853c6b9eff1db10f0"
+      },
+      "layout_asset": {
+        "path": "Assets/Eval_Layout/RoboDojo/arx_x5/0/fold_clothes_random_0.json",
+        "sha256": "91ca045a523167ea32cf84551db921862b49d107995586a853c6b9eff1db10f0"
+      }
+    },
+    {
+      "identity": {
+        "panel_id": "robodojo_panel60_v1",
+        "panel_sha256": "9641fa252856c5ffc07b269c9fef4fed7f5bbc91b45ea0e93fe2a39fa73944b7",
+        "case_id": "fold_clothes__random__g0__l1",
+        "task": "fold_clothes",
+        "runtime_task": "fold_clothes_random",
+        "variant": "random",
+        "eval_seed": 0,
+        "layout_id": 1,
+        "reset_seed": 1,
+        "simulator_initial_seed": 0,
+        "policy_rng_seed": 0,
+        "layout_sha256": "d6ccfa56ee655613306344c2c4ad493bc54588ff082d961604da322929089658"
+      },
+      "layout_asset": {
+        "path": "Assets/Eval_Layout/RoboDojo/arx_x5/0/fold_clothes_random_1.json",
+        "sha256": "d6ccfa56ee655613306344c2c4ad493bc54588ff082d961604da322929089658"
+      }
+    },
+    {
+      "identity": {
+        "panel_id": "robodojo_panel60_v1",
+        "panel_sha256": "9641fa252856c5ffc07b269c9fef4fed7f5bbc91b45ea0e93fe2a39fa73944b7",
+        "case_id": "fold_clothes__random__g0__l2",
+        "task": "fold_clothes",
+        "runtime_task": "fold_clothes_random",
+        "variant": "random",
+        "eval_seed": 0,
+        "layout_id": 2,
+        "reset_seed": 2,
+        "simulator_initial_seed": 0,
+        "policy_rng_seed": 0,
+        "layout_sha256": "cdaab145fbadb25e0b452ae5ece2d384c8fe2201e8decb646db67c08f6723384"
+      },
+      "layout_asset": {
+        "path": "Assets/Eval_Layout/RoboDojo/arx_x5/0/fold_clothes_random_2.json",
+        "sha256": "cdaab145fbadb25e0b452ae5ece2d384c8fe2201e8decb646db67c08f6723384"
+      }
+    },
+    {
+      "identity": {
+        "panel_id": "robodojo_panel60_v1",
+        "panel_sha256": "9641fa252856c5ffc07b269c9fef4fed7f5bbc91b45ea0e93fe2a39fa73944b7",
+        "case_id": "organize_table__standard__g0__l5",
+        "task": "organize_table",
+        "runtime_task": "organize_table",
+        "variant": "standard",
+        "eval_seed": 0,
+        "layout_id": 5,
+        "reset_seed": 5,
+        "simulator_initial_seed": 0,
+        "policy_rng_seed": 0,
+        "layout_sha256": "d870df53b37e0f80f7ebfad3161d1cde2b0a87073dd5e89591602afe5c5e6752"
+      },
+      "layout_asset": {
+        "path": "Assets/Eval_Layout/RoboDojo/arx_x5/0/organize_table_5.json",
+        "sha256": "d870df53b37e0f80f7ebfad3161d1cde2b0a87073dd5e89591602afe5c5e6752"
+      }
+    },
+    {
+      "identity": {
+        "panel_id": "robodojo_panel60_v1",
+        "panel_sha256": "9641fa252856c5ffc07b269c9fef4fed7f5bbc91b45ea0e93fe2a39fa73944b7",
+        "case_id": "fold_clothes__standard__g0__l2",
+        "task": "fold_clothes",
+        "runtime_task": "fold_clothes",
+        "variant": "standard",
+        "eval_seed": 0,
+        "layout_id": 2,
+        "reset_seed": 2,
+        "simulator_initial_seed": 0,
+        "policy_rng_seed": 0,
+        "layout_sha256": "064e6a528a0f4042d2fc1ad76441cd2341eb9a5c0592ea776de28a950512138c"
+      },
+      "layout_asset": {
+        "path": "Assets/Eval_Layout/RoboDojo/arx_x5/0/fold_clothes_2.json",
+        "sha256": "064e6a528a0f4042d2fc1ad76441cd2341eb9a5c0592ea776de28a950512138c"
+      }
+    }
+  ]
+}

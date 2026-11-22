@@ -1,0 +1,6 @@
+{
+  "sequence": 43,
+  "head_image_id": "img_0001",
+  "head_image": "head.png",
+  "joint_state": "joint-state.json"
+}

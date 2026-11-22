@@ -1,0 +1,35 @@
+[
+  {
+    "method": "astra",
+    "task": "putting_away_Halloween_decorations",
+    "instance_id": 301,
+    "rollout_id": 0,
+    "steps": 16785,
+    "success": true,
+    "q_score": {
+      "final": 1.0
+    }
+  },
+  {
+    "method": "purple",
+    "task": "putting_away_Halloween_decorations",
+    "instance_id": 301,
+    "rollout_id": 0,
+    "steps": 27010,
+    "success": true,
+    "q_score": {
+      "final": 1.0
+    }
+  },
+  {
+    "method": "pink",
+    "task": "putting_away_Halloween_decorations",
+    "instance_id": 301,
+    "rollout_id": 0,
+    "steps": 13421,
+    "success": true,
+    "q_score": {
+      "final": 1.0
+    }
+  }
+]

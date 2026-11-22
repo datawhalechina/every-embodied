@@ -1,0 +1,38 @@
+[
+  {
+    "method": "astra",
+    "instance": 301,
+    "native_score": 1.0,
+    "steps": 16785,
+    "upper_tokens": 149962542,
+    "g05_calls": 0,
+    "upper_turns": 469,
+    "g05_steps": 0,
+    "initial_sequence": 43,
+    "action_stream_sha256": "d6e1483567b7de22e5f655c03a12756a568ab000a313bc510ecc729a2568c40e"
+  },
+  {
+    "method": "purple",
+    "instance": 301,
+    "native_score": 1.0,
+    "steps": 27010,
+    "upper_tokens": 170351037,
+    "g05_calls": 7,
+    "upper_turns": 900,
+    "g05_steps": 144,
+    "initial_sequence": 43,
+    "action_stream_sha256": "bf294050cf797d1eca7c4448ae67d0a2e5625598fa95be017fe565734fd9de16"
+  },
+  {
+    "method": "pink",
+    "instance": 301,
+    "native_score": 1.0,
+    "steps": 13421,
+    "upper_tokens": 33524727,
+    "g05_calls": 55,
+    "upper_turns": 132,
+    "g05_steps": 168,
+    "initial_sequence": 43,
+    "action_stream_sha256": "010eb887cb2855ace966e000f6424da1180ef6af8884fe3a926bee925f7ef280"
+  }
+]

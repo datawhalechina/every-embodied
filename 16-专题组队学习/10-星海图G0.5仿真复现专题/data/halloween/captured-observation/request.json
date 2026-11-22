@@ -1,0 +1,14 @@
+{
+  "request_id": "halloween-301-initial",
+  "fixture_only": false,
+  "source": "official_allowed_observation",
+  "episode_id": "halloween-instance-301-recorded",
+  "sequence": 43,
+  "task": "Put away the Halloween decorations.",
+  "history": [
+    {
+      "path": "initial.npz",
+      "sha256": "6df20d9210960c6e3c3df52e01fdfd0c2689763127deeb6fe0b62af5e31b7069"
+    }
+  ]
+}

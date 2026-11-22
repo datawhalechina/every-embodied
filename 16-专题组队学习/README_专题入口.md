@@ -9,6 +9,7 @@
 - [地瓜机器人](https://datawhalechina.github.io/every-embodied/zh-cn/#/topics/rdk)：[MicroDuck](https://datawhalechina.github.io/every-embodied/zh-cn/#/topics/microduck) 与 [Jumper 螃蟹机器人](https://datawhalechina.github.io/every-embodied/zh-cn/#/topics/jumper)。
 - [Aura 交互机器人与具身 Agent](https://datawhalechina.github.io/every-embodied/zh-cn/#/topics/aura)：多视角完整过程、视觉识别与家庭任务。
 - [AMD Physical AI](https://datawhalechina.github.io/every-embodied/zh-cn/#/topics/amd)：家庭操作、灵巧手与多相机仿真。
+- [星海图 G0.5](https://datawhalechina.github.io/every-embodied/zh-cn/#/topics/galaxea-g05)：双手弹琴、同场景叠衣对照与万圣节长程操作。
 
 ## 当前专题
 
@@ -19,6 +20,7 @@
 - [MicroDuck 与 Jumper 联合组队学习：21 天方案](./08-MicroDuck与Jumper联合组队学习/学习指南.md) · [招募文案](./08-MicroDuck与Jumper联合组队学习/招募文案.md)
 
 - [Aura 交互机器人与具身 Agent：14 天组队学习](./09-Aura交互机器人与具身Agent专题/README.md) · [学习计划](./09-Aura交互机器人与具身Agent专题/学习计划.md) · [完整视频](./09-Aura交互机器人与具身Agent专题/视频目录.md)
+- [星海图 G0.5 仿真复现专题](./10-星海图G0.5仿真复现专题/README.md) · [叠衣服与桌面整理](./10-星海图G0.5仿真复现专题/02-叠衣服与桌面整理.md) · [万圣节收纳](./10-星海图G0.5仿真复现专题/03-万圣节收纳.md)
 
 ## 专题关系
 

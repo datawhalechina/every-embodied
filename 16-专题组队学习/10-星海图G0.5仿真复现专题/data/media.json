@@ -1,0 +1,612 @@
+[
+  {
+    "id": "piano-performance",
+    "project": "piano",
+    "title": "双手弹琴与位置扰动",
+    "video": "../../06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-relocation-performance.mp4",
+    "duration": 35.96,
+    "provenance": {
+      "type": "既有教程演示",
+      "source": "piano-relocation-performance.mp4"
+    },
+    "frames": [
+      {
+        "time_seconds": 1,
+        "path": "assets/frames/piano-performance-01.webp"
+      },
+      {
+        "time_seconds": 5,
+        "path": "assets/frames/piano-performance-02.webp"
+      },
+      {
+        "time_seconds": 9,
+        "path": "assets/frames/piano-performance-03.webp"
+      },
+      {
+        "time_seconds": 13,
+        "path": "assets/frames/piano-performance-04.webp"
+      },
+      {
+        "time_seconds": 17,
+        "path": "assets/frames/piano-performance-05.webp"
+      },
+      {
+        "time_seconds": 21,
+        "path": "assets/frames/piano-performance-06.webp"
+      },
+      {
+        "time_seconds": 26,
+        "path": "assets/frames/piano-performance-07.webp"
+      },
+      {
+        "time_seconds": 31,
+        "path": "assets/frames/piano-performance-08.webp"
+      },
+      {
+        "time_seconds": 35,
+        "path": "assets/frames/piano-performance-09.webp"
+      }
+    ]
+  },
+  {
+    "id": "piano-recovery",
+    "project": "piano",
+    "title": "中途位移与重新对准",
+    "video": "../../06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/public-relocation-demo.mp4",
+    "duration": 13.5,
+    "provenance": {
+      "type": "既有教程演示",
+      "source": "public-relocation-demo.mp4"
+    },
+    "frames": [
+      {
+        "time_seconds": 1,
+        "path": "assets/frames/piano-recovery-01.webp"
+      },
+      {
+        "time_seconds": 3.5,
+        "path": "assets/frames/piano-recovery-02.webp"
+      },
+      {
+        "time_seconds": 4.8,
+        "path": "assets/frames/piano-recovery-03.webp"
+      },
+      {
+        "time_seconds": 5.6,
+        "path": "assets/frames/piano-recovery-04.webp"
+      },
+      {
+        "time_seconds": 6.8,
+        "path": "assets/frames/piano-recovery-05.webp"
+      },
+      {
+        "time_seconds": 8.2,
+        "path": "assets/frames/piano-recovery-06.webp"
+      },
+      {
+        "time_seconds": 9.5,
+        "path": "assets/frames/piano-recovery-07.webp"
+      },
+      {
+        "time_seconds": 12.7,
+        "path": "assets/frames/piano-recovery-08.webp"
+      }
+    ]
+  },
+  {
+    "id": "fold-student",
+    "project": "fold",
+    "title": "叠衣服 · 仅 G0.5",
+    "video": "assets/clips/fold-student.mp4",
+    "duration": 20.04,
+    "provenance": {
+      "type": "RoboDojo 原生回合录像",
+      "case_id": "fold_clothes__random__g0__l0",
+      "method": "g05_only",
+      "native_score": 0.0
+    },
+    "frames": [
+      {
+        "time_seconds": 0.6,
+        "path": "assets/frames/fold-student-01.webp"
+      },
+      {
+        "time_seconds": 4.21,
+        "path": "assets/frames/fold-student-02.webp"
+      },
+      {
+        "time_seconds": 8.02,
+        "path": "assets/frames/fold-student-03.webp"
+      },
+      {
+        "time_seconds": 11.82,
+        "path": "assets/frames/fold-student-04.webp"
+      },
+      {
+        "time_seconds": 15.63,
+        "path": "assets/frames/fold-student-05.webp"
+      },
+      {
+        "time_seconds": 19.24,
+        "path": "assets/frames/fold-student-06.webp"
+      }
+    ]
+  },
+  {
+    "id": "fold-reasoner",
+    "project": "fold",
+    "title": "叠衣服 · 仅上层推理",
+    "video": "assets/clips/fold-reasoner.mp4",
+    "duration": 9.88,
+    "provenance": {
+      "type": "RoboDojo 原生回合录像",
+      "case_id": "fold_clothes__random__g0__l0",
+      "method": "gpt_only",
+      "native_score": 0.0
+    },
+    "frames": [
+      {
+        "time_seconds": 0.3,
+        "path": "assets/frames/fold-reasoner-01.webp"
+      },
+      {
+        "time_seconds": 2.07,
+        "path": "assets/frames/fold-reasoner-02.webp"
+      },
+      {
+        "time_seconds": 3.95,
+        "path": "assets/frames/fold-reasoner-03.webp"
+      },
+      {
+        "time_seconds": 5.83,
+        "path": "assets/frames/fold-reasoner-04.webp"
+      },
+      {
+        "time_seconds": 7.71,
+        "path": "assets/frames/fold-reasoner-05.webp"
+      },
+      {
+        "time_seconds": 9.48,
+        "path": "assets/frames/fold-reasoner-06.webp"
+      }
+    ]
+  },
+  {
+    "id": "fold-mixed",
+    "project": "fold",
+    "title": "叠衣服 · G0.5 + 上层推理",
+    "video": "assets/clips/fold-mixed.mp4",
+    "duration": 18.28,
+    "provenance": {
+      "type": "RoboDojo 原生回合录像",
+      "case_id": "fold_clothes__random__g0__l0",
+      "method": "g05_plus_gpt",
+      "native_score": 1.0
+    },
+    "frames": [
+      {
+        "time_seconds": 0.55,
+        "path": "assets/frames/fold-mixed-01.webp"
+      },
+      {
+        "time_seconds": 3.84,
+        "path": "assets/frames/fold-mixed-02.webp"
+      },
+      {
+        "time_seconds": 7.31,
+        "path": "assets/frames/fold-mixed-03.webp"
+      },
+      {
+        "time_seconds": 10.79,
+        "path": "assets/frames/fold-mixed-04.webp"
+      },
+      {
+        "time_seconds": 14.26,
+        "path": "assets/frames/fold-mixed-05.webp"
+      },
+      {
+        "time_seconds": 17.55,
+        "path": "assets/frames/fold-mixed-06.webp"
+      }
+    ]
+  },
+  {
+    "id": "table-mixed",
+    "project": "fold",
+    "title": "桌面整理 · G0.5 + 上层推理",
+    "video": "assets/clips/table-mixed.mp4",
+    "duration": 40.04,
+    "provenance": {
+      "type": "RoboDojo 原生回合录像",
+      "case_id": "organize_table__standard__g0__l2",
+      "method": "g05_plus_gpt",
+      "native_score": 0.75
+    },
+    "frames": [
+      {
+        "time_seconds": 1.2,
+        "path": "assets/frames/table-mixed-01.webp"
+      },
+      {
+        "time_seconds": 8.41,
+        "path": "assets/frames/table-mixed-02.webp"
+      },
+      {
+        "time_seconds": 16.02,
+        "path": "assets/frames/table-mixed-03.webp"
+      },
+      {
+        "time_seconds": 23.62,
+        "path": "assets/frames/table-mixed-04.webp"
+      },
+      {
+        "time_seconds": 31.23,
+        "path": "assets/frames/table-mixed-05.webp"
+      },
+      {
+        "time_seconds": 38.44,
+        "path": "assets/frames/table-mixed-06.webp"
+      }
+    ]
+  },
+  {
+    "id": "pot-astra",
+    "project": "halloween",
+    "title": "移走锅具 · 纯上层推理",
+    "video": "assets/clips/pot-astra.mp4",
+    "duration": 28.0,
+    "provenance": {
+      "type": "OmniGibson 回合摘录",
+      "instance": 301,
+      "method": "astra",
+      "source_video_start": 46,
+      "source_video_end": 74
+    },
+    "frames": [
+      {
+        "time_seconds": 1,
+        "path": "assets/frames/pot-astra-01.webp"
+      },
+      {
+        "time_seconds": 5,
+        "path": "assets/frames/pot-astra-02.webp"
+      },
+      {
+        "time_seconds": 10,
+        "path": "assets/frames/pot-astra-03.webp"
+      },
+      {
+        "time_seconds": 16,
+        "path": "assets/frames/pot-astra-04.webp"
+      },
+      {
+        "time_seconds": 22,
+        "path": "assets/frames/pot-astra-05.webp"
+      },
+      {
+        "time_seconds": 27,
+        "path": "assets/frames/pot-astra-06.webp"
+      }
+    ]
+  },
+  {
+    "id": "pot-purple",
+    "project": "halloween",
+    "title": "移走锅具 · G0.5 无原生思维链",
+    "video": "assets/clips/pot-purple.mp4",
+    "duration": 28.0,
+    "provenance": {
+      "type": "OmniGibson 回合摘录",
+      "instance": 301,
+      "method": "purple",
+      "source_video_start": 23,
+      "source_video_end": 51
+    },
+    "frames": [
+      {
+        "time_seconds": 1,
+        "path": "assets/frames/pot-purple-01.webp"
+      },
+      {
+        "time_seconds": 5,
+        "path": "assets/frames/pot-purple-02.webp"
+      },
+      {
+        "time_seconds": 10,
+        "path": "assets/frames/pot-purple-03.webp"
+      },
+      {
+        "time_seconds": 16,
+        "path": "assets/frames/pot-purple-04.webp"
+      },
+      {
+        "time_seconds": 22,
+        "path": "assets/frames/pot-purple-05.webp"
+      },
+      {
+        "time_seconds": 27,
+        "path": "assets/frames/pot-purple-06.webp"
+      }
+    ]
+  },
+  {
+    "id": "pot-pink",
+    "project": "halloween",
+    "title": "移走锅具 · G0.5 有原生思维链",
+    "video": "assets/clips/pot-pink.mp4",
+    "duration": 28.0,
+    "provenance": {
+      "type": "OmniGibson 回合摘录",
+      "instance": 301,
+      "method": "pink",
+      "source_video_start": 29,
+      "source_video_end": 57
+    },
+    "frames": [
+      {
+        "time_seconds": 1,
+        "path": "assets/frames/pot-pink-01.webp"
+      },
+      {
+        "time_seconds": 5,
+        "path": "assets/frames/pot-pink-02.webp"
+      },
+      {
+        "time_seconds": 10,
+        "path": "assets/frames/pot-pink-03.webp"
+      },
+      {
+        "time_seconds": 16,
+        "path": "assets/frames/pot-pink-04.webp"
+      },
+      {
+        "time_seconds": 22,
+        "path": "assets/frames/pot-pink-05.webp"
+      },
+      {
+        "time_seconds": 27,
+        "path": "assets/frames/pot-pink-06.webp"
+      }
+    ]
+  },
+  {
+    "id": "candle-astra",
+    "project": "halloween",
+    "title": "蜡烛入抽屉 · 纯上层推理",
+    "video": "assets/clips/candle-astra.mp4",
+    "duration": 40.0,
+    "provenance": {
+      "type": "OmniGibson 回合摘录",
+      "instance": 301,
+      "method": "astra",
+      "source_video_start": 227,
+      "source_video_end": 267
+    },
+    "frames": [
+      {
+        "time_seconds": 1,
+        "path": "assets/frames/candle-astra-01.webp"
+      },
+      {
+        "time_seconds": 7,
+        "path": "assets/frames/candle-astra-02.webp"
+      },
+      {
+        "time_seconds": 14,
+        "path": "assets/frames/candle-astra-03.webp"
+      },
+      {
+        "time_seconds": 21,
+        "path": "assets/frames/candle-astra-04.webp"
+      },
+      {
+        "time_seconds": 30,
+        "path": "assets/frames/candle-astra-05.webp"
+      },
+      {
+        "time_seconds": 38,
+        "path": "assets/frames/candle-astra-06.webp"
+      }
+    ]
+  },
+  {
+    "id": "candle-purple",
+    "project": "halloween",
+    "title": "蜡烛入抽屉 · G0.5 无原生思维链",
+    "video": "assets/clips/candle-purple.mp4",
+    "duration": 40.0,
+    "provenance": {
+      "type": "OmniGibson 回合摘录",
+      "instance": 301,
+      "method": "purple",
+      "source_video_start": 134,
+      "source_video_end": 174
+    },
+    "frames": [
+      {
+        "time_seconds": 1,
+        "path": "assets/frames/candle-purple-01.webp"
+      },
+      {
+        "time_seconds": 7,
+        "path": "assets/frames/candle-purple-02.webp"
+      },
+      {
+        "time_seconds": 14,
+        "path": "assets/frames/candle-purple-03.webp"
+      },
+      {
+        "time_seconds": 21,
+        "path": "assets/frames/candle-purple-04.webp"
+      },
+      {
+        "time_seconds": 30,
+        "path": "assets/frames/candle-purple-05.webp"
+      },
+      {
+        "time_seconds": 38,
+        "path": "assets/frames/candle-purple-06.webp"
+      }
+    ]
+  },
+  {
+    "id": "candle-pink",
+    "project": "halloween",
+    "title": "蜡烛入抽屉 · G0.5 有原生思维链",
+    "video": "assets/clips/candle-pink.mp4",
+    "duration": 40.0,
+    "provenance": {
+      "type": "OmniGibson 回合摘录",
+      "instance": 301,
+      "method": "pink",
+      "source_video_start": 284,
+      "source_video_end": 324
+    },
+    "frames": [
+      {
+        "time_seconds": 1,
+        "path": "assets/frames/candle-pink-01.webp"
+      },
+      {
+        "time_seconds": 7,
+        "path": "assets/frames/candle-pink-02.webp"
+      },
+      {
+        "time_seconds": 14,
+        "path": "assets/frames/candle-pink-03.webp"
+      },
+      {
+        "time_seconds": 21,
+        "path": "assets/frames/candle-pink-04.webp"
+      },
+      {
+        "time_seconds": 30,
+        "path": "assets/frames/candle-pink-05.webp"
+      },
+      {
+        "time_seconds": 38,
+        "path": "assets/frames/candle-pink-06.webp"
+      }
+    ]
+  },
+  {
+    "id": "ending-astra",
+    "project": "halloween",
+    "title": "收尾过程 · 纯上层推理",
+    "video": "assets/clips/ending-astra.mp4",
+    "duration": 30,
+    "provenance": {
+      "type": "OmniGibson 回合摘录",
+      "instance": 301,
+      "method": "astra",
+      "source_video_start": 873,
+      "source_video_end": 903
+    },
+    "frames": [
+      {
+        "path": "assets/frames/ending-astra-01.webp",
+        "time_seconds": 1
+      },
+      {
+        "path": "assets/frames/ending-astra-02.webp",
+        "time_seconds": 6
+      },
+      {
+        "path": "assets/frames/ending-astra-03.webp",
+        "time_seconds": 11
+      },
+      {
+        "path": "assets/frames/ending-astra-04.webp",
+        "time_seconds": 16
+      },
+      {
+        "path": "assets/frames/ending-astra-05.webp",
+        "time_seconds": 22
+      },
+      {
+        "path": "assets/frames/ending-astra-06.webp",
+        "time_seconds": 28
+      }
+    ]
+  },
+  {
+    "id": "ending-purple",
+    "project": "halloween",
+    "title": "收尾过程 · G0.5 无原生思维链",
+    "video": "assets/clips/ending-purple.mp4",
+    "duration": 30,
+    "provenance": {
+      "type": "OmniGibson 回合摘录",
+      "instance": 301,
+      "method": "purple",
+      "source_video_start": 1319,
+      "source_video_end": 1349
+    },
+    "frames": [
+      {
+        "path": "assets/frames/ending-purple-01.webp",
+        "time_seconds": 1
+      },
+      {
+        "path": "assets/frames/ending-purple-02.webp",
+        "time_seconds": 6
+      },
+      {
+        "path": "assets/frames/ending-purple-03.webp",
+        "time_seconds": 11
+      },
+      {
+        "path": "assets/frames/ending-purple-04.webp",
+        "time_seconds": 16
+      },
+      {
+        "path": "assets/frames/ending-purple-05.webp",
+        "time_seconds": 22
+      },
+      {
+        "path": "assets/frames/ending-purple-06.webp",
+        "time_seconds": 28
+      }
+    ]
+  },
+  {
+    "id": "ending-pink",
+    "project": "halloween",
+    "title": "收尾过程 · G0.5 有原生思维链",
+    "video": "assets/clips/ending-pink.mp4",
+    "duration": 30,
+    "provenance": {
+      "type": "OmniGibson 回合摘录",
+      "instance": 301,
+      "method": "pink",
+      "source_video_start": 796,
+      "source_video_end": 826
+    },
+    "frames": [
+      {
+        "path": "assets/frames/ending-pink-01.webp",
+        "time_seconds": 1
+      },
+      {
+        "path": "assets/frames/ending-pink-02.webp",
+        "time_seconds": 6
+      },
+      {
+        "path": "assets/frames/ending-pink-03.webp",
+        "time_seconds": 11
+      },
+      {
+        "path": "assets/frames/ending-pink-04.webp",
+        "time_seconds": 16
+      },
+      {
+        "path": "assets/frames/ending-pink-05.webp",
+        "time_seconds": 22
+      },
+      {
+        "path": "assets/frames/ending-pink-06.webp",
+        "time_seconds": 28
+      }
+    ]
+  }
+]

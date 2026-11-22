@@ -1,0 +1,11 @@
+{
+  "method": "pink",
+  "instance": 301,
+  "commands_observed": 120,
+  "initial_sequence": 43,
+  "last_observed_sequence": 163,
+  "model_calls": 0,
+  "initial_joint_position_max_abs": 0.0,
+  "initial_head_rgb_mean_absolute_difference": 1.5910699588477366,
+  "termination": "archive_command_limit"
+}

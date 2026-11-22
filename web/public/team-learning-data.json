@@ -31,6 +31,16 @@
         "amd"
       ],
       "heroCase": "amd-PackIdenticalLunches"
+    },
+    {
+      "id": "galaxea-g05",
+      "title": "星海图 G0.5",
+      "subtitle": "从动作候选到长程仿真",
+      "description": "用弹琴、叠衣服和家庭收纳理解仿真中的策略与控制。",
+      "topics": [
+        "galaxea-g05"
+      ],
+      "heroCase": "g05-halloween"
     }
   ],
   "topics": [
@@ -168,6 +178,40 @@
           "title": "复核完整评测",
           "text": "查看任务协议、正式分母和选定演示的对应关系。",
           "doc": "16-专题组队学习/04-AMD-ROCm策略复刻专题/README_09_AMD_Physical_AI仿真基准与长程视频复现.md"
+        }
+      ]
+    },
+    {
+      "id": "galaxea-g05",
+      "group": "galaxea-g05",
+      "title": "星海图 G0.5",
+      "eyebrow": "动作策略 · 仿真复现",
+      "lead": "从双手弹琴，\n到完成长程家务。",
+      "description": "三项仿真实践展示动作、上层推理和几何工具如何协作。用一键脚本复核结果，逐帧对照现场。",
+      "doc": "16-专题组队学习/10-星海图G0.5仿真复现专题/README.md",
+      "plan": "16-专题组队学习/10-星海图G0.5仿真复现专题/README.md",
+      "heroCase": "g05-halloween",
+      "accent": "#b46245",
+      "tags": [
+        "动作策略",
+        "仿真回放",
+        "3 项实践"
+      ],
+      "learning": [
+        {
+          "title": "理解移动后的手腕恢复",
+          "text": "看双手重新对准琴键，再读执行器回放和接触检查。",
+          "doc": "16-专题组队学习/10-星海图G0.5仿真复现专题/01-双手弹琴.md"
+        },
+        {
+          "title": "在同一布局比较三种控制",
+          "text": "复核叠衣和桌面整理的原生分数，追踪候选和实际执行。",
+          "doc": "16-专题组队学习/10-星海图G0.5仿真复现专题/02-叠衣服与桌面整理.md"
+        },
+        {
+          "title": "拆解长程任务的阶段交接",
+          "text": "对照导航、抓取、抽屉与跟踪；读取三条连续动作流。",
+          "doc": "16-专题组队学习/10-星海图G0.5仿真复现专题/03-万圣节收纳.md"
         }
       ]
     }
@@ -830,6 +874,120 @@
       "badge": "AMD · 家庭任务",
       "status": "verified",
       "poster": "https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/posters/robocasa-recovery/pack-success.jpg"
+    },
+    {
+      "id": "g05-piano",
+      "topic": "galaxea-g05",
+      "title": "双手弹琴与位移恢复",
+      "description": "琴移动之后，双臂和手指如何继续工作。",
+      "category": "弹琴",
+      "kind": "video",
+      "media": "06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-relocation-performance.mp4",
+      "doc": "16-专题组队学习/10-星海图G0.5仿真复现专题/01-双手弹琴.md",
+      "badge": "MuJoCo",
+      "status": "verified",
+      "views": [
+        {
+          "label": "双手弹琴与位置扰动",
+          "media": "06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-relocation-performance.mp4"
+        },
+        {
+          "label": "中途位移与重新对准",
+          "media": "06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/public-relocation-demo.mp4"
+        }
+      ],
+      "poster": "16-专题组队学习/10-星海图G0.5仿真复现专题/assets/frames/piano-performance-05.webp",
+      "viewLabel": "运行片段",
+      "viewsSynchronized": false,
+      "sourceNote": "历史演示与中途移琴动作分别录制。"
+    },
+    {
+      "id": "g05-fold",
+      "topic": "galaxea-g05",
+      "title": "叠衣服与桌面整理",
+      "description": "同一叠衣布局对照三种方法，也可查看桌面整理回合。",
+      "category": "桌面操作",
+      "kind": "video",
+      "media": "16-专题组队学习/10-星海图G0.5仿真复现专题/assets/clips/fold-mixed.mp4",
+      "doc": "16-专题组队学习/10-星海图G0.5仿真复现专题/02-叠衣服与桌面整理.md",
+      "badge": "RoboDojo",
+      "status": "verified",
+      "views": [
+        {
+          "label": "叠衣服 · G0.5 + 上层推理",
+          "media": "16-专题组队学习/10-星海图G0.5仿真复现专题/assets/clips/fold-mixed.mp4"
+        },
+        {
+          "label": "叠衣服 · 仅 G0.5",
+          "media": "16-专题组队学习/10-星海图G0.5仿真复现专题/assets/clips/fold-student.mp4"
+        },
+        {
+          "label": "叠衣服 · 仅上层推理",
+          "media": "16-专题组队学习/10-星海图G0.5仿真复现专题/assets/clips/fold-reasoner.mp4"
+        },
+        {
+          "label": "桌面整理 · G0.5 + 上层推理",
+          "media": "16-专题组队学习/10-星海图G0.5仿真复现专题/assets/clips/table-mixed.mp4"
+        }
+      ],
+      "poster": "16-专题组队学习/10-星海图G0.5仿真复现专题/assets/frames/fold-mixed-04.webp",
+      "viewLabel": "运行片段",
+      "viewsSynchronized": false,
+      "sourceNote": "叠衣服片段来自同一固定布局的不同运行，桌面整理使用另一固定布局。"
+    },
+    {
+      "id": "g05-halloween",
+      "topic": "galaxea-g05",
+      "title": "万圣节收纳",
+      "description": "对照移走锅具、蜡烛入抽屉和收尾三个阶段，查看三条路径的操作差异。",
+      "category": "家庭收纳",
+      "kind": "video",
+      "media": "16-专题组队学习/10-星海图G0.5仿真复现专题/assets/clips/candle-pink.mp4",
+      "doc": "16-专题组队学习/10-星海图G0.5仿真复现专题/03-万圣节收纳.md",
+      "badge": "RoboHarness",
+      "status": "verified",
+      "views": [
+        {
+          "label": "蜡烛入抽屉 · G0.5 有原生思维链",
+          "media": "16-专题组队学习/10-星海图G0.5仿真复现专题/assets/clips/candle-pink.mp4"
+        },
+        {
+          "label": "蜡烛入抽屉 · G0.5 无原生思维链",
+          "media": "16-专题组队学习/10-星海图G0.5仿真复现专题/assets/clips/candle-purple.mp4"
+        },
+        {
+          "label": "蜡烛入抽屉 · 纯上层推理",
+          "media": "16-专题组队学习/10-星海图G0.5仿真复现专题/assets/clips/candle-astra.mp4"
+        },
+        {
+          "label": "移走锅具 · G0.5 有原生思维链",
+          "media": "16-专题组队学习/10-星海图G0.5仿真复现专题/assets/clips/pot-pink.mp4"
+        },
+        {
+          "label": "移走锅具 · G0.5 无原生思维链",
+          "media": "16-专题组队学习/10-星海图G0.5仿真复现专题/assets/clips/pot-purple.mp4"
+        },
+        {
+          "label": "移走锅具 · 纯上层推理",
+          "media": "16-专题组队学习/10-星海图G0.5仿真复现专题/assets/clips/pot-astra.mp4"
+        },
+        {
+          "label": "收尾过程 · 纯上层推理",
+          "media": "16-专题组队学习/10-星海图G0.5仿真复现专题/assets/clips/ending-astra.mp4"
+        },
+        {
+          "label": "收尾过程 · G0.5 无原生思维链",
+          "media": "16-专题组队学习/10-星海图G0.5仿真复现专题/assets/clips/ending-purple.mp4"
+        },
+        {
+          "label": "收尾过程 · G0.5 有原生思维链",
+          "media": "16-专题组队学习/10-星海图G0.5仿真复现专题/assets/clips/ending-pink.mp4"
+        }
+      ],
+      "poster": "16-专题组队学习/10-星海图G0.5仿真复现专题/assets/frames/candle-pink-04.webp",
+      "viewLabel": "运行片段",
+      "viewsSynchronized": false,
+      "sourceNote": "三条路径使用同一实例 301。无原生思维链路径沿用早期轨迹后续跑。"
     }
   ],
   "featuredPerception": [

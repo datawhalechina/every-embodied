@@ -8,8 +8,8 @@ const data = require("../web/public/team-learning-data.json");
 
 test("all published cases have qualified media and valid topic relationships", () => {
   assert.equal(model.validateData(data), true);
-  assert.equal(data.topics.length, 4);
-  assert.equal(data.groups.length, 3);
+  assert.equal(data.topics.length, 5);
+  assert.equal(data.groups.length, 4);
 });
 test("D-Robotics groups MicroDuck and Jumper, not MagicBox or Aura", () => {
   assert.deepEqual(data.groups.find((g) => g.id === "rdk").topics, ["microduck", "jumper"]);
