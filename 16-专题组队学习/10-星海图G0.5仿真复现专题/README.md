@@ -4,11 +4,13 @@
 
 先读 [00 · 原理导读](00-原理导读.md)，了解模型如何生成动作、控制器怎样执行，以及三种复现各能验证什么。
 
-| 章节 | 实践 | 完整视频 |
-| --- | --- | --- |
-| [01 · 双手弹琴](01-双手弹琴.md) | 运行 MuJoCo［物理仿真引擎］回放，读出琴键触发，理解移动琴键后的重新对准 | [B 站](https://www.bilibili.com/video/BV1FhHW6dERA/) |
-| [02 · 叠衣服与桌面整理](02-叠衣服与桌面整理.md) | 在 RoboDojo 对齐固定场景，比较 G0.5 动作、上层控制与两者协作 | [B 站](https://www.bilibili.com/video/BV1HMJY61ENP/) |
-| [03 · 万圣节收纳](03-万圣节收纳.md) | 在 RoboHarness 拆解长程任务，比较同一实例的三条完整动作流 | [B 站](https://www.bilibili.com/video/BV1huyezgEAH/) |
+| 章节 | 实践 | 小红书（活动主发布） | B 站（同步发布） |
+| --- | --- | --- | --- |
+| [01 · 双手弹琴](01-双手弹琴.md) | 运行 MuJoCo［物理仿真引擎］回放，读出琴键触发，理解移动琴键后的重新对准 | [看小红书完整版](https://www.xiaohongshu.com/explore/6ac373a8000000000a02209c?xsec_token=AB1VkPJCiZ9JR012UmZ5XPREYBX5v5UZafYfhVPVyAFQM=&xsec_source=pc_user) | [看 B 站完整版](https://www.bilibili.com/video/BV1FhHW6dERA/) |
+| [02 · 叠衣服与桌面整理](02-叠衣服与桌面整理.md) | 在 RoboDojo 对齐固定场景，比较 G0.5 动作、上层控制与两者协作 | [看小红书完整版](https://www.xiaohongshu.com/explore/6ad2e41a0000000015014966?xsec_token=ABzE4Vr7EXL0p7MRPAA9JzcUswNHzKqMLni0Y0fK8A5L0=&xsec_source=pc_user) | [看 B 站完整版](https://www.bilibili.com/video/BV1HMJY61ENP/) |
+| [03 · 万圣节收纳](03-万圣节收纳.md) | 在 RoboHarness 拆解长程任务，比较同一实例的三条完整动作流 | [看小红书完整版](https://www.xiaohongshu.com/explore/6b019d8c000000001802e0b7?xsec_token=ABl4vfrbBHNES09U31x3CEc-ve4pQ3So1019yNsyF06oQ=&xsec_source=pc_user) | [看 B 站完整版](https://www.bilibili.com/video/BV1huyezgEAH/) |
+
+活动作品以小红书为主发布渠道。按活动群公告，发布时需 @ 星海图 Galaxea 官方账号并带话题 `#星海图`、`#GalaxeaG05`。B 站为同步发布渠道。
 
 [![演播室内机器人弹奏《我爱你，中国》](assets/frames/piano-studio-02.webp)](01-双手弹琴.md)
 [![RoboDojo 叠衣服](assets/frames/fold-mixed-04.webp)](02-叠衣服与桌面整理.md)

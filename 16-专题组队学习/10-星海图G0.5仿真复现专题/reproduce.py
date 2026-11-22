@@ -27,11 +27,19 @@ LESSONS = {
     "halloween": "03-万圣节收纳.md",
 }
 FULL_VIDEOS = {
-    "piano": "https://www.bilibili.com/video/BV1FhHW6dERA/",
-    "fold": "https://www.bilibili.com/video/BV1HMJY61ENP/",
-    "halloween": "https://www.bilibili.com/video/BV1huyezgEAH/",
+    "piano": (
+        ("小红书完整版", "https://www.xiaohongshu.com/explore/6ac373a8000000000a02209c?xsec_token=AB1VkPJCiZ9JR012UmZ5XPREYBX5v5UZafYfhVPVyAFQM=&xsec_source=pc_user"),
+        ("B 站完整版", "https://www.bilibili.com/video/BV1FhHW6dERA/"),
+    ),
+    "fold": (
+        ("小红书完整版", "https://www.xiaohongshu.com/explore/6ad2e41a0000000015014966?xsec_token=ABzE4Vr7EXL0p7MRPAA9JzcUswNHzKqMLni0Y0fK8A5L0=&xsec_source=pc_user"),
+        ("B 站完整版", "https://www.bilibili.com/video/BV1HMJY61ENP/"),
+    ),
+    "halloween": (
+        ("小红书完整版", "https://www.xiaohongshu.com/explore/6b019d8c000000001802e0b7?xsec_token=ABl4vfrbBHNES09U31x3CEc-ve4pQ3So1019yNsyF06oQ=&xsec_source=pc_user"),
+        ("B 站完整版", "https://www.bilibili.com/video/BV1huyezgEAH/"),
+    ),
 }
-
 
 def require(condition, description):
     if not condition:
@@ -153,9 +161,12 @@ def render_gallery(output, report):
     blocks = []
     for project, title in TITLES.items():
         lesson = asset_url(output, LESSONS[project])
+        published_links = " · ".join(
+            f'<a href="{escape(url)}">{label}</a>' for label, url in FULL_VIDEOS[project]
+        )
         blocks.append(f'<section id="{project}"><h2>{title}</h2>'
                       f'<p><a href="{lesson}">查看复现教程</a> · '
-                      f'<a href="{FULL_VIDEOS[project]}">完整讲解视频</a></p>')
+                      f'{published_links}</p>')
         for clip in [row for row in media if row["project"] == project]:
             source = asset_url(output, clip["video"])
             frames = []
