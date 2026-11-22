@@ -1,50 +1,50 @@
 [
   {
-    "id": "piano-performance",
+    "id": "piano-studio",
     "project": "piano",
-    "title": "双手弹琴与位置扰动",
-    "video": "../../06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-relocation-performance.mp4",
-    "duration": 35.96,
+    "title": "演播室成片 · 《我爱你，中国》",
+    "video": "../../06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-xiaohongshu.mp4",
+    "duration": 34.588,
     "provenance": {
-      "type": "既有教程演示",
-      "source": "piano-relocation-performance.mp4"
+      "type": "原教程收录的小红书音乐室发布版",
+      "source": "piano-xiaohongshu.mp4"
     },
     "frames": [
       {
         "time_seconds": 1,
-        "path": "assets/frames/piano-performance-01.webp"
+        "path": "assets/frames/piano-studio-01.webp"
       },
       {
         "time_seconds": 5,
-        "path": "assets/frames/piano-performance-02.webp"
+        "path": "assets/frames/piano-studio-02.webp"
       },
       {
         "time_seconds": 9,
-        "path": "assets/frames/piano-performance-03.webp"
+        "path": "assets/frames/piano-studio-03.webp"
       },
       {
         "time_seconds": 13,
-        "path": "assets/frames/piano-performance-04.webp"
+        "path": "assets/frames/piano-studio-04.webp"
       },
       {
         "time_seconds": 17,
-        "path": "assets/frames/piano-performance-05.webp"
+        "path": "assets/frames/piano-studio-05.webp"
       },
       {
         "time_seconds": 21,
-        "path": "assets/frames/piano-performance-06.webp"
+        "path": "assets/frames/piano-studio-06.webp"
       },
       {
         "time_seconds": 26,
-        "path": "assets/frames/piano-performance-07.webp"
+        "path": "assets/frames/piano-studio-07.webp"
       },
       {
         "time_seconds": 31,
-        "path": "assets/frames/piano-performance-08.webp"
+        "path": "assets/frames/piano-studio-08.webp"
       },
       {
-        "time_seconds": 35,
-        "path": "assets/frames/piano-performance-09.webp"
+        "time_seconds": 34,
+        "path": "assets/frames/piano-studio-09.webp"
       }
     ]
   },

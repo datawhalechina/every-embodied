@@ -878,28 +878,28 @@
     {
       "id": "g05-piano",
       "topic": "galaxea-g05",
-      "title": "双手弹琴与位移恢复",
-      "description": "琴移动之后，双臂和手指如何继续工作。",
+      "title": "演播室双手弹琴《我爱你，中国》",
+      "description": "R1 Pro 在演播室双手弹奏，电视大屏随乐曲切换画面。",
       "category": "弹琴",
       "kind": "video",
-      "media": "06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-relocation-performance.mp4",
+      "media": "06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-xiaohongshu.mp4",
       "doc": "16-专题组队学习/10-星海图G0.5仿真复现专题/01-双手弹琴.md",
       "badge": "MuJoCo",
       "status": "verified",
       "views": [
         {
-          "label": "双手弹琴与位置扰动",
-          "media": "06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-relocation-performance.mp4"
+          "label": "演播室成片 · 《我爱你，中国》",
+          "media": "06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/piano-xiaohongshu.mp4"
         },
         {
           "label": "中途位移与重新对准",
           "media": "06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/assets/public-relocation-demo.mp4"
         }
       ],
-      "poster": "16-专题组队学习/10-星海图G0.5仿真复现专题/assets/frames/piano-performance-05.webp",
+      "poster": "16-专题组队学习/10-星海图G0.5仿真复现专题/assets/frames/piano-studio-05.webp",
       "viewLabel": "运行片段",
       "viewsSynchronized": false,
-      "sourceNote": "历史演示与中途移琴动作分别录制。"
+      "sourceNote": "首段是音乐室发布成片。移琴和重新对准片段来自单独的仿真验证。"
     },
     {
       "id": "g05-fold",

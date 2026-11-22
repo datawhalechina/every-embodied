@@ -2,7 +2,7 @@
 
 ## 双手弹琴
 
-沿用仓库内的[双手弹琴原教程](../../06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/README.md)与其原始视频、乐曲署名、仿真回放包和脚本。专题中的 17 张画面由原章节的 `piano-relocation-performance.mp4` 与 `public-relocation-demo.mp4` 提取。
+沿用仓库内的[双手弹琴原教程](../../06-策略抓取或抓取VLA/大模型控制、VLA、VLM/20-GPT6-Astra机器人弹琴与上下文工程/README.md)与其原始视频、乐曲署名、仿真回放包和脚本。专题中的 17 张画面由原章节的 `piano-xiaohongshu.mp4`（演播室发布成片）与 `public-relocation-demo.mp4`（移琴技术演示）提取。
 
 ## 叠衣服与桌面整理
 

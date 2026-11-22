@@ -8,7 +8,7 @@
 | [02 · 叠衣服与桌面整理](02-叠衣服与桌面整理.md) | 在 RoboDojo 对齐固定场景，比较 G0.5 动作、上层控制与两者协作 | [B 站](https://www.bilibili.com/video/BV1HMJY61ENP/) |
 | [03 · 万圣节收纳](03-万圣节收纳.md) | 在 RoboHarness 拆解长程任务，比较同一实例的三条完整动作流 | [B 站](https://www.bilibili.com/video/BV1huyezgEAH/) |
 
-[![机器人弹琴](assets/frames/piano-performance-02.webp)](01-双手弹琴.md)
+[![演播室内机器人弹奏《我爱你，中国》](assets/frames/piano-studio-02.webp)](01-双手弹琴.md)
 [![RoboDojo 叠衣服](assets/frames/fold-mixed-04.webp)](02-叠衣服与桌面整理.md)
 [![万圣节收纳](assets/frames/candle-pink-04.webp)](03-万圣节收纳.md)
 
