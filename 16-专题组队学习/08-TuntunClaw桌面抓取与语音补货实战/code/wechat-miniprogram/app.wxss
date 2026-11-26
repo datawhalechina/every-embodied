@@ -1,0 +1,23 @@
+page {
+  background-color: #f4f5f2;
+  color: #17191c;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 28rpx;
+}
+.card {
+  background: #ffffff;
+  border-radius: 22rpx;
+  padding: 26rpx;
+  margin-bottom: 22rpx;
+  box-shadow: 0 4rpx 18rpx rgba(23, 25, 28, 0.05);
+}
+.badge {
+  display: inline-block;
+  padding: 6rpx 16rpx;
+  border-radius: 999rpx;
+  font-size: 22rpx;
+  font-weight: 700;
+}
+.badge-teal { background: #dff2ef; color: #087f78; }
+.badge-red { background: #fae5e2; color: #c33a2c; }
+.badge-amber { background: #fdf4da; color: #9a6d00; }

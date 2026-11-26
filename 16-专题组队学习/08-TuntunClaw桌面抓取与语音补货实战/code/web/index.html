@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#17191c" />
+  <title>TuntunClaw 囤囤钳 · 地瓜黑客松展台智能补货小程序</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">T</div>
+      <div class="brand-text">
+        <div class="eyebrow">TUNTUNCLAW · D-ROBOTICS MAGIC BOX + MYCOBOT 280</div>
+        <h1>TuntunClaw 囤囤钳展台</h1>
+      </div>
+    </div>
+    <div class="top-right">
+      <span id="connPill" class="pill pill-wait"><i class="dot"></i><b id="connText">连接中</b></span>
+      <a class="icon-btn" href="/align" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;" title="双摄 1:1 桌面摆区校准">1:1校准</a>
+      <button class="icon-btn" id="openQrBtn" title="展台扫码入口">扫码</button>
+    </div>
+  </header>
+
+  <main class="shell">
+    <!-- TAB 1: LIVE TWIN, MAGIC BOX VOICE & ROBOT CONTROL -->
+    <section class="tab-panel active" id="tab-live">
+      <div class="live-grid">
+        <div class="card stage-card">
+          <div class="card-head">
+            <div>
+              <span class="tag">LIVE DIGITAL TWIN · 1:1 MYCOBOT 280 PI</span>
+              <h2>多视角实时画面</h2>
+            </div>
+            <span id="robotStateBadge" class="badge badge-teal">待命中</span>
+          </div>
+
+          <div class="cam-tabs" id="camTabs">
+            <button class="cam-tab active" data-cam="booth_overview">3D仿真总览</button>
+            <button class="cam-tab" data-cam="overhead_top">1:1 仿真俯视</button>
+            <button class="cam-tab" data-cam="c931_view">1:1 仿真C931</button>
+            <button class="cam-tab" data-cam="wrist_rgb">仿真腕部RGB</button>
+            <button class="cam-tab" data-cam="magicbox_cam">MagicBox视角</button>
+            <button class="cam-tab" data-cam="top">顶部Orbbec实拍</button>
+            <button class="cam-tab" data-cam="c931">C931实拍</button>
+            <button class="cam-tab" data-cam="real_wrist">真机腕部RGB</button>
+          </div>
+
+          <div class="viewport">
+            <img id="liveFeed" src="/api/camera/booth_overview.jpg" alt="实时画面" />
+            <div class="hud-bottom">
+              <div class="phase-line">
+                <span id="phaseText">正在同步孪生状态...</span>
+                <span id="tcpText">TCP (0, 0, 0) mm</span>
+              </div>
+              <div class="progress-track"><div id="progressBar" class="progress-bar" style="width:0%"></div></div>
+            </div>
+          </div>
+
+          <div class="mode-bar">
+            <div class="mode-group">
+              <span class="mode-label">运行模式</span>
+              <button class="mode-pill active" data-exec-mode="simulation">1:1仿真孪生</button>
+              <button class="mode-pill" data-exec-mode="dual_sync">真实+仿真双同步</button>
+              <button class="mode-pill" data-exec-mode="real_hardware">真机闭环</button>
+            </div>
+            <div class="mode-group">
+              <span class="mode-label">抓取策略</span>
+              <button class="mode-pill active" data-strategy="servo_closed_loop">闭环视觉伺服</button>
+              <button class="mode-pill" data-strategy="oriented">定向PCA夹盖</button>
+              <button class="mode-pill" data-strategy="baseline">基线对照</button>
+            </div>
+          </div>
+
+          <div class="action-bar">
+            <button class="btn btn-accent" id="btnDemo">▶ 一键5阶段展台全体验</button>
+            <button class="btn btn-primary" id="btnWelcome">👋 迎宾问候</button>
+            <button class="btn btn-primary" id="btnScan">🔍 扫描盘点</button>
+            <button class="btn btn-soft" id="btnRecycle">↩️ 回收取货区物资</button>
+            <button class="btn btn-soft" id="btnRestock">♻️ 补货复位</button>
+            <button class="btn btn-soft" id="btnHome">🏠 回安全位</button>
+            <button class="btn btn-danger" id="btnStop">🛑 急停</button>
+          </div>
+        </div>
+
+        <div class="side-stack">
+          <!-- Magic Box Staged Voice Console -->
+          <div class="card voice-card">
+            <div class="card-head">
+              <div>
+                <span class="tag">RDK X5 MAGIC BOX · STUDIO BRIGHT VOICE</span>
+                <h2>Magic Box 清亮分阶段语音</h2>
+              </div>
+              <span id="voiceBadge" class="badge badge-muted">检测中</span>
+            </div>
+            <div class="voice-bubble" id="voiceBubble">等待播报（热缓存触发延迟 &lt;40ms）</div>
+            <div class="voice-controls">
+              <select id="voicePreset" class="voice-select">
+                <option value="xiaoyi">清亮元气女声 (小艺·推荐)</option>
+                <option value="xiaoxiao">温柔甜美女声 (晓晓)</option>
+                <option value="yunxi">清澈阳光男声 (云希)</option>
+              </select>
+              <label class="vol-wrap">
+                <span>音量 <b id="volVal">88</b>%</span>
+                <input id="volSlider" type="range" min="40" max="100" value="88" />
+              </label>
+              <button class="btn btn-soft btn-sm" id="btnSpeakInv">📢 语音报库存</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <span class="tag">QUICK PICK &amp; RECYCLE</span>
+                <h2>点单取送与自动回收</h2>
+              </div>
+              <span class="mini-note" id="trayCountText">取货区 0 件</span>
+            </div>
+            <p class="sub-hint">点击物品触发「正在取送 → 送达+报余量+仅供演示提示」语音与动作；体验后点「回收取货区物资」触发回收语音并自动归位。</p>
+            <div class="quick-pick-grid" id="quickPickGrid"></div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <span class="tag">TELEMETRY &amp; JOINT JOG</span>
+                <h2>6轴遥测与安全微调</h2>
+              </div>
+              <span class="mini-note">夹爪张开 <b id="gripPct">100</b>%</span>
+            </div>
+            <div class="joint-grid" id="jointGrid"></div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <span class="tag">EVENT TIMELINE</span>
+                <h2>实时执行与播报日志</h2>
+              </div>
+            </div>
+            <ul class="event-list" id="eventList"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: INVENTORY -->
+    <section class="tab-panel" id="tab-inventory">
+      <div class="kpi-strip">
+        <div class="kpi"><small>取料区当前余量</small><strong id="kpiStock">0</strong></div>
+        <div class="kpi"><small>当前在取货区</small><strong id="kpiDelivered">0</strong></div>
+        <div class="kpi kpi-alert"><small>触发低库存预警</small><strong id="kpiLow">0</strong></div>
+        <div class="kpi kpi-warn"><small>待处理补货项</small><strong id="kpiPending">0</strong></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <span class="tag">REAL-TIME INVENTORY</span>
+            <h2>TuntunClaw 展台物料实时统计</h2>
+          </div>
+          <button class="btn btn-primary btn-sm" id="btnScanInv">🔍 重新视觉盘点</button>
+        </div>
+        <div class="inv-list" id="inventoryList"></div>
+      </div>
+    </section>
+
+    <!-- TAB 3: REPLENISHMENT CHECKLIST -->
+    <section class="tab-panel" id="tab-replenish">
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <span class="tag">AUTO REPLENISHMENT LIST</span>
+            <h2>TuntunClaw 补货清单</h2>
+          </div>
+          <button class="btn btn-soft btn-sm" id="btnCopyList">📋 复制清单文本</button>
+        </div>
+        <p class="sub-hint">替代飞书多维表格，当桌面物料余量 ≤ 预警阈值时自动上榜并由 Magic Box 语音提醒；扫码手机端可实时勾选采购状态。</p>
+
+        <form class="add-rep-form" id="addRepForm">
+          <input type="text" id="repName" placeholder="手动登记补货品名（如：矿泉水）" required />
+          <input type="number" id="repQty" value="5" min="1" max="99" />
+          <input type="text" id="repUnit" value="瓶" placeholder="单位" />
+          <button class="btn btn-primary btn-sm" type="submit">+ 加入清单</button>
+        </form>
+
+        <div class="rep-list" id="replenishList"></div>
+      </div>
+    </section>
+
+    <!-- TAB 4: BOOTH LAYOUT & HARDWARE & QR -->
+    <section class="tab-panel" id="tab-layout">
+      <div class="layout-grid">
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <span class="tag">1:1 KINEMATIC BLUEPRINT</span>
+              <h2>展台桌面 1:1 摆放规划图</h2>
+            </div>
+            <a class="btn btn-soft btn-sm" href="/docs-assets/desk_layout_blueprint.png" target="_blank">🔍 原图查看</a>
+          </div>
+          <img class="blueprint-img" src="/docs-assets/desk_layout_blueprint.png" alt="展台1:1工程布局图" />
+          <div class="coord-table">
+            <div><b>myCobot 280 Pi 底座</b><span>原点 (0, 0) · 距桌后沿 220mm，右侧离大臂 ≥350mm</span></div>
+            <div><b>取料区（货架垫）</b><span>(-110, +185) mm · 210×144mm · 100%落于黄金抓环</span></div>
+            <div><b>取货/放料区（胡桃木托盘）</b><span>(+160, +120) mm · 160×190mm · 支持取送+自动回收</span></div>
+            <div><b>地瓜 RDK X5 Magic Box</b><span>(-330, +250) mm · 斜向-32° · 负责清亮语音播报+双目交互</span></div>
+          </div>
+        </div>
+
+        <div class="side-stack">
+          <div class="card qr-card">
+            <div class="card-head">
+              <div>
+                <span class="tag">MOBILE &amp; WECHAT SCAN</span>
+                <h2>展台扫码进入 TuntunClaw</h2>
+              </div>
+            </div>
+            <img class="qr-img" src="/api/qrcode.png" alt="TuntunClaw扫码入口" />
+            <div class="qr-url" id="qrUrlText">加载地址中...</div>
+            <p class="sub-hint">手机连接同一展台 Wi-Fi 即可微信/浏览器扫码实时操控；原生微信小程序源码位于 <code>wechat-miniprogram/</code>。</p>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <span class="tag">REAL MYCOBOT 280 PI BRIDGE</span>
+                <h2>真机联动状态</h2>
+              </div>
+              <span id="hwBadge" class="badge badge-muted">未连接</span>
+            </div>
+            <p class="sub-hint" id="hwHint">myCobot 280 Pi 已通过 UPUP3000-5G Wi-Fi 接入 (192.168.1.100)，点击即可刷新探测。</p>
+            <div class="hw-form">
+              <input id="hwHost" type="text" value="192.168.1.100" placeholder="myCobot Pi IP" />
+              <input id="hwUser" type="text" value="er" placeholder="用户名" />
+              <input id="hwPass" type="password" value="" placeholder="密码" />
+              <button class="btn btn-primary btn-sm" id="btnHwConnect">连接探测</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" id="bottomNav">
+    <button class="nav-item active" data-tab="live"><span>🤖</span><b>实景语音</b></button>
+    <button class="nav-item" data-tab="inventory"><span>📦</span><b>物料统计</b></button>
+    <button class="nav-item" data-tab="replenish"><span>📝</span><b>补货清单</b><em id="navRepBadge" class="nav-badge hidden">0</em></button>
+    <button class="nav-item" data-tab="layout"><span>📐</span><b>布局扫码</b></button>
+  </nav>
+
+  <div class="modal hidden" id="qrModal">
+    <div class="modal-card">
+      <div class="card-head">
+        <h2>TuntunClaw 观众扫码入口</h2>
+        <button class="icon-btn" id="closeQrBtn">关闭</button>
+      </div>
+      <img class="qr-img" src="/api/qrcode.png" alt="扫码入口" />
+      <div class="qr-url" id="qrModalUrl"></div>
+      <p class="sub-hint">支持手机浏览器直接访问与微信小程序封装实时同步。</p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>豚豚CLOUD · 实时双摄 1:1 桌面摆区对齐台（无桌面隔离限制）</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b1120;
+      --card: #111827;
+      --card2: #1e293b;
+      --border: #334155;
+      --fg: #f1f5f9;
+      --muted: #94a3b8;
+      --accent: #10b981;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 14px; background: var(--bg); color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei UI", sans-serif;
+    }
+    .wrap { max-width: 1320px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .hdr {
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 10px 14px;
+    }
+    .hdr h1 { margin: 0; font-size: 16px; color: #38bdf8; }
+    .hdr .sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .status-pill {
+      font-size: 12px; padding: 4px 10px; border-radius: 999px;
+      background: rgba(16,185,129,0.16); color: #34d399; border: 1px solid rgba(52,211,153,0.4);
+      font-family: ui-monospace, Consolas, monospace;
+    }
+    .grid { display: grid; grid-template-columns: minmax(520px, 1.45fr) minmax(360px, 1fr); gap: 12px; align-items: start; }
+    @media (max-width: 980px) { .grid { grid-template-columns: 1fr; } }
+    .panel {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 10px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .panel-title { font-size: 13px; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+    .panel-title span.tag { font-size: 11px; font-weight: 500; color: var(--muted); }
+    .canvas-box {
+      position: relative; width: 100%; aspect-ratio: 4 / 3;
+      border-radius: 8px; overflow: hidden; border: 1px solid var(--border); background: #020617;
+    }
+    #topCanvas { width: 100%; height: 100%; display: block; cursor: grab; touch-action: none; }
+    #topCanvas:active { cursor: grabbing; }
+    .c931-box {
+      width: 100%; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden;
+      border: 1px solid var(--border); background: #020617; position: relative;
+    }
+    #c931Img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .ctrl-card { background: var(--card2); border: 1px solid var(--border); border-radius: 10px; padding: 10px; display: flex; flex-direction: column; gap: 8px; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 6px; }
+    button.btn {
+      border: 1px solid var(--border); background: #0f172a; color: var(--fg);
+      border-radius: 7px; padding: 6px 10px; font-size: 12px; font-weight: 600; cursor: pointer;
+    }
+    button.btn.active { background: #0d9488; border-color: #14b8a6; color: #fff; }
+    .row { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 12px; }
+    .row label { display: flex; align-items: center; gap: 5px; cursor: pointer; }
+    .guide { font-size: 12px; line-height: 1.55; color: #cbd5e1; }
+    .guide b { color: #f8fafc; }
+    .metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; font-size: 11.5px; }
+    .metric {
+      background: #0f172a; border: 1px solid var(--border); border-radius: 8px; padding: 6px 8px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .badge-ok { color: #34d399; font-weight: 700; }
+    .badge-warn { color: #fbbf24; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hdr">
+      <div>
+        <h1>顶部 Orbbec 1:1 俯视标区 + C931 (C1) 实时双摄引导台</h1>
+        <div class="sub">Z=919 mm 实测比例 (0.5585 px/mm @ 640×480) · 木盘固定不变 · 红盘移至底座正左侧 · 拖动红点可微调底座</div>
+      </div>
+      <div class="row">
+        <span id="fpsPill" class="status-pill">连接实况中...</span>
+        <a href="http://127.0.0.1:8090/" target="_blank" style="color:#93c5fd;font-size:12px;text-decoration:none;border:1px solid #334155;padding:4px 9px;border-radius:7px;">展台主控台 8090 ↗</a>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="panel">
+        <div class="panel-title">
+          <span>顶部相机实时俯视图 (1:1 毫米刻度 · 100mm 标尺)</span>
+          <span class="tag" id="topMeta">Top: 等待帧</span>
+        </div>
+        <div class="canvas-box">
+          <canvas id="topCanvas" width="800" height="600"></canvas>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">
+          <span>C931 (C1) 侧视全局画面（实时核对高度与遮挡）</span>
+          <span class="tag" id="c931Meta">C931: 等待帧</span>
+        </div>
+        <div class="c931-box">
+          <img id="c931Img" alt="C931 实时侧视图" />
+        </div>
+
+        <div class="ctrl-card">
+          <div class="btn-row">
+            <button class="btn active" id="btnL">左置取料(推荐)：木盘不变 · 小臂微右移3cm</button>
+            <button class="btn" id="btnL0">左置取料(免挪)：保留当前(232,108)</button>
+            <button class="btn" id="btnA">原对称方案：左下取料+右下木盘</button>
+          </div>
+          <div class="row">
+            <label>微调红盘前后 <input id="yawSlider" type="range" min="-45" max="45" step="1" style="width:120px" /> <span id="yawLbl" style="font-family:monospace;min-width:34px">0°</span></label>
+            <label><input id="fixedWoodChk" type="checkbox" checked /> 锁定放料区木盘在现状位置</label>
+            <label><input id="liveChk" type="checkbox" checked /> 实时拉流</label>
+          </div>
+        </div>
+
+        <div class="metrics">
+          <div class="metric"><span>最左侧取料区中心半径</span><span id="mPickR" class="badge-ok">-- mm</span></div>
+          <div class="metric"><span>固定木盘 3 根物品覆盖</span><span id="mWoodCov" class="badge-ok">--</span></div>
+        </div>
+
+        <div class="ctrl-card guide">
+          <div><b>IK 运动学实测结论（放料区不动、取料区移到底座最左侧）：</b></div>
+          <div>1. <b>完全可达！</b>把红盘移到<b>底座正左侧（9点方向，中心 ≈ 左偏 20.5cm）</b>，离木盘距离拉开到 <b>~39cm</b>，机械臂从左到右仅单向平滑扫约 <b>130°</b>，绝不会撞 <code>J1=±168°</code> 限位。</div>
+          <div>2. <b>为什么建议把底座往右前微挪 3cm（按钮1）</b>：按当前 <code>(232,108)</code>，木盘最右侧那根管子距离底座 <code>292mm</code>（超 280mm 极限）；微挪 3cm 到 <code>(248,118)</code> 后，<b>木盘 3 根管子 100% 全可达</b>，同时左侧空出宽度放红盘不挤键盘。</div>
+          <div>3. <b>底座线口朝向</b>：当前线口朝右下 3:30 已经可走通前弧；顺手把底座逆时针转成<b>线口朝桌后沿 12:00</b> 时，<code>J1</code> 左右各有 <code>35°+</code> 余量最稳。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const W = 800, H = 600;
+    const SCALE_640 = W / 640;
+    const PX_PER_MM_640 = 0.5585;
+    const PX_PER_MM = PX_PER_MM_640 * SCALE_640;
+
+    // Measured physical wood tray (3 tubes inside): x=276..391, y=153..321 (cx=334, cy=237)
+    const FIXED_WOOD_640 = { x1: 276, y1: 153, x2: 391, y2: 321, cx: 333.5, cy: 237.0 };
+
+    const PRESETS = {
+      L:  { key: 'L',  cx640: 248, cy640: 118, yaw: 0,  fixedWood: true, pickLocal: [-208, 0] },
+      L0: { key: 'L0', cx640: 232, cy640: 108, yaw: 0,  fixedWood: true, pickLocal: [-180, 10] },
+      A:  { key: 'A',  cx640: 245, cy640: 130, yaw: 0,  fixedWood: false, pickLocal: [-116, 188] },
+    };
+    let st = { ...PRESETS.L, preset: 'L', dragging: false };
+
+    const canvas = document.getElementById('topCanvas');
+    const ctx = canvas.getContext('2d');
+    const c931Img = document.getElementById('c931Img');
+    const yawSlider = document.getElementById('yawSlider');
+    const yawLbl = document.getElementById('yawLbl');
+    const fixedWoodChk = document.getElementById('fixedWoodChk');
+    const liveChk = document.getElementById('liveChk');
+    const topMeta = document.getElementById('topMeta');
+    const c931Meta = document.getElementById('c931Meta');
+    const fpsPill = document.getElementById('fpsPill');
+    const mPickR = document.getElementById('mPickR');
+    const mWoodCov = document.getElementById('mWoodCov');
+
+    const topImg = new Image();
+    let topCount = 0, c931Count = 0;
+
+    function localToCanvas(lxMm, lyMm, cxPx, cyPx, yawDeg) {
+      const th = (yawDeg * Math.PI) / 180;
+      const uMm = lxMm * Math.cos(th) - lyMm * Math.sin(th);
+      const vMm = lxMm * Math.sin(th) + lyMm * Math.cos(th);
+      return [cxPx + uMm * PX_PER_MM, cyPx + vMm * PX_PER_MM];
+    }
+
+    function drawPolyBox(pts, stroke, fill, dashed, title, sub, centerPt) {
+      ctx.save();
+      if (dashed) ctx.setLineDash([6, 4]);
+      ctx.beginPath();
+      ctx.moveTo(pts[0][0], pts[0][1]);
+      for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
+      ctx.closePath();
+      ctx.fillStyle = fill; ctx.fill();
+      ctx.lineWidth = 2.4; ctx.strokeStyle = stroke; ctx.stroke();
+      ctx.setLineDash([]);
+
+      const [tx, ty] = centerPt;
+      ctx.font = 'bold 13px sans-serif';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      const bw = Math.max(ctx.measureText(title).width, sub ? ctx.measureText(sub).width : 0) + 14;
+      const bh = sub ? 34 : 20;
+      ctx.fillStyle = 'rgba(2,6,23,0.80)';
+      ctx.fillRect(tx - bw / 2, ty - bh / 2, bw, bh);
+      ctx.fillStyle = '#fff';
+      ctx.fillText(title, tx, sub ? ty - 7 : ty);
+      if (sub) {
+        ctx.font = '11px monospace';
+        ctx.fillStyle = '#fde68a';
+        ctx.fillText(sub, tx, ty + 8);
+      }
+      ctx.restore();
+    }
+
+    function drawRotatedLocalBox(cxPx, cyPx, lxMm, lyMm, wMm, hMm, yawDeg, stroke, fill, title, sub) {
+      const hw = wMm / 2, hh = hMm / 2;
+      const pts = [[lxMm-hw,lyMm-hh],[lxMm+hw,lyMm-hh],[lxMm+hw,lyMm+hh],[lxMm-hw,lyMm+hh]]
+        .map(([x, y]) => localToCanvas(x, y, cxPx, cyPx, yawDeg));
+      const cPt = localToCanvas(lxMm, lyMm, cxPx, cyPx, yawDeg);
+      drawPolyBox(pts, stroke, fill, false, title, sub, cPt);
+    }
+
+    function draw() {
+      ['L', 'L0', 'A'].forEach((k) => {
+        document.getElementById('btn' + k).classList.toggle('active', st.preset === k);
+      });
+      yawSlider.value = String(st.yaw);
+      yawLbl.textContent = st.yaw + '°';
+      fixedWoodChk.checked = st.fixedWood;
+
+      const pickR = Math.round(Math.hypot(st.pickLocal[0], st.pickLocal[1]));
+      mPickR.textContent = `${pickR} mm (${pickR >= 135 && pickR <= 245 ? '黄金带内' : '偏边缘'})`;
+      mPickR.className = (pickR >= 135 && pickR <= 245) ? 'badge-ok' : 'badge-warn';
+
+      // Check 3 tube points in fixed wood tray: (302,215), (330,215), (355,215)
+      const rRight = Math.round(Math.hypot(355 - st.cx640, 215 - st.cy640) / PX_PER_MM_640);
+      if (rRight <= 265) {
+        mWoodCov.textContent = `3 根全可达 (最远 ${rRight}mm)`;
+        mWoodCov.className = 'badge-ok';
+      } else {
+        mWoodCov.textContent = `右侧第3根 ${rRight}mm 超限`;
+        mWoodCov.className = 'badge-warn';
+      }
+
+      ctx.clearRect(0, 0, W, H);
+      if (topImg.complete && topImg.naturalWidth > 0) {
+        ctx.drawImage(topImg, 0, 0, W, H);
+      } else {
+        ctx.fillStyle = '#020617';
+        ctx.fillRect(0, 0, W, H);
+      }
+
+      const cxPx = st.cx640 * SCALE_640;
+      const cyPx = st.cy640 * SCALE_640;
+
+      // Reach rings
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(cxPx, cyPx, 245 * PX_PER_MM, 0, Math.PI * 2, false);
+      ctx.arc(cxPx, cyPx, 135 * PX_PER_MM, 0, Math.PI * 2, true);
+      ctx.fillStyle = 'rgba(16, 185, 129, 0.22)'; ctx.fill();
+      ctx.strokeStyle = 'rgba(52, 211, 153, 0.9)'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(cxPx, cyPx, 245 * PX_PER_MM, 0, Math.PI * 2); ctx.stroke();
+      ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.arc(cxPx, cyPx, 135 * PX_PER_MM, 0, Math.PI * 2); ctx.stroke();
+
+      ctx.setLineDash([6, 5]);
+      ctx.strokeStyle = 'rgba(248, 250, 252, 0.85)'; ctx.lineWidth = 1.6;
+      ctx.beginPath(); ctx.arc(cxPx, cyPx, 280 * PX_PER_MM, 0, Math.PI * 2); ctx.stroke();
+      ctx.setLineDash([]);
+
+      ctx.fillStyle = 'rgba(239, 68, 68, 0.22)'; ctx.strokeStyle = 'rgba(248, 113, 113, 0.85)';
+      ctx.beginPath(); ctx.arc(cxPx, cyPx, 80 * PX_PER_MM, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.restore();
+
+      // Picking zone (Red Tray 215x270mm) -> exact left of base or bottom-left
+      const pickSub = st.preset === 'A' ? '21.5×27cm' : `左偏${Math.abs(st.pickLocal[0])}mm · IK可达`;
+      drawRotatedLocalBox(cxPx, cyPx, st.pickLocal[0], st.pickLocal[1], 215, 270, st.yaw, '#fbbf24', 'rgba(245,158,11,0.20)', '取料区 · 红盘', pickSub);
+
+      // Delivery zone (Wood Tray) -> locked in real measured desktop position if fixedWood=true!
+      if (st.fixedWood) {
+        const s = SCALE_640;
+        const pts = [[FIXED_WOOD_640.x1*s,FIXED_WOOD_640.y1*s],[FIXED_WOOD_640.x2*s,FIXED_WOOD_640.y1*s],
+                     [FIXED_WOOD_640.x2*s,FIXED_WOOD_640.y2*s],[FIXED_WOOD_640.x1*s,FIXED_WOOD_640.y2*s]];
+        drawPolyBox(pts, '#38bdf8', 'rgba(56,189,248,0.16)', false, '放料区 · 木盘(位置不变)', `右管距底座 ${rRight}mm`, [FIXED_WOOD_640.cx*s, FIXED_WOOD_640.cy*s]);
+      } else {
+        drawRotatedLocalBox(cxPx, cyPx, 160, 188, 210, 306, st.yaw, '#38bdf8', 'rgba(56,189,248,0.18)', '放料区 · 木盘', '21×30.6cm');
+      }
+
+      // Sweep path arc arrow from Left Red Tray -> Front -> Wood Tray
+      const [pStartX, pStartY] = localToCanvas(st.pickLocal[0], st.pickLocal[1], cxPx, cyPx, st.yaw);
+      const wEndX = st.fixedWood ? FIXED_WOOD_640.cx * SCALE_640 : localToCanvas(160, 188, cxPx, cyPx, st.yaw)[0];
+      const wEndY = st.fixedWood ? FIXED_WOOD_640.cy * SCALE_640 : localToCanvas(160, 188, cxPx, cyPx, st.yaw)[1];
+      ctx.save();
+      ctx.setLineDash([5, 4]);
+      ctx.strokeStyle = 'rgba(250, 204, 21, 0.85)';
+      ctx.lineWidth = 2.2;
+      ctx.beginPath();
+      ctx.moveTo(pStartX, pStartY);
+      ctx.quadraticCurveTo(cxPx, cyPx + 225 * PX_PER_MM, wEndX - 25, wEndY - 25);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.restore();
+
+      // Magic Box safe check marker (user's current right-back position ~460,80)
+      ctx.save();
+      ctx.fillStyle = 'rgba(167, 139, 250, 0.16)'; ctx.strokeStyle = '#a78bfa'; ctx.lineWidth = 1.6;
+      const mx = 460 * SCALE_640, my = 80 * SCALE_640, mw = 110 * PX_PER_MM, mh = 84 * PX_PER_MM;
+      ctx.fillRect(mx - mw/2, my - mh/2, mw, mh); ctx.strokeRect(mx - mw/2, my - mh/2, mw, mh);
+      ctx.font = 'bold 11px sans-serif'; ctx.fillStyle = '#ddd6fe'; ctx.textAlign = 'center';
+      ctx.fillText('Magic Box (安全)', mx, my + 4);
+      ctx.restore();
+
+      // Draggable 280 base + tiny 3cm nudge arrow from current (232,108)
+      if (st.preset === 'L') {
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(232 * SCALE_640, 108 * SCALE_640, 6, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(250,204,21,0.5)'; ctx.fill();
+        ctx.beginPath(); ctx.moveTo(232 * SCALE_640, 108 * SCALE_640); ctx.lineTo(cxPx, cyPx);
+        ctx.strokeStyle = '#fde047'; ctx.lineWidth = 2.5; ctx.stroke();
+        ctx.restore();
+      }
+      ctx.save();
+      ctx.beginPath(); ctx.arc(cxPx, cyPx, 11, 0, Math.PI * 2); ctx.fillStyle = '#ef4444'; ctx.fill();
+      ctx.lineWidth = 2.5; ctx.strokeStyle = '#fff'; ctx.stroke();
+      ctx.font = 'bold 13px sans-serif'; ctx.textAlign = 'center';
+      ctx.strokeStyle = 'rgba(0,0,0,0.9)'; ctx.lineWidth = 3; ctx.strokeText('280底座', cxPx, cyPx - 18);
+      ctx.fillStyle = '#fff'; ctx.fillText('280底座', cxPx, cyPx - 18);
+
+      // 100mm scale bar
+      ctx.strokeStyle = '#fff'; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.moveTo(20, H - 22); ctx.lineTo(20 + 100 * PX_PER_MM, H - 22); ctx.stroke();
+      ctx.font = '12px sans-serif'; ctx.textAlign = 'left'; ctx.fillStyle = '#e2e8f0';
+      ctx.fillText('100 mm 实测标尺 (Z=919mm)', 20, H - 30);
+      ctx.restore();
+    }
+
+    function applyPreset(k) {
+      const p = PRESETS[k];
+      st = { ...st, ...p, preset: k };
+      draw();
+    }
+    ['L', 'L0', 'A'].forEach((k) => {
+      document.getElementById('btn' + k).addEventListener('click', () => applyPreset(k));
+    });
+    yawSlider.addEventListener('input', (e) => { st.yaw = Number(e.target.value); st.preset = ''; draw(); });
+    fixedWoodChk.addEventListener('change', (e) => { st.fixedWood = e.target.checked; st.preset = ''; draw(); });
+
+    function to640(ev) {
+      const r = canvas.getBoundingClientRect();
+      return [
+        Math.max(25, Math.min(615, ((ev.clientX - r.left) / r.width) * 640)),
+        Math.max(20, Math.min(460, ((ev.clientY - r.top) / r.height) * 480)),
+      ];
+    }
+    canvas.addEventListener('pointerdown', (e) => {
+      st.dragging = true; canvas.setPointerCapture(e.pointerId);
+      [st.cx640, st.cy640] = to640(e); st.preset = ''; draw();
+    });
+    canvas.addEventListener('pointermove', (e) => {
+      if (!st.dragging) return;
+      [st.cx640, st.cy640] = to640(e); draw();
+    });
+    const up = () => { st.dragging = false; };
+    canvas.addEventListener('pointerup', up);
+    canvas.addEventListener('pointercancel', up);
+
+    let topBusy = false, c931Busy = false;
+    topImg.onload = () => {
+      topCount++;
+      topMeta.textContent = `Top: 第 ${topCount} 帧`;
+      fpsPill.textContent = `实况在线 · Top=${topCount} C931=${c931Count}`;
+      draw();
+    };
+    function pollTop() {
+      if (!liveChk.checked || document.hidden || topBusy) return;
+      topBusy = true;
+      const im = new Image();
+      im.onload = () => { topImg.src = im.src; topBusy = false; };
+      im.onerror = () => { topBusy = false; topMeta.textContent = 'Top: 等待相机'; };
+      im.src = `/api/camera/top.jpg?t=${Date.now()}`;
+    }
+    function pollC931() {
+      if (!liveChk.checked || document.hidden || c931Busy) return;
+      c931Busy = true;
+      const im = new Image();
+      im.onload = () => {
+        c931Img.src = im.src;
+        c931Count++;
+        c931Meta.textContent = `C931: 第 ${c931Count} 帧`;
+        c931Busy = false;
+      };
+      im.onerror = () => { c931Busy = false; c931Meta.textContent = 'C931: 待机'; };
+      im.src = `/api/camera/c931.jpg?t=${Date.now()}`;
+    }
+    draw();
+    pollTop();
+    pollC931();
+    setInterval(pollTop, 160);
+    setInterval(pollC931, 650);
+  </script>
+</body>
+</html>

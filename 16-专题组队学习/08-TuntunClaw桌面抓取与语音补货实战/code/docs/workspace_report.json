@@ -1,0 +1,284 @@
+{
+  "robot_model": "Elephant Robotics myCobot 280 Pi + Camera Flange (RGB) + Adaptive Gripper",
+  "workspace": {
+    "theoretical_max_reach_mm": 280,
+    "topdown_safe_outer_radius_mm": 284.3,
+    "inner_deadzone_radius_mm": 80.0,
+    "sweet_spot_annulus_mm": [
+      135,
+      240
+    ]
+  },
+  "joint_limits": [
+    {
+      "joint": "J1",
+      "urdf_min_deg": -168.0,
+      "urdf_max_deg": 168.0,
+      "safe_min_deg": -163.4,
+      "safe_max_deg": 163.4
+    },
+    {
+      "joint": "J2",
+      "urdf_min_deg": -140.0,
+      "urdf_max_deg": 140.0,
+      "safe_min_deg": -135.4,
+      "safe_max_deg": 135.4
+    },
+    {
+      "joint": "J3",
+      "urdf_min_deg": -150.0,
+      "urdf_max_deg": 150.0,
+      "safe_min_deg": -145.4,
+      "safe_max_deg": 145.4
+    },
+    {
+      "joint": "J4",
+      "urdf_min_deg": -150.0,
+      "urdf_max_deg": 150.0,
+      "safe_min_deg": -145.4,
+      "safe_max_deg": 145.4
+    },
+    {
+      "joint": "J5",
+      "urdf_min_deg": -155.0,
+      "urdf_max_deg": 160.0,
+      "safe_min_deg": -150.4,
+      "safe_max_deg": 155.4
+    },
+    {
+      "joint": "J6",
+      "urdf_min_deg": -180.0,
+      "urdf_max_deg": 180.0,
+      "safe_min_deg": -175.4,
+      "safe_max_deg": 175.4
+    }
+  ],
+  "recommended_layout_mm": {
+    "desk_size": [
+      1000,
+      640
+    ],
+    "mycobot_280_base": [
+      0,
+      0
+    ],
+    "picking_zone_center": [
+      -110,
+      160
+    ],
+    "picking_zone_size": [
+      210,
+      156
+    ],
+    "delivery_tray_center": [
+      160,
+      120
+    ],
+    "delivery_tray_size": [
+      160,
+      190
+    ],
+    "magic_box_center": [
+      -330,
+      250
+    ],
+    "magic_box_yaw_deg": -32,
+    "portable_monitor": [
+      -340,
+      -100
+    ],
+    "big_arm_exclusion_x_gt_mm": 350
+  },
+  "slot_verification": {
+    "coffee_1": {
+      "pos_mm": [
+        -170,
+        140,
+        32
+      ],
+      "radius_mm": 220.2,
+      "grasp_ok": true,
+      "pregrasp_ok": true,
+      "pos_err_mm": 0.91,
+      "joints_deg": [
+        157.0,
+        -38.1,
+        -95.1,
+        43.2,
+        0.1,
+        67.0
+      ]
+    },
+    "coffee_2": {
+      "pos_mm": [
+        -160,
+        185,
+        32
+      ],
+      "radius_mm": 244.6,
+      "grasp_ok": true,
+      "pregrasp_ok": true,
+      "pos_err_mm": 1.19,
+      "joints_deg": [
+        145.6,
+        -48.5,
+        -74.4,
+        33.1,
+        0.0,
+        55.5
+      ]
+    },
+    "oreo_1": {
+      "pos_mm": [
+        -110,
+        140,
+        32
+      ],
+      "radius_mm": 178.0,
+      "grasp_ok": true,
+      "pregrasp_ok": true,
+      "pos_err_mm": 1.22,
+      "joints_deg": [
+        149.2,
+        -21.5,
+        -126.1,
+        57.6,
+        -0.0,
+        59.2
+      ]
+    },
+    "oreo_2": {
+      "pos_mm": [
+        -110,
+        210,
+        32
+      ],
+      "radius_mm": 237.1,
+      "grasp_ok": true,
+      "pregrasp_ok": true,
+      "pos_err_mm": 0.68,
+      "joints_deg": [
+        133.1,
+        -45.1,
+        -80.9,
+        36.0,
+        0.0,
+        43.1
+      ]
+    },
+    "apple_1": {
+      "pos_mm": [
+        -50,
+        160,
+        32
+      ],
+      "radius_mm": 167.6,
+      "grasp_ok": true,
+      "pregrasp_ok": true,
+      "pos_err_mm": 0.63,
+      "joints_deg": [
+        129.8,
+        -18.0,
+        -132.6,
+        60.6,
+        -0.0,
+        39.8
+      ]
+    },
+    "orange_1": {
+      "pos_mm": [
+        -50,
+        220,
+        32
+      ],
+      "radius_mm": 225.6,
+      "grasp_ok": true,
+      "pregrasp_ok": true,
+      "pos_err_mm": 0.84,
+      "joints_deg": [
+        119.1,
+        -40.2,
+        -90.4,
+        40.6,
+        0.0,
+        29.1
+      ]
+    },
+    "tray_slot_1": {
+      "pos_mm": [
+        130,
+        160,
+        45
+      ],
+      "radius_mm": 206.2,
+      "grasp_ok": true,
+      "pregrasp_ok": true,
+      "pos_err_mm": 0.33,
+      "joints_deg": [
+        68.9,
+        -27.6,
+        -103.8,
+        41.4,
+        0.0,
+        -21.1
+      ]
+    },
+    "tray_slot_2": {
+      "pos_mm": [
+        190,
+        160,
+        45
+      ],
+      "radius_mm": 248.4,
+      "grasp_ok": true,
+      "pregrasp_ok": true,
+      "pos_err_mm": 0.63,
+      "joints_deg": [
+        55.1,
+        -46.5,
+        -69.2,
+        25.7,
+        -0.1,
+        -34.8
+      ]
+    },
+    "tray_slot_3": {
+      "pos_mm": [
+        130,
+        90,
+        45
+      ],
+      "radius_mm": 158.1,
+      "grasp_ok": true,
+      "pregrasp_ok": true,
+      "pos_err_mm": 0.64,
+      "joints_deg": [
+        58.5,
+        -6.0,
+        -135.6,
+        51.6,
+        -0.0,
+        -31.5
+      ]
+    },
+    "tray_slot_4": {
+      "pos_mm": [
+        190,
+        90,
+        45
+      ],
+      "radius_mm": 210.2,
+      "grasp_ok": true,
+      "pregrasp_ok": true,
+      "pos_err_mm": 1.2,
+      "joints_deg": [
+        42.9,
+        -29.2,
+        -100.3,
+        39.3,
+        0.0,
+        -47.0
+      ]
+    }
+  }
+}

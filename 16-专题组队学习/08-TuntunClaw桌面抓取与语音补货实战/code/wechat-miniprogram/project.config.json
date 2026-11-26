@@ -1,0 +1,16 @@
+{
+  "description": "豚豚CLOUD 地瓜机器人黑客松展台智能补货小程序",
+  "packOptions": { "ignore": [] },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "3.4.0",
+  "appid": "touristappid",
+  "projectname": "tuntuncloud-booth-mp",
+  "condition": {}
+}

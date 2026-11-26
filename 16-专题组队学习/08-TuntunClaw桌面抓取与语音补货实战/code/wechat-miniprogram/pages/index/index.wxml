@@ -1,0 +1,90 @@
+<view class="page-wrap">
+  <!-- Header status bar -->
+  <view class="hero">
+    <view class="hero-left">
+      <view class="eyebrow">TUNTUNCLAW · MAGIC BOX + MYCOBOT 280</view>
+      <view class="hero-title">囤囤钳展台智能物资与语音台</view>
+    </view>
+    <view class="conn-pill {{connected ? 'ok' : ''}}">{{connected ? '实时在线' : '连接中'}}</view>
+  </view>
+
+  <!-- Live Camera Card -->
+  <view class="card">
+    <view class="row-between">
+      <text class="section-title">实时视觉画面</text>
+      <text class="badge {{robot.state === 'idle' ? 'badge-teal' : 'badge-amber'}}">{{robot.phase || '待命中'}}</text>
+    </view>
+
+    <scroll-view scroll-x class="cam-strip">
+      <view wx:for="{{cameras}}" wx:key="id"
+            class="cam-chip {{activeCam === item.id ? 'active' : ''}}"
+            bindtap="switchCam" data-cam="{{item.id}}">
+        {{item.label}}
+      </view>
+    </scroll-view>
+
+    <image class="cam-image" src="{{camUrl}}" mode="aspectFill" />
+
+    <view class="tcp-bar">
+      <text>TCP: ({{robot.tcp_mm[0]}}, {{robot.tcp_mm[1]}}, {{robot.tcp_mm[2]}}) mm</text>
+      <text>夹爪: {{robot.gripper_open_pct}}%</text>
+    </view>
+
+    <view class="btn-grid">
+      <button class="btn-main" bindtap="doWelcome">👋 迎宾语音</button>
+      <button class="btn-dark" bindtap="doDemo">▶ 5阶段演示</button>
+      <button class="btn-soft" bindtap="doRecycle">↩️ 回收物资</button>
+      <button class="btn-stop" bindtap="doStop">🛑 急停</button>
+    </view>
+  </view>
+
+  <!-- Inventory Card -->
+  <view class="card">
+    <view class="row-between">
+      <text class="section-title">取料区物料统计 (余量 {{summary.total_stock}} · 已送 {{summary.total_delivered}})</text>
+    </view>
+    <view class="inv-grid">
+      <view wx:for="{{inventory}}" wx:key="key"
+            class="inv-tile {{item.low_stock ? 'low' : ''}}"
+            bindtap="doPick" data-key="{{item.key}}">
+        <view class="row-between">
+          <text class="inv-name">{{item.name}}</text>
+          <text class="inv-qty">{{item.quantity}}{{item.unit}}</text>
+        </view>
+        <view class="inv-sub">
+          <text>{{item.low_stock ? '⚠️ 触发补货阈值' : '库存正常'}} · 点击抓取</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- Replenishment Checklist -->
+  <view class="card">
+    <view class="row-between">
+      <text class="section-title">补货清单 (待办 {{summary.pending_replenishment}})</text>
+      <text class="link-btn" bindtap="openWebView">打开完整H5</text>
+    </view>
+
+    <view wx:if="{{!replenishment.length}}" class="empty-tip">当前所有展台物料库存充足</view>
+    <view wx:for="{{replenishment}}" wx:key="id" class="rep-row {{item.status}}">
+      <view class="rep-info">
+        <view class="rep-title">{{item.item_name}} × {{item.suggested_qty}}{{item.unit}}</view>
+        <view class="rep-reason">{{item.reason}}</view>
+      </view>
+      <button class="mini-btn" size="mini"
+              bindtap="toggleRep" data-id="{{item.id}}"
+              data-next="{{item.status === 'done' ? 'pending' : 'done'}}">
+        {{item.status === 'done' ? '重开' : '已补货'}}
+      </button>
+    </view>
+  </view>
+
+  <!-- Server Config for Booth Debugging -->
+  <view class="card">
+    <view class="section-title">服务地址配置（局域网 / HTTPS）</view>
+    <view class="cfg-row">
+      <input class="cfg-input" value="{{serverInput}}" bindinput="onServerInput" placeholder="http://192.168.1.102:8090" />
+      <button class="mini-btn" size="mini" bindtap="saveServer">保存</button>
+    </view>
+  </view>
+</view>

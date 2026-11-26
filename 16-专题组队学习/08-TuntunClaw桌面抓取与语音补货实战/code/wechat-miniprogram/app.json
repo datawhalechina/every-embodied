@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/webview/webview"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#17191c",
+    "navigationBarTitleText": "TuntunClaw 囤囤钳",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f4f5f2",
+    "backgroundTextStyle": "dark"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
